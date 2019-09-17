@@ -1,0 +1,17 @@
+16/9/2019
+
+LOG DE TRABAJO PRIMERA SESIÓN EN CLASE
+
+--Clarificación de conceptos: Se añade la tienda en la que se pueden comprar aventureros.
+		Se pueden subir de nivel los aventureros fusionando cartas de aventurero
+		del mismo tipo y nivel. Se añaden las facciones con sus afinidades. Cada
+		facción tiene 12 aventureros, 6 comunes, 3 raros y 3 legendarios. Estética
+		steampunk.
+
+--Monetización: Sistema de gacha, se pueden comprar gemas de rolear para los cofres. Simulado.
+
+--Apertura de server: Multijugador. 
+
+--Modelo de lienzo
+
+--Observaciones para la siguiente reunión: Comenzar el desarrollo.

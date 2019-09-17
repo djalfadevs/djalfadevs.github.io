@@ -1,0 +1,45 @@
+15/9/2019   22:00
+
+ACTA DE REUNIÓN NÚMERO 2 DJ ALFA
+
+--Profundización de la idea inicial del juego:
+ 
+	-Misiones:
+		-Solo quests: 1 personaje
+		-Party quests: 4 personajes
+		-Grand battles: 8-12 personajes
+		-Parámetros del equipo: Nombre, recompensa, tamaño del equipo, tipo de enemigos,
+		 número de enemigos
+
+	-Personaje:
+		-Aggro: Número plano de agresividad
+		-Ataque: Daño de ataque, magia (ignora resistencias)
+		-Defensa: Resistencias
+		-Vida: Vida
+		-Probabilidad de crítico: El crítico inflige doble daño
+		-Esquivar: Posibilidad de esquivar (solo para héroes, no enemigos)
+		-Estrellas: Nivel del personaje (de 1 a 5)
+
+	-Roles:
+		-Tanque
+		-Atacante
+		-Support
+
+	-UI:
+		-Efecto de combate, sin animaciones complicadas
+		-Log del combate, por texto
+
+	-Dinámica:
+		-Eliges jugar, eliges una misión, creas un equipo con el número indicado de personajes para la quest,
+		los envías, combaten, aparece un log con las acciones, se ven efectos
+		sencillos de ataque básico y habilidad, termina el combate, se da la opción de ver el log completo
+		del combate y recibes recompensas.
+		
+		-Diferencia entre estrellas: Aumenta el level cap de las stats.
+
+		-Slots para misiones: Con rango de la E a la S.
+
+		-Tienda: Se discute en el próximo día de clase.
+	
+
+--Observaciones para la próxima reunión: Definir mecánica de la tienda y plantear modelo de negocio

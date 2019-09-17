@@ -1,0 +1,24 @@
+12/9/2019   13:00
+
+ACTA DE REUNIÓN NÚMERO 1 DJ ALFA
+
+--Redes sociales: Creadas las cuentas de redes sociales por Denis (PM).
+
+--Primer proyecto: Guild Master -> Lidera tu guild para ser el mejor
+		del reino. Gestión de aventureros y estrategia con 
+		afinidades entre personajes y combate automático.
+		Falta profundizar más en las mecánicas, se deja esta
+		tarea para la siguiente reunión.
+
+--Elección final de roles:
+	-Fer: Artista final
+	-Ángel: Programador
+	-Luismi: Director de programación y programador senior
+	-Álvaro: Jefe de diseño/Community Manager/Sistemas de monetización
+	-Jesús: QA/Asistente de producción/Artista conceptual
+	-Denis: Project Manager/Marketing/Música
+
+--Observaciones para siguiente reunión: Se debería plantear un modelo de negocio
+		y además concretar de manera más profunda el diseño del juego de 
+		acuerdo al modelo de negocio elegido, para obtener mayor rentabilidad
+		y satisfacción del usuario.
