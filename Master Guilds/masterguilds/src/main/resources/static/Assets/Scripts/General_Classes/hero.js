@@ -7,7 +7,7 @@ class Hero extends Actor
 		HP: hero.HP,crit_hit_chance: hero.crit_hit_chance,description: hero.description,evasion: hero.evasion,
 		abilities: hero.abilities, image_url: hero.image_url}
 
-		console.log(m);//Debug
+		//console.log(m);//Debug
 		super(m);
 		this.aggro = hero.aggro;
 		this.faction = hero.faction;
@@ -19,4 +19,4 @@ class Hero extends Actor
 
 }
 
-var b = new Hero({ID:24});//Debug
+//var b = new Hero({ID:24});//Debug
