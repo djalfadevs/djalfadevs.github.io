@@ -7,7 +7,7 @@ class Simulation {
 		//Toda la informacion relacionada con el escenario , desde aquellas ventajas (si las hay) que proporciona hasta imagenes 
 		this.escenario = simulation.escenario;
 
-		this.team = simulation.team; //Equipo con el que se realiza la simulacion (Array de Heros)
+		this.team = simulation.team; //Equipo con el que se realiza la simulacion (Array de Heros ??)// Mejor crear clase team que albergue ademas de un array de heroes mas datos del posible equipo
 		this.enemys = simulation.enemys; // Equipo contra el que te enfrentas en la simulacion (Array de Enemys)
 		
 		//Recoge toda la informacion que el jugador otorga con interaccion a la simulacion 
