@@ -1,3 +1,4 @@
+"use strict";
 class Hero extends Actor 
 {
 	constructor(hero){
@@ -23,23 +24,25 @@ class Hero extends Actor
 	//Parametros: input pasa : defence , critFactor , isCritForSure , abilities : IsignoreDefenceActivate
 	attackPoints(input){
 		//FALTA ADAPTAR EL MODELO PARA QUE TENGA EN CUENTA POSIBLES HABILIDADES 
+		//FALTA TENER EN CUENTA LAS FACCIONES
+		//ARREGLAR EL TEMA DE COMPROBAR EFECTOS PARA CALCULAR EL DAÑO
 		//Daño Final aplicado;
 		var TDamage;
-
+		var that = this;
 		//IGNORAR DEFENSA O NO
 		if(activeAbilities.IgnoreDefence.isActive){// Si esta activo el bufo de ignorar defensa
-			TDamage = attack;
+			TDamage = that.attack;
 		}
 		else
 		{
-			TDamage = (attack - (Math.trunc(input.defence / 2)));
+			TDamage = (that.attack - (Math.trunc(input.defence / 2)));
 		}
 		//FIN DE IGNORAR DEFENSA O NO	
 
 		//CALCULO DE CRITICO	
 			//Funcion anonima para calcular un bool de si se produce un critico o no
 			var isCritHit = function (){ 
-				if((Math.random()<=crit_hit_chance) || input.isCritForSure){
+				if((Math.random()<=that.crit_hit_chance) || input.isCritForSure){
 					return true;
 				}
 				else
@@ -69,9 +72,31 @@ class Hero extends Actor
 	}
 
 	//Funcion que realiza las actualizaciones de un turno para otro de un heroe
-	nextTurn(){
+	//ESTA FUNCION PODRA SER UTILIZADA LO MAS SEGURO DE MANERA QUE ALGUNAS COSAS PUEDAN REALIZARSE MEDIANTE WORKERS O CALLBACKS
+	//ASI QUE LO MAS SEGURO ESQ TOQUE AJUSTARLA
+	fixAttribute(){
 
-	}
+ 	}
+
+	nextTurn(){
+		//Actualizar lo relacionado con las Habilidades (cooldown y si esta lista o no)
+		var that = this;
+		for(var i = 0; i < that.abilities.length ; i++){
+			that.abilities[i].nextTurn();
+		}
+		////
+
+		//Actualizar Efectos Activos
+		//CALLBACK DE LOS EFECTOS PARA ARREGLAR ATRIBUTOS ???
+		for(var i = 0 ; i < that.activeAbilities.length ; i++){
+			that.activeAbilities[i].nextTurn({callback: that.fixAttribute()});
+		}
+
+		//Elimina los efectos que no siguen activos mas 
+ 	}
+
+ 	//"Arregla" el atributo que es afectado por el efecto
+ 	
 }
 
 //var b = new Hero({ID:24});//Debug

@@ -1,3 +1,4 @@
+'use strict'
 //Esta clase guarda toda la informacion relacionada con la simulacion de una mision
 //Es decir guarda desde el escenario en el que se produce
 //hasta los equipos que se estan enfrentando
@@ -23,11 +24,11 @@ class Simulation {
 		this.lastMovement = null // Ultimo movimiento de la simulacion
 
 	}
-	//Realiza una iteracion en la simulación
+	//Realiza una iteracion en la simulación (Combate principalmente)
 	simulate(input){
 		if(turn % 2 == 0)//El turno es par
 		{
-			attackedEnemy = getAttackedEnemy(input);//Se determina a que enemigo atacar
+			attackedEnemy = getAttackedEnemy(input);//Se determina a que enemigo atacar (PODRAN SER VARIOS ????)
 
 
 		}

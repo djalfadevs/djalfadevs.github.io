@@ -1,3 +1,4 @@
+"use strict";
 class Monster extends Actor 
 {
 	constructor(monster){
@@ -18,21 +19,21 @@ class Monster extends Actor
 		//FALTA ADAPTAR EL MODELO PARA QUE TENGA EN CUENTA POSIBLES HABILIDADES 
 		//Daño Final aplicado;
 		var TDamage;
-
+		var that = this;
 		//IGNORAR DEFENSA O NO
 		if(activeAbilities.IgnoreDefence.isActive){// Si esta activo el bufo de ignorar defensa
-			TDamage = attack;
+			TDamage = that.attack;
 		}
 		else
 		{
-			TDamage = (attack - (Math.trunc(input.defence / 2)));
+			TDamage = (that.attack - (Math.trunc(input.defence / 2)));
 		}
 		//FIN DE IGNORAR DEFENSA O NO	
 
 		//CALCULO DE CRITICO	
 			//Funcion anonima para calcular un bool de si se produce un critico o no
 			var isCritHit = function (){ 
-				if((Math.random()<=crit_hit_chance) || input.isCritForSure){
+				if((Math.random()<=that.crit_hit_chance) || input.isCritForSure){
 					return true;
 				}
 				else

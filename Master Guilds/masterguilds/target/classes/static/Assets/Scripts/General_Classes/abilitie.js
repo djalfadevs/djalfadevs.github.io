@@ -19,7 +19,7 @@ class abilitie {
 	//Quiza la habilidad debe tener un atributo propio tarjet y que en funcion de ese el efecto se aplique de una u otra forma.
 	applyEffect(actor){
 		var that = this; //NO SE si es necesario aqui
-		var newEffect = new Effect({ID:that.ID,name:that.name,remainActiveTurns: that.baseActiveTurns , isActive: true})//Crear el efecto
+		var newEffect = new efecto({ID:that.ID,name:that.name,remainActiveTurns: that.baseActiveTurns , isActive: true})//Crear el efecto
 		actor.activeabilities.push(newEffect);//Añadimos el nuevo efecto al personaje
 	}
 
