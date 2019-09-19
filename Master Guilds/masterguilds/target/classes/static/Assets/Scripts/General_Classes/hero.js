@@ -29,7 +29,8 @@ class Hero extends Actor
 		//Daño Final aplicado;
 		var TDamage;
 		var that = this;
-		//IGNORAR DEFENSA O NO
+		//IGNORAR DEFENSA O NO 
+		//-----------------AHORA MISMO ESTA MAL , NO SE ACCEDE ASI AL IGNOREDEFENCE ------------------//
 		if(activeAbilities.IgnoreDefence.isActive){// Si esta activo el bufo de ignorar defensa
 			TDamage = that.attack;
 		}
@@ -73,12 +74,12 @@ class Hero extends Actor
 
 	//Funcion que realiza las actualizaciones de un turno para otro de un heroe
 	//ESTA FUNCION PODRA SER UTILIZADA LO MAS SEGURO DE MANERA QUE ALGUNAS COSAS PUEDAN REALIZARSE MEDIANTE WORKERS O CALLBACKS
-	//ASI QUE LO MAS SEGURO ESQ TOQUE AJUSTARLA
+	//ASI QUE LO MAS SEGURO ESQ TOQUE AJUSTARLA O BORRARLA
 	fixAttribute(){
 
  	}
 
-	nextTurn(){
+	nextTurn(input){
 		//Actualizar lo relacionado con las Habilidades (cooldown y si esta lista o no)
 		var that = this;
 		for(var i = 0; i < that.abilities.length ; i++){

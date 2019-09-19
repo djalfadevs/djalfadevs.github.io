@@ -1,16 +1,17 @@
 'use strict'
-class abilitie {
+class Abilitie {
 	constructor(abilitie){
-		this.ID = abilitie.ID;
-		this.name = abilitie.name;
-		this.baseActiveTurns = abilitie.baseActiveTurns;
+		this.ID = abilitie.ID;//Numero ID
+		this.name = abilitie.name; //Nombre string
+		this.baseActiveTurns = abilitie.baseActiveTurns;//Valor numero de turnos que dura
 		this.baseChargeTurns = abilitie.baseChargeTurns;//Valor de los turnos que tarda en cargar //No confundir con los que le quedan en la simulacion
-		this.description = abilitie.description;
+		this.description = abilitie.description;//String
 
 		//VALORES SOLO USADOS EN LA SIMULACION
 		//this.RemainActiveTurns = abilitie.RemainActiveTurns; //Necesaria realmente ?? o es cada personaje quien se lo gestiona (creo q personaje)
-		this.RemainChargeTurns = abilitie.RemainChargeTurns;
-		this.isReady = abilitie.isReady;
+		
+		this.remainChargeTurns = abilitie.remainChargeTurns; //Turnos que le quedan para poder ser lanzada de nuevo (Al crear debe ser igual que el baseChargeTurns)
+		this.isReady = abilitie.isReady; //Se puede lanzar o no (Inicialmente al crear estara en false GENERALMENTE)
 	}
 
 	//Lista de IDs : 1-> BuffStats 2-> Health 3->BuffAttack 4->IgnoreDefence 5-> LifeStealing
@@ -25,10 +26,13 @@ class abilitie {
 
 	//Funcion que realiza las actualizaciones de un turno para otro de una abilidad
 	nextTurn(input){
-		this.RemainChargeTurns--;
-		if(this.RemainChargeTurns <= 0){
-			this.isReady = true;
-			this.RemainChargeTurns = this.baseChargeTurns;
+		if(!this.isReady){ //Si la habilidad ha sido lanzada
+			this.remainChargeTurns--;
+			if(this.remainChargeTurns <= 0){
+				this.isReady = true;//Puede ser lanzada de nuevo
+				this.remainChargeTurns = this.baseChargeTurns;
+			}
 		}
+		
 	}
 }

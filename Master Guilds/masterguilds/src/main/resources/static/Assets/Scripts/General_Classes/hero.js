@@ -29,7 +29,8 @@ class Hero extends Actor
 		//Daño Final aplicado;
 		var TDamage;
 		var that = this;
-		//IGNORAR DEFENSA O NO
+		//IGNORAR DEFENSA O NO 
+		//-----------------AHORA MISMO ESTA MAL , NO SE ACCEDE ASI AL IGNOREDEFENCE ------------------//
 		if(activeAbilities.IgnoreDefence.isActive){// Si esta activo el bufo de ignorar defensa
 			TDamage = that.attack;
 		}
