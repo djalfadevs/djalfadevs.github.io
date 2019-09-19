@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 //Esta clase guarda toda la informacion relacionada con la simulacion de una mision
 //Es decir guarda desde el escenario en el que se produce
 //hasta los equipos que se estan enfrentando

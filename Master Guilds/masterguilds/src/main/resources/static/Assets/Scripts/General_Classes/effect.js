@@ -1,3 +1,4 @@
+"use strict";
 class Effect {
 	constructor(effect){
 		this.ID = effect.ID; //Mismo que la habilidad q lo produce
