@@ -20,8 +20,8 @@ class Effect {
 
 			//EL bind se utiliza para arreglar el this de la funcion , que se refiera al heroe
 			//Se crean dos nuevas funciones pero con un nuevo target en el this que es el heroe.
-			var Rcallback = input.callback.bind(input.that); //LLamada al callback para que restaure los valores adecuados del heroe.
-			var Rcallback2 = input.callback2.bind(input.that); //LLamada al callback para que limpie el efecto del heroe.
+			//var Rcallback = input.callback.bind(input.that); //LLamada al callback para que restaure los valores adecuados del heroe.
+			//var Rcallback2 = input.callback2.bind(input.that); //LLamada al callback para que limpie el efecto del heroe.
 
 			//input.callback2({pos: input.pos}).bind(input.that);//Limpia el efecto del heroe.
 
