@@ -81,28 +81,19 @@ class Team {
     //IMPORTANTE COMENTARIO!!!!!!!!
     //Calcula las ventajas del equipo a partir de los miembros que la conforman. PENSAR FORMATO DE LAS VENTAJAS DE EQUIPO
     calculateAdvantages() {
-        var buff1 = 0;
-        var buff2 = 0;
-        var buff3 = 0;
-        //recorremos el array buscando cuantos personajes de cada faccion hay en el equipo para saber que sinergia aplicar.
-        //SINERGIAS DE FACCION, porque las sinergias unicas, no se si quieren que las implementemos al final.
-        for (var i = 0; i < this.team.length; i++) {
-            switch (this.team[i]) {
-                case 1:
-                    buff1 += 1;
-                    break;
-                case 2:
-                    buff2 += 1;
-                    break;
-                case 3:
-                    buff3 += 1;
-                    break;
-                default:
-                    break;
-            }
-        }
-        //updateStats: luismi, habia pensado en dos formas de mejorarlos: pasamos el heroe como parametro a updateStats, o podemos pasar la faccion a mejorar por parametro, en el caso de que tengamos que mejorar varias pues usamos otros numeros tipo la 4 es la 1 y la 2 etc.
-        //solo pensados para misiones de 3 y de 5
+        var buff1 = this.stats.herosFaction[0];
+        var buff2 = this.stats.herosFaction[1];;
+        var buff3 = this.stats.herosFaction[2];;
+
+        ////updateStats: luismi, habia pensado en dos formas de mejorarlos: pasamos el heroe como parametro a updateStats, 
+        ////o podemos pasar la faccion a mejorar por parametro,
+        //// en el caso de que tengamos que mejorar varias pues usamos otros numeros tipo la 4 es la 1 y la 2 etc.
+        ////solo pensados para misiones de 3 y de 5
+        //ANGEL como te he dicho por el grupo yo creo que lo mejor es hacerlo en base a porcentajes , pero mejorando la idea
+        //se me ha ocurrido algo para hacerlo mucho mas fiable : yo lo llamo METODO DEL PORCENTAJE MINIMO
+        //Basicamente se calcula el porcentaje de 1 heroe entre el maximo posibles 
+        //Y a partir de este porcentaje , si alguna faccion cuenta con el doble de este porcentaje en el equipo pues se aplica
+        //un buffo y si cuenta con el triple pues otro
         switch (this.restrictions.maxHeros) {
             case 1:
                 //no podriamos hacer ninguna ventaja
