@@ -4,7 +4,7 @@ class Hero extends Actor
 	constructor(hero){
 		//Un total de 16 atributos de los cuales 10 son heredados. // Algunos se duplican para distinguir entre base y el que se usa (bufos);
 		//Hereda todos sus atributos de la clase actor.
-		var m = {ID: hero.ID, name: hero.name, baseAttack:hero.baseAttack, attack: hero.attack, baseDefence: hero.baseDefende,
+		var m = {ID: hero.ID, name: hero.name, baseAttack:hero.baseAttack, attack: hero.attack, baseDefence: hero.baseDefence,
 		defence: hero.defence, baseHP: hero.baseHP,HP: hero.HP,base_crit_hit_chance: hero.base_crit_hit_chance,
 		crit_hit_chance: hero.crit_hit_chance,description: hero.description,evasion: hero.evasion,baseEvasion: hero.baseEvasion,
 		abilities: hero.abilities, image_url: hero.image_url , activeAbilities: hero.activeAbilities}
@@ -17,6 +17,7 @@ class Hero extends Actor
 		this.level = hero.level;
 		this.exp = hero.exp;
 		this.role = hero.role;
+
 		}
 
 	//Calcula el daño total que recibe el enemigo al que ataca
@@ -72,14 +73,23 @@ class Hero extends Actor
 		return TDamage;
 	}
 
+	//Esta funcion es llamada por un callback desde effect CALLBACK 2 
+	clearEffect(input){
+		console.log("Effect " + this.activeAbilities[input.pos].name + " has gone")//DEBUG
+		this.activeAbilities.splice(input.pos,1);
+		
+	}
+	//CALLBACK 1
 	//Funcion que realiza las actualizaciones de un turno para otro de un heroe
 	//ESTA FUNCION PODRA SER UTILIZADA LO MAS SEGURO DE MANERA QUE ALGUNAS COSAS PUEDAN REALIZARSE MEDIANTE WORKERS O CALLBACKS
 	//ASI QUE LO MAS SEGURO ESQ TOQUE AJUSTARLA O BORRARLA
-	fixAttribute(){
-
+	fixAttribute(input){
+		console.log("It is fixing all the attributes related: " + input.apply + " the effect " + input.ID )//DEBUG
+		console.log(this);
  	}
 
 	nextTurn(input){
+		console.log("Another turn for Hero " + this.name);//DEBUG
 		//Actualizar lo relacionado con las Habilidades (cooldown y si esta lista o no)
 		var that = this;
 		for(var i = 0; i < that.abilities.length ; i++){
@@ -88,12 +98,15 @@ class Hero extends Actor
 		////
 
 		//Actualizar Efectos Activos
-		//CALLBACK DE LOS EFECTOS PARA ARREGLAR ATRIBUTOS ???
-		for(var i = 0 ; i < that.activeAbilities.length ; i++){
-			that.activeAbilities[i].nextTurn({callback: that.fixAttribute()});
-		}
-
+		//Actualiza atributos del jugador cuando llega a 0;
 		//Elimina los efectos que no siguen activos mas 
+		//CALLBACK DE LOS EFECTOS PARA ARREGLAR ATRIBUTOS ???
+		var i = 0;
+		while(i < that.activeAbilities.length ){
+			that.activeAbilities[i].nextTurn({that: that ,pos: i, callback: that.fixAttribute , callback2:that.clearEffect});
+			i++;
+		}
+		
  	}
 
  	//"Arregla" el atributo que es afectado por el efecto
