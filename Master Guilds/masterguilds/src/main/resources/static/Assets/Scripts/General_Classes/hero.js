@@ -30,16 +30,34 @@ class Hero extends Actor
 		//Daño Final aplicado;
 		var TDamage;
 		var that = this;
-		//IGNORAR DEFENSA O NO 
-		//-----------------AHORA MISMO ESTA MAL , NO SE ACCEDE ASI AL IGNOREDEFENCE ------------------//
-		if(activeAbilities.IgnoreDefence.isActive){// Si esta activo el bufo de ignorar defensa
-			TDamage = that.attack;
-		}
-		else
-		{
-			TDamage = (that.attack - (Math.trunc(input.defence / 2)));
-		}
-		//FIN DE IGNORAR DEFENSA O NO	
+
+		//IGNORAR DEFENSA Y ROBO DE VIDA
+        
+        var IgnorarDefensa=false;
+        
+        var RoboDeVida=false;
+        
+        for(var i=0;i<that.activeAbilities.length;i++){
+            if(that.activeAbilites[i]==){
+               IgnorarDefensa=true
+            }
+            if(that.activeAbilities[i]==){
+               RoboDeVida=true
+            }
+        }
+        
+        if((IgnorarDefensa)&&(!RoboDeVida)){
+           TDamage=that.attack;
+           }
+        else if(RoboDeVida){
+            TDamage=that.baseHP;
+            
+            that.HP=that.HP+that.baseHP*0.2
+        }
+        else{
+            TDamage=(that.attack - (Math.trunc(input.defence / 2)));
+        }
+        
 
 		//CALCULO DE CRITICO	
 			//Funcion anonima para calcular un bool de si se produce un critico o no
@@ -82,6 +100,7 @@ class Hero extends Actor
 	//CALLBACK 1
 	//Funcion que realiza las actualizaciones de un turno para otro de un heroe
 	//ESTA FUNCION PODRA SER UTILIZADA LO MAS SEGURO DE MANERA QUE ALGUNAS COSAS PUEDAN REALIZARSE MEDIANTE WORKERS O CALLBACKS
+
 	//ASI QUE LO MAS SEGURO ESQ TOQUE AJUSTARLA O BORRARLAÇ
 	/*fixAttribute(input){
 		console.log("It is fixing all the attributes related: " + input.apply + " the effect " + input.ID )//DEBUG
@@ -89,6 +108,7 @@ class Hero extends Actor
 		
  	}
 	*/
+
 
 	nextTurn(input){
 		console.log("Another turn for Hero " + this.name);//DEBUG

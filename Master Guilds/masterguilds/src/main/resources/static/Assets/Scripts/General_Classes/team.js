@@ -44,13 +44,13 @@ class Team {
         //Funcion anonima para conseguir pasar el valor del "hero.faction (a lo mejor no se llama asi)" a un numero
         var getNumberOfFaction = function (inputTwo) {
             switch (inputTwo.actor.faction) { //CHANGE "1" by real faction value
-                case "1":
+                case "Azon":
                     return 1;
                     break;
-                case "2":
+                case "Ferten":
                     return 2;
                     break;
-                case "3":
+                case "Kwin":
                     return 3;
                     break;
                 default:
@@ -85,87 +85,81 @@ class Team {
         this.team = [];
     }
 
-    //IMPORTANTE COMENTARIO!!!!!!!!
-    //Calcula las ventajas del equipo a partir de los miembros que la conforman. PENSAR FORMATO DE LAS VENTAJAS DE EQUIPO
+    //Calcula las ventajas del equipo a partir de los miembros que la conforman.
     calculateAdvantages() {
-        var buff1 = this.stats.herosFaction[0];
-        var buff2 = this.stats.herosFaction[1];;
-        var buff3 = this.stats.herosFaction[2];;
-
-        ////updateStats: luismi, habia pensado en dos formas de mejorarlos: pasamos el heroe como parametro a updateStats, 
-        ////o podemos pasar la faccion a mejorar por parametro,
-        //// en el caso de que tengamos que mejorar varias pues usamos otros numeros tipo la 4 es la 1 y la 2 etc.
-        ////solo pensados para misiones de 3 y de 5
-        //ANGEL como te he dicho por el grupo yo creo que lo mejor es hacerlo en base a porcentajes , pero mejorando la idea
-        //se me ha ocurrido algo para hacerlo mucho mas fiable : yo lo llamo METODO DEL PORCENTAJE MINIMO
-        //Basicamente se calcula el porcentaje de 1 heroe entre el maximo posibles 
-        //Y a partir de este porcentaje , si alguna faccion cuenta con el doble de este porcentaje en el equipo pues se aplica
-        //un buffo y si cuenta con el triple pues otro
-        switch (this.restrictions.maxHeros) {
-            case 1:
-                //no podriamos hacer ninguna ventaja
-                break;
-            case 3:
-                if ((buff1 == 1) && (buff2 == 1) && (buff3 == 1)) {
-                    //si tenemos un heroe de cada faccion tendremos una mejora leve
-                    //le pasariamos todos los tipos
-                    updateStats();
-                } else if ((buff1 == 2) || (buff2 == 2) || (buff3 == 2)) {
-                    //si tenemos dos de una faccion obtendremos una mejora considerable
-                    //le pasariamos el maximo entre los tres tipos con un .max o la funcion que haya aqui, si es que pasamos el tipo PSEUDOCODIGO
-                    //var tipoMejora=(buff1,buff2,buff3).max
-                    //switch tipoMejora
-                    //el que mas tiene es buff1, pasamos buff 1
-                    //y asi con todos
-                    updateStats();
-                } else if ((buff1 == 3) || (buff2 == 3) || (buff3 == 3)) {
-                    //lo mismo que en la anterior luismi
-                    //si tenemos tres de la misma faccion, obtendremos una gran mejora   
-                    updateStats();
-                }
-                break;
-            case 5:
-                //en realidad podria hacerse con un || pero por legibilidad los he separado en else if (los tres q puse de que sean tres de la misma faccion, si quieres los juntamos)
-                //si tenemos tres de una faccion, y los otros dos son de diferentes facciones, obtenemos una mejora leve de las estadisticas
-                if ((buff1 == 3) && ((buff2 < 2) && (buff3 < 2))) {
-                    //calculariamos el maximo(de la faccion que mas haya) y lo pasariamos como parametro
-                    updateStats();
-                } else if ((buff2 == 3) && ((buff1 < 2) && (buff3 < 2))) {
-                    //calculariamos el maximo(de la faccion que mas haya) y lo pasariamos como parametro
-                    updateStats();
-                } else if ((buff3 == 3) && ((buff2 < 2) && (buff1 < 2))) {
-                    //calculariamos el maximo(de la faccion que mas haya) y lo pasariamos como parametro
-                    updateStats();
-                } 
-                //si tenemos tres de una faccion y dos iguales de otra faccion una buena mejora, como la de cuando tenemos 2 de la misma faccion y el mapa es de 3
-                else if ((buff1 == 3) && ((buff2 == 2) || (buff3 == 2))) {
-                    //vale, aqui podriamos calcular el minimo, y pasar los otros dos, con un switch sencillo, en plan PSEUDOCODIGO
-                    //var tipoMejora=(buff1,buff2,buff3).min
-                    //switch tipoMejora
-                    //el que menos tiene es buff1, pasamos buff 2 y 3
-                    //y asi con todos
-                    updateStats();
-                } else if ((buff2 == 3) && ((buff1 == 2) || (buff3 == 2))) {
-                    updateStats();
-                }
-                else if ((buff3 == 3) && ((buff1 == 2) || (buff2 == 2))) {
-                    updateStats();
-                }
-                //si tenemos cuatro de una misma faccion obtendremos una gran mejora, como la de si tenemos tres de una faccion en el mapa de 3
-                else if((buff1==4)||(buff2==4)||(buff3==4)){
-                    //calculariamos el maximo(de la faccion que mas haya) y lo pasariamos como parametro
-                    updateStats();
-                }
-                //si ya tenemos todos de la misma faccion consigues una mejora enorme
-                else if((buff1==5)||(buff2==5)||(buff3==5)){
-                    //calculariamos el maximo(de la faccion que mas haya) y lo pasariamos como parametro
-                    updateStats();    
-                }
-                break;
-            default:
-                break;
+        
+        //VENTAJAS POSIBLES
+        //Al menos uno de cada equipo, la mejora sera de velocidad
+        //Cuatro tiers de mejoras por faccion:
+        //Tier C -> Al menos dos heroes de una faccion
+        //Tier B -> Al menos cuatro de una faccion
+        //Tier A -> Al menos seis de una faccion
+        //Tier S -> Todos de la misma faccion
+        //Tipos de mejoras segun la faccion:
+        //Mejora Azon: ataque
+        //Mejora Ferten: critico
+        //Mejora Kwin> defensa
+        
+        if((this.stats.herosFaction[0]==1)&&(this.stats.herosFaction[1]==1)&&(this.stats.herosFaction[2]==1)){
+           updateStats();
         }
-
+        
+        if(this.stats.herosFaction[0]>=2){
+           if(this.stats.herosFaction[0]>=4){
+              if(this.stats.herosFaction[0]>=4){
+                 if(this.stats.herosFaction[0]==8){
+                        updateStats();
+                    }
+                  else{
+                        updateStats();
+                  }
+                }
+              else{
+                    updateStats();
+                }
+              }
+            else{
+                updateStats();
+            }
+        }
+        
+        if(this.stats.herosFaction[1]>=2){
+           if(this.stats.herosFaction[1]>=4){
+              if(this.stats.herosFaction[1]>=4){
+                 if(this.stats.herosFaction[1]==8){
+                        updateStats();
+                    }
+                  else{
+                        updateStats();
+                  }
+                }
+              else{
+                    updateStats();
+                }
+              }
+            else{
+                updateStats();
+            }
+        }
+        
+        if(this.stats.herosFaction[2]>=2){
+           if(this.stats.herosFaction[2]>=4){
+              if(this.stats.herosFaction[2]>=4){
+                 if(this.stats.herosFaction[2]==8){
+                        updateStats();
+                    }
+                  else{
+                        updateStats();
+                  }
+                }
+              else{
+                    updateStats();
+                }
+              }
+            else{
+                updateStats();
+            }
+        }
     }
 
 
