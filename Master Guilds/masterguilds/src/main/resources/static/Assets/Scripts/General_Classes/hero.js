@@ -11,7 +11,7 @@ class Hero extends Actor
 
 		//console.log(m);//Debug
 		super(m);
-		this.aggro = hero.aggro;
+		this.aggro = hero.aggro; //Cambiar al actor // elevar al padre ya que ahora monster tambien lo tiene
 		this.faction = hero.faction;
 		this.rarity = hero.rarity;
 		this.level = hero.level;
@@ -82,11 +82,13 @@ class Hero extends Actor
 	//CALLBACK 1
 	//Funcion que realiza las actualizaciones de un turno para otro de un heroe
 	//ESTA FUNCION PODRA SER UTILIZADA LO MAS SEGURO DE MANERA QUE ALGUNAS COSAS PUEDAN REALIZARSE MEDIANTE WORKERS O CALLBACKS
-	//ASI QUE LO MAS SEGURO ESQ TOQUE AJUSTARLA O BORRARLA
-	fixAttribute(input){
+	//ASI QUE LO MAS SEGURO ESQ TOQUE AJUSTARLA O BORRARLAÇ
+	/*fixAttribute(input){
 		console.log("It is fixing all the attributes related: " + input.apply + " the effect " + input.ID )//DEBUG
-		console.log(this);
+		//console.log(this);//DEBUG
+		
  	}
+	*/
 
 	nextTurn(input){
 		console.log("Another turn for Hero " + this.name);//DEBUG
@@ -103,10 +105,10 @@ class Hero extends Actor
 		//CALLBACK DE LOS EFECTOS PARA ARREGLAR ATRIBUTOS ???
 		var i = 0;
 		while(i < that.activeAbilities.length ){
-			that.activeAbilities[i].nextTurn({that: that ,pos: i, callback: that.fixAttribute , callback2:that.clearEffect});
+			that.activeAbilities[i].nextTurn({that: that ,pos: i, callback2:that.clearEffect});
 			i++;
 		}
-		
+
  	}
 
  	//"Arregla" el atributo que es afectado por el efecto

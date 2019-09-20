@@ -11,6 +11,7 @@ class Monster extends Actor
 
 		//console.log(m);//Debug
 		super(m);
+		this.aggro = monster.aggro;//Cambiar al actor.
 	}
 
 	//Calcula el daño total que recibe el enemigo al que ataca
