@@ -1,0 +1,19 @@
+20/9/2019   23:30
+
+ACTA DE REUNIÓN NÚMERO 3 DJ ALFA
+
+--Aclaración de conceptos de juego 
+
+--Creación del Game Design Document a través del cual se estructurará el proyecto
+
+--Desarrollo empezado por todos los sectores del equipo
+
+--Concretización de la música: 1 track de lucha, con diferentes instrumentos dependiendo de la facción,
+		2 sonidos de lucha, ataque y hechizo
+
+--Instrumentos escogidos:
+	-Orientales: Koto, Den Den Daiko, Gong
+	-Europeo: Gaita, Mandolina/Laud, Sonidos Metálicos de percusión y timbales
+	-Elfos: Voces suaves/Coro, Synth suave, Arpa
+
+--Conceptos del mapa: Pantalla de menú en la ciudad central, tres paises, una arena
