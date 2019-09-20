@@ -13,7 +13,14 @@ Explicacion Formato stats:
 objeto{
 	-array numero de heroes por faccion [primera f, segunda f, tercera f] -> .herosFaction
 }
+//ANGEL, DEFINE AQUI EL FORMATO QUE TIENEN LOS OBJETOS ADVANTAGE
+Explicacion Formato advantage:
+objeto{
+    
+}
 */
+
+
 class Team {
     constructor(team) {
         this.team = team.team; //Array de monsters/heroes
