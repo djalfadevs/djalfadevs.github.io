@@ -9,5 +9,6 @@ class User {
 		this.allTeam = user.allTeam //Esta variable guarda todo los heroes de los que dispone el usuario.
 		this.clan = user.clan //Se utilizara si finalmente se implementa las facciones.
 		this.arenaTickets = user.arenaTickets; //Tickets Disponibles para jugar la arena
+		this.config = user.config //Configuracion
 	}
 }

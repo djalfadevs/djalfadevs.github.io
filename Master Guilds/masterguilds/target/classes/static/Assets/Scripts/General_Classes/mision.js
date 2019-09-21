@@ -10,6 +10,7 @@ class Mision {
 		this.enemyTeamSize = mision.enemyTeamSize;
 		this.image_url = mision.image_url;
 		this.reward = mision.reward;
+        this.blocked=mision.blocked;
 		this.restrictions = mision.restrictions; //Lista de restricciones de la mision , si las hay .
 	}
 }

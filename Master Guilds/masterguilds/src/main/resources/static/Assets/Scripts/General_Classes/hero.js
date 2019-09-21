@@ -20,13 +20,92 @@ class Hero extends Actor
 
 		}
 
+	fixAttribute(input){
+		console.log("It is fixing all the attributes related: " + input.apply + " the effect " + input.effect.ID )//DEBUG
+		
+		var that = this;
+
+			//SE MIRA EL EFECTO QUE ES
+			//NOTA: ahora mismo se aplica el calculo de subida sobre el valor que la variable tenga en ese momento
+			//quiza sea mas recomendable usar el valor base para calcular las subidas (y asi podemos usar algo de multithread)
+			switch(input.effect.ID){
+				case(1)://BuffStats //SE SUBE UN 10% ATAQUE , DEFENSA , CRIT_HIT_CHANCE , EVASION
+					
+					if(input.apply){//SE APLICA
+						//ATAQUE
+						var riseValue = this.attack * 0.25; //Valor exacto en el que aumenta el ataque
+						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
+						this.attack+=riseValue;//Se aplica la subida del ataque
+						console.log("ATTACK improve "+ riseValue);//DEBUG
+						//FIN DE ATAQUE
+
+						//DEFENSA
+						riseValue = this.defence * 0.25; //Valor exacto en el que aumenta el defensa
+						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
+						this.defence+=riseValue;//Se aplica la subida del defensa
+						console.log("DEFENCE improve "+ riseValue);//DEBUG
+						//FIN DE DEFENSA
+
+						//CRITICO
+						riseValue = this.crit_hit_chance * 0.25; //Valor exacto en el que aumenta el critico
+						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
+						this.crit_hit_chance+=riseValue;//Se aplica la subida del critico
+						console.log("CRIT_HIT_CHANCE improve "+ riseValue);//DEBUG
+						//FIN DE CRITICO
+
+						//EVASION
+						riseValue = this.evasion * 0.25; //Valor exacto en el que aumenta el evasion
+						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
+						this.evasion+=riseValue;//Se aplica la subida del evasion
+						console.log("EVASION improve "+ riseValue);//DEBUG
+						//FIN DE EVASION
+					}
+					else //SE DESCARTA
+					{
+						this.attack-=input.effect.appliedValues[0];
+						this.defence-=input.effect.appliedValues[1];
+						this.crit_hit_chance-=input.effect.appliedValues[2];
+						this.evasion-=input.effect.appliedValues[3];
+					}
+				break;
+				case(2)://Health // SE CURA UN 15% DE SU VIDA MAXIMA // EN EL FUTURO SE LEERA DE UNA VARIABLE GLOBAL QUE GUARDE ESTOS DATOS SEGURAMENTE
+					if(input.apply){//SE APLICA
+						if(this.HP + 0.15 * this.baseHP <= this.baseHP)//Si no se supera la vida maxima
+						{
+							this.HP += 0.15 * this.baseHP;
+							console.log("HP improve " + 0.15 * this.baseHP);//DEBUG
+						}
+						else //Si se fuera a superar se cura hasta el maximo de vida
+						{
+							console.log("HP improve " + this.baseHP - this.HP);//DEBUG
+							this.HP = this.baseHP;
+						}
+					}
+					//No hace falta tocar stats al descartar en Health
+				break;
+				case(3)://BuffAttack //SE SUBE UN 25% DEL ATAQUE
+					if(input.apply)
+					{
+						var riseValue = this.attack * 0.25; //Valor exacto en el que aumenta el ataque
+						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
+
+						this.attack+=riseValue;//Se aplica la subida del ataque
+						console.log("HP improve " + this.baseHP);
+					}
+					else
+					{
+						this.attack-=input.effect.appliedValues[0];
+					}
+				break;
+				default: //AQUI NO SE APLICA EL IGNORE DEFENCE NI EL LIFESTEAL
+			}
+		
+	}
 	//Calcula el daño total que recibe el enemigo al que ataca
 	//Sin tener en cuenta aun habilidades activas , la forma normal es Aataque - (Bdefensa/2)
 	//Parametros: input pasa : defence , critFactor , isCritForSure , abilities : IsignoreDefenceActivate
 	attackPoints(input){
 		//FALTA ADAPTAR EL MODELO PARA QUE TENGA EN CUENTA POSIBLES HABILIDADES 
-		//FALTA TENER EN CUENTA LAS FACCIONES
-		//ARREGLAR EL TEMA DE COMPROBAR EFECTOS PARA CALCULAR EL DAÑO
 		//Daño Final aplicado;
 		var TDamage;
 		var that = this;
@@ -37,25 +116,25 @@ class Hero extends Actor
         
         var RoboDeVida=false;
         
-        for(var i=0;i<that.activeAbilities.length;i++){
-            if(that.activeAbilites[i]==){
+        //COMPRUEBA SI ESTA ACTIVA IGNORAR DEFENSA Y ROBO DE VIDA
+        for(var i=0;i<that.activeAbilities.length;i++){//IGNORAR DEFENSA
+            if(that.activeAbilites[i]==4){
                IgnorarDefensa=true
             }
-            if(that.activeAbilities[i]==){
+            if(that.activeAbilities[i]==5){//ROBO DE VIDA
                RoboDeVida=true
             }
         }
         
-        if((IgnorarDefensa)&&(!RoboDeVida)){
+        if((IgnorarDefensa)&&(!RoboDeVida)){ //IgnorarDefensa
            TDamage=that.attack;
            }
-        else if(RoboDeVida){
-            TDamage=that.baseHP;
-            
-            that.HP=that.HP+that.baseHP*0.2
+        else if(RoboDeVida){ //Robo de vida
+            TDamage=that.baseHP*0.2;  
+            that.HP+=that.baseHP*0.2;
         }
         else{
-            TDamage=(that.attack - (Math.trunc(input.defence / 2)));
+            TDamage=(that.attack - (Math.trunc(input.defence / 2)));//Ataque si no hay estos efectos activos
         }
         
 
@@ -125,7 +204,7 @@ class Hero extends Actor
 		//CALLBACK DE LOS EFECTOS PARA ARREGLAR ATRIBUTOS ???
 		var i = 0;
 		while(i < that.activeAbilities.length ){
-			that.activeAbilities[i].nextTurn({that: that ,pos: i, callback2:that.clearEffect});
+			that.activeAbilities[i].nextTurn({that: that ,pos: i,callback: that.fixAttribute,callback2:that.clearEffect});
 			i++;
 		}
 

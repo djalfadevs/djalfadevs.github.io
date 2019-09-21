@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 class Abilitie {
 	constructor(abilitie){
 		this.ID = abilitie.ID;//Numero ID
@@ -21,9 +21,12 @@ class Abilitie {
 	//Quiza la habilidad debe tener un atributo propio tarjet y que en funcion de ese el efecto se aplique de una u otra forma.
 	applyEffect(actor){
 		var that = this; //NO SE si es necesario aqui
-		var newEffect = new Effect({ID:that.ID,name:that.name,remainActiveTurns: that.baseActiveTurns , isActive: true})//Crear el efecto
+		
+		var newEffect = new Effect({ID:that.ID,name:that.name,remainActiveTurns: that.baseActiveTurns , 
+		isActive: true , appliedValues:[]})//Crear el efecto
+
 		actor.activeAbilities.push(newEffect);//Añadimos el nuevo efecto al personaje
-		//actor.fixAttribute({apply: true , ID: newEffect.ID});//Se debe aplicar el efecto a los atributos del heroe afectado.
+		actor.fixAttribute({apply: true , effect: newEffect});//Se debe aplicar el efecto a los atributos del heroe afectado.
 	}
 
 	//USAR LA HABILIDAD

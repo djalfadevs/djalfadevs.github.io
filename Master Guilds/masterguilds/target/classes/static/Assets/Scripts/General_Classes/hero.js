@@ -11,7 +11,7 @@ class Hero extends Actor
 
 		//console.log(m);//Debug
 		super(m);
-		this.aggro = hero.aggro;
+		this.aggro = hero.aggro; //Cambiar al actor // elevar al padre ya que ahora monster tambien lo tiene
 		this.faction = hero.faction;
 		this.rarity = hero.rarity;
 		this.level = hero.level;
@@ -30,16 +30,34 @@ class Hero extends Actor
 		//Daño Final aplicado;
 		var TDamage;
 		var that = this;
-		//IGNORAR DEFENSA O NO 
-		//-----------------AHORA MISMO ESTA MAL , NO SE ACCEDE ASI AL IGNOREDEFENCE ------------------//
-		if(activeAbilities.IgnoreDefence.isActive){// Si esta activo el bufo de ignorar defensa
-			TDamage = that.attack;
-		}
-		else
-		{
-			TDamage = (that.attack - (Math.trunc(input.defence / 2)));
-		}
-		//FIN DE IGNORAR DEFENSA O NO	
+
+		//IGNORAR DEFENSA Y ROBO DE VIDA
+        
+        var IgnorarDefensa=false;
+        
+        var RoboDeVida=false;
+        
+        //COMPRUEBA SI ESTA ACTIVA IGNORAR DEFENSA Y ROBO DE VIDA
+        for(var i=0;i<that.activeAbilities.length;i++){//IGNORAR DEFENSA
+            if(that.activeAbilites[i]==4){
+               IgnorarDefensa=true
+            }
+            if(that.activeAbilities[i]==5){//ROBO DE VIDA
+               RoboDeVida=true
+            }
+        }
+        
+        if((IgnorarDefensa)&&(!RoboDeVida)){ //IgnorarDefensa
+           TDamage=that.attack;
+           }
+        else if(RoboDeVida){ //Robo de vida
+            TDamage=that.baseHP*0.2;  
+            that.HP+=that.baseHP*0.2;
+        }
+        else{
+            TDamage=(that.attack - (Math.trunc(input.defence / 2)));//Ataque si no hay estos efectos activos
+        }
+        
 
 		//CALCULO DE CRITICO	
 			//Funcion anonima para calcular un bool de si se produce un critico o no
@@ -82,6 +100,7 @@ class Hero extends Actor
 	//CALLBACK 1
 	//Funcion que realiza las actualizaciones de un turno para otro de un heroe
 	//ESTA FUNCION PODRA SER UTILIZADA LO MAS SEGURO DE MANERA QUE ALGUNAS COSAS PUEDAN REALIZARSE MEDIANTE WORKERS O CALLBACKS
+
 	//ASI QUE LO MAS SEGURO ESQ TOQUE AJUSTARLA O BORRARLAÇ
 	/*fixAttribute(input){
 		console.log("It is fixing all the attributes related: " + input.apply + " the effect " + input.ID )//DEBUG
@@ -89,7 +108,8 @@ class Hero extends Actor
 		
  	}
 	*/
-	
+
+
 	nextTurn(input){
 		console.log("Another turn for Hero " + this.name);//DEBUG
 		//Actualizar lo relacionado con las Habilidades (cooldown y si esta lista o no)
