@@ -30,7 +30,7 @@ class Abilitie {
 		var that = this; //NO SE si es necesario aqui
 		
 		var newEffect = new Effect({ID:that.ID,name:that.name,remainActiveTurns: that.baseActiveTurns , 
-		isActive: true , appliedValues:[]})//Crear el efecto
+		isActive: true , appliedValues:[],effectFunction:that.effectFunction})//Crear el efecto
 
 		actor.activeAbilities.push(newEffect);//Añadimos el nuevo efecto al personaje
 		actor.fixAttribute({apply: true , effect: newEffect});//Se debe aplicar el efecto a los atributos del heroe afectado.

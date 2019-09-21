@@ -28,77 +28,7 @@ class Hero extends Actor
 			//SE MIRA EL EFECTO QUE ES
 			//NOTA: ahora mismo se aplica el calculo de subida sobre el valor que la variable tenga en ese momento
 			//quiza sea mas recomendable usar el valor base para calcular las subidas (y asi podemos usar algo de multithread)
-			switch(input.effect.ID){
-				case(1)://BuffStats //SE SUBE UN 10% ATAQUE , DEFENSA , CRIT_HIT_CHANCE , EVASION
-					
-					if(input.apply){//SE APLICA
-						//ATAQUE
-						var riseValue = this.attack * 0.25; //Valor exacto en el que aumenta el ataque
-						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
-						this.attack+=riseValue;//Se aplica la subida del ataque
-						console.log("ATTACK improve "+ riseValue);//DEBUG
-						//FIN DE ATAQUE
-
-						//DEFENSA
-						riseValue = this.defence * 0.25; //Valor exacto en el que aumenta el defensa
-						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
-						this.defence+=riseValue;//Se aplica la subida del defensa
-						console.log("DEFENCE improve "+ riseValue);//DEBUG
-						//FIN DE DEFENSA
-
-						//CRITICO
-						riseValue = this.crit_hit_chance * 0.25; //Valor exacto en el que aumenta el critico
-						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
-						this.crit_hit_chance+=riseValue;//Se aplica la subida del critico
-						console.log("CRIT_HIT_CHANCE improve "+ riseValue);//DEBUG
-						//FIN DE CRITICO
-
-						//EVASION
-						riseValue = this.evasion * 0.25; //Valor exacto en el que aumenta el evasion
-						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
-						this.evasion+=riseValue;//Se aplica la subida del evasion
-						console.log("EVASION improve "+ riseValue);//DEBUG
-						//FIN DE EVASION
-					}
-					else //SE DESCARTA
-					{
-						this.attack-=input.effect.appliedValues[0];
-						this.defence-=input.effect.appliedValues[1];
-						this.crit_hit_chance-=input.effect.appliedValues[2];
-						this.evasion-=input.effect.appliedValues[3];
-					}
-				break;
-				case(2)://Health // SE CURA UN 15% DE SU VIDA MAXIMA // EN EL FUTURO SE LEERA DE UNA VARIABLE GLOBAL QUE GUARDE ESTOS DATOS SEGURAMENTE
-					if(input.apply){//SE APLICA
-						if(this.HP + 0.15 * this.baseHP <= this.baseHP)//Si no se supera la vida maxima
-						{
-							this.HP += 0.15 * this.baseHP;
-							console.log("HP improve " + 0.15 * this.baseHP);//DEBUG
-						}
-						else //Si se fuera a superar se cura hasta el maximo de vida
-						{
-							console.log("HP improve " + this.baseHP - this.HP);//DEBUG
-							this.HP = this.baseHP;
-						}
-					}
-					//No hace falta tocar stats al descartar en Health
-				break;
-				case(3)://BuffAttack //SE SUBE UN 25% DEL ATAQUE
-					if(input.apply)
-					{
-						var riseValue = this.attack * 0.25; //Valor exacto en el que aumenta el ataque
-						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
-
-						this.attack+=riseValue;//Se aplica la subida del ataque
-						console.log("HP improve " + this.baseHP);
-					}
-					else
-					{
-						this.attack-=input.effect.appliedValues[0];
-					}
-				break;
-				default: //AQUI NO SE APLICA EL IGNORE DEFENCE NI EL LIFESTEAL
-			}
+        input.effect.effectFunction({apply:input.apply,actor:this,effect:input.effect});
 		
 	}
 	//Calcula el daño total que recibe el enemigo al que ataca

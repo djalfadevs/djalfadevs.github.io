@@ -66,9 +66,11 @@ class Team {
 
         return {canBeAdded:canBeAdded,nFaction:i};
     }
+
     //Updatea las stats AUXILIAR 
     updateStats(n) {
         this.stats.herosFaction[i]+=1;
+
     }
 
     //Parametros : input.actor -> heroe o mounstro que se pretende añadir
@@ -86,7 +88,28 @@ class Team {
         this.team = [];
     }
 
-    //Calcula las ventajas del equipo a partir de los miembros que la conforman.
+    //funcion auxiliar para aplicar las sinergia
+    synergies(synergies){
+        switch(synergies){
+            case 0:
+                synergyFunction0(this.team,this.advantages)
+                break;
+            case 1:
+                synergyFunction1(this.team,this.stats.herosFaction[0],this.advantages)
+                break;
+            case 2:
+                synergyFunction2(this.team,this.stats.herosFaction[1],this.advantages)
+                break;
+            case 3:
+                synergyFunction3(this.team,this.stats.herosFaction[2],this.advantages)
+                break;
+            default:
+                break;
+        }
+    }
+    
+    
+    //Calcula y aplica las ventajas del equipo a partir de los miembros que la conforman.
     calculateAdvantages() {
         
         //VENTAJAS POSIBLES
@@ -101,65 +124,20 @@ class Team {
         //Mejora Ferten: critico
         //Mejora Kwin> defensa
         
-        if((this.stats.herosFaction[0]==1)&&(this.stats.herosFaction[1]==1)&&(this.stats.herosFaction[2]==1)){
-           updateStats();
+        if((this.stats.herosFaction[0]>=1)&&(this.stats.herosFaction[1]>=1)&&(this.stats.herosFaction[2]>=1)){
+           synergies(0);
         }
         
         if(this.stats.herosFaction[0]>=2){
-           if(this.stats.herosFaction[0]>=4){
-              if(this.stats.herosFaction[0]>=4){
-                 if(this.stats.herosFaction[0]==8){
-                        updateStats();
-                    }
-                  else{
-                        updateStats();
-                  }
-                }
-              else{
-                    updateStats();
-                }
-              }
-            else{
-                updateStats();
-            }
+            synergies(1);
         }
         
         if(this.stats.herosFaction[1]>=2){
-           if(this.stats.herosFaction[1]>=4){
-              if(this.stats.herosFaction[1]>=4){
-                 if(this.stats.herosFaction[1]==8){
-                        updateStats();
-                    }
-                  else{
-                        updateStats();
-                  }
-                }
-              else{
-                    updateStats();
-                }
-              }
-            else{
-                updateStats();
-            }
+           synergies(2);
         }
         
         if(this.stats.herosFaction[2]>=2){
-           if(this.stats.herosFaction[2]>=4){
-              if(this.stats.herosFaction[2]>=4){
-                 if(this.stats.herosFaction[2]==8){
-                        updateStats();
-                    }
-                  else{
-                        updateStats();
-                  }
-                }
-              else{
-                    updateStats();
-                }
-              }
-            else{
-                updateStats();
-            }
+            synergies(3);
         }
     }
 
