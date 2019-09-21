@@ -64,19 +64,20 @@ class Team {
         }
 
 
-        return canBeAdded;
+        return {canBeAdded:canBeAdded,nFaction:i};
     }
-    //Updatea las stats 
-    updateStats() {
-
+    //Updatea las stats AUXILIAR 
+    updateStats(n) {
+        this.stats.herosFaction[i]+=1;
     }
 
     //Parametros : input.actor -> heroe o mounstro que se pretende añadir
     //Añade el heroe u mounstro al equipo si cumple con las restricciones
     addMember(input) {
-        if (canAddMember(input)) {
+        var result = canAddMember(input).canBeAdded
+        if (result.canBeAdded) {
             this.team.push(input.actor);
-            updateStats();
+            updateStats(result.nFaction);
         }
     }
 
