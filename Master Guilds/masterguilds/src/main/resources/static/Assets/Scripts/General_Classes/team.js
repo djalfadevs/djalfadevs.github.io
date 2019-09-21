@@ -27,9 +27,26 @@ class Team {
         this.stats = team.stats; //Guarda valores como el numero de integrantes que hay por cada faccion
         //QUIZA EN VEZ DE GUARDAR LAS RESTRICCIONES EN EL TEAM SEA MEJOR PASARLAS COMO PARAMETRO 
         this.restrictions = team.restrictions; //restricciones al formar el equipo PENSAR FORMATO DE RESTRICCIONES (como si fuera un json)
-        this.advantages = team.advantages; //Ventajas obtenidas de como se constituye el equipo
+        this.synergies = team.synergies; //Ventajas obtenidas de como se constituye el equipo
     }
 
+    //Parametros: input.actor.faction
+    //Devuelve la posicion del array de stats y restrintions
+    getNumberOfFaction(faction) {
+            switch (faction) { //CHANGE "1" by real faction value
+                case "Azon":
+                    return 0;
+                    break;
+                case "Ferten":
+                    return 1;
+                    break;
+                case "Kwin":
+                    return 2;
+                    break;
+                default:
+            }
+        }
+    
     //Comprueba si se puede añadir un nuevo actor al equipo  , este debe cumplir con las restricciones
     //Parametros : input.actor -> heroe o mounstro que se pretende añadir
     canAddMember(input) {
@@ -37,29 +54,15 @@ class Team {
         var canBeAdded = true;
 
         //Si el equipo no supera el maximo numero de heroes permitidos por la restriccion
-        if (this.restrictions.maxHeros < this.team.length + 1) { //+1 DUDA ??
+        if (this.restrictions.maxHeros < this.team.length + 1) { 
             canBeAdded = false;
         }
 
-        //Funcion anonima para conseguir pasar el valor del "hero.faction (a lo mejor no se llama asi)" a un numero
-        var getNumberOfFaction = function (inputTwo) {
-            switch (inputTwo.actor.faction) { //CHANGE "1" by real faction value
-                case "Azon":
-                    return 1;
-                    break;
-                case "Ferten":
-                    return 2;
-                    break;
-                case "Kwin":
-                    return 3;
-                    break;
-                default:
-            }
-        }
+     
         //Comprueba si el numero de heroes de determinada faccion no ha superado el de las restricciones
-        var i = getNumberOfFaction(input); //i debe ser hallado a partir del input.actor es decir del heroe q se introduce MODIFICAR
+        var i = this.getNumberOfFaction(input.faction); //i debe ser hallado a partir del input.actor es decir del heroe q se introduce MODIFICAR
 
-        if (this.restrictions.maxHerosFaction[i] > this.stats.herosFaction[i] + 1) { //Tanto en restrictions como en stats el array sigue el mismo orden de faccion
+        if (this.restrictions.maxHerosFaction[i] < this.stats.herosFaction[i] + 1) { //Tanto en restrictions como en stats el array sigue el mismo orden de faccion
             canBeAdded = false
         }
 
@@ -67,41 +70,49 @@ class Team {
         return {canBeAdded:canBeAdded,nFaction:i};
     }
 
-    //Updatea las stats AUXILIAR 
-    updateStats(n) {
-        this.stats.herosFaction[i]+=1;
-
-    }
 
     //Parametros : input.actor -> heroe o mounstro que se pretende añadir
     //Añade el heroe u mounstro al equipo si cumple con las restricciones
     addMember(input) {
-        var result = canAddMember(input).canBeAdded
+        var result = this.canAddMember(input)
         if (result.canBeAdded) {
-            this.team.push(input.actor);
-            updateStats(result.nFaction);
+            this.team.push(input);
+            this.stats.herosFaction[result.nFaction]+=1;//Updatea stats
+            console.log("Hero added sucesfully")//DEBUG
+        }
+        else
+        {
+            console.log("Team is full")//DEBUG
         }
     }
 
     //Vacia el equipo // (realmente no es necesario este metodo , se puede hacer directamente)
     clearTeam() {
-        this.team = [];
+        this.team = []; //Limpia el equipo
+        this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
     }
 
+    //Parametros : input.pos -> Posicion del heroe en el array // input.actor -> Heroe
+    removeMember(input){
+        var nFac = this.getNumberOfFaction(input.actor.faction)//Devuelve el numero de la faccion a la que pertenece
+        this.stats.herosFaction[nFac]-=1;//Updatea stats
+        this.team.splice(input.pos,1);//Borra el actor del equipo.
+
+    }
     //funcion auxiliar para aplicar las sinergia
     synergies(synergies){
         switch(synergies){
             case 0:
-                synergyFunction0(this.team,this.advantages)
+                synergyFunction0({team:this.team,synergies:this.synergies})
                 break;
             case 1:
-                synergyFunction1(this.team,this.stats.herosFaction[0],this.advantages)
+                synergyFunction1({team:this.team,herosFaction:this.stats.herosFaction,synergies:this.synergies})
                 break;
             case 2:
-                synergyFunction2(this.team,this.stats.herosFaction[1],this.advantages)
+                synergyFunction2({team:this.team,herosFaction:this.stats.herosFaction,synergies:this.synergies})
                 break;
             case 3:
-                synergyFunction3(this.team,this.stats.herosFaction[2],this.advantages)
+                synergyFunction3({team:this.team,herosFaction:this.stats.herosFaction,synergies:this.synergies})
                 break;
             default:
                 break;
@@ -110,7 +121,7 @@ class Team {
     
     
     //Calcula y aplica las ventajas del equipo a partir de los miembros que la conforman.
-    calculateAdvantages() {
+    calculateSynergies() {
         
         //VENTAJAS POSIBLES
         //Al menos uno de cada equipo, la mejora sera de velocidad

@@ -52,6 +52,7 @@ class Abilitie {
 			if(this.remainChargeTurns <= 0){
 				this.isReady = true;//Puede ser lanzada de nuevo
 				this.remainChargeTurns = this.baseChargeTurns;
+				console.log("Abilitie "+ this.name + "is ready")//DEBUG
 			}
 		}
 		

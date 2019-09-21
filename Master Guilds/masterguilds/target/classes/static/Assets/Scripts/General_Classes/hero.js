@@ -20,13 +20,22 @@ class Hero extends Actor
 
 		}
 
+	fixAttribute(input){
+		console.log("It is fixing all the attributes related: " + input.apply + " the effect " + input.effect.ID )//DEBUG
+		
+		var that = this;
+
+			//SE MIRA EL EFECTO QUE ES
+			//NOTA: ahora mismo se aplica el calculo de subida sobre el valor que la variable tenga en ese momento
+			//quiza sea mas recomendable usar el valor base para calcular las subidas (y asi podemos usar algo de multithread)
+        input.effect.effectFunction({apply:input.apply,actor:this,effect:input.effect});
+		
+	}
 	//Calcula el daño total que recibe el enemigo al que ataca
 	//Sin tener en cuenta aun habilidades activas , la forma normal es Aataque - (Bdefensa/2)
 	//Parametros: input pasa : defence , critFactor , isCritForSure , abilities : IsignoreDefenceActivate
 	attackPoints(input){
 		//FALTA ADAPTAR EL MODELO PARA QUE TENGA EN CUENTA POSIBLES HABILIDADES 
-		//FALTA TENER EN CUENTA LAS FACCIONES
-		//ARREGLAR EL TEMA DE COMPROBAR EFECTOS PARA CALCULAR EL DAÑO
 		//Daño Final aplicado;
 		var TDamage;
 		var that = this;
@@ -39,10 +48,10 @@ class Hero extends Actor
         
         //COMPRUEBA SI ESTA ACTIVA IGNORAR DEFENSA Y ROBO DE VIDA
         for(var i=0;i<that.activeAbilities.length;i++){//IGNORAR DEFENSA
-            if(that.activeAbilites[i]==4){
+            if(that.activeAbilites[i].ID==4){
                IgnorarDefensa=true
             }
-            if(that.activeAbilities[i]==5){//ROBO DE VIDA
+            if(that.activeAbilities[i].ID==5){//ROBO DE VIDA
                RoboDeVida=true
             }
         }
@@ -125,7 +134,7 @@ class Hero extends Actor
 		//CALLBACK DE LOS EFECTOS PARA ARREGLAR ATRIBUTOS ???
 		var i = 0;
 		while(i < that.activeAbilities.length ){
-			that.activeAbilities[i].nextTurn({that: that ,pos: i, callback2:that.clearEffect});
+			that.activeAbilities[i].nextTurn({that: that ,pos: i,callback: that.fixAttribute,callback2:that.clearEffect});
 			i++;
 		}
 

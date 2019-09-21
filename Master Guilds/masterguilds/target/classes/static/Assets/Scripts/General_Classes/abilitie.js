@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 class Abilitie {
 	constructor(abilitie){
 		this.ID = abilitie.ID;//Numero ID
@@ -12,6 +12,13 @@ class Abilitie {
 		
 		this.remainChargeTurns = abilitie.remainChargeTurns; //Turnos que le quedan para poder ser lanzada de nuevo (Al crear debe ser igual que el baseChargeTurns)
 		this.isReady = abilitie.isReady; //Se puede lanzar o no (Inicialmente al crear estara en false GENERALMENTE)
+
+		//EXPERIMENTAL
+		//QUIZA SE PODRIA HACER QUE RECIBA UNA FUNCION QUE DEFINA QUE TIENE QUE HACER CUANDO RECIBA EL PERSONAJE
+		//Y ASI EN VEZ DE LEER EL ID Y HACER ALGO EN FUNCION DE EL , DIRECTAMENTE CUANDO SE ACTIVE EL EFECTO SE LLAMARIA A LA 
+		//FUNCION QUE CONTIENE.
+		this.effectFunction = abilitie.effectFunction; 
+
 	}
 
 
@@ -21,9 +28,12 @@ class Abilitie {
 	//Quiza la habilidad debe tener un atributo propio tarjet y que en funcion de ese el efecto se aplique de una u otra forma.
 	applyEffect(actor){
 		var that = this; //NO SE si es necesario aqui
-		var newEffect = new Effect({ID:that.ID,name:that.name,remainActiveTurns: that.baseActiveTurns , isActive: true})//Crear el efecto
+		
+		var newEffect = new Effect({ID:that.ID,name:that.name,remainActiveTurns: that.baseActiveTurns , 
+		isActive: true , appliedValues:[],effectFunction:that.effectFunction})//Crear el efecto
+
 		actor.activeAbilities.push(newEffect);//Añadimos el nuevo efecto al personaje
-		//actor.fixAttribute({apply: true , ID: newEffect.ID});//Se debe aplicar el efecto a los atributos del heroe afectado.
+		actor.fixAttribute({apply: true , effect: newEffect});//Se debe aplicar el efecto a los atributos del heroe afectado.
 	}
 
 	//USAR LA HABILIDAD
@@ -42,6 +52,7 @@ class Abilitie {
 			if(this.remainChargeTurns <= 0){
 				this.isReady = true;//Puede ser lanzada de nuevo
 				this.remainChargeTurns = this.baseChargeTurns;
+				console.log("Abilitie "+ this.name + "is ready")//DEBUG
 			}
 		}
 		
