@@ -12,6 +12,13 @@ class Abilitie {
 		
 		this.remainChargeTurns = abilitie.remainChargeTurns; //Turnos que le quedan para poder ser lanzada de nuevo (Al crear debe ser igual que el baseChargeTurns)
 		this.isReady = abilitie.isReady; //Se puede lanzar o no (Inicialmente al crear estara en false GENERALMENTE)
+
+		//EXPERIMENTAL
+		//QUIZA SE PODRIA HACER QUE RECIBA UNA FUNCION QUE DEFINA QUE TIENE QUE HACER CUANDO RECIBA EL PERSONAJE
+		//Y ASI EN VEZ DE LEER EL ID Y HACER ALGO EN FUNCION DE EL , DIRECTAMENTE CUANDO SE ACTIVE EL EFECTO SE LLAMARIA A LA 
+		//FUNCION QUE CONTIENE.
+		this.effectFunction = abilitie.effectFunction; 
+
 	}
 
 

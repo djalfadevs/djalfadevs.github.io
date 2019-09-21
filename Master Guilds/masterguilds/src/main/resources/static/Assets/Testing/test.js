@@ -2,7 +2,7 @@
 //En este js se realizaran varias pruebas de testeo con el fin de comprobar que ciertos metodos , constructores funcionan adecuadamente
 $(document).ready( function () {
 
-var testAbilitie = new Abilitie({ID: 1 , name: "PRUEBA" , baseActiveTurns: 3 , baseChargeTurns: 7 ,
+var testAbilitie = new Abilitie({ID: 1 , name: "BUFFSTATS III" , baseActiveTurns: 3 , baseChargeTurns: 7 ,
  description: "Erase una vez una prueba", remainChargeTurns: 7 , isReady: false})
 
 //console.log(testAbilitie.isReady);

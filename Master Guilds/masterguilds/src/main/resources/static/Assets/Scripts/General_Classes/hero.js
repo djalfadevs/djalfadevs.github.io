@@ -118,10 +118,10 @@ class Hero extends Actor
         
         //COMPRUEBA SI ESTA ACTIVA IGNORAR DEFENSA Y ROBO DE VIDA
         for(var i=0;i<that.activeAbilities.length;i++){//IGNORAR DEFENSA
-            if(that.activeAbilites[i]==4){
+            if(that.activeAbilites[i].ID==4){
                IgnorarDefensa=true
             }
-            if(that.activeAbilities[i]==5){//ROBO DE VIDA
+            if(that.activeAbilities[i].ID==5){//ROBO DE VIDA
                RoboDeVida=true
             }
         }
