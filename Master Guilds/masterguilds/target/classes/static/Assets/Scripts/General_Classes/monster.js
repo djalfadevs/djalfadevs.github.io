@@ -7,11 +7,11 @@ class Monster extends Actor
 		var m = {ID: monster.ID, name: monster.name,baseAttack:monster.baseAttack, attack: monster.attack,baseDefence: monster.baseDefende,
 		defence: monster.defence,baseHP: monster.baseHP,HP: monster.HP,base_crit_hit_chance: monster.base_crit_hit_chance,
 		crit_hit_chance: monster.crit_hit_chance,description: monster.description,evasion: monster.evasion,baseEvasion: monster.baseEvasion,
-		abilities: monster.abilities, image_url: monster.image_url, activeAbilities: monster.activeAbilities}
+		abilities: monster.abilities, image_url: monster.image_url, activeAbilities: monster.activeAbilities , 
+		baseAggro: monster.baseAggro , aggro: monster.aggro}
 
 		//console.log(m);//Debug
 		super(m);
-		this.aggro = monster.aggro;//Cambiar al actor.
 	}
 
 	//Calcula el daño total que recibe el enemigo al que ataca

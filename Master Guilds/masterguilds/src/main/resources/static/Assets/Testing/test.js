@@ -28,7 +28,7 @@ for(var i = 0; i<8; i++){
 var testHero = new Hero({ID: 1 , name: "PRUEBA" , baseAttack: 100, attack: 100, baseDefence: 100,
 		defence: 100, baseHP: 100,HP: 100,base_crit_hit_chance: 0.20,
 		crit_hit_chance: 0.20 ,description: "Erase una vez en Test",evasion: 50,baseEvasion: 50,
-		abilities: [testAbilitie], image_url: "url" , activeAbilities: [] , aggro: 100 , faction: "Azon",
+		abilities: [testAbilitie], image_url: "url" , activeAbilities: [] , baseAggro:100, aggro: 100 , faction: "Azon",
 		rarity: 3, level: 20 , exp: 1000 , role: "useless only info provide by attack and defence"})
 
 //console.log(testHero.toString());
@@ -53,20 +53,20 @@ var testHero = new Hero({ID: 1 , name: "PRUEBA" , baseAttack: 100, attack: 100, 
 var testHero2 = new Hero({ID: 2 , name: "ARINAMI" , baseAttack: 450, attack: 450, baseDefence: 300,
 		defence: 300, baseHP: 1020,HP: 1020,base_crit_hit_chance: 0.20,
 		crit_hit_chance: 0.20 ,description: "ARINAMI DE LAS PRUEBAS",evasion: 504,baseEvasion: 504,
-		abilities: [testAbilitie], image_url: "url2" , activeAbilities: [] , aggro: 670 , faction: "Ferten",
+		abilities: [testAbilitie], image_url: "url2" , activeAbilities: [] ,baseAggro:670, aggro: 670 , faction: "Ferten",
 		rarity: 5, level: 34 , exp: 1120 , role: "Asassin"})
 
 //Tercer =====
 var testHero3 = new Hero({ID: 3 , name: "IRINA" , baseAttack: 700, attack: 700, baseDefence: 200,
 		defence: 200, baseHP: 800,HP: 800,base_crit_hit_chance: 0.25,
 		crit_hit_chance: 0.25 ,description: "ARINAMI DE LAS PRUEBAS",evasion: 650,baseEvasion: 650,
-		abilities: [testAbilitie], image_url: "url3" , activeAbilities: [] , aggro: 400 , faction: "Kwin",
+		abilities: [testAbilitie], image_url: "url3" , activeAbilities: [] ,baseAggro:400, aggro: 400 , faction: "Kwin",
 		rarity: 5, level: 40 , exp: 1120 , role: "Asassin"})
 //Cuarto =====
 var testHero4 = new Hero({ID: 4 , name: "IRINA DE AZON" , baseAttack: 700, attack: 700, baseDefence: 200,
 		defence: 200, baseHP: 800,HP: 800,base_crit_hit_chance: 0.25,
 		crit_hit_chance: 0.25 ,description: "ARINAMI DE LAS PRUEBAS",evasion: 650,baseEvasion: 650,
-		abilities: [testAbilitie], image_url: "url3" , activeAbilities: [] , aggro: 400 , faction: "Azon",
+		abilities: [testAbilitie], image_url: "url3" , activeAbilities: [] ,baseAggro:400, aggro: 400 , faction: "Azon",
 		rarity: 5, level: 40 , exp: 1120 , role: "Support"})
 
 //Creamos el equipo y añadimos los heroes

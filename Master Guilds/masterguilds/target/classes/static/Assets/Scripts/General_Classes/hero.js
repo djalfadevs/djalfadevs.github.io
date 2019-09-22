@@ -7,11 +7,11 @@ class Hero extends Actor
 		var m = {ID: hero.ID, name: hero.name, baseAttack:hero.baseAttack, attack: hero.attack, baseDefence: hero.baseDefence,
 		defence: hero.defence, baseHP: hero.baseHP,HP: hero.HP,base_crit_hit_chance: hero.base_crit_hit_chance,
 		crit_hit_chance: hero.crit_hit_chance,description: hero.description,evasion: hero.evasion,baseEvasion: hero.baseEvasion,
-		abilities: hero.abilities, image_url: hero.image_url , activeAbilities: hero.activeAbilities}
+		abilities: hero.abilities, image_url: hero.image_url , activeAbilities: hero.activeAbilities ,
+		baseAggro: hero.baseAggro , aggro: hero.aggro}
 
 		//console.log(m);//Debug
 		super(m);
-		this.aggro = hero.aggro; //Cambiar al actor // elevar al padre ya que ahora monster tambien lo tiene
 		this.faction = hero.faction;
 		this.rarity = hero.rarity;
 		this.level = hero.level;
@@ -20,14 +20,12 @@ class Hero extends Actor
 
 		}
 
+	//Esta funcion se llama a modo callback desde la clase Effect CALLBACK
 	fixAttribute(input){
 		console.log("It is fixing all the attributes related: " + input.apply + " the effect " + input.effect.ID )//DEBUG
 		
 		var that = this;
-
-			//SE MIRA EL EFECTO QUE ES
-			//NOTA: ahora mismo se aplica el calculo de subida sobre el valor que la variable tenga en ese momento
-			//quiza sea mas recomendable usar el valor base para calcular las subidas (y asi podemos usar algo de multithread)
+			//Es el propio efecto el que gestiona con una funcion propia como actua sobre las stats del heroe.
         input.effect.effectFunction({apply:input.apply,actor:this,effect:input.effect});
 		
 	}
@@ -135,7 +133,7 @@ class Hero extends Actor
 
  	//Resetea todos los atributos a su valor base.
 	resetToBaseAttribValue(){
-		
+
 	} 	
 
 }

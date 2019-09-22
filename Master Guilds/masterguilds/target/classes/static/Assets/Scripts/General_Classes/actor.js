@@ -20,6 +20,9 @@ class Actor {
 		this.abilities = actor.abilities;
 		this.activeAbilities = actor.activeAbilities;//Indica que habilidades Propias o de Equipo le estan afectando (Seria como los bufos activos por el mismo u otro jugador sobre el)
 		this.image_url = actor.image_url;
+
+		this.baseAggro = actor.baseAggro;
+		this.aggro = actor.aggro;
 	}
 
 	//Calcula el daño total que recibe el enemigo al que ataca

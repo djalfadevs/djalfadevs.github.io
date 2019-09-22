@@ -7,7 +7,7 @@ class Simulation {
 		//Toda la informacion relacionada con el escenario , desde aquellas ventajas (si las hay) que proporciona hasta imagenes 
 		this.escenario = simulation.escenario;
 
-		this.team = simulation.team; //Equipo con el que se realiza la simulacion (Array de Heros ??)// Mejor crear clase team que albergue ademas de un array de heroes mas datos del posible equipo
+		this.allies = simulation.allies; //Equipo con el que se realiza la simulacion (Array de Heros ??)// Mejor crear clase team que albergue ademas de un array de heroes mas datos del posible equipo
 		this.enemys = simulation.enemys; // Equipo contra el que te enfrentas en la simulacion (Array de Enemys)
 		
 		//Recoge toda la informacion que el jugador otorga con interaccion a la simulacion 
@@ -28,33 +28,48 @@ class Simulation {
 	simulate(input){
 		if(turn % 2 == 0)//El turno es par
 		{
-			attackedEnemy = getAttackedEnemy(input);//Se determina a que enemigo atacar (PODRAN SER VARIOS ????)
+			attackedEnemy = getAttackedActor({isAlly:false});//Se determina a que enemigo atacar (PODRAN SER VARIOS ????)
+			//REALMENTE LAS VARIABLES attackedAllie y attackedEnemy dejarian de tener sentido , simplemente se tomaria 
+			//del team correspondiente (allies o eneys ) del apartado de stats la propiedad de MaxAggroActor
+			//ANGEL valora esto y me dices
+			//Comprueba tambien que los cambios que he realizado en las otras clases funcionan , gracias.
 
 
 		}
 		else // El turno es impar
 		{
-			attackedAllie = getAttackedAllie(input); // Se determina que aliado es atacado , QUIZA MEJOR DETERMINAR CUANDO MUERA UN ALIADO Y SE PASA BIEN AL CONSTRUCTOR
+			attackedAllie = getAttackedActor({isAlly:true}); // Se determina que aliado es atacado , QUIZA MEJOR DETERMINAR CUANDO MUERA UN ALIADO Y SE PASA BIEN AL CONSTRUCTOR
 		}
 	} 
 
-	//Determina el enemigo que se debe atacar
-	getAttackedEnemy(input){
-		return input.attackedEnemy; //AUN NO ESTA DETERMINADO pero sera a traves del input como consigamos esta informacion
-	}
+	//Determina el actor que se debe atacar
+	//Parametro input.isAlly -> Determina si se calcula el de mayor aggro de los aliados o enemigos
+	getAttackedActor(input){
+		var that = this;
+		var AttaActor = {aggro: -1 , HP: 100}; // Falsificamos el supuesto personaje inicial para que no haya valores null
+		var chosenTeam;//
 
-	//Determina el aliado que es atacado
-	getAttackedAllie(input){
-		//De primeras la simulacion ya tiene asignado el personaje de mayor aggro en este parametro (FALTA HACERLO)
-		var that = this; //Necesario ??
-		var Attallie = {aggro: -1 , HP: 100}; // Falsificamos el supuesto personaje inicial para que no haya valores null
-		for (var i = 0; i < that.team.length ; i++){ //Recorre la lista de aliados
-			if(that.team[i].HD > 0) // Sigue vivo ese aliado (heroe)
-				if(that.Attallie.aggro < that.team[i].aggro){ // Si tiene menos aggro
-					Attallie = that.team[i];
-				}
+		var AuxFunc = function(input2){
+			if(input2){	
+				chosenTeam = that.allies;//Se va a calcular el de mayor aggro de los aliados
+			}
+			else
+			{
+				chosenTeam = that.enemys;//Se va a calcular el de mayor aggro de los enemigos
+			}
 		}
 
-		return Attallie;
+		AuxFunc(input.isAlly);//DETERMINA SI SE VA A CALCULAR EL ACTOR DE MAYOR AGGRO DE UN EQUIPO U OTRO
+
+		AttaActor = chosenTeam.stats.maxAggroActor;
+
+		//IMPORTANTE
+		//PORQUE NO EN VEZ DE CALCULARLO CADA VEZ HACEMOS UNA VARIABLE EN EL APARTADO DE STATS
+		//DEL EQUIPO QUE GUARDE UNA REFERENCIA AL HEROE CON MAYOR AGGRO DE TODOS LOS INTEGRANTES
+		//ASI PUES SE ACTUALIZARIA UNA VEZ SE HAYAN APLICADO LAS SINERGIAS
+		//Y TAMBIEN TENER EN CUENTA CUANDO SE APLICA UN EFECTO A UN HEROE MEDIANTE UN CALLBACK.
+
+		return AttActor;
 	}
+
 }
