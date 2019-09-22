@@ -86,7 +86,7 @@ class Team {
         }
     }
 
-    //Vacia el equipo // (realmente no es necesario este metodo , se puede hacer directamente)
+    //Vacia el equipo // 
     clearTeam() {
         this.team = []; //Limpia el equipo
         this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
@@ -100,7 +100,7 @@ class Team {
 
     }
     //funcion auxiliar para aplicar las sinergia
-    synergies(synergies){
+    synergiesAux(synergies){
         switch(synergies){
             case 0:
                 synergyFunction0({team:this.team,synergies:this.synergies})
@@ -129,26 +129,31 @@ class Team {
         //Tier C -> Al menos dos heroes de una faccion
         //Tier B -> Al menos cuatro de una faccion
         //Tier A -> Al menos seis de una faccion
-        //Tier S -> Todos de la misma faccion
+        //Tier S -> Todos de la misma faccion (8)
         //Tipos de mejoras segun la faccion:
+        //Mejora 1 de cada: 
         //Mejora Azon: ataque
         //Mejora Ferten: critico
         //Mejora Kwin> defensa
         
         if((this.stats.herosFaction[0]>=1)&&(this.stats.herosFaction[1]>=1)&&(this.stats.herosFaction[2]>=1)){
-           synergies(0);
+           this.synergiesAux(0);
+           console.log("Type 0 synergy is going to be applied")//DEBUG
         }
         
         if(this.stats.herosFaction[0]>=2){
-            synergies(1);
+            this.synergiesAux(1);
+            console.log("Type 1 synergy is going to be applied")//DEBUG
         }
         
         if(this.stats.herosFaction[1]>=2){
-           synergies(2);
+           this.synergiesAux(2);
+           console.log("Type 2 synergy is going to be applied")//DEBUG
         }
         
         if(this.stats.herosFaction[2]>=2){
-            synergies(3);
+            this.synergiesAux(3);
+            console.log("Type 3 synergy is going to be applied")//DEBUG
         }
     }
 

@@ -35,7 +35,6 @@ class Hero extends Actor
 	//Sin tener en cuenta aun habilidades activas , la forma normal es Aataque - (Bdefensa/2)
 	//Parametros: input pasa : defence , critFactor , isCritForSure , abilities : IsignoreDefenceActivate
 	attackPoints(input){
-		//FALTA ADAPTAR EL MODELO PARA QUE TENGA EN CUENTA POSIBLES HABILIDADES 
 		//Daño Final aplicado;
 		var TDamage;
 		var that = this;
@@ -110,15 +109,9 @@ class Hero extends Actor
 	//Funcion que realiza las actualizaciones de un turno para otro de un heroe
 	//ESTA FUNCION PODRA SER UTILIZADA LO MAS SEGURO DE MANERA QUE ALGUNAS COSAS PUEDAN REALIZARSE MEDIANTE WORKERS O CALLBACKS
 
-	//ASI QUE LO MAS SEGURO ESQ TOQUE AJUSTARLA O BORRARLAÇ
-	/*fixAttribute(input){
-		console.log("It is fixing all the attributes related: " + input.apply + " the effect " + input.ID )//DEBUG
-		//console.log(this);//DEBUG
-		
- 	}
-	*/
+	
 
-
+	//Realiza las actualizaciones necesarias entre turno y turno.
 	nextTurn(input){
 		console.log("Another turn for Hero " + this.name);//DEBUG
 		//Actualizar lo relacionado con las Habilidades (cooldown y si esta lista o no)
@@ -140,8 +133,11 @@ class Hero extends Actor
 
  	}
 
- 	//"Arregla" el atributo que es afectado por el efecto
- 	
+ 	//Resetea todos los atributos a su valor base.
+	resetToBaseAttribValue(){
+		
+	} 	
+
 }
 
 //var b = new Hero({ID:24});//Debug
