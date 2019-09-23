@@ -12,6 +12,7 @@ objeto{
 Explicacion Formato stats:
 objeto{
 	-array numero de heroes por faccion [primera f, segunda f, tercera f] -> .herosFaction
+    -referencia al heroe con mayor aggro del equipo -> . maxAggroActor
 }
 //ANGEL, DEFINE AQUI EL FORMATO QUE TIENEN LOS OBJETOS ADVANTAGE
 Explicacion Formato advantage:
@@ -48,7 +49,7 @@ class Team {
         }
     
     //Comprueba si se puede añadir un nuevo actor al equipo  , este debe cumplir con las restricciones
-    //Parametros : input.actor -> heroe o mounstro que se pretende añadir
+    //Parametros : input -> heroe o mounstro que se pretende añadir
     canAddMember(input) {
         var actor = input.actor
         var canBeAdded = true;
@@ -70,14 +71,49 @@ class Team {
         return {canBeAdded:canBeAdded,nFaction:i};
     }
 
+    //Funcion auxiliar encargada de actualizar la stat que guarda
+    //Podria recibir una referencia al actor que ha recibido una actualizacion en el aggro (sease porque es nuevo ) 
+    //Parametros: input.actor-> Es el Actor nuevo (porque se ha añadido // Deja la puerta abierta a que el aggro pueda ser tocado por efectos)
+    //            input.isAdded -> Determina si estamos eliminando o añadiendo el actor.
+    updateMaxAggroActor(input){
 
-    //Parametros : input.actor -> heroe o mounstro que se pretende añadir
+        var that = this;
+
+        //Se le pasa el actor del input.actor
+        var MaxAggroActorAux = function(input2){
+            for(var actorAux in that.team){//For in 
+                if(actorAux.aggro > input2.aggro){
+                    that.stats.maxAggroActo = actorAux;
+                }
+            }
+        }
+
+        if(input.isAdded){//Se trata de una incorporacion al equipo
+            if(input.actor.aggro > this.stats.maxAggroActor.aggro){//Si el nuevo actor tiene mayor aggro
+                this.stats.maxAggroActo = input.actor //Se referencia al nuevo actor
+            }
+        }
+        else //Si se trata de una eliminacion de personaje
+        {
+            //Si el actor implicado es el mismo que el asignado debe realizarse un update
+            //de forma que debera recorrerse el array del equipo para poder
+            //asegurar que tenemos en stats una referencia al nuevo sujeto con mayor aggro
+            if(input.actor === this.stats.maxAggroActor){
+                MaxAggroActorAux(input.actor);
+            }
+        }
+    }
+
+    //Parametros : input -> heroe o mounstro que se pretende añadir
     //Añade el heroe u mounstro al equipo si cumple con las restricciones
     addMember(input) {
         var result = this.canAddMember(input)
         if (result.canBeAdded) {
             this.team.push(input);
-            this.stats.herosFaction[result.nFaction]+=1;//Updatea stats
+            //Updatea stats
+            this.stats.herosFaction[result.nFaction]+=1;
+            updateMaxAggroActor({actor:input,input.isAdded:true })
+
             console.log("Hero added sucesfully")//DEBUG
         }
         else
@@ -95,7 +131,11 @@ class Team {
     //Parametros : input.pos -> Posicion del heroe en el array // input.actor -> Heroe
     removeMember(input){
         var nFac = this.getNumberOfFaction(input.actor.faction)//Devuelve el numero de la faccion a la que pertenece
-        this.stats.herosFaction[nFac]-=1;//Updatea stats
+        
+        //Updatea stats
+        this.stats.herosFaction[nFac]-=1;
+        updateMaxAggroActor({actor:input.actor ,input.isAdded:false })
+        
         this.team.splice(input.pos,1);//Borra el actor del equipo.
 
     }
