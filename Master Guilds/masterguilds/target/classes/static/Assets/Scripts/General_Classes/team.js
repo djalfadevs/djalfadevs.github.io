@@ -13,6 +13,7 @@ Explicacion Formato stats:
 objeto{
 	-array numero de heroes por faccion [primera f, segunda f, tercera f] -> .herosFaction
     -referencia al heroe con mayor aggro del equipo -> . maxAggroActor
+    -referencia al orden de heroes que debe atacar -> .attackOrder (AUNQUE SEA COMO UNA ESPECIE DE VARIABLE TEAM NOS INTERESA TENERLA SEPARADA EXCLUSIVAMENTE PARA HALLAR QUIEN ATACA)
 }
 //ANGEL, DEFINE AQUI EL FORMATO QUE TIENEN LOS OBJETOS ADVANTAGE
 Explicacion Formato advantage:
@@ -71,21 +72,52 @@ class Team {
         return {canBeAdded:canBeAdded,nFaction:i};
     }
 
-    //Funcion auxiliar encargada de actualizar la stat que guarda
-    //Podria recibir una referencia al actor que ha recibido una actualizacion en el aggro (sease porque es nuevo ) 
-    //Parametros: input.actor-> Es el Actor nuevo (porque se ha añadido // Deja la puerta abierta a que el aggro pueda ser tocado por efectos)
-    //            input.isAdded -> Determina si estamos eliminando o añadiendo el actor.
+    //Funcion auxiliar para actualizar el orden de atacantes que se guarda en la variable (array) this.stats.attackOrder
+    updateAttackOrder(input){
+
+        //HABRIA QUE COMPROBAR SI ESTA MISMA OPERACION SE PUEDE REALIZAR EN this.team SIN QUE SUPONGA ALGUN TIPO DE 
+        //MAL FUNCIONAMIENTO PARA OTRAS FUNCIONES 
+        //DE MOMENTO SE CLONA EL ARRAY Y SE COLOCA EN OTRO ATRIBUTO
+        //AUN ASI SUPONGO QUE AMBOS APUNTAN A LOS MISMOS HEROES PORQUE 
+        //DEBERIA SER DOS ARRAYS CON REFERENCIAS A LOS MISMOS HEROES ORDENADOS DE DISTINTA FORMA
+        //COMPROBAR
+
+        //this.stats.attackOrder = [...this.team] //ECS6 CLONE WAY (NO ES UNA REFERENCIA ES UNA COPIA DEL ARRAY); 
+       this.stats.attackOrder = this.team.slice();
+       //Funcion de comparacion.
+       var OrderFunction = function(a,b){
+            if(a.evasion < b.evasion){
+                return -1;
+            }
+            if(a.evasion > b.evasion){
+                return 1;
+            }
+            return 0;
+       }
+
+       this.stats.attackOrder.sort(OrderFunction);
+    }
+    //Funcion auxiliar encargada de actualizar la stat que guarda una referencia al actor con mayor aggro del equipo
+    //Podria recibir una referencia al actor que ha sido afectado de alguna forma  (sease porque se ha borrado del equipo, se ha añadido al equipo o su vida ha llegado a 0) 
+    //Parametros: input.actor-> Es el Actor nuevo (porque se ha añadido // Deja la puerta abierta a que el aggro pueda ser tocado por efectos //vida==0 // se ha eliminado del equipo)
+    //            input.isAdded -> Determina si estamos eliminando (borrado o vida es 0) o añadiendo el actor.
     updateMaxAggroActor(input){
 
         var that = this;
 
         //Se le pasa el actor del input.actor
-        var MaxAggroActorAux = function(input2){
+        //Esta funcion recorre el array de heroes/monsters del equipo y 
+        //GUARDA en una variable aux el actor del equipo con mayor aggro/ despues lo pone en la variable de stats correspondiente
+        var MaxAggroActorAux = function(){
+            var AggroValueAux = {aggro: -1 , HP: 100}; //Falsificamos el primer aggro para que sea menor siempre que el resto de posibles
+
             for(var actorAux in that.team){//For in 
-                if(actorAux.aggro > input2.aggro){
-                    that.stats.maxAggroActo = actorAux;
+                if((actorAux.aggro > AggroValueAux.aggro) && (actorAux.HP > 0)){ //Si el actor tiene vida aun y su aggro es mayor que el actual se guarda este
+                    AggroValueAux = actorAux;
                 }
             }
+
+            that.stats.maxAggroActo = AggroValueAux; //Se asigna el heroe guardado en la variable auxiliar para guardarlo en stats
         }
 
         if(input.isAdded){//Se trata de una incorporacion al equipo
@@ -93,13 +125,13 @@ class Team {
                 this.stats.maxAggroActo = input.actor //Se referencia al nuevo actor
             }
         }
-        else //Si se trata de una eliminacion de personaje
+        else //Si se trata de una eliminacion de personaje o de una bajada de vida a 0
         {
             //Si el actor implicado es el mismo que el asignado debe realizarse un update
             //de forma que debera recorrerse el array del equipo para poder
             //asegurar que tenemos en stats una referencia al nuevo sujeto con mayor aggro
             if(input.actor === this.stats.maxAggroActor){
-                MaxAggroActorAux(input.actor);
+                MaxAggroActorAux();
             }
         }
     }

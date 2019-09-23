@@ -23,6 +23,7 @@ class Actor {
 
 		this.baseAggro = actor.baseAggro;
 		this.aggro = actor.aggro;
+
 	}
 
 	//Calcula el daño total que recibe el enemigo al que ataca

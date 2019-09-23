@@ -18,6 +18,8 @@ class Hero extends Actor
 		this.exp = hero.exp;
 		this.role = hero.role;
 
+		//MODIFICAR PARA QUE CUANDO SE LE PASE LAS HABILIDADES LAS CREE USANDO EL CONSTRUCTOR DE HABILIDAD
+
 		}
 
 	//Esta funcion se llama a modo callback desde la clase Effect CALLBACK
