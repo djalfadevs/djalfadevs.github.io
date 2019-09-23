@@ -111,18 +111,24 @@ class Team {
         var MaxAggroActorAux = function(){
             var AggroValueAux = {aggro: -1 , HP: 100}; //Falsificamos el primer aggro para que sea menor siempre que el resto de posibles
 
-            for(var actorAux in that.team){//For in 
-                if((actorAux.aggro > AggroValueAux.aggro) && (actorAux.HP > 0)){ //Si el actor tiene vida aun y su aggro es mayor que el actual se guarda este
-                    AggroValueAux = actorAux;
+            for(var actorAux = 0; actorAux < that.team.length ; actorAux ++){//For  
+                if((that.team[actorAux].aggro > AggroValueAux.aggro) && (that.team[actorAux].HP > 0)){ //Si el actor tiene vida aun y su aggro es mayor que el actual se guarda este
+                    AggroValueAux = that.team[actorAux];
                 }
             }
 
-            that.stats.maxAggroActo = AggroValueAux; //Se asigna el heroe guardado en la variable auxiliar para guardarlo en stats
+            that.stats.maxAggroActor = AggroValueAux; //Se asigna el heroe guardado en la variable auxiliar para guardarlo en stats
         }
 
         if(input.isAdded){//Se trata de una incorporacion al equipo
-            if(input.actor.aggro > this.stats.maxAggroActor.aggro){//Si el nuevo actor tiene mayor aggro
-                this.stats.maxAggroActo = input.actor //Se referencia al nuevo actor
+            if(this.team.length>1){//Si no es la primera incorporacion , este valor ya tendra alguien asignado
+                if(input.actor.aggro > this.stats.maxAggroActor.aggro){//Si el nuevo actor tiene mayor aggro
+                    this.stats.maxAggroActor = input.actor //Se referencia al nuevo actor
+                }
+            }
+            else //Si el equipo estaba vacio y por ende este valor tambien
+            {
+                this.stats.maxAggroActor = input.actor;
             }
         }
         else //Si se trata de una eliminacion de personaje o de una bajada de vida a 0
@@ -144,7 +150,7 @@ class Team {
             this.team.push(input);
             //Updatea stats
             this.stats.herosFaction[result.nFaction]+=1;
-            updateMaxAggroActor({actor:input,input.isAdded:true })
+            this.updateMaxAggroActor({actor:input,isAdded:true })
 
             console.log("Hero added sucesfully")//DEBUG
         }
@@ -160,16 +166,20 @@ class Team {
         this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
     }
 
-    //Parametros : input.pos -> Posicion del heroe en el array // input.actor -> Heroe
+    //Parametros : input.pos -> Posicion del heroe en el array 
+    //             input.actor -> Heroe
+    //MODIFICAR PARA QUE SEA MAS ACCESIBLE DE USAR (MENOS PARAMETROS DE ENTRADA / O SE PASA POS O ACTOR PERO NO AMBOS)
     removeMember(input){
         var nFac = this.getNumberOfFaction(input.actor.faction)//Devuelve el numero de la faccion a la que pertenece
         
-        //Updatea stats
-        this.stats.herosFaction[nFac]-=1;
-        updateMaxAggroActor({actor:input.actor ,input.isAdded:false })
-        
         this.team.splice(input.pos,1);//Borra el actor del equipo.
 
+        //Updatea stats
+        this.stats.herosFaction[nFac]-=1;
+        this.updateMaxAggroActor({actor:input.actor ,isAdded:false })
+
+        console.log("Hero removed sucesfully")//DEBUG
+        
     }
     //funcion auxiliar para aplicar las sinergia
     synergiesAux(synergies){

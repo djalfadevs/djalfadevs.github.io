@@ -71,9 +71,9 @@ var testHero4 = new Hero({ID: 4 , name: "IRINA DE AZON" , baseAttack: 700, attac
 
 //Creamos el equipo y añadimos los heroes
 var testTeam = new Team({team:[],stats:{herosFaction:[0,0,0]},restrictions:{maxHeros:4,maxHerosFaction:[2,1,1]},synergies:[]});
-console.log(testTeam);
+//console.log(testTeam);
 testTeam.addMember(testHero);
-console.log(testTeam);
+//console.log(testTeam);
 testTeam.addMember(testHero2);
 
 
@@ -81,27 +81,35 @@ testTeam.addMember(testHero2);
 testTeam.calculateSynergies();
 
 //EXTRA añadimos tambien un efecto para ver si se aplica sobre las sinergias y si al acabar volvemos al valor base + sinergia
-testTeam.team[0].abilities[0].useAbilitie(testTeam.team[1]);
+//testTeam.team[0].abilities[0].useAbilitie(testTeam.team[1]);
 //Limpiamos el efecto
-testTeam.team[1].nextTurn();
-testTeam.team[1].nextTurn();
-testTeam.team[1].nextTurn();
-testTeam.team[1].nextTurn();
+//testTeam.team[1].nextTurn();
+//testTeam.team[1].nextTurn();
+//testTeam.team[1].nextTurn();
+//testTeam.team[1].nextTurn();
 
 //PRUEBA 4 COMPROBAMOS SI SIMULATION ES CAPAZ DE HALLAR QUE PERSONAJE DEBE ATACAR Y DEFENDERSE EN CADA MOMENTO
+
+//4.1 COMPROBAR SI ES CAPAZ DE HALLAR EL PERSONAJE DE MAYOR AGGRO DE UN TEAM AL AÑADIR 
 
 //Creamos un segundo equipo
 var testTeam2 = new Team({team:[],stats:{herosFaction:[0,0,0]},restrictions:{maxHeros:4,maxHerosFaction:[2,1,1]},synergies:[]});
 
 //Añadimos Heroes
-console.log(testTeam2);
+//console.log(testTeam2);
 testTeam2.addMember(testHero3);
-console.log(testTeam2);
+//console.log(testTeam2);
 testTeam2.addMember(testHero4);
 
 testTeam2.calculateSynergies();
 
+//Creamos la simulacion
+var testSimulation = new Simulation({allies:testTeam,enemys:testTeam2,turn:0,enemyAttacking:0,allieAttacking:0})
 
+//Intentamos ver todo lo relacionado con la simulacion
+console.log(testSimulation);
 
+//4.2 COMPROBAR LO MISMO AL BORRAR
+testTeam2.removeMember({pos:0,actor:testHero3});
 })
 

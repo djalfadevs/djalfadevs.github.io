@@ -24,8 +24,13 @@ class Simulation {
 
 		//Logs e info sobre el desarrollo de la simulacion (a partir de estos se puede hacer la parte visual)
 		this.turn = simulation.turn;//Normalmente se inicializara en 0 ;
-		this.enemyAttacking = simulation.enemyAttacking; //Determina el enemigo que le toca atacar // Es un numero que da la posicion de un array 
-		this.alieAttacking = simulation.alieAttacking;	//Determina el aliado de tu equipo al que le toca atacar // Es un numero que da la posicion de un array
+
+		//Se inicializan a 0
+		//Determina el enemigo que le toca atacar // Es un numero que da la posicion de un array 
+		this.enemyAttacking = simulation.enemyAttacking;
+		//Determina el aliado de tu equipo al que le toca atacar // Es un numero que da la posicion de un array 
+		this.allieAttacking = simulation.allieAttacking;
+		
 		this.log = null //Log de la simulacion
 		this.lastMovement = null // Ultimo movimiento de la simulacion
 
@@ -35,7 +40,7 @@ class Simulation {
 		if(turn % 2 == 0)//El turno es par y te toca atacar a ti
 		{
 			var attackedEnemy = this.enemys.stats.maxAggroActor
-			var attackerAllie = this.allies.stats.attackOrder[alieAttacking];
+			var attackerAllie = this.allies.stats.attackOrder[allieAttacking];
 
 
 		}
@@ -50,7 +55,7 @@ class Simulation {
 
 		this.turn ++;//Sube en uno el turno de la simulacion
 		this.enemyAttacking = this.turn % this.enemys.team.length;//Actualiza el numero que nos dira que heroe/monster ataca
-		this.alieAttacking = this.turn % this.allies.team.length;//Actualiza el numero que nos dira que heroe/monster ataca 
+		this.allieAttacking = this.turn % this.allies.team.length;//Actualiza el numero que nos dira que heroe/monster ataca 
 
 		//FALTA llamadas a los equipos para que a su vez llamen a los heroes.
 
