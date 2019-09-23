@@ -75,10 +75,7 @@ console.log(testTeam);
 testTeam.addMember(testHero);
 console.log(testTeam);
 testTeam.addMember(testHero2);
-console.log(testTeam);
-testTeam.addMember(testHero3);
-console.log(testTeam);
-testTeam.addMember(testHero4);
+
 
 //Calculo de sinergias
 testTeam.calculateSynergies();
@@ -90,6 +87,21 @@ testTeam.team[1].nextTurn();
 testTeam.team[1].nextTurn();
 testTeam.team[1].nextTurn();
 testTeam.team[1].nextTurn();
+
+//PRUEBA 4 COMPROBAMOS SI SIMULATION ES CAPAZ DE HALLAR QUE PERSONAJE DEBE ATACAR Y DEFENDERSE EN CADA MOMENTO
+
+//Creamos un segundo equipo
+var testTeam2 = new Team({team:[],stats:{herosFaction:[0,0,0]},restrictions:{maxHeros:4,maxHerosFaction:[2,1,1]},synergies:[]});
+
+//Añadimos Heroes
+console.log(testTeam2);
+testTeam2.addMember(testHero3);
+console.log(testTeam2);
+testTeam2.addMember(testHero4);
+
+testTeam2.calculateSynergies();
+
+
 
 })
 

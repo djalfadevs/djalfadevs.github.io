@@ -82,7 +82,8 @@ class Team {
         //DEBERIA SER DOS ARRAYS CON REFERENCIAS A LOS MISMOS HEROES ORDENADOS DE DISTINTA FORMA
         //COMPROBAR
 
-        this.stats.attackOrder = [...this.team] //ECS6 CLONE WAY (NO ES UNA REFERENCIA ES UNA COPIA DEL ARRAY); 
+        //this.stats.attackOrder = [...this.team] //ECS6 CLONE WAY (NO ES UNA REFERENCIA ES UNA COPIA DEL ARRAY); 
+       this.stats.attackOrder = this.team.slice();
        //Funcion de comparacion.
        var OrderFunction = function(a,b){
             if(a.evasion < b.evasion){
