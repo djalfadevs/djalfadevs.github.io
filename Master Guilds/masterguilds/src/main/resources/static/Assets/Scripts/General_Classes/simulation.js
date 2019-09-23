@@ -2,6 +2,14 @@
 //Esta clase guarda toda la informacion relacionada con la simulacion de una mision
 //Es decir guarda desde el escenario en el que se produce
 //hasta los equipos que se estan enfrentando
+
+//¿COMO SE HALLA QUE PERSONAJE LE TOCA ATACAR?
+/* Se me ha ocurrido que simulation guarde dos variables (una para equipo), 
+estas variables basicamente guardan un numero entre 0 y longitud del array de actores del equipo -1 
+cada turno se va sumando uno hasta llegar al maximo que volveria a 0
+a partir de esto, ese numero sirve para coger una referencia que esta en team.stats.attackOrder
+*/
+
 class Simulation {
 	constructor(simulation){
 		//Toda la informacion relacionada con el escenario , desde aquellas ventajas (si las hay) que proporciona hasta imagenes 
@@ -16,60 +24,31 @@ class Simulation {
 
 		//Logs e info sobre el desarrollo de la simulacion (a partir de estos se puede hacer la parte visual)
 		this.turn = simulation.turn;//Normalmente se inicializara en 0 ;
-		this.enemyAttacking = simulation.enemyAttacking; //Determina el enemigo que le toca atacar
-		this.alieAttacking = simulation.alieAttacking;	//Determina el aliado de tu equipo al que le toca atacar
-		this.attackedAllie = simulation.attackedAllie; //Se determinan a la hora de simular
-		this.attackedEnemy = simulation.attackedEnemy; //== ========== = == ==== == simular
+		this.enemyAttacking = simulation.enemyAttacking; //Determina el enemigo que le toca atacar // Es un numero que da la posicion de un array 
+		this.alieAttacking = simulation.alieAttacking;	//Determina el aliado de tu equipo al que le toca atacar // Es un numero que da la posicion de un array
 		this.log = null //Log de la simulacion
 		this.lastMovement = null // Ultimo movimiento de la simulacion
 
 	}
 	//Realiza una iteracion en la simulación (Combate principalmente)
 	simulate(input){
-		if(turn % 2 == 0)//El turno es par
+		if(turn % 2 == 0)//El turno es par y te toca atacar a ti
 		{
-			attackedEnemy = getAttackedActor({isAlly:false});//Se determina a que enemigo atacar (PODRAN SER VARIOS ????)
-			//REALMENTE LAS VARIABLES attackedAllie y attackedEnemy dejarian de tener sentido , simplemente se tomaria 
-			//del team correspondiente (allies o eneys ) del apartado de stats la propiedad de MaxAggroActor
-			//ANGEL valora esto y me dices
-			//Comprueba tambien que los cambios que he realizado en las otras clases funcionan , gracias.
+			var attackedEnemy = this.enemys.stats.maxAggroActor
 
 
 		}
-		else // El turno es impar
+		else // El turno es impar y le toca atacar a tu enemigo
 		{
-			attackedAllie = getAttackedActor({isAlly:true}); // Se determina que aliado es atacado , QUIZA MEJOR DETERMINAR CUANDO MUERA UN ALIADO Y SE PASA BIEN AL CONSTRUCTOR
+			var attackedAllie = this.allies.stats.maxAggroActor // Se determina que aliado es atacado , QUIZA MEJOR DETERMINAR CUANDO MUERA UN ALIADO Y SE PASA BIEN AL CONSTRUCTOR
 		}
 	} 
 
-	//Determina el actor que se debe atacar
-	//Parametro input.isAlly -> Determina si se calcula el de mayor aggro de los aliados o enemigos
-	getAttackedActor(input){
-		var that = this;
-		var AttaActor = {aggro: -1 , HP: 100}; // Falsificamos el supuesto personaje inicial para que no haya valores null
-		var chosenTeam;//
+	nextTurn(input){
 
-		var AuxFunc = function(input2){
-			if(input2){	
-				chosenTeam = that.allies;//Se va a calcular el de mayor aggro de los aliados
-			}
-			else
-			{
-				chosenTeam = that.enemys;//Se va a calcular el de mayor aggro de los enemigos
-			}
-		}
-
-		AuxFunc(input.isAlly);//DETERMINA SI SE VA A CALCULAR EL ACTOR DE MAYOR AGGRO DE UN EQUIPO U OTRO
-
-		AttaActor = chosenTeam.stats.maxAggroActor;
-
-		//IMPORTANTE
-		//PORQUE NO EN VEZ DE CALCULARLO CADA VEZ HACEMOS UNA VARIABLE EN EL APARTADO DE STATS
-		//DEL EQUIPO QUE GUARDE UNA REFERENCIA AL HEROE CON MAYOR AGGRO DE TODOS LOS INTEGRANTES
-		//ASI PUES SE ACTUALIZARIA UNA VEZ SE HAYAN APLICADO LAS SINERGIAS
-		//Y TAMBIEN TENER EN CUENTA CUANDO SE APLICA UN EFECTO A UN HEROE MEDIANTE UN CALLBACK.
-
-		return AttActor;
+		this.turn ++;//Sube en uno el turno de la simulacion
+		this.enemyAttacking = this.turn % this.enemys.team.length;//Actualiza el numero que nos dira que heroe/monster ataca
+		this.alieAttacking = this.turn % this.allies.team.length;//Actualiza el numero que nos dira que heroe/monster ataca 
+		
 	}
-
 }
