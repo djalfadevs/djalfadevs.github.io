@@ -228,6 +228,12 @@ class Team {
             console.log("Type 3 synergy is going to be applied")//DEBUG
         }
     }
+    
+    nextTurn(){
+        for(var j=0; j<this.team.length;j++){
+            this.team[j].nextTurn();
+        }
+    }
 
 
 }
