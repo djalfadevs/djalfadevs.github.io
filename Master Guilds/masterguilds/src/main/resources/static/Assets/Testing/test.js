@@ -113,7 +113,9 @@ console.log(testSimulation);
 //testTeam2.removeMember({pos:0,actor:testHero3});
 
 //4.3 Comprobar si se ordenan correctamente los heroes segun evasion
-testTeam.updateAttackOrder();
+testTeam.updateAttackOrder({newRound:true});
+testTeam2.updateAttackOrder({newRound:true});
 
+testSimulation.simulate({newRound:true});
 })
 

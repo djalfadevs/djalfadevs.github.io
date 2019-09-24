@@ -14,7 +14,7 @@ window.onload = function(){ //Para que haya cargado la ventana
 	},
 	autoRound: false,
 	//De momento solo hay una escena de prueba
-	scene: [TestScene]
+	scene: [TestScene,SimulationScene]
 };
 
 	var game = new Phaser.Game(config);

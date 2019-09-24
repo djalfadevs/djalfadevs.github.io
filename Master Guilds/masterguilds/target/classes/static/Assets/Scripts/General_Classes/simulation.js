@@ -27,9 +27,9 @@ class Simulation {
 
 		//Se inicializan a 0
 		//Determina el enemigo que le toca atacar // Es un numero que da la posicion de un array 
-		this.enemyAttacking = simulation.enemyAttacking;
+		this.enemyAttacking = 0;
 		//Determina el aliado de tu equipo al que le toca atacar // Es un numero que da la posicion de un array 
-		this.allieAttacking = simulation.allieAttacking;
+		this.allieAttacking = 0;
 		
 		this.log = null //Log de la simulacion
 		this.lastMovement = null // Ultimo movimiento de la simulacion
@@ -37,10 +37,20 @@ class Simulation {
 	}
 	//Realiza una iteracion en la simulación (Combate principalmente)
 	simulate(input){
-		if(turn % 2 == 0)//El turno es par y te toca atacar a ti
+		var that = this;
+		if(this.turn % 2 == 0)//El turno es par y te toca atacar a ti
 		{
 			var attackedEnemy = this.enemys.stats.maxAggroActor
-			var attackerAllie = this.allies.stats.attackOrder[allieAttacking];
+			var attackerAllie = this.allies.stats.attackOrder[that.allieAttacking];
+
+			var DDamage = attackerAllie.attackPoints({defence:attackedEnemy.defence,evasion:attackedEnemy.evasion});
+
+			console.log("El aliado " + attackerAllie + "ha atacado a " + attackedEnemy)
+			console.log("Se ha efectuado un daño de " + DDamage);
+
+			attackedEnemy.HP-=DDamage;
+
+			//FALTA INCLUIR HABILIDADES
 
 
 		}
@@ -48,18 +58,31 @@ class Simulation {
 		{
 			var attackedAllie = this.allies.stats.maxAggroActor // Se determina que aliado es atacado , QUIZA MEJOR DETERMINAR CUANDO MUERA UN ALIADO Y SE PASA BIEN AL CONSTRUCTOR
 			var attackerEnemy = this.allies.stats.attackOrder[enemyAttacking];
+
+			var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedEnemy.evasion});
+
+			attackedAllie.HP-=DDamage;
+
+			console.log("El enemigo " + attackerEnemy + "ha atacado a " + attackedEnemy)
+			console.log("Se ha efectuado un daño de " + DDamage);
+
+			//FALTA INCLUIR HABILIDADES
 		}
 	} 
 
 	nextTurn(input){
 
 		this.turn ++;//Sube en uno el turno de la simulacion
-		this.enemyAttacking = this.turn % this.enemys.team.length;//Actualiza el numero que nos dira que heroe/monster ataca
-		this.allieAttacking = this.turn % this.allies.team.length;//Actualiza el numero que nos dira que heroe/monster ataca 
+		this.enemyAttacking = this.turn % this.enemys.team.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca
+		this.allieAttacking = this.turn % this.allies.team.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca 
 
-		//FALTA llamadas a los equipos para que a su vez llamen a los heroes.
+		//LLamada a equipos / heroes / habilidades / efectos
 		this.allies.nextTurn(allieAttacking);
 		this.enemys.nextTurn(enemyAttacking);
+
+		//Calculas el actor con mayor aggro.
+		this.allies.updateMaxAggroActor({isAdded:false});
+		this.enemys.updateMaxAggroActor({isAdded:false});
 
 	}
 }

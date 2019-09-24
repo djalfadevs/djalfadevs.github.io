@@ -70,7 +70,7 @@ var testHero4 = new Hero({ID: 4 , name: "IRINA DE AZON" , baseAttack: 700, attac
 		rarity: 5, level: 40 , exp: 1120 , role: "Support"})
 
 //Creamos el equipo y añadimos los heroes
-var testTeam = new Team({team:[],stats:{herosFaction:[0,0,0]},restrictions:{maxHeros:4,maxHerosFaction:[2,1,1]},synergies:[]});
+var testTeam = new Team({team:[],stats:{herosFaction:[0,0,0],aliveActors:0},restrictions:{maxHeros:4,maxHerosFaction:[2,1,1]},synergies:[]});
 //console.log(testTeam);
 testTeam.addMember(testHero);
 //console.log(testTeam);
@@ -93,7 +93,7 @@ testTeam.calculateSynergies();
 //4.1 COMPROBAR SI ES CAPAZ DE HALLAR EL PERSONAJE DE MAYOR AGGRO DE UN TEAM AL AÑADIR 
 
 //Creamos un segundo equipo
-var testTeam2 = new Team({team:[],stats:{herosFaction:[0,0,0]},restrictions:{maxHeros:4,maxHerosFaction:[2,1,1]},synergies:[]});
+var testTeam2 = new Team({team:[],stats:{herosFaction:[0,0,0],aliveActors:0},restrictions:{maxHeros:4,maxHerosFaction:[2,1,1]},synergies:[]});
 
 //Añadimos Heroes
 //console.log(testTeam2);
@@ -113,7 +113,9 @@ console.log(testSimulation);
 //testTeam2.removeMember({pos:0,actor:testHero3});
 
 //4.3 Comprobar si se ordenan correctamente los heroes segun evasion
-testTeam.updateAttackOrder();
+testTeam.updateAttackOrder({newRound:true});
+testTeam2.updateAttackOrder({newRound:true});
 
+testSimulation.simulate({newRound:true});
 })
 

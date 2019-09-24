@@ -205,6 +205,7 @@ class Team {
         this.team = []; //Limpia el equipo
         this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
         this.stats.aliveActors = 0;
+        this.updateMaxAggroActor({isAdded:false})
     }
 
     //Parametros : input.pos -> Posicion del heroe en el array 

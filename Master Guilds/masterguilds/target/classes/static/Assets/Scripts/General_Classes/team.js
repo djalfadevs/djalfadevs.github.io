@@ -14,6 +14,7 @@ objeto{
 	-array numero de heroes por faccion [primera f, segunda f, tercera f] -> .herosFaction
     -referencia al heroe con mayor aggro del equipo -> . maxAggroActor
     -referencia al orden de heroes que debe atacar -> .attackOrder (AUNQUE SEA COMO UNA ESPECIE DE VARIABLE TEAM NOS INTERESA TENERLA SEPARADA EXCLUSIVAMENTE PARA HALLAR QUIEN ATACA)
+    -numero de integrantes vivos -> .aliveActors
 }
 //ANGEL, DEFINE AQUI EL FORMATO QUE TIENEN LOS OBJETOS ADVANTAGE
 Explicacion Formato advantage:
@@ -73,7 +74,10 @@ class Team {
     }
 
     //Funcion auxiliar para actualizar el orden de atacantes que se guarda en la variable (array) this.stats.attackOrder
-    updateAttackOrder(){
+    //Parametros input.newRound -> Diferencia entre true para si se trata de una nueva ronda de ataques
+    //                  y false para si se trata de la muerte de algun miembro del equipo
+    //           input.turn -> le pasas el turno de ataque (en )
+    updateAttackOrder(input){
 
         //HABRIA QUE COMPROBAR SI ESTA MISMA OPERACION SE PUEDE REALIZAR EN this.team SIN QUE SUPONGA ALGUN TIPO DE 
         //MAL FUNCIONAMIENTO PARA OTRAS FUNCIONES 
@@ -83,19 +87,54 @@ class Team {
         //COMPROBAR
 
         //this.stats.attackOrder = [...this.team] //ECS6 CLONE WAY (NO ES UNA REFERENCIA ES UNA COPIA DEL ARRAY); 
-       this.stats.attackOrder = this.team.slice();
-       //Funcion de comparacion.
-       var OrderFunction = function(a,b){
-            if(a.evasion < b.evasion){
-                return 1;
-            }
-            if(a.evasion > b.evasion){
-                return -1;
-            }
-            return 0;
-       }
 
-       this.stats.attackOrder.sort(OrderFunction);
+
+       if(input.newRound){//EN ESTE CASO SE PRODUCE UNA NUEVA RONDA DE ATAQUES
+
+        this.stats.attackOrder = this.team.slice();
+       //DESCARTAMOS AQUELLOS CUYA VIDA ES 0  O MENOS YA QUE SOLO ATACARAN AQUELLOS VIVOS
+       //COMPROBAR si ahora que hemos dividido el comportamiento de la funcion el while es necesario
+            var j = 0;
+            while(j<this.stats.attackOrder.length)
+            {
+                if(this.stats.attackOrder[j].HP <=0){//Muerto
+                 this.stats.attackOrder.splice(j,1);
+                }
+                else{
+                    j++;
+                }
+
+            }
+
+       //Funcion de comparacion.
+        var OrderFunction = function(a,b){
+            if(a.evasion < b.evasion){
+                    return 1;
+                }
+                if(a.evasion > b.evasion){
+                    return -1;
+                }
+                    return 0;
+            }
+
+            this.stats.attackOrder.sort(OrderFunction);
+        }
+        else{ //EN ESTE CASO HA MUERTO UN MIEMBRO DEL EQUIPO
+
+            //BORRA LOS MUERTOS
+            var j = 0;
+            while(j<this.stats.attackOrder.length)
+            {
+                if(this.stats.attackOrder[j].HP <=0 && (j < input.turn)){//Muerto y si ese personaje no habia atacado aun
+                 this.stats.attackOrder.splice(j,1);
+                }
+                else{
+                    j++;
+                }
+
+            }
+
+        }
     }
     //Funcion auxiliar encargada de actualizar la stat que guarda una referencia al actor con mayor aggro del equipo
     //Podria recibir una referencia al actor que ha sido afectado de alguna forma  (sease porque se ha borrado del equipo, se ha añadido al equipo o su vida ha llegado a 0) 
@@ -149,6 +188,7 @@ class Team {
         if (result.canBeAdded) {
             this.team.push(input);
             //Updatea stats
+            this.stats.aliveActors++;
             this.stats.herosFaction[result.nFaction]+=1;
             this.updateMaxAggroActor({actor:input,isAdded:true })
 
@@ -164,6 +204,8 @@ class Team {
     clearTeam() {
         this.team = []; //Limpia el equipo
         this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
+        this.stats.aliveActors = 0;
+        this.updateMaxAggroActor({isAdded:false})
     }
 
     //Parametros : input.pos -> Posicion del heroe en el array 
@@ -175,6 +217,7 @@ class Team {
         this.team.splice(input.pos,1);//Borra el actor del equipo.
 
         //Updatea stats
+        this.stats.aliveActors--;
         this.stats.herosFaction[nFac]-=1;
         this.updateMaxAggroActor({actor:input.actor ,isAdded:false })
 
@@ -248,7 +291,7 @@ class Team {
 
         //Despues de actualizar todas los actores (stats) . Si se da el caso de que se vaya a iniciar una nueva ronda de ataques , entonces se recalcula el orden en el que deben atacar los actores de un equipo
         if(input==0){
-            this.updateAttackOrder();
+            this.updateAttackOrder({newRound:true});
             console.log("Se ha instaurado un nuevo orden de ataque en base a la evasion de los actores")//DEBUG
         }
     }
