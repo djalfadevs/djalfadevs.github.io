@@ -54,8 +54,8 @@ class Simulation {
 	nextTurn(input){
 
 		this.turn ++;//Sube en uno el turno de la simulacion
-		this.enemyAttacking = this.turn % this.enemys.team.length;//Actualiza el numero que nos dira que heroe/monster ataca
-		this.allieAttacking = this.turn % this.allies.team.length;//Actualiza el numero que nos dira que heroe/monster ataca 
+		this.enemyAttacking = this.turn % this.enemys.team.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca
+		this.allieAttacking = this.turn % this.allies.team.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca 
 
 		//FALTA llamadas a los equipos para que a su vez llamen a los heroes.
 		this.allies.nextTurn(allieAttacking);

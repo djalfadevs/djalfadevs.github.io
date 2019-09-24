@@ -73,7 +73,7 @@ class Team {
     }
 
     //Funcion auxiliar para actualizar el orden de atacantes que se guarda en la variable (array) this.stats.attackOrder
-    updateAttackOrder(input){
+    updateAttackOrder(){
 
         //HABRIA QUE COMPROBAR SI ESTA MISMA OPERACION SE PUEDE REALIZAR EN this.team SIN QUE SUPONGA ALGUN TIPO DE 
         //MAL FUNCIONAMIENTO PARA OTRAS FUNCIONES 
@@ -87,10 +87,10 @@ class Team {
        //Funcion de comparacion.
        var OrderFunction = function(a,b){
             if(a.evasion < b.evasion){
-                return -1;
+                return 1;
             }
             if(a.evasion > b.evasion){
-                return 1;
+                return -1;
             }
             return 0;
        }
@@ -239,9 +239,17 @@ class Team {
         }
     }
     
-    nextTurn(){
+    nextTurn(input){
+        //Actualiza los actores de cada equipo.
         for(var j=0; j<this.team.length;j++){
             this.team[j].nextTurn();
+        }
+
+
+        //Despues de actualizar todas los actores (stats) . Si se da el caso de que se vaya a iniciar una nueva ronda de ataques , entonces se recalcula el orden en el que deben atacar los actores de un equipo
+        if(input==0){
+            this.updateAttackOrder();
+            console.log("Se ha instaurado un nuevo orden de ataque en base a la evasion de los actores")//DEBUG
         }
     }
 
