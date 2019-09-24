@@ -58,6 +58,8 @@ class Simulation {
 		this.allieAttacking = this.turn % this.allies.team.length;//Actualiza el numero que nos dira que heroe/monster ataca 
 
 		//FALTA llamadas a los equipos para que a su vez llamen a los heroes.
+		this.allies.nextTurn(allieAttacking);
+		this.enemys.nextTurn(enemyAttacking);
 
 	}
 }

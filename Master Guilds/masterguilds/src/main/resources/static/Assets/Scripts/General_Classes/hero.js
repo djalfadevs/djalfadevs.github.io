@@ -113,7 +113,7 @@ class Hero extends Actor
 	}
 	//CALLBACK 1
 	//Funcion que realiza las actualizaciones de un turno para otro de un heroe
-	//ESTA FUNCION PODRA SER UTILIZADA LO MAS SEGURO DE MANERA QUE ALGUNAS COSAS PUEDAN REALIZARSE MEDIANTE WORKERS O CALLBACKS
+
 
 	
 
@@ -130,7 +130,7 @@ class Hero extends Actor
 		//Actualizar Efectos Activos
 		//Actualiza atributos del jugador cuando llega a 0;
 		//Elimina los efectos que no siguen activos mas 
-		//CALLBACK DE LOS EFECTOS PARA ARREGLAR ATRIBUTOS ???
+		//CALLBACK DE LOS EFECTOS PARA ARREGLAR ATRIBUTOS 
 		var i = 0;
 		while(i < that.activeAbilities.length ){
 			that.activeAbilities[i].nextTurn({that: that ,pos: i,callback: that.fixAttribute,callback2:that.clearEffect});
