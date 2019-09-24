@@ -191,7 +191,7 @@ class Team {
             this.stats.aliveActors++;
             this.stats.herosFaction[result.nFaction]+=1;
             this.updateMaxAggroActor({actor:input,isAdded:true })
-
+            this.updateAttackOrder(newRound:false)
             console.log("Hero added sucesfully")//DEBUG
         }
         else
@@ -219,7 +219,7 @@ class Team {
         this.stats.aliveActors--;
         this.stats.herosFaction[nFac]-=1;
         this.updateMaxAggroActor({actor:input.actor ,isAdded:false })
-
+        this.updateAttackOrder(newRound:false)
         console.log("Hero removed sucesfully")//DEBUG
         
     }
