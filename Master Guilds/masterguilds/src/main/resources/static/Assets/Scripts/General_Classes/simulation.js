@@ -37,8 +37,11 @@ class Simulation {
 	}
     
     //funcion auxiliar para aplicar las habilidades
+    //Parametros: input.charToCheck -> Heroe a comprobar
+    //				input.team -> Equipo 
+
     HabilidadAux(input){
-        newAb=false
+        var newAb=false
         for(var i=0;i<input.charToCheck.abilites;i++){
             if(input.charToCheck.abilities[i].isReady){  
                switch(input.charToCheck.abilities[i].ID){
@@ -86,29 +89,29 @@ class Simulation {
 		if(this.turn % 2 == 0)//El turno es par y te toca atacar a ti
 		{
 			var attackedEnemy = this.enemys.stats.maxAggroActor
-			var attackerAllie = this.allies.stats.attackOrder[allieAttacking];
+			var attackerAllie = this.allies.stats.attackOrder[this.allieAttacking];
             //si se ejecuta una habilidad que no permite atacar tras usarla, se devolvera true y no habra Damage
-            if(!HabilidadAux({attacked:attackedEnemy,team:this.allies,charToCheck:attackerAllie})){
+            if(!this.HabilidadAux({attacked:attackedEnemy,team:this.allies,charToCheck:attackerAllie})){
                var DDamage = attackerAllie.attackPoints({defence:attackedEnemy.defence,evasion:attackedEnemy.evasion});
                attackedEnemy.HP-=DDamage;
             }
 
-            console.log("El aliado " + attackerAllie + "ha atacado a " + attackedEnemy)
-			console.log("Se ha efectuado un daño de " + DDamage);
+            console.log("El aliado " + attackerAllie.name + " ha atacado a " + attackedEnemy.name)
+			//console.log("Se ha efectuado un daño de " + DDamage);
 
 
 		}
 		else // El turno es impar y le toca atacar a tu enemigo
 		{
 			var attackedAllie = this.allies.stats.maxAggroActor // Se determina que aliado es atacado , QUIZA MEJOR DETERMINAR CUANDO MUERA UN ALIADO Y SE PASA BIEN AL CONSTRUCTOR
-			var attackerEnemy = this.allies.stats.attackOrder[enemyAttacking];
+			var attackerEnemy = this.allies.stats.attackOrder[this.enemyAttacking];
             //si se ejecuta una habilidad que no permite atacar tras usarla, se devolvera true y no habra Damage
-            if(!HabilidadAux({attacked:attackedAllie,team:this.enemys,charToCheck:attackerEnemy})){
+            if(!this.HabilidadAux({attacked:attackedAllie,team:this.enemys,charToCheck:attackerEnemy})){
 			var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedEnemy.evasion});
 			attackedAllie.HP-=DDamage;
 
-			console.log("El enemigo " + attackerEnemy + "ha atacado a " + attackedEnemy)
-			console.log("Se ha efectuado un daño de " + DDamage);
+			console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedEnemy.name)
+			//console.log("Se ha efectuado un daño de " + DDamage);
 
 			//FALTA INCLUIR HABILIDADES
 

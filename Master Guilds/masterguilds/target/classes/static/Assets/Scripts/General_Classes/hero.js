@@ -53,6 +53,7 @@ class Hero extends Actor
         for(var i=0;i<that.activeAbilities.length;i++){//IGNORAR DEFENSA
             if(that.activeAbilites[i].ID==4){
                IgnorarDefensa=true
+
             }
             if(that.activeAbilities[i].ID==5){//ROBO DE VIDA
                RoboDeVida=true
@@ -61,13 +62,16 @@ class Hero extends Actor
         
         if((IgnorarDefensa)&&(!RoboDeVida)){ //IgnorarDefensa
            TDamage=that.attack;
+           console.log("IGNORAR DEFENSA SE HA UTILIZADO");//DEBUG
            }
         else if(RoboDeVida){ //Robo de vida
             TDamage=that.baseHP*0.2;  
             that.HP+=that.baseHP*0.2;
+            console.log("ROBO DE VIDA SE HA UTILIZADO");//DEBUG
         }
         else{
             TDamage=(that.attack - (Math.trunc(input.defence / 2)));//Ataque si no hay estos efectos activos
+            console.log("GOLPE NORMAL");//DEBUG
         }
         
 
@@ -97,11 +101,12 @@ class Hero extends Actor
 		//APLICACION DEL CRITICO
 			if(isCritHit()){
 				TDamage *= CritFactor();
+				console.log("!!ES CRITICO!!");//DEBUG
 			}
            }
 		
 		//FIN DE APLICACION DEL CRITICO
-
+		console.log("Total damage "+ TDamage );//DEBUG
 		return TDamage;
 	}
 
