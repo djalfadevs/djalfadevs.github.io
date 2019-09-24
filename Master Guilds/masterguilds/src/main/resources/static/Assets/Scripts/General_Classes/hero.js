@@ -33,7 +33,7 @@ class Hero extends Actor
 	}
 	//Calcula el daño total que recibe el enemigo al que ataca
 	//Sin tener en cuenta aun habilidades activas , la forma normal es Aataque - (Bdefensa/2)
-	//Parametros: input pasa : defence , critFactor , isCritForSure , abilities : IsignoreDefenceActivate
+	//Parametros: input pasa : defence , critFactor , isCritForSure , abilities : IsignoreDefenceActivate , evasion
 	attackPoints(input){
 		//Daño Final aplicado;
 		var TDamage;

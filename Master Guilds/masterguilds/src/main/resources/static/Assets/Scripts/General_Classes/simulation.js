@@ -42,12 +42,24 @@ class Simulation {
 			var attackedEnemy = this.enemys.stats.maxAggroActor
 			var attackerAllie = this.allies.stats.attackOrder[allieAttacking];
 
+			var DDamage = attackerAllie.attackPoints({defence:attackedEnemy.defence,evasion:attackedEnemy.evasion});
+
+			attackedEnemy.HP-=DDamage;
+
+			//FALTA INCLUIR HABILIDADES
+
 
 		}
 		else // El turno es impar y le toca atacar a tu enemigo
 		{
 			var attackedAllie = this.allies.stats.maxAggroActor // Se determina que aliado es atacado , QUIZA MEJOR DETERMINAR CUANDO MUERA UN ALIADO Y SE PASA BIEN AL CONSTRUCTOR
 			var attackerEnemy = this.allies.stats.attackOrder[enemyAttacking];
+
+			var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedEnemy.evasion});
+
+			attackedAllie.HP-=DDamage;
+
+			//FALTA INCLUIR HABILIDADES
 		}
 	} 
 
@@ -57,9 +69,13 @@ class Simulation {
 		this.enemyAttacking = this.turn % this.enemys.team.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca
 		this.allieAttacking = this.turn % this.allies.team.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca 
 
-		//FALTA llamadas a los equipos para que a su vez llamen a los heroes.
+		//LLamada a equipos / heroes / habilidades / efectos
 		this.allies.nextTurn(allieAttacking);
 		this.enemys.nextTurn(enemyAttacking);
+
+		//Calculas el actor con mayor aggro.
+		this.allies.updateMaxAggroActor({isAdded:false});
+		this.enemys.updateMaxAggroActor({isAdded:false});
 
 	}
 }

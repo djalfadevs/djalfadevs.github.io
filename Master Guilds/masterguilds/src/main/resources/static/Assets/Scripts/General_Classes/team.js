@@ -290,7 +290,7 @@ class Team {
 
         //Despues de actualizar todas los actores (stats) . Si se da el caso de que se vaya a iniciar una nueva ronda de ataques , entonces se recalcula el orden en el que deben atacar los actores de un equipo
         if(input==0){
-            this.updateAttackOrder(true);
+            this.updateAttackOrder({newRound:true});
             console.log("Se ha instaurado un nuevo orden de ataque en base a la evasion de los actores")//DEBUG
         }
     }
