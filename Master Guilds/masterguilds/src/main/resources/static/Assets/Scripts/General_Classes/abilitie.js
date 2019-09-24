@@ -22,6 +22,7 @@ class Abilitie {
 	}
 
 
+	//Funcion Auxiliar
 	//Lista de IDs : 1-> BuffStats 2-> Health 3->BuffAttack 4->IgnoreDefence 5-> LifeStealing
 	//Activa los Activeabilities de un actor
 	//Quiza en el futuro el metodo sea para un conjunto de actores que se pasen

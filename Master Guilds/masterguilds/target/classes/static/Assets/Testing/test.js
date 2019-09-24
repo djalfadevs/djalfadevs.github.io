@@ -110,6 +110,10 @@ var testSimulation = new Simulation({allies:testTeam,enemys:testTeam2,turn:0,ene
 console.log(testSimulation);
 
 //4.2 COMPROBAR LO MISMO AL BORRAR
-testTeam2.removeMember({pos:0,actor:testHero3});
+//testTeam2.removeMember({pos:0,actor:testHero3});
+
+//4.3 Comprobar si se ordenan correctamente los heroes segun evasion
+testTeam.updateAttackOrder();
+
 })
 
