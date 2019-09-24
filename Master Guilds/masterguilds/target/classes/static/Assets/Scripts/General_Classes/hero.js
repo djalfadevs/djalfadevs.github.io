@@ -39,7 +39,11 @@ class Hero extends Actor
 		var TDamage;
 		var that = this;
 
-		//IGNORAR DEFENSA Y ROBO DE VIDA
+        if(Math.random<=input.evasion/9999){
+           TDamage=0;
+           }
+        else{
+           //IGNORAR DEFENSA Y ROBO DE VIDA
         
         var IgnorarDefensa=false;
         
@@ -94,6 +98,8 @@ class Hero extends Actor
 			if(isCritHit()){
 				TDamage *= CritFactor();
 			}
+           }
+		
 		//FIN DE APLICACION DEL CRITICO
 
 		return TDamage;
@@ -135,7 +141,11 @@ class Hero extends Actor
 
  	//Resetea todos los atributos a su valor base.
 	resetToBaseAttribValue(){
-
+        this.attack=this.baseAttack;
+        this.defence=this.baseDefence;
+        this.evasion=this.baseEvasion;
+        this.HP=this.baseHP;
+        this.crit_hit_chance=this.base_crit_hit_chance;
 	} 	
 
 }

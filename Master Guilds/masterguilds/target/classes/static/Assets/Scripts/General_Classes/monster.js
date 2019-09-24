@@ -16,20 +16,41 @@ class Monster extends Actor
 
 	//Calcula el daño total que recibe el enemigo al que ataca
 	attackPoints(input){
-		//BASADO EN EL DE HEROE , ALGUNOS COMENTARIOS PUEDEN NO SER DESCRIPTIVOS EN ESTE CASO
-		//FALTA ADAPTAR EL MODELO PARA QUE TENGA EN CUENTA POSIBLES HABILIDADES 
 		//Daño Final aplicado;
 		var TDamage;
 		var that = this;
-		//IGNORAR DEFENSA O NO
-		if(activeAbilities.IgnoreDefence.isActive){// Si esta activo el bufo de ignorar defensa
-			TDamage = that.attack;
-		}
-		else
-		{
-			TDamage = (that.attack - (Math.trunc(input.defence / 2)));
-		}
-		//FIN DE IGNORAR DEFENSA O NO	
+
+        if(Math.random<=input.evasion/9999){
+           TDamage=0;
+           }
+        else{
+           //IGNORAR DEFENSA Y ROBO DE VIDA
+        
+        var IgnorarDefensa=false;
+        
+        var RoboDeVida=false;
+        
+        //COMPRUEBA SI ESTA ACTIVA IGNORAR DEFENSA Y ROBO DE VIDA
+        for(var i=0;i<that.activeAbilities.length;i++){//IGNORAR DEFENSA
+            if(that.activeAbilites[i].ID==4){
+               IgnorarDefensa=true
+            }
+            if(that.activeAbilities[i].ID==5){//ROBO DE VIDA
+               RoboDeVida=true
+            }
+        }
+        
+        if((IgnorarDefensa)&&(!RoboDeVida)){ //IgnorarDefensa
+           TDamage=that.attack;
+           }
+        else if(RoboDeVida){ //Robo de vida
+            TDamage=that.baseHP*0.2;  
+            that.HP+=that.baseHP*0.2;
+        }
+        else{
+            TDamage=(that.attack - (Math.trunc(input.defence / 2)));//Ataque si no hay estos efectos activos
+        }
+        
 
 		//CALCULO DE CRITICO	
 			//Funcion anonima para calcular un bool de si se produce un critico o no
@@ -58,10 +79,13 @@ class Monster extends Actor
 			if(isCritHit()){
 				TDamage *= CritFactor();
 			}
+           }
+		
 		//FIN DE APLICACION DEL CRITICO
 
 		return TDamage;
 	}
+
 
 	//Funcion que realiza las actualizaciones de un turno para otro de un mounstro
 	nextTurn(){
