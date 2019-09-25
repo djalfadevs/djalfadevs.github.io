@@ -131,6 +131,8 @@ class Simulation {
     	this.resetToBaseAttribValue();
     	this.allies.clearTeam();
     	this.enemys.clearTeam();
+    	this.allies=null;
+    	this.enemys=null;
     	this.turn=0;
     	this.enemyAttacking=0;
     	this.allieAttacking=0;
