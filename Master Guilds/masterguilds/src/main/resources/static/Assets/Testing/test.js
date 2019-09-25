@@ -2,9 +2,11 @@
 //En este js se realizaran varias pruebas de testeo con el fin de comprobar que ciertos metodos , constructores funcionan adecuadamente
 $(document).ready( function () {
 
+/*
+
 var testAbilitie = new Abilitie({ID: 1 , name: "BUFFSTATS III" , baseActiveTurns: 3 , baseChargeTurns: 7 ,
  description: "Erase una vez una prueba", remainChargeTurns: 7 , isReady: true,effectFunction:effectFunctionList1})
-
+*/
 //console.log(testAbilitie.isReady);
 
 /*
@@ -16,15 +18,16 @@ setTimeout(function(){
 */
 
 //Pone la habilidad lista
-for(var i = 0; i<8; i++){
+//for(var i = 0; i<8; i++){
 	//testAbilitie.nextTurn();
-}
+//}
 
 //testAbilitie.nextTurn();
 //console.log(testAbilitie.isReady.toString())
 
 
 //PRUEBA 2 CREAR HERO
+/*
 var testHero = new Hero({ID: 1 , name: "PRUEBA" , baseAttack: 100, attack: 100, baseDefence: 100,
 		defence: 100, baseHP: 100,HP: 100,base_crit_hit_chance: 0.20,
 		crit_hit_chance: 0.20 ,description: "Erase una vez en Test",evasion: 50,baseEvasion: 50,
@@ -117,5 +120,16 @@ testTeam.updateAttackOrder({newRound:true});
 testTeam2.updateAttackOrder({newRound:true});
 
 testSimulation.simulate({newRound:true});
+*/
+
+
+//-----------------------------------------------------------------------------------------------//
+//A PARTIR DE ESTE PUNTO LAS PRUEBAS ESTAN REALIZADAS USANDO SIMULACION / TEAM Y ALGUNOS ACTORES 
+//DE FORMA CORRECTA COMO PARTE DEL JUEGO (GAME)
+//-----------------------------------------------------------------------------------------------//
+
+//PRUEBA 5 REALIZACION DE DIVERSAS PRUEBAS CON SIMULATION
+
+
 })
 

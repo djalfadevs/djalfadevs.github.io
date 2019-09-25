@@ -86,11 +86,6 @@ class Monster extends Actor
 		return TDamage;
 	}
 
-    resetToBaseAttribValue(){
-    	for(var j=0;this.team.length;j++){
-    		this.team[j].resetToBaseAttribValue();
-    	}
-    }
 	//Funcion que realiza las actualizaciones de un turno para otro de un mounstro
 	nextTurn(){
 		console.log("Another turn for Monster " + this.name);//DEBUG
@@ -111,6 +106,14 @@ class Monster extends Actor
 			i++;
 		}
 	}
+
+	resetToBaseAttribValue(){
+    	this.attack=this.baseAttack;
+        this.defence=this.baseDefence;
+        this.evasion=this.baseEvasion;
+        this.HP=this.baseHP;
+        this.crit_hit_chance=this.base_crit_hit_chance;
+    }
 }
 
 //var a = new Monster({ID:24});//Debug

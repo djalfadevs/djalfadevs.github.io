@@ -119,23 +119,7 @@ class Simulation {
 
 		}
 	} 
-	
-    resetSimulation(){
-    	//reseteamos los valores de los equipos y de los heroes
-    	this.allies.resetToBaseAttribValue();
-    	this.enemys.resetToBaseAttribValue();
-
-    	//Dejamos todos los valores de la simulacion listos para tener otros valores. Asi cuando se vaya que realizar
-    	//una nueva simulacion , si estos no se han establecido se produciran errores de lectura y no de tener valores que no son
-    	this.turn=0;
-    	this.enemyAttacking=0;
-    	this.allieAttacking=0;
-		this.log = null //Log de la simulacion
-		this.lastMovement = null // Ultimo movimiento de la simulacion
-		this.escenario = null 
-    }
-    
-    
+	 
 	nextTurn(input){
 
 		this.turn ++;//Sube en uno el turno de la simulacion
@@ -151,4 +135,19 @@ class Simulation {
 		this.enemys.updateMaxAggroActor({isAdded:false});
 
 	}
+
+	resetSimulation(){
+    	//reseteamos los valores de los equipos y de los heroes
+    	this.allies.resetToBaseAttribValue();
+    	this.enemys.resetToBaseAttribValue();
+
+    	//Dejamos todos los valores de la simulacion listos para tener otros valores. Asi cuando se vaya que realizar
+    	//una nueva simulacion , si estos no se han establecido se produciran errores de lectura y no de tener valores que no son
+    	this.turn=0;
+    	this.enemyAttacking=0;
+    	this.allieAttacking=0;
+		this.log = null //Log de la simulacion
+		this.lastMovement = null // Ultimo movimiento de la simulacion
+		this.escenario = null 
+    }
 }

@@ -47,6 +47,7 @@ class Team {
                     return 2;
                     break;
                 default:
+                    return -1;
             }
         }
     
@@ -65,7 +66,9 @@ class Team {
         //Comprueba si el numero de heroes de determinada faccion no ha superado el de las restricciones
         var i = this.getNumberOfFaction(input.faction); //i debe ser hallado a partir del input.actor es decir del heroe q se introduce MODIFICAR
 
-        if (this.restrictions.maxHerosFaction[i] < this.stats.herosFaction[i] + 1) { //Tanto en restrictions como en stats el array sigue el mismo orden de faccion
+        //Tanto en restrictions como en stats el array sigue el mismo orden de faccion
+        //Se contempla tambien el caso de que sea un mounstro que no tiene faccion
+        if (this.restrictions.maxHerosFaction[i] < this.stats.herosFaction[i] + 1 || i==-1) { 
             canBeAdded = false
         }
 
@@ -189,7 +192,10 @@ class Team {
             this.team.push(input);
             //Updatea stats
             this.stats.aliveActors++;
-            this.stats.herosFaction[result.nFaction]+=1;
+            //Se pone el caso del if para tener en cuenta a los monster que no tienen faccion alguna
+            if(result.nFaction!=-1){
+                 this.stats.herosFaction[result.nFaction]+=1;
+            }
             this.updateMaxAggroActor({actor:input,isAdded:true })
             this.updateAttackOrder({newRound:true})
             console.log("Hero added sucesfully")//DEBUG
@@ -208,9 +214,12 @@ class Team {
         
         this.team.splice(input.pos,1);//Borra el actor del equipo.
 
-        //Updatea stats
+        //Updatea stats//
         this.stats.aliveActors--;
-        this.stats.herosFaction[nFac]-=1;
+        //El if es para distinguir de aquellos monster que no tengan faccion
+        if(nFac!=-1){
+            this.stats.herosFaction[nFac]-=1;
+        }
         this.updateMaxAggroActor({actor:input.actor ,isAdded:false })
         this.updateAttackOrder({newRound:true})
         console.log("Hero removed sucesfully")//DEBUG
@@ -284,13 +293,14 @@ class Team {
         //Limpia las stats
         this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
         this.stats.aliveActors = 0;
-        this.stats.maxAggroActor=null;
+        this.stats.maxAggroActor = null;
+        this.stats.attackOrder = null;
 
         //Limpia las restricciones
-        this.restrictions = null;
+        this.restrictions = {maxHeros:0,maxHerosFaction:[0,0,0]};
 
         //Limpia las sinergias
-        this.synergies = null;
+        this.synergies = [];
     }
     
     nextTurn(input){
