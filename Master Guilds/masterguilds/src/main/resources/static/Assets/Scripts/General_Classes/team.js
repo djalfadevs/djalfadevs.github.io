@@ -200,11 +200,6 @@ class Team {
         }
     }
 
-    //Vacia el equipo // 
-    clearTeam() {
-        this.team = []; //Limpia el equipo
-    }
-
     //Parametros : input.pos -> Posicion del heroe en el array 
     //             input.actor -> Heroe
     //MODIFICAR PARA QUE SEA MAS ACCESIBLE DE USAR (MENOS PARAMETROS DE ENTRADA / O SE PASA POS O ACTOR PERO NO AMBOS)
@@ -283,9 +278,19 @@ class Team {
     	for(var j=0;this.team.length;j++){
     		this.team[j].resetToBaseAttribValue();
     	}
+
+        this.team = []; //Limpia el equipo
+
+        //Limpia las stats
         this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
         this.stats.aliveActors = 0;
         this.stats.maxAggroActor=null;
+
+        //Limpia las restricciones
+        this.restrictions = null;
+
+        //Limpia las sinergias
+        this.synergies = null;
     }
     
     nextTurn(input){
