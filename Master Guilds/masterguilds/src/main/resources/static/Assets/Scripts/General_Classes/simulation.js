@@ -120,6 +120,25 @@ class Simulation {
 		}
 	} 
 
+    resetToBaseAttribValue(){
+    	this.allies.resetToBaseAttribValue();
+    	this.enemys.resetToBaseAttribValue();
+    	
+    }
+	
+	
+    clearTeam(){
+    	this.resetToBaseAttribValue();
+    	this.allies.clearTeam();
+    	this.enemys.clearTeam();
+    	this.turn=0;
+    	this.enemyAttacking=0;
+    	this.allieAttacking=0;
+		this.log = null //Log de la simulacion
+		this.lastMovement = null // Ultimo movimiento de la simulacion
+    }
+    
+    
 	nextTurn(input){
 
 		this.turn ++;//Sube en uno el turno de la simulacion

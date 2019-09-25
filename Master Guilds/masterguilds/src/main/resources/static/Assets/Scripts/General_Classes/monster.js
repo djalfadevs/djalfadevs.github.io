@@ -86,10 +86,30 @@ class Monster extends Actor
 		return TDamage;
 	}
 
-
+    resetToBaseAttribValue(){
+    	for(var j=0;this.team.length;j++){
+    		this.team[j].resetToBaseAttribValue();
+    	}
+    }
 	//Funcion que realiza las actualizaciones de un turno para otro de un mounstro
 	nextTurn(){
+		console.log("Another turn for Monster " + this.name);//DEBUG
+		//Actualizar lo relacionado con las Habilidades (cooldown y si esta lista o no)
+		var that = this;
+		for(var i = 0; i < that.abilities.length ; i++){
+			that.abilities[i].nextTurn();
+		}
+		////
 
+		//Actualizar Efectos Activos
+		//Actualiza atributos del jugador cuando llega a 0;
+		//Elimina los efectos que no siguen activos mas 
+		//CALLBACK DE LOS EFECTOS PARA ARREGLAR ATRIBUTOS 
+		var i = 0;
+		while(i < that.activeAbilities.length ){
+			that.activeAbilities[i].nextTurn({that: that ,pos: i,callback: that.fixAttribute,callback2:that.clearEffect});
+			i++;
+		}
 	}
 }
 

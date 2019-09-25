@@ -282,6 +282,14 @@ class Team {
         }
     }
     
+    resetToBaseAttribValue(){
+    	for(var j=0;this.team.length;j++){
+    		this.team[j].resetToBaseAttribValue();
+    	}
+        this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
+        this.stats.aliveActors = 0;
+    }
+    
     nextTurn(input){
         //Actualiza los actores de cada equipo.
         for(var j=0; j<this.team.length;j++){
