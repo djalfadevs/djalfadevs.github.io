@@ -123,12 +123,12 @@ class Simulation {
 	nextTurn(input){
 
 		this.turn ++;//Sube en uno el turno de la simulacion
-		this.enemyAttacking = this.turn % this.enemys.team.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca
-		this.allieAttacking = this.turn % this.allies.team.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca 
+		this.enemyAttacking = this.turn % this.enemys.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca
+		this.allieAttacking = this.turn % this.allies.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca 
 
 		//LLamada a equipos / heroes / habilidades / efectos
-		this.allies.nextTurn(allieAttacking);
-		this.enemys.nextTurn(enemyAttacking);
+		this.allies.nextTurn(this.allieAttacking);
+		this.enemys.nextTurn(this.enemyAttacking);
 
 		//Calculas el actor con mayor aggro.
 		this.allies.updateMaxAggroActor({isAdded:false});

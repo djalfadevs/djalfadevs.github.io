@@ -2,7 +2,7 @@
 //Configuracion del juego para Phaser
 //La parte de scale se ha definido para que el canvas funcione de forma responsive
 
-window.onload = function(){ //Para que haya cargado la ventana
+//window.onload = function(){ //Para que haya cargado la ventana
 
 	var config = {
 	type: Phaser.AUTO,
@@ -50,7 +50,8 @@ window.onload = function(){ //Para que haya cargado la ventana
 				stats:{herosFaction:[0,0,0],aliveActors:0},
 					//Por otro lado 
 					//tendriamos la variable .attackOrder Y .maxAggroActor que ahora mismo serian undefined
-				restrictions:{maxHeros:0,maxHerosFaction:[0,0,0]},synergies:[]}),
+				restrictions:{maxHeros:0,maxHerosFaction:[0,0,0]},
+				synergies:[]}),
 			enemys:new Team({ //Se llama al constructor de Team
 				//El constructor de Team utiliza solo los valores que se le pasan como input
 				//Por tanto tendra los valores inicializados como se describe a continuacion
@@ -60,14 +61,15 @@ window.onload = function(){ //Para que haya cargado la ventana
 				stats:{herosFaction:[0,0,0],aliveActors:0},
 					//Por otro lado 
 					//tendriamos la variable .attackOrder Y .maxAggroActor que ahora mismo serian undefined
-				restrictions:{maxHeros:0,maxHerosFaction:[0,0,0]},synergies:[]})
+				restrictions:{maxHeros:0,maxHerosFaction:[0,0,0]},
+				synergies:[]})
 			//No pasamos .escenario por tanto sera undefined su valor
 			//Por otro lado .enemyAttacking y .allieAttacking se ponen a 0 en el constructor
 			//.log y .lastmovement se ponen a null en el constructor 
-		});,  
+		}),  
 		misions: null,
-		store: null,
+		store: null
 	}
-}
+//}
 
 

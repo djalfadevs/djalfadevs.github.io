@@ -206,13 +206,20 @@ class Team {
         }
     }
 
-    //Parametros : input.pos -> Posicion del heroe en el array 
-    //             input.actor -> Heroe
-    //MODIFICAR PARA QUE SEA MAS ACCESIBLE DE USAR (MENOS PARAMETROS DE ENTRADA / O SE PASA POS O ACTOR PERO NO AMBOS)
+    //Parametros : 
+    //             input -> Heroe
     removeMember(input){
-        var nFac = this.getNumberOfFaction(input.actor.faction)//Devuelve el numero de la faccion a la que pertenece
+        var nFac = this.getNumberOfFaction(input.faction)//Devuelve el numero de la faccion a la que pertenece
         
-        this.team.splice(input.pos,1);//Borra el actor del equipo.
+        //Halla la posicion del actor
+        var posAux;
+        for(var j = 0; j< this.team.length ; j++){
+            if(this.team[j]===input){
+                posAux=j;
+            }
+        }
+
+        this.team.splice(posAux,1);//Borra el actor del equipo.
 
         //Updatea stats//
         this.stats.aliveActors--;
@@ -220,7 +227,7 @@ class Team {
         if(nFac!=-1){
             this.stats.herosFaction[nFac]-=1;
         }
-        this.updateMaxAggroActor({actor:input.actor ,isAdded:false })
+        this.updateMaxAggroActor({actor:input ,isAdded:false })
         this.updateAttackOrder({newRound:true})
         console.log("Hero removed sucesfully")//DEBUG
         
@@ -316,6 +323,9 @@ class Team {
             console.log("Se ha instaurado un nuevo orden de ataque en base a la evasion de los actores")//DEBUG
         }
     }
-
+    //Parametros el input es un objeto de tipo restriction
+    setRestrictions(input){
+        this.restrictions = input;
+    }
 
 }
