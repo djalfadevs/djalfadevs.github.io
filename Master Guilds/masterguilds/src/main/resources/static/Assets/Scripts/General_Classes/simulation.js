@@ -42,8 +42,10 @@ class Simulation {
 
     HabilidadAux(input){
         var newAb=false
-        for(var i=0;i<input.charToCheck.abilities.length;i++){
-            if(input.charToCheck.abilities[i].isReady){  
+        var i=0
+        var stop=false
+        while((i<input.charToCheck.abilities.length)&&(!stop)){
+              if(input.charToCheck.abilities[i].isReady){  
                switch(input.charToCheck.abilities[i].ID){
                        //CASO 1 Y 3, BUSCAMOS UN OBJETIVO ALEATORIO PARA MEJORAR SUS ESTADISTICAS, DESPUES DE ESTO, NO VA A ATACAR, POR LO QUE PONEMOS NEWAB A TRUE
                       case 1:
@@ -73,6 +75,10 @@ class Simulation {
                       default:
                       break;
                 }
+                  stop=true
+            }
+            else{
+                i++
             }
         }
         return newAb
