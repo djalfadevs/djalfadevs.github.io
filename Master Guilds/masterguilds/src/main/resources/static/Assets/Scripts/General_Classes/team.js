@@ -219,13 +219,15 @@ class Team {
             }
         }
 
-        this.team.splice(posAux,1);//Borra el actor del equipo.
+        if(posAux!= undefined){
+            this.team.splice(posAux,1);//Borra el actor del equipo.
 
-        //Updatea stats//
-        this.stats.aliveActors--;
-        //El if es para distinguir de aquellos monster que no tengan faccion
-        if(nFac!=-1){
-            this.stats.herosFaction[nFac]-=1;
+            //Updatea stats//
+            this.stats.aliveActors--;
+            //El if es para distinguir de aquellos monster que no tengan faccion
+            if(nFac!=-1){
+                this.stats.herosFaction[nFac]-=1;
+            }
         }
         this.updateMaxAggroActor({actor:input ,isAdded:false })
         this.updateAttackOrder({newRound:true})

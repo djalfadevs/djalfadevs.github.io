@@ -163,8 +163,8 @@ var testHero4 = new Hero({ID: 4 , name: "IRINA DE AZON" , baseAttack: 700, attac
 
 //Ponemos nuevas restricciones al equipo
 game.global.simulation.allies.setRestrictions({maxHeros:4,maxHerosFaction:[2,2,2]});
+game.global.simulation.enemys.setRestrictions({maxHeros:4,maxHerosFaction:[2,2,2]});
 
-//añadimos nuevos jugadores a un equipo
 
 /*
 //FALTA PROBAR PARA UN ACTOR TIPO MONSTER
@@ -177,22 +177,27 @@ game.global.simulation.allies.setRestrictions({maxHeros:4,maxHerosFaction:[2,2,2
 		  a la normalidad // Habilidad disponible de nuevo -> resultado: FAVORABLE
 	5.2.7 Comprobar cambio de ordenacion por cambio en valores de evasion en el equipo -> resultado: FAVORABLE
 	5.2.8 Comprobar cambio de MaxAggroActor al añadir / borrar heroe. -> resultado: FAVORABLE
-	5.2.9 Comprobar cambio de MaxAggroActor si ha muerto el personaje de mas aggro. -> resultado: 
+	5.2.9 Comprobar cambio de MaxAggroActor si ha muerto el personaje de mas aggro. -> resultado: TEORICAMENTE FAVORABLE (EXPLICADO EN SIMULATION)
+	5.2.10 Probamos el metodo simulate que deberia realizar un turno (ataque de un alido/enemigo determinado por el orden
+	dado por evasion al enemigo con mas aggro / otra opcion esq realice una habilidad en ese turno)->resultado: 
+	
+	)
 */
 
 game.global.simulation.allies.addMember(testHero);
 game.global.simulation.allies.addMember(testHero4);
-game.global.simulation.allies.addMember(testHero3);
-game.global.simulation.allies.addMember(testHero2);
+game.global.simulation.enemys.addMember(testHero3);
+game.global.simulation.enemys.addMember(testHero2);
 game.global.simulation.allies.removeMember(testHero4);
 game.global.simulation.allies.calculateSynergies();
 
-
+game.global.simulation.simulate();
+/*
 game.global.simulation.nextTurn();
 game.global.simulation.nextTurn();
 game.global.simulation.nextTurn();
 game.global.simulation.allies.team[0].abilities[0].useAbilitie(testHero3);
 game.global.simulation.nextTurn();
-
+*/
 })
 
