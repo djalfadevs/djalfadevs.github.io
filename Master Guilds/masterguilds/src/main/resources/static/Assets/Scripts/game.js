@@ -14,7 +14,7 @@
 	},
 	autoRound: false,
 	//De momento solo hay una escena de prueba
-	scene: [TestScene,SimulationScene]
+	scene: [SimulationScene]
 };
 
 	var game = new Phaser.Game(config);

@@ -48,6 +48,7 @@ class Simulation {
               if(input.charToCheck.abilities[i].isReady){  
                switch(input.charToCheck.abilities[i].ID){
                        //CASO 1 Y 3, BUSCAMOS UN OBJETIVO ALEATORIO PARA MEJORAR SUS ESTADISTICAS, DESPUES DE ESTO, NO VA A ATACAR, POR LO QUE PONEMOS NEWAB A TRUE
+                       //EL OBJETIVO ALEATORIO ESTA DENTRO DEL EQUIPO DEL QUE LO LANZA
                       case 1:
                       case 3:
                        var target=Math.floor(Math.random() * input.team.team.length);
@@ -85,13 +86,9 @@ class Simulation {
     }
     
     
-	//Realiza una iteracion en la simulación (Combate principalmente)
+	//Realiza una iteracion en la simulación (Es decir un alido/enemigo ataca o lanza habilidad a un alido/enemigo)
 	simulate(input){
 		
-
-			
-
-
 		if(this.turn % 2 == 0)//El turno es par y te toca atacar a ti
 		{
 			var attackedEnemy = this.enemys.stats.maxAggroActor
@@ -101,6 +98,9 @@ class Simulation {
                var DDamage = attackerAllie.attackPoints({defence:attackedEnemy.defence,evasion:attackedEnemy.evasion});
                attackedEnemy.HP-=DDamage;
                console.log("El aliado " + attackerAllie.name + " ha atacado a " + attackedEnemy.name)
+            }
+            else{
+            	console.log("El aliado " + attackerAllie.name + " lanzo una habilidad " )
             }
 
            
@@ -118,6 +118,9 @@ class Simulation {
 				attackedAllie.HP-=DDamage;
 				console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedEnemy.name)
 			//console.log("Se ha efectuado un daño de " + DDamage);
+            }
+            else{
+            	console.log("El enemigo " + attackerEnemy.name + " lanzo una habilidad ")
             }
 
 		}

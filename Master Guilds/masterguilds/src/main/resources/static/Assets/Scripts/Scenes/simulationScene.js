@@ -8,18 +8,37 @@ class SimulationScene extends Phaser.Scene
 {
 	constructor () {
 		super({key: 'SimulationScene', active:true})
+		this.extend = 
+			{
+			pauseButton:null,
+			cards:null
+			texts:null
+			
+			}
 
 	}
 
 	preload(){
-
+		this.load.image('pause','Assets/Testing/pause.png');
 	}
 
 	create(){
-		
+		extend.pauseButton = this.add.sprite(100,100,'pause')
+		.setInteractive()
+		.on('pointerdown',()=>{console.log("Has pulsado el boton de PAUSA")})
+
+		var camera = this.cameras.main;
+		camera.zoomTo(2,5000);
+		camera.pan(50,50,5000);
+
+		var cameraBattleFunction = function(){
+
+		}
 	}
 
 	update(){
 
 	}
 }
+
+var pintarCarta
