@@ -1,0 +1,21 @@
+23/09/2019
+
+ACTA DE SESIÓN DE TRABAJO 2
+
+--Propuesta de modelo de caja de herramientas: Consenso entre todos los miembros y aceptación.
+
+--Propuesta de concepts de UI entre el equipo de arte y el Game Designer: Selección de los modelos
+		escogidos y comienzo del desarrollo de estos con más profundidad.
+
+--Aclaraciones del equipo de programación sobre los progresos realizados hasta ahora en la parte de cliente.
+
+--Comienzo de la ideación de los sonidos del juego:
+		-Ataque
+		-Hechizo
+		-Movimiento en el menú
+		-Seleccionar en el menú
+		-Volver atras en el menú
+		-Spawn de personajes
+		-Muerte de personajes
+		-Desbloquear/Comprar/Encantar personajes
+		-Desencantar/Vender personajes
