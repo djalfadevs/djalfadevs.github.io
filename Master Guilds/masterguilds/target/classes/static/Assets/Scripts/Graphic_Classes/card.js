@@ -7,10 +7,10 @@ var Card = new Phaser.Class({
 		this.y = y;
 		
 		//Imagen de la carta de personaje
-		this.HeroSprite = scene.add.sprite(x,y,'gabriela').setScale(0.1,0.1);
+		this.HeroSprite = scene.add.sprite(0,0,this.hero.image_url).setScale(0.1,0.1);
 
 		//Rectangulo con la barra de vida se dibujo antes que el marco de la vida
-		this.lifeRect = scene.add.rectangle(x,y-100,100,20,100);
+		this.lifeRect = scene.add.rectangle(0,0-100,100,20,100);
 		
 		//Marco de la vida
 		//this.lifeBarSprite = scene.add.sprite(x,y-100,'pause');
@@ -19,10 +19,13 @@ var Card = new Phaser.Class({
 		this.buffSprites = [];
 
 		//USAR CONTAINER SI TENEMOS QUE TENER UN ORDEN DE RENDERIZADO 
-		this.cardContainer = scene.add.container(x,y,[this.HeroSprite,this.lifeRect]);
+		this.cardContainer = scene.add.container(0,0,[this.HeroSprite,this.lifeRect]);
+		this.cardContainer.setPosition(x,y)
 
 		
 	},
+	//MODIFICAR habra que fijar una posicion donde todas las cartas se vayan a posicionar
+	//Y lo que se hace esq se muevan hacia esa posicion todos en un tiempo fijado (puede depender de la distancia ?)
 	//Devuelve la carta a su posicion original
 	returnMoveAnimation(input){
 		var that = this;
@@ -87,7 +90,7 @@ var Card = new Phaser.Class({
 			duration: 200,
 			onComplete: function(){
 				//Puede que PROBLEMA porque no se haya creado aun el texto en escena ????
-				DamageText = that.scene.add.text(that.cardContainer.x+200,that.cardContainer.y+50,'Damage test')
+				DamageText = that.scene.add.text(that.cardContainer.x+20,that.cardContainer.y+50,'Damage test')
 				DamageTextTween();
 			}
 		})

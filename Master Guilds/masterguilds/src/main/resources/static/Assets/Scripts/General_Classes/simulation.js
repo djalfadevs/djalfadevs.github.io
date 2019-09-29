@@ -141,12 +141,12 @@ class Simulation {
       this.log[this.turn].ally = attackedAllie;
       this.log[this.turn].enemy = attackerEnemy;
             //si se ejecuta una habilidad que no permite atacar tras usarla, se devolvera true y no habra Damage
-            if(!this.HabilidadAux({attacked:attackedAllie,team:this.enemys,charToCheck:attackerEnemy})){
-				var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedEnemy.evasion});
-				attackedAllie.HP-=DDamage;
-				console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedEnemy.name)
-        this.log[this.turn].TDamage = DDamage;
-			//console.log("Se ha efectuado un daño de " + DDamage);
+        if(!this.HabilidadAux({attacked:attackedAllie,team:this.enemys,charToCheck:attackerEnemy})){
+				  var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedEnemy.evasion});
+				  attackedAllie.HP-=DDamage;
+				  console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedEnemy.name)
+          this.log[this.turn].TDamage = DDamage;
+			   //console.log("Se ha efectuado un daño de " + DDamage);
             }
             else{
             	console.log("El enemigo " + attackerEnemy.name + " lanzo una habilidad ")

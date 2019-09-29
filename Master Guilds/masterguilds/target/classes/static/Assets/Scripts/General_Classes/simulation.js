@@ -10,6 +10,20 @@ cada turno se va sumando uno hasta llegar al maximo que volveria a 0
 a partir de esto, ese numero sirve para coger una referencia que esta en team.stats.attackOrder
 */
 
+/*
+Objetos Log -> Para poder replicar los resultados de la simulacion en la parte visual necesitamos cierta informacion
+Esta informacion que se produce DURANTE la simulacion como por ejemplo si se ataca o lanza habilidad
+no es recogida por nuestras clases team o hero , por tanto es responsabilidad de simulation guardarla para poder despues 
+replicar un apartado visual de esta.
+
+Log{
+  -isPhysicalHit -> Si es true es un golpe normal , mientras que en cambio si se trata de una habilidad sera false; -> isPhysicalHit
+  -Enemigo -> referencia al enemigo a traves de la cual podremos hallar la carta enemiga que la refleja -> enemy
+  -Aliado -> referencia al aliado a traves de la cual podremos hallar la carta aliada que la refleja _> ally
+}
+
+ADEMAS GUARDAREMOS UN LOG POR TURNO DE FORMA QUE PODAMOS TENER UN REGISTRO
+*/
 class Simulation {
 	constructor(simulation){
 		//Toda la informacion relacionada con el escenario , desde aquellas ventajas (si las hay) que proporciona hasta imagenes 
@@ -31,7 +45,7 @@ class Simulation {
 		//Determina el aliado de tu equipo al que le toca atacar // Es un numero que da la posicion de un array 
 		this.allieAttacking = 0;
 		
-		this.log = null //Log de la simulacion
+		this.log = [] //Log de la simulacion ,
 		this.lastMovement = null // Ultimo movimiento de la simulacion
 
 	}
@@ -88,19 +102,31 @@ class Simulation {
     
 	//Realiza una iteracion en la simulación (Es decir un alido/enemigo ataca o lanza habilidad a un alido/enemigo)
 	simulate(input){
-		
+
+		this.log.push({isPhysicalHit:true});//NUEVO TURNO EN EL LOG , es golpe fisico esta predeterminado
+
 		if(this.turn % 2 == 0)//El turno es par y te toca atacar a ti
 		{
 			var attackedEnemy = this.enemys.stats.maxAggroActor
 			var attackerAllie = this.allies.stats.attackOrder[this.allieAttacking];
+
+      //Log info
+      this.log[this.turn].ally = attackerAllie;
+      this.log[this.turn].enemy = attackedEnemy;
             //si se ejecuta una habilidad que no permite atacar tras usarla, se devolvera true y no habra Damage
             if(!this.HabilidadAux({attacked:attackedEnemy,team:this.allies,charToCheck:attackerAllie})){
                var DDamage = attackerAllie.attackPoints({defence:attackedEnemy.defence,evasion:attackedEnemy.evasion});
                attackedEnemy.HP-=DDamage;
                console.log("El aliado " + attackerAllie.name + " ha atacado a " + attackedEnemy.name)
+
+               //Log Info
+               this.log[this.turn].TDamage = DDamage;
             }
             else{
             	console.log("El aliado " + attackerAllie.name + " lanzo una habilidad " )
+
+              //Log Info
+              this.log[this.turn].isPhysicalHit=false;
             }
 
            
@@ -112,15 +138,19 @@ class Simulation {
 		{
 			var attackedAllie = this.allies.stats.maxAggroActor // Se determina que aliado es atacado , QUIZA MEJOR DETERMINAR CUANDO MUERA UN ALIADO Y SE PASA BIEN AL CONSTRUCTOR
 			var attackerEnemy = this.allies.stats.attackOrder[this.enemyAttacking];
+      this.log[this.turn].ally = attackedAllie;
+      this.log[this.turn].enemy = attackerEnemy;
             //si se ejecuta una habilidad que no permite atacar tras usarla, se devolvera true y no habra Damage
-            if(!this.HabilidadAux({attacked:attackedAllie,team:this.enemys,charToCheck:attackerEnemy})){
-				var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedEnemy.evasion});
-				attackedAllie.HP-=DDamage;
-				console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedEnemy.name)
-			//console.log("Se ha efectuado un daño de " + DDamage);
+        if(!this.HabilidadAux({attacked:attackedAllie,team:this.enemys,charToCheck:attackerEnemy})){
+				  var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedEnemy.evasion});
+				  attackedAllie.HP-=DDamage;
+				  console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedEnemy.name)
+          this.log[this.turn].TDamage = DDamage;
+			   //console.log("Se ha efectuado un daño de " + DDamage);
             }
             else{
             	console.log("El enemigo " + attackerEnemy.name + " lanzo una habilidad ")
+              this.log[this.turn].isPhysicalHit=false;
             }
 
 		}
@@ -155,7 +185,7 @@ class Simulation {
     	this.turn=0;
     	this.enemyAttacking=0;
     	this.allieAttacking=0;
-		this.log = null //Log de la simulacion
+		this.log = [] //Log de la simulacion
 		this.lastMovement = null // Ultimo movimiento de la simulacion
 		this.escenario = null 
     }
