@@ -39,6 +39,7 @@ var effectFunctionList1 = function(input){
 						input.actor.defence-=input.effect.appliedValues[1];
 						input.actor.crit_hit_chance-=input.effect.appliedValues[2];
 						input.actor.evasion-=input.effect.appliedValues[3];
+						console.log("Se han revertido los puntos sumados por el efecto 1")//DEBUG
 					}
 }
 
@@ -63,10 +64,11 @@ var effectFunctionList3 = function(input){
 						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
 
 						input.actor.attack+=riseValue;//Se aplica la subida del ataque
-						console.log("HP improve " + input.actor.baseHP);
+						console.log("Attack improve " + riseValue);
 					}
 					else
 					{
 						input.actor.attack-=input.effect.appliedValues[0];
+						console.log("Se han revertido los puntos sumados por el efecto 3")//DEBUG
 					}
 }

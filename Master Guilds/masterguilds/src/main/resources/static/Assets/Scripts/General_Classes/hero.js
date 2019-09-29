@@ -71,6 +71,8 @@ class Hero extends Actor
         }
         else{
             TDamage=(that.attack - (Math.trunc(input.defence / 2)));//Ataque si no hay estos efectos activos
+            if(TDamage<50)
+            	TDamage = 50; //Daño minimo realizado
             console.log("GOLPE NORMAL");//DEBUG
         }
         

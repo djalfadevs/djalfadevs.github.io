@@ -8,18 +8,50 @@ class SimulationScene extends Phaser.Scene
 {
 	constructor () {
 		super({key: 'SimulationScene', active:true})
+		this.extend = 
+			{
+			pauseButton:null,
+			cards:null,
+			texts:null
+			
+			}
 
 	}
 
 	preload(){
-
+		this.load.image('background','Assets/Testing/background.jpg')
+		this.load.image('pause','Assets/Testing/pause.png');
+		this.load.image('gabriela','Assets/Testing/gabriela.png');
+		this.load.image('buff','Assets/Testing/buff.png');
 	}
 
 	create(){
-		
+		//Fondo de batalla
+		var background = this.add.sprite(512,384,'background');
+
+		//this.extend.pauseButton = this.add.sprite(100,100,'pause')
+		//.setInteractive()
+		//.on('pointerdown',()=>{console.log("Has pulsado el boton de PAUSA")})
+
+		var camera = this.cameras.main;
+		//camera.zoomTo(2,5000);
+		//camera.pan(50,50,5000);
+
+		var cameraBattleFunction = function(){
+
+		}
+
+		var testCard = new Card(this,200,200,testHero2);
+
+		//testCard.attackAnimation();
+		testCard.attackAnimation();
+		testCard.updateLifeBarAnimation();
+
 	}
 
 	update(){
 
 	}
 }
+
+var pintarCarta

@@ -47,6 +47,7 @@ class Team {
                     return 2;
                     break;
                 default:
+                    return -1;
             }
         }
     
@@ -65,7 +66,9 @@ class Team {
         //Comprueba si el numero de heroes de determinada faccion no ha superado el de las restricciones
         var i = this.getNumberOfFaction(input.faction); //i debe ser hallado a partir del input.actor es decir del heroe q se introduce MODIFICAR
 
-        if (this.restrictions.maxHerosFaction[i] < this.stats.herosFaction[i] + 1) { //Tanto en restrictions como en stats el array sigue el mismo orden de faccion
+        //Tanto en restrictions como en stats el array sigue el mismo orden de faccion
+        //Se contempla tambien el caso de que sea un mounstro que no tiene faccion
+        if (this.restrictions.maxHerosFaction[i] < this.stats.herosFaction[i] + 1 || i==-1) { 
             canBeAdded = false
         }
 
@@ -189,7 +192,10 @@ class Team {
             this.team.push(input);
             //Updatea stats
             this.stats.aliveActors++;
-            this.stats.herosFaction[result.nFaction]+=1;
+            //Se pone el caso del if para tener en cuenta a los monster que no tienen faccion alguna
+            if(result.nFaction!=-1){
+                 this.stats.herosFaction[result.nFaction]+=1;
+            }
             this.updateMaxAggroActor({actor:input,isAdded:true })
             this.updateAttackOrder({newRound:true})
             console.log("Hero added sucesfully")//DEBUG
@@ -200,26 +206,30 @@ class Team {
         }
     }
 
-    //Vacia el equipo // 
-    clearTeam() {
-        this.team = []; //Limpia el equipo
-        this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
-        this.stats.aliveActors = 0;
-        this.updateMaxAggroActor({isAdded:false})
-    }
-
-    //Parametros : input.pos -> Posicion del heroe en el array 
-    //             input.actor -> Heroe
-    //MODIFICAR PARA QUE SEA MAS ACCESIBLE DE USAR (MENOS PARAMETROS DE ENTRADA / O SE PASA POS O ACTOR PERO NO AMBOS)
+    //Parametros : 
+    //             input -> Heroe
     removeMember(input){
-        var nFac = this.getNumberOfFaction(input.actor.faction)//Devuelve el numero de la faccion a la que pertenece
+        var nFac = this.getNumberOfFaction(input.faction)//Devuelve el numero de la faccion a la que pertenece
         
-        this.team.splice(input.pos,1);//Borra el actor del equipo.
+        //Halla la posicion del actor
+        var posAux;
+        for(var j = 0; j< this.team.length ; j++){
+            if(this.team[j]===input){
+                posAux=j;
+            }
+        }
 
-        //Updatea stats
-        this.stats.aliveActors--;
-        this.stats.herosFaction[nFac]-=1;
-        this.updateMaxAggroActor({actor:input.actor ,isAdded:false })
+        if(posAux!= undefined){
+            this.team.splice(posAux,1);//Borra el actor del equipo.
+
+            //Updatea stats//
+            this.stats.aliveActors--;
+            //El if es para distinguir de aquellos monster que no tengan faccion
+            if(nFac!=-1){
+                this.stats.herosFaction[nFac]-=1;
+            }
+        }
+        this.updateMaxAggroActor({actor:input ,isAdded:false })
         this.updateAttackOrder({newRound:true})
         console.log("Hero removed sucesfully")//DEBUG
         
@@ -282,6 +292,26 @@ class Team {
         }
     }
     
+    resetToBaseAttribValue(){
+    	for(var j=0;this.team.length;j++){
+    		this.team[j].resetToBaseAttribValue();
+    	}
+
+        this.team = []; //Limpia el equipo
+
+        //Limpia las stats
+        this.stats.herosFaction = [0,0,0];//Limpia las stats de heroes por faccion
+        this.stats.aliveActors = 0;
+        this.stats.maxAggroActor = null;
+        this.stats.attackOrder = null;
+
+        //Limpia las restricciones
+        this.restrictions = {maxHeros:0,maxHerosFaction:[0,0,0]};
+
+        //Limpia las sinergias
+        this.synergies = [];
+    }
+    
     nextTurn(input){
         //Actualiza los actores de cada equipo.
         for(var j=0; j<this.team.length;j++){
@@ -295,6 +325,9 @@ class Team {
             console.log("Se ha instaurado un nuevo orden de ataque en base a la evasion de los actores")//DEBUG
         }
     }
-
+    //Parametros el input es un objeto de tipo restriction
+    setRestrictions(input){
+        this.restrictions = input;
+    }
 
 }

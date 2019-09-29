@@ -1,5 +1,6 @@
 
 //En este js se realizaran varias pruebas de testeo con el fin de comprobar que ciertos metodos , constructores funcionan adecuadamente
+var testHero2;//DEBUG
 $(document).ready( function () {
 
 /*
@@ -135,7 +136,7 @@ console.log(game.global.simulation)
 
 //5.2 AÑADIMOS JUGADORES 
 var testAbilitie = new Abilitie({ID: 1 , name: "BUFFSTATS III" , baseActiveTurns: 3 , baseChargeTurns: 7 ,
- description: "Erase una vez una prueba", remainChargeTurns: 7 , isReady: true,effectFunction:effectFunctionList1})
+ description: "Erase una vez una prueba", remainChargeTurns: 7 , isReady: false,effectFunction:effectFunctionList1})
 
 var testHero = new Hero({ID: 1 , name: "PRUEBA" , baseAttack: 100, attack: 100, baseDefence: 100,
 		defence: 100, baseHP: 100,HP: 100,base_crit_hit_chance: 0.20,
@@ -143,7 +144,7 @@ var testHero = new Hero({ID: 1 , name: "PRUEBA" , baseAttack: 100, attack: 100, 
 		abilities: [testAbilitie], image_url: "url" , activeAbilities: [] , baseAggro:100, aggro: 100 , faction: "Azon",
 		rarity: 3, level: 20 , exp: 1000 , role: "useless only info provide by attack and defence"})
 
-var testHero2 = new Hero({ID: 2 , name: "ARINAMI" , baseAttack: 450, attack: 450, baseDefence: 300,
+testHero2 = new Hero({ID: 2 , name: "ARINAMI" , baseAttack: 450, attack: 450, baseDefence: 300,
 		defence: 300, baseHP: 1020,HP: 1020,base_crit_hit_chance: 0.20,
 		crit_hit_chance: 0.20 ,description: "ARINAMI DE LAS PRUEBAS",evasion: 504,baseEvasion: 504,
 		abilities: [testAbilitie], image_url: "url2" , activeAbilities: [] ,baseAggro:670, aggro: 670 , faction: "Ferten",
