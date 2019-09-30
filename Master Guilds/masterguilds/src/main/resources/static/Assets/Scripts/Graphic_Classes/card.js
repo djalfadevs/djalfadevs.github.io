@@ -10,7 +10,8 @@ var Card = new Phaser.Class({
 		this.HeroSprite = scene.add.sprite(0,0,this.hero.image_url).setScale(0.1,0.1);
 
 		//Rectangulo con la barra de vida se dibujo antes que el marco de la vida
-		this.lifeRect = scene.add.rectangle(0,0-100,100,20,100);
+
+		this.lifeRect = scene.add.rectangle(0,0-100,100,20,6422272);
 		
 		//Marco de la vida
 		//this.lifeBarSprite = scene.add.sprite(x,y-100,'pause');

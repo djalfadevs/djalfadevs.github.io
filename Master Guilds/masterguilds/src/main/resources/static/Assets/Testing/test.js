@@ -162,9 +162,15 @@ var testHero4 = new Hero({ID: 4 , name: "IRINA DE AZON" , baseAttack: 700, attac
 		abilities: [testAbilitie], image_url: "ezna" , activeAbilities: [] ,baseAggro:4000, aggro: 4000 , faction: "Azon",
 		rarity: 5, level: 40 , exp: 1120 , role: "Support"})
 
+var testHero5 = new Hero({ID: 5 , name: "IRINA DE AZON" , baseAttack: 700, attack: 700, baseDefence: 200,
+		defence: 200, baseHP: 800,HP: 800,base_crit_hit_chance: 0.25,
+		crit_hit_chance: 0.25 ,description: "ARINAMI DE LAS PRUEBAS",evasion: 650,baseEvasion: 650,
+		abilities: [testAbilitie], image_url: "ezna" , activeAbilities: [] ,baseAggro:4000, aggro: 4000 , faction: "Azon",
+		rarity: 5, level: 40 , exp: 1120 , role: "Support"})
+
 //Ponemos nuevas restricciones al equipo
-game.global.simulation.allies.setRestrictions({maxHeros:4,maxHerosFaction:[2,2,2]});
-game.global.simulation.enemys.setRestrictions({maxHeros:4,maxHerosFaction:[2,2,2]});
+game.global.simulation.allies.setRestrictions({maxHeros:4,maxHerosFaction:[3,3,3]});
+game.global.simulation.enemys.setRestrictions({maxHeros:4,maxHerosFaction:[3,3,3]});
 
 
 /*
@@ -189,6 +195,8 @@ game.global.simulation.allies.addMember(testHero);
 game.global.simulation.allies.addMember(testHero4);
 game.global.simulation.enemys.addMember(testHero3);
 game.global.simulation.enemys.addMember(testHero2);
+//game.global.simulation.enemys.addMember(testHero2);
+//game.global.simulation.allies.addMember(testHero5);
 //game.global.simulation.allies.removeMember(testHero4);
 game.global.simulation.allies.calculateSynergies();
 

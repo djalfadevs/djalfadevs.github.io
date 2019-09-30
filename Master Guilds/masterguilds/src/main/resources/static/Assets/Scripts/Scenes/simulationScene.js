@@ -53,7 +53,7 @@ class SimulationScene extends Phaser.Scene
 
 		//Crear las cartas a partir de los personajes de ambos equipos.
 		for(var j = 0; j<simulation.allies.team.length; j++){
-			this.extend.cards.allies[j] = new Card(this,600+j*200,200,simulation.allies.team[j])
+			this.extend.cards.allies[j] = new Card(this,800+j*200,200,simulation.allies.team[j])
 		}
 
 		for(var i = 0; i<simulation.enemys.team.length; i++){
@@ -62,11 +62,11 @@ class SimulationScene extends Phaser.Scene
 
 	
 
-
+		
 		//var testCard = new Card(this,200,200,testHero2);
 
-		this.extend.cards.allies[0].attackAnimation();
-		this.extend.cards.enemies[0].attackAnimation();
+		//this.extend.cards.allies[0].attackAnimation();//DEBUG
+		//this.extend.cards.enemies[0].attackAnimation();//DEBUG
 		//testCard.updateLifeBarAnimation();
 
 	}
