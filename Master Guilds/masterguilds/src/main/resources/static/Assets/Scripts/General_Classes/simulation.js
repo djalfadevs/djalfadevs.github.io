@@ -118,7 +118,7 @@ class Simulation {
                var DDamage = attackerAllie.attackPoints({defence:attackedEnemy.defence,evasion:attackedEnemy.evasion});
                attackedEnemy.HP-=DDamage;
                console.log("El aliado " + attackerAllie.name + " ha atacado a " + attackedEnemy.name)
-
+               this.log[this.turn].TDamage = DDamage;
                //CASO ESPECIAL (RECOLOCAR ORDEN DE ATAQUE SI EL HEROE MUERE)
                if(attackedEnemy.HP<=0){
                   attackedEnemy.HP=0
@@ -127,7 +127,7 @@ class Simulation {
                }
 
                //Log Info
-               this.log[this.turn].TDamage = DDamage;
+              
             }
             else{
             	//console.log("El aliado " + attackerAllie.name + " lanzo una habilidad " )
@@ -165,7 +165,7 @@ class Simulation {
 
             }
             else{
-            	console.log("El enemigo " + attackerEnemy.name + " lanzo una habilidad ")
+            	//console.log("El enemigo " + attackerEnemy.name + " lanzo una habilidad ")
               this.log[this.turn].isPhysicalHit=false;
             }
 
