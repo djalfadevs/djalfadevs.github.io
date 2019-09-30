@@ -83,7 +83,7 @@ var Card = new Phaser.Class({
 			duration: 1000,
 			onComplete: function(){
 				DamageText.destroy(); 
-				console.log("Now text DAMAGE is destroy ")//DEBUG
+				//console.log("Now text DAMAGE is destroy ")//DEBUG
 
 				//Vuelve a la posicion inicial de rotacion
 				that.scene.tweens.add({

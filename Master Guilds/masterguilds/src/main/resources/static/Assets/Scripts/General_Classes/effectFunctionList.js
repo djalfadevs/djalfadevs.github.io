@@ -9,28 +9,28 @@ var effectFunctionList1 = function(input){
 						var riseValue = input.actor.attack * appliedValue; //Valor exacto en el que aumenta el ataque
 						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
 						input.actor.attack+=riseValue;//Se aplica la subida del ataque
-						console.log("ATTACK improve "+ riseValue);//DEBUG
+						//console.log("ATTACK improve "+ riseValue);//DEBUG
 						//FIN DE ATAQUE
 
 						//DEFENSA
 						riseValue = input.actor.defence * appliedValue; //Valor exacto en el que aumenta el defensa
 						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
 						input.actor.defence+=riseValue;//Se aplica la subida del defensa
-						console.log("DEFENCE improve "+ riseValue);//DEBUG
+						//console.log("DEFENCE improve "+ riseValue);//DEBUG
 						//FIN DE DEFENSA
 
 						//CRITICO
 						riseValue = input.actor.crit_hit_chance * appliedValue; //Valor exacto en el que aumenta el critico
 						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
 						input.actor.crit_hit_chance+=riseValue;//Se aplica la subida del critico
-						console.log("CRIT_HIT_CHANCE improve "+ riseValue);//DEBUG
+						//console.log("CRIT_HIT_CHANCE improve "+ riseValue);//DEBUG
 						//FIN DE CRITICO
 
 						//EVASION
 						riseValue = input.actor.evasion * appliedValue; //Valor exacto en el que aumenta el evasion
 						input.effect.appliedValues.push(riseValue);//Guardamos este valor para poder deshacerlo mas facilmente despues
 						input.actor.evasion+=riseValue;//Se aplica la subida del evasion
-						console.log("EVASION improve "+ riseValue);//DEBUG
+						//console.log("EVASION improve "+ riseValue);//DEBUG
 						//FIN DE EVASION
 					}
 					else //SE DESCARTA

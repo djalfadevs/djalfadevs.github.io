@@ -119,11 +119,18 @@ class Simulation {
                attackedEnemy.HP-=DDamage;
                console.log("El aliado " + attackerAllie.name + " ha atacado a " + attackedEnemy.name)
 
+               //CASO ESPECIAL (RECOLOCAR ORDEN DE ATAQUE SI EL HEROE MUERE)
+               if(attackedEnemy.HP<=0){
+                  attackedEnemy.HP=0
+                  this.enemys.stats.aliveActors--;
+                  this.enemys.updateAttackOrder({newRound:false,turn:this.enemyAttacking})
+               }
+
                //Log Info
                this.log[this.turn].TDamage = DDamage;
             }
             else{
-            	console.log("El aliado " + attackerAllie.name + " lanzo una habilidad " )
+            	//console.log("El aliado " + attackerAllie.name + " lanzo una habilidad " )
 
               //Log Info
               this.log[this.turn].isPhysicalHit=false;
@@ -142,11 +149,20 @@ class Simulation {
       this.log[this.turn].enemy = attackerEnemy;
             //si se ejecuta una habilidad que no permite atacar tras usarla, se devolvera true y no habra Damage
         if(!this.HabilidadAux({attacked:attackedAllie,team:this.enemys,charToCheck:attackerEnemy})){
-				  var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedAllie.evasion});
-				  attackedAllie.HP-=DDamage;
-				  console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedAllie.name)
-          this.log[this.turn].TDamage = DDamage;
-			   //console.log("Se ha efectuado un daño de " + DDamage);
+				    var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedAllie.evasion});
+				    attackedAllie.HP-=DDamage;
+				    console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedAllie.name)
+            this.log[this.turn].TDamage = DDamage;
+			     //console.log("Se ha efectuado un daño de " + DDamage);
+
+             //CASO ESPECIAL (RECOLOCAR ORDEN DE ATAQUE SI EL HEROE MUERE)
+               if(attackedAllie.HP<=0){
+                  attackedAllie.HP=0
+                  this.allies.stats.aliveActors--;
+                  this.allies.updateAttackOrder({newRound:false,turn:this.allieAttacking})
+
+               }
+
             }
             else{
             	console.log("El enemigo " + attackerEnemy.name + " lanzo una habilidad ")
@@ -160,8 +176,16 @@ class Simulation {
 
    return new Promise(resolve=>{
           this.turn ++;//Sube en uno el turno de la simulacion
-          this.enemyAttacking = this.turn % this.enemys.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca
-          this.allieAttacking = this.turn % this.allies.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca 
+
+          if(this.turn%2 == 0){
+            this.allieAttacking +=1;//Actualiza el numero que nos dira que heroe/monster ataca 
+            this.allieAttacking = this.allieAttacking % this.allies.stats.aliveActors
+          }
+          else
+          {
+            this.enemyAttacking +=1;
+            this.enemyAttacking = this.enemyAttacking % this.enemys.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca
+          }
 
           //LLamada a equipos / heroes / habilidades / efectos
           this.allies.nextTurn(this.allieAttacking);
