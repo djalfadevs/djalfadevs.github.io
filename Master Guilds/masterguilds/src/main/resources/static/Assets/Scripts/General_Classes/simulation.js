@@ -137,14 +137,14 @@ class Simulation {
 		else // El turno es impar y le toca atacar a tu enemigo
 		{
 			var attackedAllie = this.allies.stats.maxAggroActor // Se determina que aliado es atacado , QUIZA MEJOR DETERMINAR CUANDO MUERA UN ALIADO Y SE PASA BIEN AL CONSTRUCTOR
-			var attackerEnemy = this.allies.stats.attackOrder[this.enemyAttacking];
+			var attackerEnemy = this.enemys.stats.attackOrder[this.enemyAttacking];
       this.log[this.turn].ally = attackedAllie;
       this.log[this.turn].enemy = attackerEnemy;
             //si se ejecuta una habilidad que no permite atacar tras usarla, se devolvera true y no habra Damage
         if(!this.HabilidadAux({attacked:attackedAllie,team:this.enemys,charToCheck:attackerEnemy})){
-				  var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedEnemy.evasion});
+				  var DDamage = attackerEnemy.attackPoints({defence:attackedAllie.defence,evasion:attackedAllie.evasion});
 				  attackedAllie.HP-=DDamage;
-				  console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedEnemy.name)
+				  console.log("El enemigo " + attackerEnemy.name + " ha atacado a " + attackedAllie.name)
           this.log[this.turn].TDamage = DDamage;
 			   //console.log("Se ha efectuado un daño de " + DDamage);
             }
@@ -158,20 +158,24 @@ class Simulation {
 	 
 	nextTurn(input){
 
-		this.turn ++;//Sube en uno el turno de la simulacion
-		this.enemyAttacking = this.turn % this.enemys.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca
-		this.allieAttacking = this.turn % this.allies.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca 
+   return new Promise(resolve=>{
+          this.turn ++;//Sube en uno el turno de la simulacion
+          this.enemyAttacking = this.turn % this.enemys.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca
+          this.allieAttacking = this.turn % this.allies.stats.aliveActors;//Actualiza el numero que nos dira que heroe/monster ataca 
 
-		//LLamada a equipos / heroes / habilidades / efectos
-		this.allies.nextTurn(this.allieAttacking);
-		this.enemys.nextTurn(this.enemyAttacking);
+          //LLamada a equipos / heroes / habilidades / efectos
+          this.allies.nextTurn(this.allieAttacking);
+          this.enemys.nextTurn(this.enemyAttacking);
 
-		//Calculas el actor con mayor aggro.
-		//Al llamarlo al finalizar el turno nos ahorramos tener que llamarlo en algun tipo de callback
-		//cuando la vida de un aliado o enemigo
-		//Es cierto que es menos eficiente pero menos lioso 
-		this.allies.updateMaxAggroActor({isAdded:false});
-		this.enemys.updateMaxAggroActor({isAdded:false});
+          //Calculas el actor con mayor aggro.
+          //Al llamarlo al finalizar el turno nos ahorramos tener que llamarlo en algun tipo de callback
+          //cuando la vida de un aliado o enemigo
+          //Es cierto que es menos eficiente pero menos lioso 
+          this.allies.updateMaxAggroActor({isAdded:false});
+          this.enemys.updateMaxAggroActor({isAdded:false});
+          resolve();
+    })
+
 
 	}
 

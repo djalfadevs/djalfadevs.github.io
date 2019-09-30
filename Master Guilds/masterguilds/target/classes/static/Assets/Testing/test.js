@@ -136,7 +136,7 @@ console.log(game.global.simulation)
 
 //5.2 AÑADIMOS JUGADORES 
 var testAbilitie = new Abilitie({ID: 1 , name: "BUFFSTATS III" , baseActiveTurns: 3 , baseChargeTurns: 7 ,
- description: "Erase una vez una prueba", remainChargeTurns: 7 , isReady: true,effectFunction:effectFunctionList1})
+ description: "Erase una vez una prueba", remainChargeTurns: 7 , isReady: false,effectFunction:effectFunctionList1})
 
 var testHero = new Hero({ID: 1 , name: "PRUEBA" , baseAttack: 100, attack: 100, baseDefence: 100,
 		defence: 100, baseHP: 100,HP: 100,base_crit_hit_chance: 0.20,
@@ -196,11 +196,11 @@ game.global.simulation.allies.addMember(testHero4);
 game.global.simulation.enemys.addMember(testHero3);
 game.global.simulation.enemys.addMember(testHero2);
 //game.global.simulation.enemys.addMember(testHero2);
-//game.global.simulation.allies.addMember(testHero5);
+game.global.simulation.allies.addMember(testHero5);
 //game.global.simulation.allies.removeMember(testHero4);
 game.global.simulation.allies.calculateSynergies();
 
-game.global.simulation.simulate();
+//game.global.simulation.simulate();
 /*
 game.global.simulation.nextTurn();
 game.global.simulation.nextTurn();

@@ -30,14 +30,18 @@ var Card = new Phaser.Class({
 	//Devuelve la carta a su posicion original
 	returnMoveAnimation(input){
 		var that = this;
-		this.scene.tweens.add({
+		return new Promise(resolve=>{
+			that.scene.tweens.add({
 			targets: that.cardContainer,
 			x: that.cardContainer.x-200,
 			y: that.cardContainer.y-100,
 			scale: that.cardContainer.scale*2/3,
 			duration:3000,
+			onComplete: function(){
+					resolve();
+				}
+			})
 		})
-
 	},
 	//Parametros 
 	//			 input-> Mejor si se le pasa la posicion de donde ataca ?
@@ -45,16 +49,20 @@ var Card = new Phaser.Class({
 
 		var that = this;
 
-
-		//Desplazamos el container que tiene la carta y la barra de vida
-		this.scene.tweens.add({
-			targets: that.cardContainer,
-			x: that.cardContainer.x+200,
-			y: that.cardContainer.y+100,
-			scale: that.cardContainer.scale*1.5,
-			duration:3000,
-			onComplete: that.returnMoveAnimation.bind(that)
+		return new Promise(resolve=>{
+				//Desplazamos el container que tiene la carta y la barra de vida
+			that.scene.tweens.add({
+				targets: that.cardContainer,
+				x: that.cardContainer.x+200,
+				y: that.cardContainer.y+100,
+				scale: that.cardContainer.scale*1.5,
+				duration:3000,
+				onComplete: function(){
+					resolve();
+				}
+			})
 		})
+	
 
 	},
 
@@ -62,10 +70,12 @@ var Card = new Phaser.Class({
 	//Debe recibir el daño que se ha hecho 
 	//La parte de vida la gestiona cada carta propiamente aparte
 	//FALTA HACER QUE REALMENTE SE REALICEN UNA TRAS OTRA (ASINCRONO)
+	//MODIFICACION : QUIZA ATTACK ANIMATION DEBERIA LLAMAR AL UPDATELIFEBAR DEL ENEMIGO EN CIERTO PUNTO
 	attackAnimation(input){
 		var that = this;
 		var DamageText;
-		var DamageTextTween = function(){
+
+		var DamageTextTween = function(resolve){
 			that.scene.tweens.add({
 			targets: DamageText,
 			y: DamageText.y-30,
@@ -79,23 +89,27 @@ var Card = new Phaser.Class({
 				that.scene.tweens.add({
 				targets: that.HeroSprite,
 				angle: that.HeroSprite.angle-20,
-				duration: 200,
+				duration: 2000,
+				onComplete: function(){resolve();}
 				})
 			}
 		})
 		}
-		//Primero realiza el giro del sprite y al terminar lanza el texto con el daño , despues vuelve a la rotacion base.
-		this.scene.tweens.add({
-			targets: that.HeroSprite,
-			angle: that.HeroSprite.angle+20,
-			duration: 200,
-			onComplete: function(){
+
+		return new Promise(resolve=>{
+				//Primero realiza el giro del sprite y al terminar lanza el texto con el daño , despues vuelve a la rotacion base.
+			that.scene.tweens.add({
+				targets: that.HeroSprite,
+				angle: that.HeroSprite.angle+20,
+				duration: 2000,
+				onComplete: function(){
 				//Puede que PROBLEMA porque no se haya creado aun el texto en escena ????
 				DamageText = that.scene.add.text(that.cardContainer.x+20,that.cardContainer.y+50,'Damage test')
-				DamageTextTween();
-			}
+				DamageTextTween(resolve);
+				}
+			})
 		})
-		//FALTA HACER QUE VUELVA AL ANGULO ORIGINAL
+
 		
 		//var DamageText = await this.scene.add.text(that.cardContainer.x+200,that.cardContainer.y+50,'Damage test')
 		
@@ -103,9 +117,12 @@ var Card = new Phaser.Class({
 	//Realiza la animacion de la habilidad
 	//Parametros input-> Se pasa que habilidad se usa ? (Misma animacion para todas ?)
 	//Se crea un sprite que realiza una animacion
-	useAbilitieAnimation(input){
+	useAbilityAnimation(input){
 		var that = this;
 
+		return new Promise(resolve=>{
+			resolve();
+		})
 	},
 
 	//Parametros input-> Se le debe pasar algun tipo de info para que sepa que buff debe poner
@@ -123,12 +140,14 @@ var Card = new Phaser.Class({
 	//a la vida q tiene el heroe en ese momento
 	updateLifeBarAnimation(input){
 		var that = this;
-
-			this.scene.tweens.add({
+		return new Promise(resolve=>{
+			that.scene.tweens.add({
 			targets: that.lifeRect,
 			width: (that.lifeRect.width*that.hero.HP)/that.hero.baseHP,
 			duration: 500,
-		})
+			onComplete: function(){resolve();}
+			})
+		})	
 	}
 
 

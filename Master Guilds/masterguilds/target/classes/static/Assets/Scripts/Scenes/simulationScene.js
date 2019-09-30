@@ -36,6 +36,7 @@ class SimulationScene extends Phaser.Scene
 	}
 
 	create(){
+		var that = this;
 		//Inicializacion de variables propias
 		this.extend.cards = {allies: [], enemies: []}
 
@@ -60,9 +61,17 @@ class SimulationScene extends Phaser.Scene
 			this.extend.cards.enemies[i] = new Card(this,200+i*200,200,simulation.enemys.team[i])
 		}
 
-	
-
+		var auxSimulationFunct = async function(){
+			var i = 0;
+		while(i<15){
+			await that.simulation();
+			i++;
+			}
+		}
 		
+		auxSimulationFunct();
+			
+
 		//var testCard = new Card(this,200,200,testHero2);
 
 		//this.extend.cards.allies[0].attackAnimation();//DEBUG
@@ -74,7 +83,104 @@ class SimulationScene extends Phaser.Scene
 	update(){
 
 	}
+
+	async simulation(){
+
+		return new Promise(resolve =>{
+				var simulation = game.global.simulation;//Realiza un turno de la simulacion
+				simulation.simulate();
+				
+				//Hasta que no acabe no pinta (aqui no hay problema porque no hay nada asincrono).
+				this.pintar()
+				.then(()=>{simulation.nextTurn();})
+				.then(()=>resolve());
+				//Hasta que no termine de pintar no puede cambiar de turno
+				
+
+		})
 	
+	}
+	
+	pintar(){
+
+		return new Promise(resolve =>{
+			var simulation = game.global.simulation;
+			var turnlog = simulation.log[simulation.turn];
+			var allyCard;
+			var enemyCard;
+
+		//Hasta que no acabe la animacion de ataque o habilidad esto no se puede lanzar
+			var returnFunctionAux = function(){
+				return Promise.all([allyCard.returnMoveAnimation(),enemyCard.returnMoveAnimation()])	
+			}
+
+		//Seleccionamos las dos cartas que van a realizar la accion
+			for(var i = 0 ; i<this.extend.cards.allies.length; i++){
+				if(this.extend.cards.allies[i].hero===turnlog.ally){
+					allyCard = this.extend.cards.allies[i];
+				}
+			}
+
+			for(var j = 0 ; j<this.extend.cards.enemies.length; j++){
+				if(this.extend.cards.enemies[j].hero===turnlog.enemy){
+					enemyCard = this.extend.cards.enemies[j];
+				}
+			}
+
+			Promise.all([allyCard.moveAnimation(),enemyCard.moveAnimation()])
+			.then(()=>{
+			//Hasta que no lleguen ambas cartas al sitio no puede continuar con esto
+			//MODIFICAR QUIZA EL ATTACKANIMATION DE UNA CARTA DEBA LLAMAR AL UPDATELIFEBAR DEL ENEMIGO
+				if(turnlog.isPhysicalHit)//Golpe Fisico
+				{
+					if(simulation.turn % 2 == 0)//Turno par
+					{
+					return allyCard.attackAnimation()
+				/*
+				.then(() => {console.log("Animacion de ataque aliado ")//DEBUG)
+							returnFunctionAux();
+				});
+				*/
+					}
+					else //Turno impar
+					{
+					return enemyCard.attackAnimation()
+				/*
+				.then(() => {console.log("Animacion de ataque enemigo ")//DEBUG)
+							returnFunctionAux();
+				});
+				*/
+					}
+				}
+				else//Habilidad
+				{
+					if(simulation.turn % 2 == 0)//Turno par
+					{
+					return allyCard.useAbilityAnimation()
+				/*
+				.then(() => {console.log("Animacion de habilidad aliado");//DEBUG
+							returnFunctionAux();
+				});
+				*/
+
+					}
+					else //Turno impar
+					{
+				//enemyCard.useAbilityAnimation();
+					return enemyCard.useAbilityAnimation()
+				/*
+				.then(() => {console.log("Animacion de habilidad enemigo");//DEBUG
+							returnFunctionAux();
+				});
+				*/
+					}
+				}
+			})
+			.then(()=>returnFunctionAux())
+			.then(()=>resolve())
+		})
+
+	}
 }
 
 var pintarCarta
