@@ -1,26 +1,43 @@
 package com.djalfadevs.es.masterguilds;
 
+import java.util.List;
+
 import org.springframework.web.socket.WebSocketSession;
 
 public class Player {
 	private final WebSocketSession session;
-	private UserInfo userInfo;
+	private int playerId;
 	
-	public Player (WebSocketSession e, UserInfo u) {
-		this.session = e;
-		this.setUserInfo(u);
+	//USER INFO
+	private UserInfo userinfo;
+	
+	public Player(WebSocketSession session, int playerId) {
+		super();
+		this.session = session;
+		this.playerId = playerId;
 	}
 
-	public UserInfo getUserInfo() {
-		return userInfo;
+	public int getPlayerId() {
+		return playerId;
 	}
 
-	public void setUserInfo(UserInfo userInfo) {
-		this.userInfo = userInfo;
+
+
+	public void setPlayerId(int playerId) {
+		this.playerId = playerId;
 	}
+
 
 	public WebSocketSession getSession() {
 		return session;
+	}
+
+	public UserInfo getUserinfo() {
+		return userinfo;
+	}
+
+	public void setUserinfo(UserInfo userinfo) {
+		this.userinfo = userinfo;
 	}
 	
 	

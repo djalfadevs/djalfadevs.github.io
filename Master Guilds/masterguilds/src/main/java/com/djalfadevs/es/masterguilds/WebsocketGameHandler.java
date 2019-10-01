@@ -1,5 +1,6 @@
 package com.djalfadevs.es.masterguilds;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -16,6 +17,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class WebsocketGameHandler extends TextWebSocketHandler {
 	
+	private Game game = Game.INSTANCE;
+	private AtomicInteger playerId = new AtomicInteger(0);
+	
 	private ObjectMapper mapper = new ObjectMapper();
 	private ObjectMapper json = new ObjectMapper().setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
 	
@@ -29,17 +33,10 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		lockSession.lock();
-		//Player player = new Player(playerId.incrementAndGet(), session);
-		//session.getAttributes().put(PLAYER_ATTRIBUTE, player);
+		Player player = new Player(session, playerId.incrementAndGet());
+		session.getAttributes().put("PLAYER", player);
 		lockSession.unlock();
-		
-		/*
-		ObjectNode msg = mapper.createObjectNode();
-		msg.put("event", "JOIN");
-		msg.put("id", player.getPlayerId());
-		msg.put("shipType", player.getShipType());
-		player.getSession().sendMessage(new TextMessage(msg.toString()));
-		*/
+		game.addPlayer(player);
 		
 	}
 	
@@ -48,10 +45,28 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 		try {
 			JsonNode node = mapper.readTree(message.getPayload());
 			ObjectNode msg = mapper.createObjectNode();
-			//Player player = (Player) session.getAttributes().get(PLAYER_ATTRIBUTE);
+			Player player = (Player) session.getAttributes().get("PLAYER");
 
 			switch (node.get("event").asText()) {
-			
+				case "LOGIN":
+					NamePassword namePassword = new NamePassword(node.get("name").asText(),node.get("password").asText());
+					UserInfo userinfo = game.login(namePassword);
+					
+					if(userinfo != null) {
+						msg.put("event", "SUCCESLOGIN");
+						msg.set("userinfo", mapper.convertValue(userinfo,JsonNode.class));
+						player.getSession().sendMessage(new TextMessage(msg.toString()));
+					}
+					else
+					{
+						msg.put("event", "FAILLOGIN");
+						player.getSession().sendMessage(new TextMessage(msg.toString()));
+					}
+					
+					break;
+				case "SIGNUP":
+					//game.signup();
+					break;
 			default:
 				break;
 			}
@@ -64,8 +79,8 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 	
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		//Player player = (Player) session.getAttributes().get(PLAYER_ATTRIBUTE);
-		//game.removePlayer(player);
+		Player player = (Player) session.getAttributes().get("PLAYER");
+		game.removePlayer(player);
 		
 		/*
 		ObjectNode msg = mapper.createObjectNode();

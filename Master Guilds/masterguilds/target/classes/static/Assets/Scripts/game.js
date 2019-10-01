@@ -68,8 +68,27 @@
 			//.log y .lastmovement se ponen a null en el constructor 
 		}),  
 		misions: null,
-		store: null
+		store: null,
+		socket:null,
 	}
+
+	game.global.socket = new WebSocket("ws://"+location.host+"/mastera");
+
+	game.global.socket.onopen = () => {
+
+	}
+	game.global.socket.onclose = () => {
+
+	}
+
+	game.global.socket.onmessage = (message) => {
+		var msg = JSON.parse(message.data)
+		console.log(msg);
+		switch (msg.event) {
+
+		}
+	}
+
 //}
 
 
