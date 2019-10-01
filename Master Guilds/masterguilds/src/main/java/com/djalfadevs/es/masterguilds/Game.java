@@ -59,10 +59,11 @@ public void broadcast(String message) {
 public UserInfo login(NamePassword namePassword) {
 	lock.lock();//No pueden loguear mas de uno a la vez
 	try {
-		
-		if(!infoUsersUsing.contains(namePassword)) {//Si no esta en uso ese par usuario contraseña
-			infoUsersUsing.add(namePassword);
-			return infoUsers.get(namePassword);
+		if(infoUsers.containsKey(namePassword)) { //Si el par usuario contraseña esta registrado
+			if(!infoUsersUsing.contains(namePassword)) {//Si no esta en uso ese par usuario contraseña
+				infoUsersUsing.add(namePassword);
+				return infoUsers.get(namePassword);
+			}
 		}
 	}catch(Throwable ex){
 		ex.printStackTrace(System.err);
@@ -71,5 +72,32 @@ public UserInfo login(NamePassword namePassword) {
 	return null;
 	
 }
+
+public boolean signup(NamePassword namePassword) {
+	lock.lock();//No pueden registrar mas de uno a la vez
+	try {
+		NamePassword [] namePasswordArray = infoUsers.keySet().toArray(new NamePassword[infoUsers.size()]);
+		int i = 0;
+		boolean encontrado = false;
+		while(i<namePasswordArray.length && !encontrado) {
+			if(namePasswordArray[i].getName().equals(namePassword.getName())) {
+				encontrado = true;//Nombre ya en uso
+			}
+			i++;
+		}
+		
+		if(!encontrado) {//Si no existe alguien registrado con ese nombre
+				infoUsers.put(namePassword,new UserInfo());//Creamos un nuevo usuario
+				return true;//Se ha registrado correctamente
+		}
+		
+	}catch(Throwable ex){
+		ex.printStackTrace(System.err);
+	}
+	lock.unlock();
+	return false; //Fallo al registrarse
+	
+}
+
 
 }

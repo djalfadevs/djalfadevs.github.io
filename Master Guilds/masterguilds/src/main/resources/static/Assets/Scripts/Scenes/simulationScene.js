@@ -78,8 +78,18 @@ class SimulationScene extends Phaser.Scene
 		//this.extend.cards.enemies[0].attackAnimation();//DEBUG
 		//testCard.updateLifeBarAnimation();
 		var msg = new Object();
-		msg.event = "LOGIN"
+		msg.event = "SIGNUP"
+		msg.name = "name"
+		msg.password = "name"
 		game.global.socket.send(JSON.stringify(msg))
+
+		msg = new Object();
+		msg.event = "LOGIN"
+		msg.name = "name"
+		msg.password = "name"
+		game.global.socket.send(JSON.stringify(msg))
+
+	
 
 	}
 

@@ -51,21 +51,22 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 				case "LOGIN":
 					NamePassword namePassword = new NamePassword(node.get("name").asText(),node.get("password").asText());
 					UserInfo userinfo = game.login(namePassword);
-					
-					if(userinfo != null) {
+					if(!userinfo.equals(null)) {
 						msg.put("event", "SUCCESLOGIN");
 						msg.set("userinfo", mapper.convertValue(userinfo,JsonNode.class));
-						player.getSession().sendMessage(new TextMessage(msg.toString()));
 					}
 					else
 					{
-						msg.put("event", "FAILLOGIN");
-						player.getSession().sendMessage(new TextMessage(msg.toString()));
+						msg.put("event", "FAILLOGIN");		
 					}
-					
+					player.getSession().sendMessage(new TextMessage(msg.toString()));
 					break;
 				case "SIGNUP":
-					//game.signup();
+					NamePassword namePassword2 = new NamePassword(node.get("name").asText(),node.get("password").asText());
+					boolean isSignUp = game.signup(namePassword2);
+					msg.put("event", "SIGNUP");
+					msg.put("isSignUp",isSignUp);
+					player.getSession().sendMessage(new TextMessage(msg.toString()));
 					break;
 			default:
 				break;
