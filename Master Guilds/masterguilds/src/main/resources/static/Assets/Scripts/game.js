@@ -72,10 +72,10 @@
 		socket:null,
 	}
 
-	game.global.socket = new WebSocket("ws://127.0.0.1:8080/mastera");
+	game.global.socket = new WebSocket("ws://"+location.host+"/mastera");
 
 	game.global.socket.onopen = () => {
-		
+
 	}
 	game.global.socket.onclose = () => {
 
@@ -83,11 +83,12 @@
 
 	game.global.socket.onmessage = (message) => {
 		var msg = JSON.parse(message.data)
-		
+		console.log(msg);
 		switch (msg.event) {
 
 		}
 	}
+
 //}
 
 

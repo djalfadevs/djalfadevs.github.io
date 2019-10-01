@@ -3,7 +3,6 @@ package com.djalfadevs.es.masterguilds;
 import java.util.List;
 
 public class UserInfo {
-	private int ID;
 	private String name;
 	private int gold;
 	private int gems;
@@ -11,23 +10,6 @@ public class UserInfo {
 	private List<Hero> heros;
 	private String clan;
 	
-	public UserInfo(int iD, String name, int gold, int gems, float exp, List<Hero> heros, String clan) {
-		super();
-		ID = iD;
-		this.name = name;
-		this.gold = gold;
-		this.gems = gems;
-		this.exp = exp;
-		this.heros = heros;
-		this.clan = clan;
-	}
-	
-	public int getID() {
-		return ID;
-	}
-	public void setID(int iD) {
-		ID = iD;
-	}
 	public String getName() {
 		return name;
 	}
@@ -64,5 +46,4 @@ public class UserInfo {
 	public void setClan(String clan) {
 		this.clan = clan;
 	}
-	
 }

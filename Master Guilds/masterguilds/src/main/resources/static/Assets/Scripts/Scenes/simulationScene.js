@@ -77,6 +77,9 @@ class SimulationScene extends Phaser.Scene
 		//this.extend.cards.allies[0].attackAnimation();//DEBUG
 		//this.extend.cards.enemies[0].attackAnimation();//DEBUG
 		//testCard.updateLifeBarAnimation();
+		var msg = new Object();
+		msg.event = "LOGIN"
+		game.global.socket.send(JSON.stringify(msg))
 
 	}
 

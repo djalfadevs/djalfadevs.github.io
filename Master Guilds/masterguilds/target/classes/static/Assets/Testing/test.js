@@ -208,5 +208,6 @@ game.global.simulation.nextTurn();
 game.global.simulation.allies.team[0].abilities[0].useAbilitie(testHero3);
 game.global.simulation.nextTurn();
 */
+
 })
 
