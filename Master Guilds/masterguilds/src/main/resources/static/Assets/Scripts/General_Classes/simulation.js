@@ -123,7 +123,8 @@ class Simulation {
                if(attackedEnemy.HP<=0){
                   attackedEnemy.HP=0
                   this.enemys.stats.aliveActors--;
-                  this.enemys.updateAttackOrder({newRound:false,turn:this.enemyAttacking})
+                  this.enemys.updateMaxAggroActor({isAdded:false,actor:attackedEnemy});
+                  this.enemys.updateAttackOrder({newRound:false,turn:this.enemyAttacking,hero:attackedEnemy})
                }
 
                //Log Info
@@ -159,7 +160,8 @@ class Simulation {
                if(attackedAllie.HP<=0){
                   attackedAllie.HP=0
                   this.allies.stats.aliveActors--;
-                  this.allies.updateAttackOrder({newRound:false,turn:this.allieAttacking})
+                  this.allies.updateMaxAggroActor({isAdded:false,actor:attackedAllie});
+                  this.allies.updateAttackOrder({newRound:false,turn:this.allieAttacking,hero:attackedAllie})
 
                }
 

@@ -36,7 +36,7 @@ var Card = new Phaser.Class({
 			x: that.cardContainer.x-200,
 			y: that.cardContainer.y-100,
 			scale: that.cardContainer.scale*2/3,
-			duration:3000,
+			duration:1000,
 			onComplete: function(){
 					resolve();
 				}
@@ -56,7 +56,7 @@ var Card = new Phaser.Class({
 				x: that.cardContainer.x+200,
 				y: that.cardContainer.y+100,
 				scale: that.cardContainer.scale*1.5,
-				duration:3000,
+				duration:1000,
 				onComplete: function(){
 					resolve();
 				}
@@ -89,7 +89,7 @@ var Card = new Phaser.Class({
 				that.scene.tweens.add({
 				targets: that.HeroSprite,
 				angle: that.HeroSprite.angle-20,
-				duration: 2000,
+				duration: 1000,
 				onComplete: function(){resolve();}
 				})
 			}
@@ -101,7 +101,7 @@ var Card = new Phaser.Class({
 			that.scene.tweens.add({
 				targets: that.HeroSprite,
 				angle: that.HeroSprite.angle+20,
-				duration: 2000,
+				duration: 1000,
 				onComplete: function(){
 				//Puede que PROBLEMA porque no se haya creado aun el texto en escena ????
 				DamageText = that.scene.add.text(that.cardContainer.x+20,that.cardContainer.y+50,'Damage test')

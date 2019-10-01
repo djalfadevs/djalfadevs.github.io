@@ -128,7 +128,7 @@ class Team {
             var j = 0;
             while(j<this.stats.attackOrder.length)
             {
-                if(this.stats.attackOrder[j].HP <=0 && (j < input.turn)){//Muerto y si ese personaje no habia atacado aun
+                if(this.stats.attackOrder[j] === input.hero){//Muerto y si ese personaje no habia atacado aun
                  this.stats.attackOrder.splice(j,1);
                 }
                 else{
