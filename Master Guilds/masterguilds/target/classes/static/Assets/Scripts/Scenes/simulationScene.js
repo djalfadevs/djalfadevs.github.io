@@ -87,6 +87,7 @@ class SimulationScene extends Phaser.Scene
 	async simulation(){
 
 		return new Promise(resolve =>{
+				console.log(game.global.simulation)//DEBUG
 				var simulation = game.global.simulation;//Realiza un turno de la simulacion
 				simulation.simulate();
 				
