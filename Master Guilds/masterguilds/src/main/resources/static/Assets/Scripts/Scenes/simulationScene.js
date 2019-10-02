@@ -44,13 +44,14 @@ class SimulationScene extends Phaser.Scene
 		//Fondo de batalla
 		var background = this.add.sprite(512,384,'background');
 
-		//this.extend.pauseButton = this.add.sprite(100,100,'pause')
-		//.setInteractive()
-		//.on('pointerdown',()=>{console.log("Has pulsado el boton de PAUSA")})
+		//PAUSA
+		this.extend.pauseButton = this.add.sprite(100,100,'pause')
+		.setInteractive()
+		.on('pointerdown',()=>{
+			this.scene.launch('PauseScene');
+			this.scene.pause();
+		})
 
-		//var camera = this.cameras.main;
-		//camera.zoomTo(2,5000);
-		//camera.pan(50,50,5000);
 
 		//Crear las cartas a partir de los personajes de ambos equipos.
 		for(var j = 0; j<simulation.allies.team.length; j++){
@@ -61,15 +62,23 @@ class SimulationScene extends Phaser.Scene
 			this.extend.cards.enemies[i] = new Card(this,200+i*200,200,simulation.enemys.team[i])
 		}
 
+		//Funcion asincrona que realiza toda la ejecucion de la escena
 		var auxSimulationFunct = async function(){
-			var i = 0;
-		while(i<15){
-			await that.simulation();
-			i++;
-			}
+					while((game.global.simulation.allies.stats.aliveActors>0)&&(game.global.simulation.enemys.stats.aliveActors>0)){
+						await that.simulation();//Simulacion tanto grafica como interna(logica) de la batalla
+					}
+					console.log("Final Batalla")
+
+					if(game.global.simulation.allies.stats.aliveActors>0){//VICTORIA
+						console.log("VICTORIA")//debug
+					}
+					else//DERROTA
+					{
+						console.log("DERROTA")//debug
+					}
 		}
 		
-		auxSimulationFunct();
+		auxSimulationFunct()
 			
 
 		//var testCard = new Card(this,200,200,testHero2);
@@ -77,6 +86,8 @@ class SimulationScene extends Phaser.Scene
 		//this.extend.cards.allies[0].attackAnimation();//DEBUG
 		//this.extend.cards.enemies[0].attackAnimation();//DEBUG
 		//testCard.updateLifeBarAnimation();
+
+		/* 		Test
 		var msg = new Object();
 		msg.event = "SIGNUP"
 		msg.name = "name"
@@ -88,7 +99,7 @@ class SimulationScene extends Phaser.Scene
 		msg.name = "name"
 		msg.password = "name"
 		game.global.socket.send(JSON.stringify(msg))
-
+		*/
 	
 
 	}
@@ -97,7 +108,7 @@ class SimulationScene extends Phaser.Scene
 
 	}
 
-	async simulation(){
+	simulation(){
 
 		return new Promise(resolve =>{
 				console.log(game.global.simulation)//DEBUG
@@ -196,5 +207,3 @@ class SimulationScene extends Phaser.Scene
 
 	}
 }
-
-var pintarCarta
