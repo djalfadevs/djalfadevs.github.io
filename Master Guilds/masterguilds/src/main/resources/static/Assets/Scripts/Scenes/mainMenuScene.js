@@ -40,31 +40,32 @@ class mainMenu extends Phaser.Scene{
         //enter.on('pointerout',function(){this.setFrame(...)});
         //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
         
-           var transition=function(str,t){
+        var transition=function(str,t){
             switch(str){
-            case "play":
-            t.scene.transition({target:'combatMenu',duration:100});
-            break;
-            case "coll":
-            console.log("not done yet")
-                    //t.scene.transition({target:'collection',duration:100});
-            break;
-            case "shop":
-            console.log("not done yet")
-                    //t.scene.transition({target:'shop',duration:100});
-            break;
-            case "back":
-            t.scene.transition({target:'title',duration:100});
-            break;
-            
-            
-            default:
-            break;
-    }
+                case "play":
+                t.scene.transition({target:'combatMenu',duration:100});
+                break;
+                case "coll":
+                console.log("not done yet")
+                        //t.scene.transition({target:'collection',duration:100});
+                break;
+                case "shop":
+                console.log("not done yet")
+                        //t.scene.transition({target:'shop',duration:100});
+                break;
+                case "back":
+                t.scene.transition({target:'title',duration:100});
+                break;
+                
+                
+                default:
+                break;
+            }
         
-	}
+	   }
+    }
 	update(){
 
 	}
-    }
 }
+
