@@ -52,7 +52,7 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					System.out.println("Se esta procesando la peticion LOGIN");
 					NamePassword namePassword = new NamePassword(node.get("name").asText(),node.get("password").asText());
 					UserInfo userinfo = game.login(namePassword);
-					if(!userinfo.equals(null)) {
+					if(userinfo!=null) {
 						player.setNamePassword(namePassword);
 						player.setUserinfo(userinfo);
 						msg.put("event", "SUCCESLOGIN");
