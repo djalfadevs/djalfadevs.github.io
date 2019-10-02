@@ -2,12 +2,15 @@
 
 //EN ESTA PANTALLA TENEMOS LOS AJUSTES DE IDIOMA
 
-var lang=new Phaser.Scene("lang")
-lang.preload=function(){
+class lang extends Phaser.Scene{
+    constructor(){
+        super({key:'lang'})
+    }
+preload(){
     console.log("LANGUAGE")
      this.add.image(960,540,'backWood');
 }
-lang.create=function(){
+create(){
     //might go bw 
    var LATINOButt=this.add.sprite(650,250,'largeButt').setInteractive({useHandCursor:true})
    var ENGLISHButt=this.add.sprite(1450,250,'largeButt').setInteractive({useHandCursor:true})
@@ -44,4 +47,5 @@ lang.create=function(){
             break;
         } 
     }
+}
 }

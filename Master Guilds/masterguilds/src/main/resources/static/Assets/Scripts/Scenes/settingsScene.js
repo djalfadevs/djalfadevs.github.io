@@ -2,12 +2,15 @@
 
 //PANTALLA DE AJUSTES
 
-var settings=new Phaser.Scene("settings")
-settings.preload=function(){
+class settings extends Phaser.Scene{
+    constructor(){
+        super({key:"settings"})
+    }
+preload(){
     console.log("settings")
     this.add.image(960,540,'backWood');
 }
-settings.create=function(){
+create(){
     var that=this;
     //[WIP]
     this.add.text(960,540,'WIP',{font:"69px Comic Sans",fill:"#000",align:"center"})
@@ -25,4 +28,5 @@ settings.create=function(){
         default:
             break;
     }
+}
 }

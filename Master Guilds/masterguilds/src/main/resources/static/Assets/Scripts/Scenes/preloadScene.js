@@ -1,8 +1,12 @@
 'use strict'
 //CLASS TO LOAD VISUAL FILES
-var preload=new Phaser.Scene('preload')
+class preload extends Phaser.Scene{
 
-	preload.preload=function(){
+    constructor(){
+        super({key:'preload'})
+    }
+
+	preload(){
         console.log("preload")
         this.load.image('loading','Assets/Sprites/animacion carga/pausa 1.png',{frameWidth:122,frameHeight:51});
         
@@ -28,7 +32,7 @@ var preload=new Phaser.Scene('preload')
         //frame final
 	}
 
-	preload.create=function(){
+	create(){
 		//tween to fade and change scene
         //after tween swap
         //for now? just swap after timeout
@@ -38,7 +42,7 @@ var preload=new Phaser.Scene('preload')
         },500)
 	}
 
-	preload.update=function(){
+	update(){
         //not needed for now...
 	}
-	
+}

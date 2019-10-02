@@ -2,22 +2,14 @@
 
 //EN ESTA PANTALLA VEREMOS TODOS LOS PERSONAJES DESBLOQUEADOS
 
-class collectionScene extends Phaser.Scene{
-	constructor () {
-		super({key: 'CollectionScene', active:true})
-
-	}
-
-	preload(){
-
-	}
-
-	create(){
-		
-	}
-
-	update(){
-
-	}
-	
+class collection extends Phaser.Scene{
+    constructor(){
+        super({key: 'collection'})
+    }
+    preload(){
+        
+    }
+    create(){
+        
+    }
 }

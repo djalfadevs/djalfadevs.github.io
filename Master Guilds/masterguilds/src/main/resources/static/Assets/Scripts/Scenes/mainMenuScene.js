@@ -2,14 +2,17 @@
 //despues de una pantalla de inicio "pulsa la pantalla para continuar" 
 //Lo anterior esta sujeto a lo que decidan los diseñadores
 //Desde esta escena se podra acceder tanto a los posibles ajustes si hay , misiones , inventario y tienda.
-var mainMenu=new Phaser.Scene('mainMenu');
+class mainMenu extends Phaser.Scene{
+    constructor(){
+        super({key:'mainMenu'})
+    }
 
-	mainMenu.preload=function(){
+	preload(){
         this.add.image(960,540,'backWood');
         this.add.image(500,550,'largeInfo').setScale(0.9);
 	}
 
-	mainMenu.create=function(){
+	create(){
 		var that=this;
         //var botCombate=this.add.sprite('').setInteractive({useHandCursor:true});
         //var bot Galeria=this.add.sprite().setInteractive({useHandCursor});
@@ -60,7 +63,8 @@ var mainMenu=new Phaser.Scene('mainMenu');
     }
         
 	}
-	mainMenu.update=function(){
+	update(){
 
 	}
     }
+}

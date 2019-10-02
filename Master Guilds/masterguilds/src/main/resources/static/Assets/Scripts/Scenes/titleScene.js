@@ -1,14 +1,16 @@
 'use strict'
 
 //EN ESTA PANTALLA VEREMOS JUGAR, OPCIONES, CONTACTAR Y AJUSTES DE IDIOMA
-
-var title= new Phaser.Scene("title");
-title.preload=function(){
+class title extends Phaser.Scene{
+constructor(){
+    super({key:"title"})
+}
+preload(){
     console.log("title")
     this.add.image(960,540,'backWood');
     this.add.text(960,540,'MasterA',{font:"69px Comic Sans",fill:"#000",align:"center"})
 }
-title.create=function(){
+create(){
     var that=this;
     var play=this.add.sprite(950,700,'largeButt').setScale(0.8).setInteractive({useHandCursor:true});
      var settings=this.add.sprite(480,900,'largeButt').setScale(0.7).setInteractive({useHandCursor:true});
@@ -52,4 +54,5 @@ title.create=function(){
             break;
     }
   }
+}
 }
