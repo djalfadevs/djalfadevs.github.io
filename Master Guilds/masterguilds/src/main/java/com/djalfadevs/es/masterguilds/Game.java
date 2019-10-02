@@ -2,6 +2,7 @@ package com.djalfadevs.es.masterguilds;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -109,5 +110,36 @@ public boolean signup(NamePassword namePassword) {
 	
 }
 
+public List<UserInfo> getRanking(){
+	List<UserInfo> auxl = (List<UserInfo>) infoUsers.values();
+	
+	Comparator<UserInfo> ArenaPointsComparator = new Comparator<UserInfo>() {
 
+		@Override
+		public int compare(UserInfo o1, UserInfo o2) {
+			if(o1.getArenaPoints() < o2.getArenaPoints()) {
+                return -1;
+            } else if (o1.getArenaPoints() > o2.getArenaPoints()) {
+                return 1;
+            } else {
+                return 0;
+            }
+		}
+	};
+	auxl.sort(ArenaPointsComparator);
+	
+	List<UserInfo> l = new ArrayList<>();
+	int i = 0; 
+	while(i<10 || i<auxl.size()) {
+		l.add(auxl.get(i));//solo guardamos los diez primeros como maximo
+		i++;
+	}
+	
+	return l;
+	
+}
+
+public void updateUserInfo(NamePassword n, UserInfo u) {
+	infoUsers.put(n, u);
+}
 }

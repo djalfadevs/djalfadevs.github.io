@@ -9,8 +9,7 @@ public class Player {
 	private int playerId;
 	
 	private NamePassword namePassword;
-	//USER INFO
-	private UserInfo userinfo;
+	
 	
 	public Player(WebSocketSession session, int playerId) {
 		super();
@@ -31,14 +30,6 @@ public class Player {
 
 	public WebSocketSession getSession() {
 		return session;
-	}
-
-	public UserInfo getUserinfo() {
-		return userinfo;
-	}
-
-	public void setUserinfo(UserInfo userinfo) {
-		this.userinfo = userinfo;
 	}
 
 	public NamePassword getNamePassword() {

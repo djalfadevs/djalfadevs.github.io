@@ -1,5 +1,6 @@
 package com.djalfadevs.es.masterguilds;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -54,7 +55,9 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					UserInfo userinfo = game.login(namePassword);
 					if(userinfo!=null) {
 						player.setNamePassword(namePassword);
-						player.setUserinfo(userinfo);
+						//player.setUserinfo(userinfo);//ESTO ES POR SI QUEREMOS ASOCIAR A LA SESION LA USER INFO 
+						//aunque veo mejor que se asocie exclusivamente la dupla namePassword y con ella se consiga la 
+						//userinfo del servidor.
 						msg.put("event", "SUCCESLOGIN");
 						msg.set("userinfo", mapper.convertValue(userinfo,JsonNode.class));
 					}
@@ -73,6 +76,17 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					msg.put("isSignUp",isSignUp);
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
 					break;
+				case "GETRANKING":
+					List<UserInfo> listaRanking = game.getRanking();
+					msg.put("event", "GETRANKING");
+					msg.set("ranking", mapper.convertValue(listaRanking, JsonNode.class));
+					player.getSession().sendMessage(new TextMessage(msg.toString()));
+					break;
+				case "UPDATEUSERINFO":
+					UserInfo u = mapper.treeToValue(node, UserInfo.class);
+					NamePassword p = player.getNamePassword();
+					game.updateUserInfo(p, u);
+					
 			default:
 				break;
 			}
