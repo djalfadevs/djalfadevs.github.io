@@ -15,6 +15,7 @@
 	autoRound: false,
 	//De momento solo hay una escena de prueba
 	scene: [SimulationScene,PauseScene]
+    //scene:[preload,login,register,title,shop,settings,ranking,mainMenu,lang,deck,combatMenu,collection,chapter]
 };
 
 	var game = new Phaser.Game(config);
@@ -32,10 +33,8 @@
 		Simulation: Al principio se crea una unica simulacion , esta unica simulacion se inicializara 
 		con valores base como turn:0 ; ademas tambien se crearan dos equipos con una inicializacion base
 		que se guardaran en variables de simulacion
-
 		De esta forma obtenemos una simulacion con referencia a dos equipos y todos con valores inicializados
 		de forma base (me refiero a valores neutros iniciales como 0 en la mayoria de casos , arrays vacios etc)
-
 		RESUMEN: Se crea un objeto simulacion y dos equipos todo ello inicializado a valores base que 
 		habra que modificar en funcion de ciertas necesidades (restricciones de mision principalmente)
 		*/
@@ -91,6 +90,5 @@
 	}
 
 //}
-
 
 
