@@ -39,7 +39,7 @@ public Collection<Player> getPlayers() {
 public void removePlayer(Player player) {
 	lock.lock();
 	infoUsersUsing.remove(player.getNamePassword());
-	lock.lock();
+	lock.unlock();
 	Allplayers.remove(player.getSession().getId());
 	
 }
@@ -62,23 +62,28 @@ public void broadcast(String message) {
 
 public UserInfo login(NamePassword namePassword) {
 	lock.lock();//No pueden loguear mas de uno a la vez
+	System.out.println("Pasamos el lock login");
 	try {
 		if(infoUsers.containsKey(namePassword)) { //Si el par usuario contraseña esta registrado
 			if(!infoUsersUsing.contains(namePassword)) {//Si no esta en uso ese par usuario contraseña
 				infoUsersUsing.add(namePassword);
+				lock.unlock();
 				return infoUsers.get(namePassword);
 			}
 		}
 	}catch(Throwable ex){
 		ex.printStackTrace(System.err);
+		lock.unlock();
 	}
 	lock.unlock();
 	return null;
+	
 	
 }
 
 public boolean signup(NamePassword namePassword) {
 	lock.lock();//No pueden registrar mas de uno a la vez
+	System.out.println("Pasamos el lock");
 	try {
 		NamePassword [] namePasswordArray = infoUsers.keySet().toArray(new NamePassword[infoUsers.size()]);
 		int i = 0;
@@ -92,9 +97,10 @@ public boolean signup(NamePassword namePassword) {
 		
 		if(!encontrado) {//Si no existe alguien registrado con ese nombre
 				infoUsers.put(namePassword,new UserInfo(namePassword.name));//Creamos un nuevo usuario
+				lock.unlock();
 				return true;//Se ha registrado correctamente
 		}
-		
+		System.out.println("El Signup ha fallado");
 	}catch(Throwable ex){
 		ex.printStackTrace(System.err);
 	}

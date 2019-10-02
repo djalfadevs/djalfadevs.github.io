@@ -49,6 +49,7 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 
 			switch (node.get("event").asText()) {
 				case "LOGIN":
+					System.out.println("Se esta procesando la peticion LOGIN");
 					NamePassword namePassword = new NamePassword(node.get("name").asText(),node.get("password").asText());
 					UserInfo userinfo = game.login(namePassword);
 					if(!userinfo.equals(null)) {
@@ -65,7 +66,9 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					break;
 				case "SIGNUP":
 					NamePassword namePassword2 = new NamePassword(node.get("name").asText(),node.get("password").asText());
+					System.out.println("Se esta procesando la peticion SIGNUP");
 					boolean isSignUp = game.signup(namePassword2);
+					System.out.println(isSignUp);
 					msg.put("event", "SIGNUP");
 					msg.put("isSignUp",isSignUp);
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
