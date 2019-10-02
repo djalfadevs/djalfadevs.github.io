@@ -68,6 +68,7 @@
 			//.log y .lastmovement se ponen a null en el constructor 
 		}),  
 		misions: null,
+		ranking: null,
 		store: null,
 		socket:null,
 	}

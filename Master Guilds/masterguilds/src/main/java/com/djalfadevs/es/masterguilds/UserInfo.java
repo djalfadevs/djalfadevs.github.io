@@ -11,6 +11,7 @@ public class UserInfo {
 	private int level;
 	private List<Hero> heros;
 	private String clan;
+	private int arenaPoints;
 	
 	public UserInfo(String name) {
 		this.name = name;
@@ -19,6 +20,7 @@ public class UserInfo {
 		this.exp = 0;
 		this.heros = new ArrayList<>();
 		this.clan = null;//CAMBIAR ??
+		this.setArenaPoints(0);
 	}
 	
 	public String getName() {
@@ -64,5 +66,13 @@ public class UserInfo {
 
 	public void setLevel(int level) {
 		this.level = level;
+	}
+
+	public int getArenaPoints() {
+		return arenaPoints;
+	}
+
+	public void setArenaPoints(int arenaPoints) {
+		this.arenaPoints = arenaPoints;
 	}
 }
