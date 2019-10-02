@@ -37,7 +37,11 @@ public Collection<Player> getPlayers() {
 }
 
 public void removePlayer(Player player) {
+	lock.lock();
+	infoUsersUsing.remove(player.getNamePassword());
+	lock.lock();
 	Allplayers.remove(player.getSession().getId());
+	
 }
 
 private Game() {
@@ -87,7 +91,7 @@ public boolean signup(NamePassword namePassword) {
 		}
 		
 		if(!encontrado) {//Si no existe alguien registrado con ese nombre
-				infoUsers.put(namePassword,new UserInfo());//Creamos un nuevo usuario
+				infoUsers.put(namePassword,new UserInfo(namePassword.name));//Creamos un nuevo usuario
 				return true;//Se ha registrado correctamente
 		}
 		

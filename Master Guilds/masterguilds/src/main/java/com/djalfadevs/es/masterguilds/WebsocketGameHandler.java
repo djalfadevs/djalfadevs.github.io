@@ -52,6 +52,8 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					NamePassword namePassword = new NamePassword(node.get("name").asText(),node.get("password").asText());
 					UserInfo userinfo = game.login(namePassword);
 					if(!userinfo.equals(null)) {
+						player.setNamePassword(namePassword);
+						player.setUserinfo(userinfo);
 						msg.put("event", "SUCCESLOGIN");
 						msg.set("userinfo", mapper.convertValue(userinfo,JsonNode.class));
 					}
@@ -82,6 +84,7 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
 		Player player = (Player) session.getAttributes().get("PLAYER");
 		game.removePlayer(player);
+		
 		
 		/*
 		ObjectNode msg = mapper.createObjectNode();
