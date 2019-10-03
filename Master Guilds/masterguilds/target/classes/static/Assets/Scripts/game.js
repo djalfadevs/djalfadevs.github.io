@@ -15,7 +15,9 @@
 	autoRound: false,
 	//De momento solo hay una escena de prueba
 	//scene: [SimulationScene,PauseScene]
-    scene:[preload,login,register,title,shop,settings,ranking,mainMenu,lang,deck,combatMenu,collection,chapter]
+    scene:[preload,login,register,title,shop,settings,ranking,
+    mainMenu,lang,deck,combatMenu,collection,chapter,
+    SimulationScene,PauseScene]
 };
 
 	var game = new Phaser.Game(config);
@@ -87,6 +89,7 @@
 		switch (msg.event) {
 
 		}
+
 	}
 
 //}
