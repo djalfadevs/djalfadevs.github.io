@@ -33,9 +33,31 @@ create(){
     
     var enter=this.add.sprite(1350,900,'largeButt').setScale(0.8).setInteractive({useHandCursor:true}); 
     
-    //temp function
-    reg.on('pointerdown',function(){transition("reg",that)});
-    enter.on('pointerdown',function(){transition("ent",that)});
+    var nameform = this.add.dom(400, 200).createFromCache('nameform');
+    var passwordform = this.add.dom(400, 400).createFromCache('passwordform');
+    
+    //Cuando pulsemos el boton registrar se mandara un socket con dicha informacion 
+    //y habra que esperar a su respuesta para poder continuar con lo siguiente
+    //Si miramos el concept de diseño la idea es usar una escena por encima que lance un mensaje emergente
+    reg.on('pointerdown',function(){
+        var msg = new Object();
+        msg.event = "SIGNUP"
+        msg.name = nameform.getChildByName("nameField").value;
+        msg.password = passwordform.getChildByName("passwordField").value;
+        game.global.socket.send(JSON.stringify(msg))
+        //Habra que hacer que hasta que no confirme lo que devuelve el socket no actue nada de lo siguiente
+        //transition("reg",that)
+    });
+
+    enter.on('pointerdown',function(){
+        var msg = new Object();
+        msg.event = "LOGIN"
+        msg.name = nameform.getChildByName("nameField").value;
+        msg.password = passwordform.getChildByName("passwordField").value;
+        game.global.socket.send(JSON.stringify(msg))
+        //Habra que hacer que hasta que no confirme lo que devuelve el socket no actue nada de lo siguiente
+        //transition("ent",that)
+    });
     //pointerOverFunctions
     
     //reg.on('pointerover',function(){this.setFrame(...)});
@@ -46,9 +68,8 @@ create(){
     //enter.on('pointerout',function(){this.setFrame(...)});
     //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
 
-    var element = this.add.dom(400, 200).createFromCache('nameform');
-    var element = this.add.dom(400, 400).createFromCache('passwordform');
-
+    
+    //temp function
     var transition=function(str,t){
     switch(str){
             case "reg":

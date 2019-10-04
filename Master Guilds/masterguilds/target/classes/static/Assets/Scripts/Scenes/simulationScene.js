@@ -9,7 +9,7 @@
 class SimulationScene extends Phaser.Scene 
 {
 	constructor () {
-		super({key: 'SimulationScene',active:true})
+		super({key: 'SimulationScene'})
 		this.extend = 
 			{
 			pauseButton:null,

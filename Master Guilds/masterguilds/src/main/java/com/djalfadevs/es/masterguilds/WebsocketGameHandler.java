@@ -58,7 +58,7 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 						//player.setUserinfo(userinfo);//ESTO ES POR SI QUEREMOS ASOCIAR A LA SESION LA USER INFO 
 						//aunque veo mejor que se asocie exclusivamente la dupla namePassword y con ella se consiga la 
 						//userinfo del servidor.
-						msg.put("event", "SUCCESLOGIN");
+						msg.put("event", "SUCCESSLOGIN");
 						msg.set("userinfo", mapper.convertValue(userinfo,JsonNode.class));
 					}
 					else

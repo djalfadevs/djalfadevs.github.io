@@ -32,7 +32,7 @@ class preload extends Phaser.Scene{
 	}
 
 	create(){
-          game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/Cursor/bloqueado.cur), pointer');//Determina el puntero
+          game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero
           this.add.image(1000,1000,'loading');
 		//tween to fade and change scene
         //after tween swap

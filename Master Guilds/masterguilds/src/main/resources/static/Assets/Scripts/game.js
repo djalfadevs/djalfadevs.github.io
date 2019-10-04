@@ -92,7 +92,13 @@
 		var msg = JSON.parse(message.data)
 		console.log(msg);
 		switch (msg.event) {
-
+			case "SUCCESSLOGIN":
+				game.global.user = msg.userinfo;
+				game.scene.transition({target:'register',duration:100})
+			break;
+			case "FAILLOGIN":
+			break;
+			default:
 		}
 
 	}
