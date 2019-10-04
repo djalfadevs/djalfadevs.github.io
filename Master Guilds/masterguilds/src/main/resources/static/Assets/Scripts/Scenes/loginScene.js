@@ -8,14 +8,10 @@ constructor(){
 //var music
 
 preload(){
-     console.log("login")
-     this.add.image(960,540,'backWood');
-     
+ 
     
-    this.add.sprite(380,350,'smallInfo').setScale(0.6)
-    
-    this.add.sprite(380,650,'smallInfo').setScale(0.6)
-    
+    this.load.html('nameform', 'Assets/Scripts/HTML/name.html');
+    this.load.html('passwordform', 'Assets/Scripts/HTML/password.html');
     //music play here 
     
     //music=login.sound.add(...)
@@ -24,7 +20,16 @@ preload(){
 }
 create(){
     var that=this;
-     var reg=this.add.sprite(480,900,'largeButt').setScale(0.8).setInteractive({useHandCursor:true});
+
+    console.log("login")
+    this.add.image(960,540,'backWood');
+     
+    
+    this.add.sprite(380,350,'smallInfo').setScale(0.6)
+    
+    this.add.sprite(380,650,'smallInfo').setScale(0.6)
+
+    var reg=this.add.sprite(480,900,'largeButt').setScale(0.8).setInteractive({useHandCursor:true});
     
     var enter=this.add.sprite(1350,900,'largeButt').setScale(0.8).setInteractive({useHandCursor:true}); 
     
@@ -40,6 +45,10 @@ create(){
     //enter.on('pointerover',function(){this.setFrame(...)});
     //enter.on('pointerout',function(){this.setFrame(...)});
     //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
+
+    var element = this.add.dom(400, 200).createFromCache('nameform');
+    var element = this.add.dom(400, 400).createFromCache('passwordform');
+
     var transition=function(str,t){
     switch(str){
             case "reg":

@@ -8,11 +8,16 @@
 	type: Phaser.AUTO,
 	width: 1920,
 	height: 1080,
+	parent:'Mastera',
+	dom: {
+		createContainer:true
+	},
 	scale: {
 		mode: Phaser.Scale.FIT,
 		autoCenter: Phaser.Scale.CENTER_BOTH
 	},
 	autoRound: false,
+
 	//De momento solo hay una escena de prueba
 	//scene: [SimulationScene,PauseScene]
     scene:[preload,login,register,title,shop,settings,ranking,
