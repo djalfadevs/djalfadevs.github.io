@@ -1,0 +1,72 @@
+[
+	{
+		"ID": 1,
+		"name": "PRUEBA",
+		"baseAttack": 100,
+		"attack": 100,
+		"baseDefence": 100,
+		"defence": 100,
+		"baseHP": 100,
+		"HP": 100,
+		"base_crit_hit_chance": 0.20,
+		"crit_hit_chance": 0.20,
+		"description": "Este ejemplo es para que alvaro hago un puto array de heroes en formato JSON",
+		"evasion": 50,
+		"baseEvasion": 50,
+		"abilities": [
+			{
+				"ID": 1,
+				"name": "BUFFSTATS III",
+				"baseActiveTurns": 3,
+				"baseChargeTurns": 7,
+				"description": "Erase una vez una prueba",
+				"remainChargeTurns": 7,
+				"isReady": false
+			}
+		],
+		"image_url": "url",
+		"activeAbilities": [],
+		"baseAggro": 100,
+		"aggro": 100,
+		"faction": "Azon",
+		"rarity": 3,
+		"level": 20,
+		"exp": 1000,
+		"role": "useless only info provide by attack and defence"
+	},
+	{
+		"ID": 2,
+		"name": "PRUEBA",
+		"baseAttack": 100,
+		"attack": 100,
+		"baseDefence": 100,
+		"defence": 100,
+		"baseHP": 100,
+		"HP": 100,
+		"base_crit_hit_chance": 0.20,
+		"crit_hit_chance": 0.20,
+		"description": "Este ejemplo es para que alvaro hago un puto array de heroes en formato JSON",
+		"evasion": 50,
+		"baseEvasion": 50,
+		"abilities": [
+			{
+				"ID": 1,
+				"name": "BUFFSTATS III",
+				"baseActiveTurns": 3,
+				"baseChargeTurns": 7,
+				"description": "Erase una vez una prueba",
+				"remainChargeTurns": 7,
+				"isReady": false
+			}
+		],
+		"image_url": "url",
+		"activeAbilities": [],
+		"baseAggro": 100,
+		"aggro": 100,
+		"faction": "Azon",
+		"rarity": 3,
+		"level": 20,
+		"exp": 1000,
+		"role": "useless only info provide by attack and defence"
+	}
+]

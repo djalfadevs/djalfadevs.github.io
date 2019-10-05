@@ -11,9 +11,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.bson.Document;
 import org.springframework.web.socket.TextMessage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 
 public class Game {
 	public final static Game INSTANCE = new Game();
@@ -24,6 +30,9 @@ public class Game {
 	private List<NamePassword> infoUsersUsing = new ArrayList<>();
 	
 	private Lock lock = new ReentrantLock();
+	
+	MongoClient mongoClient = new MongoClient();
+	MongoDatabase database = mongoClient.getDatabase("Mastera");
 
 public void loadInfoUsers () {
 	
@@ -141,5 +150,17 @@ public List<UserInfo> getRanking(){
 
 public void updateUserInfo(NamePassword n, UserInfo u) {
 	infoUsers.put(n, u);
+	MongoCollection<Document> coll = database.getCollection("Users");
+	
+	//Actualizamos tambien la base de datos
+	
+	//Delete all
+	BasicDBObject document = new BasicDBObject();
+	coll.deleteMany(document);
+	
+	ArrayList<Document> listadeDocumentosUser = new ArrayList<>();
+	coll.insertMany(listadeDocumentosUser);
+	
+	
 }
 }
