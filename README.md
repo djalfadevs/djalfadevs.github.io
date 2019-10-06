@@ -68,7 +68,9 @@ Eso sí, no todo es a vida o muerte en este reinado ya que los mejores heroes se
   El juego tendrá tres tipos distintos de misiones:
   
    •	Story: La campaña se compone de varios escenarios con dificultad ascendiente que tendrán recompensas de Gemas cuando sean completadas.
+   
    •	Quests: Estas misiones se irán cambiando periódicamente y permiten al jugador un lugar para subir la experiencia de sus aventureros. Tienen un límite de clears que se reabastece de forma diaria.
+   
    •	Arena: Este modo multijugador coge los mejores equipos de otros jugadores de un servidor y te enfrenta a ellos para conseguir una puntuación en un ranking. Habrá un número muy limitado de veces diarias que los jugadores puedan acceder a este modo.
 
 #### COMBATE Y ESTADISTICAS
