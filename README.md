@@ -1,13 +1,16 @@
-# djalfadevs.github.io
+# DJALFA
 
-Equipo:
+## Equipo:
 - **Fernando:** Artista 2D/3D, Animación y Diseño gráfico
 - **Alvaro:** Game Design, Marketing, y Relaciones Públicas
+
+## Portfolio:
+http://djalfadevs.github.io
 
 ## MasterA Game Design Document
 ### Introducción
 
-  GuildMaster es un juego de gestion estrategica ideado para rellenar el nicho de mercado de juegos de este estilo para usuarios que no estan interesados en una temática deportiva. Queremos plantear un juego addictivo, que rinda bien en el espacio de juegos como servicio con la possibilidad de expander sobre la historia y personajes en el futuro y manteniando la atención de los usuarios a lo largo del tiempo.
+  MasterA es un juego de gestion estrategica ideado para rellenar el nicho de mercado de juegos de este estilo para usuarios que no estan interesados en una temática deportiva. Queremos plantear un juego addictivo, que rinda bien en el espacio de juegos como servicio con la possibilidad de expander sobre la historia y personajes en el futuro y manteniando la atención de los usuarios a lo largo del tiempo.
   
   Para esto, hemos imaginado un mundo fantastico poblado por distintas razas y facciones en la cual el jugador asumirá el cargo de jefe en un nuevo gremio de aventureros y tendrá que distribuir a los miembros que se vayan uniendo a el en distintas missiones.
   
@@ -18,7 +21,7 @@ Eso sí, no todo es a vida o muerte en este reinado ya que los mejores heroes se
 
 ### Estilo
 
-  Para definir el estilo visual de GuildMaster hemos optado por una ambientación alegre de un mundo en su época renacentista con la ciencia estilo steampunk del mundo viviendo su momento de auge, de esta manera distinguiéndonos de los clichés más comunes de juegos par móvil que suelen basarse en fantasía tradicional y la edad media.
+  Para definir el estilo visual de MasterA hemos optado por una ambientación alegre de un mundo en su época renacentista con la ciencia estilo steampunk del mundo viviendo su momento de auge, de esta manera distinguiéndonos de los clichés más comunes de juegos par móvil que suelen basarse en fantasía tradicional y la edad media.
   
   Para ello planteamos un estilo visual integrado con el gremio supuesto del cual estamos a cargo, con los personajes representados por lo que vendría a ser su tarjeta de aventurero. Además, distinguimos en el juego tres facciones principales de las que provienen estos mismos:
   
@@ -33,7 +36,7 @@ Eso sí, no todo es a vida o muerte en este reinado ya que los mejores heroes se
 ### Jugabilidad
 #### RECLUTAMIENTO Y MEJORAS
 
-  En GuildMaster el atractivo principal del juego es la obtención de los múltiples personajes variados que existen. Estos se conseguirán a través de un sistema aleatorio (gacha de aquí en adelante) al cual el jugador obtendrá acceso usando “Gemas”, un recurso que se obtendrá mediante las misiones principales o mediante In-App purchases. 
+  En MasterA el atractivo principal del juego es la obtención de los múltiples personajes variados que existen. Estos se conseguirán a través de un sistema aleatorio (gacha de aquí en adelante) al cual el jugador obtendrá acceso usando “Gemas”, un recurso que se obtendrá mediante las misiones principales o mediante In-App purchases. 
 
   Los personajes estarán clasificados en función de su utilidad mediante un sistema de estrellas, con los más fuertes siendo de 5 estrellas y el resto estando organizados de forma descendiente. Para evitar que el jugador se sienta demasiado molesto con personajes relativamente inferiores, el gacha solo se compondrá por personajes de 3 estrellas o más, con personajes peores siendo distribuidos a través de misiones especiales o eventos.
   
@@ -41,7 +44,7 @@ Eso sí, no todo es a vida o muerte en este reinado ya que los mejores heroes se
 
 #### PERSONAJES Y FORMACIONES
 
-  Los personajes de GuildMaster se caracterizan por diversas estadísticas, así como habilidades que les definen un nicho de rol. Estos roles se agrupan en tres supra categorías que vendrán indicadas al jugador para darle una indicación que como deberían ser usados: Tank, Atacker, y Support.
+  Los personajes de MasterA se caracterizan por diversas estadísticas, así como habilidades que les definen un nicho de rol. Estos roles se agrupan en tres supra categorías que vendrán indicadas al jugador para darle una indicación que como deberían ser usados: Tank, Atacker, y Support.
   
   Como es común en rpgs de todos los estilos, estos roles se definen así:
   
@@ -99,7 +102,7 @@ Eso sí, no todo es a vida o muerte en este reinado ya que los mejores heroes se
 
 •	  Role: Rol al que pertenece el agente, descritos en el apartado anterior.
 
-  Una de las características de balance más importantes de GuildMaster, especialmente en el modo Arena es el triángulo de afinidades por facción. Este triangulo dota de daño de ataque extra a los personajes en función de la facción a la que se enfrentan. Los Azon utilizan su amplia experiencia en combate para vencer a los Kwin; Los Kwin desarman las máquinas de los Ferten; y los Ferten utilizan su nueva tecnología para mantener a raya a los Azon.
+  Una de las características de balance más importantes de MasterA, especialmente en el modo Arena es el triángulo de afinidades por facción. Este triangulo dota de daño de ataque extra a los personajes en función de la facción a la que se enfrentan. Los Azon utilizan su amplia experiencia en combate para vencer a los Kwin; Los Kwin desarman las máquinas de los Ferten; y los Ferten utilizan su nueva tecnología para mantener a raya a los Azon.
 
   El Aggro es otro stat que requiere un poco de desarrollo, ya que no suele verse en juegos con combate similar a este. El aggro indica el objetivo a atacar tanto para los aliados como los enemigos, y existen ciertas habilidades que lo suben o lo bajan. Asimismo, la estadística Speed/Evasion definirá el orden en el que atacan los agentes.
 
@@ -111,7 +114,7 @@ Eso sí, no todo es a vida o muerte en este reinado ya que los mejores heroes se
 
 #### MENU PRINCIPAL:
 
-  El menú principal consta con un diseño integrado con el mundo de GuildMaster y da acceso a los submenús de Misiones, Administración de Personajes y Reclutamiento.
+  El menú principal consta con un diseño integrado con el mundo de MasterA y da acceso a los submenús de Misiones, Administración de Personajes y Reclutamiento.
   
   En Administración de Personajes el jugador tiene acceso a las funciones de inspección y combinación de personajes, mientras que en la pantalla de reclutamiento el jugador podrá invertir sus gemas para conseguir nuevos personajes, así como comprar gemas con in-app purchases para esto mismo.
 
