@@ -22,12 +22,12 @@ class preload extends Phaser.Scene{
         this.load.image('largeInstaButt','Assets/Sprites/UI-UX/boton_largo_instagram.png',{frameWidth:777,frameHeight:195});
         this.load.image('largeTweetButt','Assets/Sprites/UI-UX/boton_largo_twitter.png',{frameWidth:777,frameHeight:195});
         this.load.image('largeYouButt','Assets/Sprites/UI-UX/boton_largo_youtube.png',{frameWidth:777,frameHeight:195});
-        this.load.image('textBox','Assets/Spriets/UI-UX/caja_texto.png',{frameWidth:956,frameHeight:186});
+        this.load.image('textBox','Assets/Sprites/UI-UX/caja_texto.png',{frameWidth:956,frameHeight:186});
         this.load.image('backWood','Assets/Sprites/UI-UX/fondo_madera.png',{frameWidth:1920,frameHeight:1080});
         this.load.image('setSel','Assets/Sprites/UI-UX/ajustes_seleccionado.png',{frameWidth:75,frameHeight:88});
         this.load.image('lifeBar','Assets/Sprites/UI-UX/barra_vida_salud.png',{frameWidth:399,frameHeight:29});
         this.load.image('lifeBarBg','Assets/Sprites/UI-UX/barra_vida.png',{frameWidth:443,frameHeight:54});
-        this.load.spritesheet('backButt','Assets/Sprites/UI-UX/boton_atras.png',{frameWidth:155.5,frameHeight:88});
+        this.load.spritesheet('backButt','Assets/Sprites/UI-UX/boton_atras.png',{frameWidth:155.5,frameHeight:137});
         this.load.spritesheet('helpButt','Assets/Sprites/UI-UX/boton_ayuda.png',{frameWidth:110.5,frameHeight:97});
         this.load.spritesheet('NoButt','Assets/Sprites/UI-UX/boton_no.png',{frameWidth:221.5,frameHeight:195});
         this.load.spritesheet('YesButt','Assets/Sprites/UI-UX/boton_yes.png',{frameWidth:221.5,frameHeight:195});
