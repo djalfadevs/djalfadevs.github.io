@@ -27,10 +27,17 @@ create(){
    var infoTextE=this.add.text(1300,10,'You have selected English',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'});
    infoTextE.alpha=0;
     //temp function
-    LATINOButt.on('pointerdown',function(){infoBar.alpha=1;infoTextL.alpha=1;transition("LATINO",that)});
-    ENGLISHButt.on('pointerdown',function(){infoBar.alpha=1;infoTextE.alpha=1;transition("ENGLISH",that)});
-    backButt.on('pointerdown',function(){transition("back",that)});
-        
+    LATINOButt.on('pointerdown',function(){this.setFrame(1);infoBar.alpha=1;infoTextL.alpha=1;transition("LATINO",that)});
+    ENGLISHButt.on('pointerdown',function(){this.setFrame(1);infoBar.alpha=1;infoTextE.alpha=1;transition("ENGLISH",that)});
+    backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)});
+    
+    LATINOButt.on('pointerup',function(){this.setFrame(0)});
+    ENGLISHButt.on('pointerup',function(){this.setFrame(0)});
+    backButt.on('pointerup',function(){this.setFrame(0);});
+    
+    LATINOButt.on('pointerout',function(){this.setFrame(0)});
+    ENGLISHButt.on('pointerout',function(){this.setFrame(0)});
+    backButt.on('pointerout',function(){this.setFrame(0)});
         //pointerOverFunctions [COPYPASTED LOGIN]
     
         //reg.on('pointerover',function(){this.setFrame(...)});

@@ -12,16 +12,22 @@ preload(){
 }
 create(){
     var that=this;
-    var play=this.add.sprite(950,700,'largeButt').setScale(0.8).setInteractive({useHandCursor:true});
+    var play=this.add.sprite(950,700,'largeButt').setScale(0.8).setInteractive();
     this.add.text(880,660,'Play',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-    var settings=this.add.sprite(480,900,'largeButt').setScale(0.7).setInteractive({useHandCursor:true});
-    this.add.text(335,860,'Settings',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-    var lang=this.add.sprite(1350,900,'largeButt').setScale(0.7).setInteractive({useHandCursor:true});
-    this.add.text(1190,860,'Language',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+    var settings=this.add.sprite(480,900,'largeSetButt').setScale(0.7).setInteractive();
+    this.add.text(370,860,'Settings',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+    var lang=this.add.sprite(1350,900,'largeLangButt').setScale(0.7).setInteractive();
+    this.add.text(1240,860,'Language',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
     //temp function
-    play.on('pointerdown',function(){transition("play",that)});
-    settings.on('pointerdown',function(){transition("settings",that)});
-    lang.on('pointerdown',function(){transition("lang",that)});
+    play.on('pointerdown',function(){this.setFrame(1);});
+    settings.on('pointerdown',function(){this.setFrame(1);});
+    lang.on('pointerdown',function(){this.setFrame(1);});
+    play.on('pointerup',function(){this.setFrame(0);transition("play",that)})
+    settings.on('pointerup',function(){this.setFrame(0);transition("settings",that)})
+    lang.on('pointerup',function(){this.setFrame(0);transition("lang",that)})
+    play.on('pointerout',function(){this.setFrame(0)});
+    settings.on('pointerout',function(){this.setFrame(0)});
+    lang.on('pointerout',function(){this.setFrame(0)});
     //pointerOverFunctions
     //var backButt=this.add.sprite(100,100,'backButt').setScale(0.5).setInteractive({useHandCursor:true})
     
