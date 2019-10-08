@@ -3,6 +3,10 @@ package com.djalfadevs.es.masterguilds;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public class UserInfo {
 	private String name;
 	private int gold;
@@ -18,9 +22,25 @@ public class UserInfo {
 		this.gold = 1000;//Dinero Inicial
 		this.gems = 100;//Gemas Iniciales
 		this.exp = 0;
+		this.level = 1;
 		this.heros = new ArrayList<>();
-		this.clan = null;//CAMBIAR ??
+		this.clan = "empty";//CAMBIAR ??
 		this.setArenaPoints(0);
+	}
+	
+	@JsonCreator
+	public UserInfo(@JsonProperty("name")String name,@JsonProperty("gold") int gold,
+			@JsonProperty("gems")int gems,@JsonProperty("exp")int exp,@JsonProperty("level")int level,
+			@JsonProperty("heros")ArrayList<Hero> heros,
+			@JsonProperty("clan")String clan,@JsonProperty("arenaPoints")int arenaPoints) {
+		this.name = name;
+		this.gold = gold;
+		this.gems = gems;
+		this.exp = exp;
+		this.level = level;
+		this.heros = heros;
+		this.clan = clan;
+		this.arenaPoints = arenaPoints;
 	}
 	
 	public String getName() {
@@ -75,4 +95,15 @@ public class UserInfo {
 	public void setArenaPoints(int arenaPoints) {
 		this.arenaPoints = arenaPoints;
 	}
+
+	@Override
+	public String toString() {
+		return "UserInfo [name=" + name + ", gold=" + gold + ", gems=" + gems + ", exp=" + exp + ", level=" + level
+				+ ", heros=" + heros + ", clan=" + clan + ", arenaPoints=" + arenaPoints + "]";
+	}
+	
+	
+
+	
+	
 }

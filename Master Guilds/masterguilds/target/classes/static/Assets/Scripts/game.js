@@ -94,7 +94,15 @@
 		switch (msg.event) {
 			case "SUCCESSLOGIN":
 				game.global.user = msg.userinfo;
-				game.scene.transition({target:'register',duration:100})
+				console.log(game.scene)
+				game.scene.scenes[1].scene.transition({target:'title',duration:100})
+
+				//DEBUG
+				var aux = new Object();
+        		aux.event = "UPDATEUSERINFO"
+        		aux.user = game.global.user;
+        		game.global.socket.send(JSON.stringify(aux))
+        		///////
 			break;
 			case "FAILLOGIN":
 			break;

@@ -16,6 +16,9 @@ public class App implements WebSocketConfigurer
     public static void main( String[] args )
     {
     	SpringApplication.run(App.class, args);
+    	
+    	Game.INSTANCE.loadInfoUsers();
+    	
     }
     
     @Override

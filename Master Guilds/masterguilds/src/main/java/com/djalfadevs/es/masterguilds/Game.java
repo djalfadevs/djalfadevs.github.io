@@ -3,6 +3,7 @@ package com.djalfadevs.es.masterguilds;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,23 +11,47 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
+import java.io.DataInput;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
 import org.bson.Document;
 import org.springframework.web.socket.TextMessage;
+import static com.mongodb.client.model.Projections.*;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.ser.std.MapSerializer;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.util.JSON;
 
 public class Game {
 	public final static Game INSTANCE = new Game();
 	
 	ObjectMapper mapper = new ObjectMapper();
+
 	private Map<String, Player> Allplayers = new ConcurrentHashMap<>();
-	private Map<NamePassword,UserInfo> infoUsers = new ConcurrentHashMap<>();
+	
+	
+	private ConcurrentHashMap<NamePassword,UserInfo> infoUsers = new ConcurrentHashMap<>();
+	
+	
 	private List<NamePassword> infoUsersUsing = new ArrayList<>();
 	
 	private Lock lock = new ReentrantLock();
@@ -34,8 +59,36 @@ public class Game {
 	MongoClient mongoClient = new MongoClient();
 	MongoDatabase database = mongoClient.getDatabase("Mastera");
 
+
+
 public void loadInfoUsers () {
+	MongoCollection<Document> coll = database.getCollection("Users");
+	if(coll.count()!=0) {//No esta vacia
+		FindIterable<Document> auxIterable =  coll.find().projection(exclude("_id"));
+		for(Document d:auxIterable) {
+			JsonNode auxnode = null;
+			try {
+				auxnode = mapper.readTree(d.toJson());
+				NamePassword auxNP = new NamePassword(auxnode.get("NamePassword").get("name").asText(),
+						auxnode.get("NamePassword").get("password").asText());
+				UserInfo auxUI = new UserInfo(auxnode.get("UserInfo").get("name").asText(),
+						auxnode.get("UserInfo").get("gold").asInt(),
+						auxnode.get("UserInfo").get("gems").asInt(),
+						auxnode.get("UserInfo").get("exp").asInt(),
+						auxnode.get("UserInfo").get("level").asInt(),
+						new ArrayList<Hero>(),
+						auxnode.get("UserInfo").get("clan").asText(),
+						auxnode.get("UserInfo").get("arenaPoints").asInt());
+				infoUsers.put(auxNP,auxUI);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 	
+		}
+		
+	}
 }
 
 public void addPlayer(Player player) {
@@ -148,19 +201,63 @@ public List<UserInfo> getRanking(){
 	
 }
 
-public void updateUserInfo(NamePassword n, UserInfo u) {
+public void updateUserInfo(NamePassword n, UserInfo u)  {
 	infoUsers.put(n, u);
-	MongoCollection<Document> coll = database.getCollection("Users");
+	
 	
 	//Actualizamos tambien la base de datos
-	
+	MongoCollection<Document> coll = database.getCollection("Users");
 	//Delete all
 	BasicDBObject document = new BasicDBObject();
 	coll.deleteMany(document);
-	
-	ArrayList<Document> listadeDocumentosUser = new ArrayList<>();
-	coll.insertMany(listadeDocumentosUser);
-	
+
+	/*
+	String jsonResult = null;
+	try {
+		jsonResult = mapper.writerWithDefaultPrettyPrinter()
+				  .writeValueAsString(infoUsers);
+	} catch (JsonProcessingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	*/
+	ArrayNode NamePassUserInfoMap = mapper.createArrayNode();
+	Iterator<NamePassword> iterator = infoUsers.keySet().iterator();
+		while(iterator.hasNext()) {
+			NamePassword next = iterator.next();
+			System.out.println(next.toString());
+			ObjectNode NamePassUserInfo = mapper.createObjectNode();
+			ObjectNode namePass = mapper.createObjectNode();
+			namePass.put("name", next.name);
+			namePass.put("password", next.password);
+			NamePassUserInfo.set("NamePassword",namePass);
+			
+			ObjectNode userInfo = mapper.createObjectNode();
+			UserInfo auxUserInfo = infoUsers.get(next);
+			userInfo.put("name", auxUserInfo.getName() );
+			userInfo.put("gold", auxUserInfo.getGold() );
+			userInfo.put("gems", auxUserInfo.getGems() );
+			userInfo.put("exp", auxUserInfo.getExp() );
+			userInfo.put("level", auxUserInfo.getLevel() );
+			try {
+				userInfo.put("heros", mapper.writeValueAsString(auxUserInfo.getHeros()));
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			userInfo.put("clan", auxUserInfo.getClan() );
+			userInfo.put("arenaPoints", auxUserInfo.getArenaPoints() );
+			NamePassUserInfo.set("UserInfo",userInfo);
+			
+			
+			try {
+				coll.insertOne(Document.parse(mapper.writeValueAsString(NamePassUserInfo)));
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
 	
 }
 }

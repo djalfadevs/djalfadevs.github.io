@@ -1,8 +1,15 @@
 package com.djalfadevs.es.masterguilds;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+
 public class NamePassword {
 	String name;
 	String password;
+	
 	
 	public NamePassword(String name, String password) {
 		super();
@@ -10,6 +17,7 @@ public class NamePassword {
 		this.password = password;
 		System.out.println("Se crea namepassword");
 	}
+	
 	public String getName() {
 		return name;
 	}
@@ -51,6 +59,13 @@ public class NamePassword {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "NamePassword [name=" + name + ", password=" + password + "]";
+	}
+	
+	
 
 
 	

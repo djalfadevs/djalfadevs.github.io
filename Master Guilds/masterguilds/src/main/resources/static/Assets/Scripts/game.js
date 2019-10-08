@@ -96,6 +96,13 @@
 				game.global.user = msg.userinfo;
 				console.log(game.scene)
 				game.scene.scenes[1].scene.transition({target:'title',duration:100})
+
+				//DEBUG
+				var aux = new Object();
+        		aux.event = "UPDATEUSERINFO"
+        		aux.user = game.global.user;
+        		game.global.socket.send(JSON.stringify(aux))
+        		///////
 			break;
 			case "FAILLOGIN":
 			break;
