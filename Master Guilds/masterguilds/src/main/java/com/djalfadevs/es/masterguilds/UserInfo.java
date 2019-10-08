@@ -17,6 +17,7 @@ public class UserInfo {
 	private String clan;
 	private int arenaPoints;
 	
+	//Constructor para nuevos usuarios
 	public UserInfo(String name) {
 		this.name = name;
 		this.gold = 1000;//Dinero Inicial
@@ -26,6 +27,9 @@ public class UserInfo {
 		this.heros = new ArrayList<>();
 		this.clan = "empty";//CAMBIAR ??
 		this.setArenaPoints(0);
+		
+		//Heroes Al registrarse
+		
 	}
 	
 	@JsonCreator

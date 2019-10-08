@@ -20,19 +20,26 @@ class mainMenu extends Phaser.Scene{
         
         //TEMP BUTTON PLACEMENTS
         
-        var playButt=this.add.sprite(1450,250,'largeButt').setInteractive({useHandCursor:true})
-        var collButt=this.add.sprite(1450,550,'largeButt').setInteractive({useHandCursor:true})
-        var shopButt=this.add.sprite(1450,850,'largeButt').setInteractive({useHandCursor:true})
-        var backButt=this.add.sprite(100,100,'xxx').setScale(0.5).setInteractive({useHandCursor:true})
+        var playButt=this.add.sprite(1450,250,'largeButt').setInteractive()
+        
+        var collButt=this.add.sprite(1450,550,'largeButt').setInteractive()
+        var shopButt=this.add.sprite(1450,850,'largeButt').setInteractive()
+        var backButt=this.add.sprite(100,100,'backButt').setScale(0.5).setInteractive()
+        backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
+        backButt.on('pointerup',function(){this.setFrame(0)})
         //temp function
+        var infoBar=this.add.sprite(960,10,'infoBar')
+        infoBar.alpha=0;
+        var infoText=this.add.text(1600,10,'INFOBAR',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'});
+        infoText.alpha=0;
         playButt.on('pointerdown',function(){transition("play",that)});
         collButt.on('pointerdown',function(){transition("coll",that)});
         shopButt.on('pointerdown',function(){transition("shop",that)});
-        backButt.on('pointerdown',function(){transition("back",that)});
-        
+        this.add.text(1300,215,'Combat',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         //pointerOverFunctions [COPYPASTED LOGIN]
     
-        //reg.on('pointerover',function(){this.setFrame(...)});
+        playButt.on('pointerover',function(){infoBar.alpha=1;infoText.alpha=1;});
+        playButt.on('pointerout',function(){infoBar.alpha=0;infoText.alpha=0;});
         //reg.on('pointerout',function(){this.setFrame(...)});
         //reg.on('pointerdown',function(){this.setFrame(...); transition("reg")});
         //SFX? .sound.play();

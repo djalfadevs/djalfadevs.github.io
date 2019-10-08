@@ -15,7 +15,6 @@ public class NamePassword {
 		super();
 		this.name = name;
 		this.password = password;
-		System.out.println("Se crea namepassword");
 	}
 	
 	public String getName() {

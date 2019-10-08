@@ -26,28 +26,28 @@ create(){
      
     
     this.add.sprite(380,350,'smallInfo').setScale(0.6)
-    
+    this.add.text(220,320,'Username',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
     this.add.sprite(380,650,'smallInfo').setScale(0.6)
+    this.add.text(220,620,'Password',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+    var reg=this.add.sprite(480,900,'largeButt').setScale(0.8).setInteractive();
 
-    var reg=this.add.sprite(480,900,'largeButt').setScale(0.8).setInteractive({useHandCursor:true});
+    var enter=this.add.sprite(1350,900,'largeButt').setScale(0.8).setInteractive(); 
     
-    var enter=this.add.sprite(1350,900,'largeButt').setScale(0.8).setInteractive({useHandCursor:true}); 
-    
-    var nameform = this.add.dom(400, 200).createFromCache('nameform');
-    var passwordform = this.add.dom(400, 400).createFromCache('passwordform');
-    
+    var nameform = this.add.dom(1310, 360).createFromCache('nameform');
+    var passwordform = this.add.dom(1290, 660).createFromCache('passwordform');
+    this.add.text(355,860,'Register',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'});
+    this.add.text(1260,860,'Enter',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'});
+
+    var nameformButt=this.add.sprite(1275,360,'textBox');
+    var passformButt=this.add.sprite(1275,660,'textBox');
     //Cuando pulsemos el boton registrar se mandara un socket con dicha informacion 
     //y habra que esperar a su respuesta para poder continuar con lo siguiente
     //Si miramos el concept de diseño la idea es usar una escena por encima que lance un mensaje emergente
-    reg.on('pointerdown',function(){
-        var msg = new Object();
-        msg.event = "SIGNUP"
-        msg.name = nameform.getChildByName("nameField").value;
-        msg.password = passwordform.getChildByName("passwordField").value;
-        game.global.socket.send(JSON.stringify(msg))
+    //reg.on('pointerdown',function(){
+        
         //Habra que hacer que hasta que no confirme lo que devuelve el socket no actue nada de lo siguiente
         //transition("reg",that)
-    });
+    //});
 
     enter.on('pointerdown',function(){
         var msg = new Object();
@@ -61,8 +61,12 @@ create(){
     //pointerOverFunctions
     
     //reg.on('pointerover',function(){this.setFrame(...)});
-    //reg.on('pointerout',function(){this.setFrame(...)});
-    //reg.on('pointerdown',function(){this.setFrame(...); transition("reg")});
+    reg.on('pointerout',function(){this.setFrame(0)});
+    reg.on('pointerdown',function(){this.setFrame(1);var msg = new Object();
+        msg.event = "SIGNUP"
+        msg.name = nameform.getChildByName("nameField").value;
+        msg.password = passwordform.getChildByName("passwordField").value;
+        game.global.socket.send(JSON.stringify(msg))});
     //SFX? .sound.play();
     //enter.on('pointerover',function(){this.setFrame(...)});
     //enter.on('pointerout',function(){this.setFrame(...)});
