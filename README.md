@@ -138,8 +138,23 @@ Con estos aspectos esperamos conseguir un metagame interesante para jugadores ve
   
   En Administración de Personajes el jugador tiene acceso a las funciones de inspección y combinación de personajes, mientras que en la pantalla de reclutamiento el jugador podrá invertir sus gemas para conseguir nuevos personajes, así como comprar gemas con in-app purchases para esto mismo.
 
+#### MENU RECUTAMIENTO:
+
+  El menú tienda se compone por dos sub menús:
+  
+  * Menú Summon: En esta sección el usuario accede a la pantalla en la que puede gastar gemas para conseguir un nuevos personajes de forma aleatoria. Los pools aleatorios irán cambiando en función de que campañas publicitarias e ingame esten activas en un dado momento. El jugador puede tener más de un banner activo en cualquier dado momento para que pueda elegir el que más le guste.
+  
+  * Menú Tienda: En este menú el usuario accede a las compras  de gemas por microtransacción. Habrá varios packs de cantidades de gemas de los que elegir y occasionalmente incluso ofertas especiales con descuentos. Además, los usuarios podrán acceder una vez al dia en esta pantalla a una bonificación de gemas gratuitas.
+
 #### MENU MISSIONES:
 
   En el menú de misiones el jugador puede elegir entre los tres modos de juego. En los menús de Campaña y Quests el jugador elije una misión, compone el equipo que enviará y confirma su selección para empezar el combate. En el menú de Arena, al jugador se le presentará su ranking además de la próxima batalla que se le asignado, y seguido de esto seleccionará su equipo y iniciará el combate.
   
   Los menús de Quests y Arena también contarán con indicadores de la cantidad de intentos restantes diarias.
+  
+  ###### Arena:
+  
+  El menú de la arena cuenta con algunas caracteristicas especiales frente a los otros menús de missiones. Cuenta con leaderboard de usuarios en los cuales el jugador puede ver su puesto a la derecha de la pantalla. En la izquierda salen las opciones de combate entre las que puede elegir para su próximo intento contra la Arena. Tambien ve un indicador visual de cuantos intentos diarios le quedan por hacer.
+  
+  Además, cuenta con un botón que le abre la seleción de equipo que quiera subir al servidor para que combatan los otros usuarios.
+  
