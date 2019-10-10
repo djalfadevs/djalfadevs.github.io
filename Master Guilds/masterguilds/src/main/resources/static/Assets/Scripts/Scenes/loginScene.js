@@ -74,22 +74,7 @@ create(){
     //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
 
     
-    //temp function
-    var transition=function(str,t){
-    switch(str){
-            case "reg":
-            t.scene.transition({target:'register',duration:100});
-            break;
-            case "ent":
-            t.scene.transition({target:'title',duration:100});
-            break;
-            
-        //potential exit case
-            
-        default:
-            break;
-    }
-}
+
 }
 
 }

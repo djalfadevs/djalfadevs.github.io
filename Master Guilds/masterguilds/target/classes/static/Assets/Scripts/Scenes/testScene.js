@@ -1,7 +1,7 @@
 //La funcion de esta escena es simplemente de testeo
 class TestScene extends Phaser.Scene {
 	constructor () {
-		super({key: 'TestScene', active:true})
+		super({key: 'TestScene', active:false})
 
 	}
 	preload(){
