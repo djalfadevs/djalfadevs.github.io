@@ -102,6 +102,7 @@
         		aux.event = "UPDATEUSERINFO"
         		aux.user = game.global.user;
         		game.global.socket.send(JSON.stringify(aux))
+        		console.log(JSON.stringify(aux))
         		///////
 			break;
 			case "FAILLOGIN":
