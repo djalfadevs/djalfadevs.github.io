@@ -1,6 +1,7 @@
 package com.djalfadevs.es.masterguilds;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -47,14 +48,11 @@ public class Game {
 	ObjectMapper mapper = new ObjectMapper();
 
 	private Map<String, Player> Allplayers = new ConcurrentHashMap<>();
-	
-	
 	private ConcurrentHashMap<NamePassword,UserInfo> infoUsers = new ConcurrentHashMap<>();
-	
-	
 	private List<NamePassword> infoUsersUsing = new ArrayList<>();
-	
 	private Lock lock = new ReentrantLock();
+
+	
 	
 	MongoClient mongoClient = new MongoClient();
 	MongoDatabase database = mongoClient.getDatabase("Mastera");
@@ -69,6 +67,7 @@ public void loadInfoUsers () {
 			JsonNode auxnode = null;
 			try {
 				auxnode = mapper.readTree(d.toJson());
+				System.out.println(mapper.writeValueAsString(auxnode.get("UserInfo").get("heros")));
 				NamePassword auxNP = new NamePassword(auxnode.get("NamePassword").get("name").asText(),
 						auxnode.get("NamePassword").get("password").asText());
 				UserInfo auxUI = new UserInfo(auxnode.get("UserInfo").get("name").asText(),
@@ -76,10 +75,11 @@ public void loadInfoUsers () {
 						auxnode.get("UserInfo").get("gems").asInt(),
 						auxnode.get("UserInfo").get("exp").asInt(),
 						auxnode.get("UserInfo").get("level").asInt(),
-						new ArrayList<Hero>(),
+						mapper.convertValue(auxnode.get("UserInfo").get("heros"),ArrayList.class),
 						auxnode.get("UserInfo").get("clan").asText(),
 						auxnode.get("UserInfo").get("arenaPoints").asInt());
 				infoUsers.put(auxNP,auxUI);
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -238,13 +238,8 @@ public void updateUserInfo(NamePassword n, UserInfo u)  {
 			userInfo.put("gold", auxUserInfo.getGold() );
 			userInfo.put("gems", auxUserInfo.getGems() );
 			userInfo.put("exp", auxUserInfo.getExp() );
-			userInfo.put("level", auxUserInfo.getLevel() );
-			try {
-				userInfo.put("heros", mapper.writeValueAsString(auxUserInfo.getHeros()));
-			} catch (JsonProcessingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			userInfo.put("level", auxUserInfo.getLevel());
+			userInfo.set("heros", mapper.valueToTree(auxUserInfo.getHeros()));
 			userInfo.put("clan", auxUserInfo.getClan() );
 			userInfo.put("arenaPoints", auxUserInfo.getArenaPoints() );
 			NamePassUserInfo.set("UserInfo",userInfo);

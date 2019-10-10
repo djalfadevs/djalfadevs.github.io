@@ -32,10 +32,24 @@ class mainMenu extends Phaser.Scene{
         infoBar.alpha=0;
         var infoText=this.add.text(1600,10,'INFOBAR',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'});
         infoText.alpha=0;
-        playButt.on('pointerdown',function(){transition("play",that)});
-        collButt.on('pointerdown',function(){transition("coll",that)});
-        shopButt.on('pointerdown',function(){transition("shop",that)});
+        playButt.on('pointerdown',function(){this.setFrame(1)});
+        collButt.on('pointerdown',function(){this.setFrame(1)});
+        shopButt.on('pointerdown',function(){this.setFrame(1)});
+        
+        playButt.on('pointerup',function(){this.setFrame(0);transition("play",that)});
+        collButt.on('pointerup',function(){this.setFrame(0);transition("coll",that)});
+        shopButt.on('pointerup',function(){this.setFrame(0);transition("shop",that)});
+        
+        playButt.on('pointerout',function(){this.setFrame(0)});
+        collButt.on('pointerout',function(){this.setFrame(0)});
+        shopButt.on('pointerout',function(){this.setFrame(0)});
+        backButt.on('pointerout',function(){this.setFrame(0)});
+
+        
         this.add.text(1300,215,'Combat',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(1250,515,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(1350,815,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+
         //pointerOverFunctions [COPYPASTED LOGIN]
     
         playButt.on('pointerover',function(){infoBar.alpha=1;infoText.alpha=1;});
@@ -53,12 +67,12 @@ class mainMenu extends Phaser.Scene{
                 t.scene.transition({target:'combatMenu',duration:100});
                 break;
                 case "coll":
-                console.log("not done yet")
-                        //t.scene.transition({target:'collection',duration:100});
+                //console.log("not done yet")
+                        t.scene.transition({target:'collection',duration:100});
                 break;
                 case "shop":
                 console.log("not done yet")
-                        //t.scene.transition({target:'shop',duration:100});
+                        t.scene.transition({target:'shop',duration:100});
                 break;
                 case "back":
                 t.scene.transition({target:'title',duration:100});

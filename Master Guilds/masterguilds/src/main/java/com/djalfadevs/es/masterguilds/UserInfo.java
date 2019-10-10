@@ -1,11 +1,21 @@
 package com.djalfadevs.es.masterguilds;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class UserInfo {
 	private String name;
@@ -29,20 +39,55 @@ public class UserInfo {
 		this.setArenaPoints(0);
 		
 		//Heroes Al registrarse
+		try {
+			InputStream i = getClass().getResourceAsStream("heroes.json");
+			BufferedReader br = new BufferedReader(new InputStreamReader(i, "UTF-8"));
+			ObjectMapper o = new ObjectMapper();
+			ArrayNode auxArrayNode = o.readValue(br,ArrayNode.class );
+			br.close();
+			System.out.println(o.writeValueAsString(auxArrayNode.get(0)));
+			System.out.println("llalalsdmlsdsldsdl");
+			
+			//PRUEBA DE METER HEROE (AL registrar un jugador se le dan unos heroes elegidos por el gamedesigner)
+			//Estos tienen que ver con la historia del juego
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(1),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
 	@JsonCreator
 	public UserInfo(@JsonProperty("name")String name,@JsonProperty("gold") int gold,
 			@JsonProperty("gems")int gems,@JsonProperty("exp")int exp,@JsonProperty("level")int level,
-			@JsonProperty("heros")ArrayList<Hero> heros,
+			@JsonProperty("heros")List<Hero> list,
 			@JsonProperty("clan")String clan,@JsonProperty("arenaPoints")int arenaPoints) {
 		this.name = name;
 		this.gold = gold;
 		this.gems = gems;
 		this.exp = exp;
 		this.level = level;
-		this.heros = heros;
+		this.heros = list;
 		this.clan = clan;
 		this.arenaPoints = arenaPoints;
 	}
