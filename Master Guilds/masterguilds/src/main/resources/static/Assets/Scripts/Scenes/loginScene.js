@@ -24,7 +24,8 @@ create(){
     console.log("login")
     this.add.image(960,540,'backWood');
      
-    
+    var infoBar=this.add.sprite(960,63,'infoBar')
+    this.add.text(300,	10,'SIGN IN',{fontFamily:"Museo-700" ,fontSize:'70px',color:'#fff',fontStyle:'bold'});
     this.add.sprite(380,350,'smallInfo').setScale(0.6)
     this.add.text(220,320,'Username',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
     this.add.sprite(380,650,'smallInfo').setScale(0.6)

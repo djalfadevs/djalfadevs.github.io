@@ -20,7 +20,7 @@
 
 	//De momento solo hay una escena de prueba
 	//scene: [SimulationScene,PauseScene]
-    scene:[preload,login,register,title,shop,settings,ranking,
+    scene:[preload,LOGO,contact,login,register,title,shop,settings,ranking,
     mainMenu,lang,deck,combatMenu,collection,chapter,
     SimulationScene,PauseScene]
 };
@@ -95,7 +95,8 @@
 			case "SUCCESSLOGIN":
 				game.global.user = msg.userinfo;
 				console.log(game.scene)
-				game.scene.scenes[1].scene.transition({target:'title',duration:100})
+
+				game.scene.scenes[2].scene.transition({target:'title',duration:100})
 
 				//DEBUG
 				var aux = new Object();
