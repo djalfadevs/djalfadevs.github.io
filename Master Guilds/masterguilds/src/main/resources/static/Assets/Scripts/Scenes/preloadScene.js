@@ -3,7 +3,7 @@
 class preload extends Phaser.Scene{
 
     constructor(){
-        super({key:'preload'})
+        super({key:'preload',active:true})
     }
 
 	preload(){
@@ -56,6 +56,10 @@ class preload extends Phaser.Scene{
         
         //frame final
         //load.setFrame(2);
+        //CARTAS
+        this.load.image('small_card','Assets/Sprites/UI-UX/carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('azon_small_card_back','Assets/Sprites/UI-UX/cartas/azon_back_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('azon_small_card_front','Assets/Sprites/UI-UX/cartas/azon_front_carta_pequena.png',{frameWidth:163,frameHeight:239});
 	}
 
 	create(){

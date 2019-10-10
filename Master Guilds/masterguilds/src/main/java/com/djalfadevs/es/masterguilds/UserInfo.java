@@ -47,38 +47,20 @@ public class UserInfo {
 			br.close();
 			System.out.println(o.writeValueAsString(auxArrayNode.get(0)));
 			System.out.println("llalalsdmlsdsldsdl");
-			//PRUEBA DE METER HEROE (HE INTENTADO HACERLO AUTOMATICO SIN EXITO)
 			
-			String nameAux = auxArrayNode.get(0).get("name").asText();
-			int idAux = auxArrayNode.get(0).get("ID").asInt();
-			float baseAttackAux = auxArrayNode.get(0).get("baseAttack").floatValue();
-			float AttackAux = auxArrayNode.get(0).get("attack").floatValue();
-			float baseDefenceAux = auxArrayNode.get(0).get("baseDefence").floatValue();
-			float DefenceAux = auxArrayNode.get(0).get("defence").floatValue();
-			float baseHPAux = auxArrayNode.get(0).get("baseHP").floatValue();
-			float HPAux = auxArrayNode.get(0).get("HP").floatValue();
-			float base_crit_hit_chanceAux = auxArrayNode.get(0).get("base_crit_hit_chance").floatValue();
-			float crit_hit_chanceAux = auxArrayNode.get(0).get("crit_hit_chance").floatValue();
-			float base_evasionAux = auxArrayNode.get(0).get("baseEvasion").floatValue();
-			float evasionAux = auxArrayNode.get(0).get("evasion").floatValue();
-			String[] descriptionAux = o.convertValue(auxArrayNode.get(0).get("description"),String[].class);
-			Abilitie[] abilitieAux = o.convertValue(auxArrayNode.get(0).get("abilities"),Abilitie[].class);
-			Effect[] activeAbilitiesAux = o.convertValue(auxArrayNode.get(0).get("activeAbilities"),Effect[].class);
-			String imageUrlAux = auxArrayNode.get(0).get("image_url").asText();
-			float baseAggroAux = auxArrayNode.get(0).get("baseAggro").floatValue();
-			float aggroAux = auxArrayNode.get(0).get("aggro").floatValue();
-			String factionAux = auxArrayNode.get(0).get("faction").asText();
-			int rarityAux= auxArrayNode.get(0).get("rarity").asInt();
-			float expAux = auxArrayNode.get(0).get("exp").floatValue();
-			int levelAux = auxArrayNode.get(0).get("level").asInt();
-			String roleAux = auxArrayNode.get(0).get("role").asText();
-			Hero auxHero = new Hero(idAux,nameAux,baseAttackAux,AttackAux,baseDefenceAux,
-					DefenceAux,baseHPAux,HPAux,base_crit_hit_chanceAux,crit_hit_chanceAux,
-					base_evasionAux,evasionAux,descriptionAux,abilitieAux,activeAbilitiesAux,
-					imageUrlAux,baseAggroAux,aggroAux,factionAux,rarityAux,expAux,levelAux,
-					roleAux);
-			this.heros.add(auxHero);
-			//this.heros.add(oeadValue(o.writeValueAsString(auxArrayNode.get(0)), Hero.class));
+			//PRUEBA DE METER HEROE (AL registrar un jugador se le dan unos heroes elegidos por el gamedesigner)
+			//Estos tienen que ver con la historia del juego
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(1),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
