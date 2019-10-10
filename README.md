@@ -130,23 +130,23 @@ Con estos aspectos esperamos conseguir un metagame interesante para jugadores ve
 
 #### PANTALLA INICIAL:
 
-  El juego cuenta con una pagina de inicio en la cual accede al servidor con la id de el usuario. En el caso de ser un nuevo usuario, aparecerá un mensaje de registro donde el jugador mete su nombre y se le asigna su id para el servidor. También cuenta con el acceso a opciones y selección de idiomas.
+  El juego cuenta con una pagina de inicio en la cual accede al servidor mediante el login. En el caso de ser un nuevo usuario, aparecerá un mensaje de registro donde el jugador mete su nombre y se le asigna su id para el servidor. También cuenta con el acceso a opciones y selección de idiomas.
 
 #### MENU PRINCIPAL:
 
-  El menú principal consta con un diseño integrado con el mundo de MasterA y da acceso a los submenús de Misiones, Administración de Personajes y Reclutamiento.
+  El menú principal consta con un diseño integrado con el mundo de MasterA y da acceso a los distintos modos de juego (Story, Quests y Arena), Aministración de Personajes, y Reclutamiento.
   
   En Administración de Personajes el jugador tiene acceso a las funciones de inspección y combinación de personajes, mientras que en la pantalla de reclutamiento el jugador podrá invertir sus gemas para conseguir nuevos personajes, así como comprar gemas con in-app purchases para esto mismo.
 
 #### MENU RECUTAMIENTO:
 
-  El menú tienda se compone por dos sub menús:
+  El menú reclutamiento se compone por dos sub menús:
   
   * Menú Summon: En esta sección el usuario accede a la pantalla en la que puede gastar gemas para conseguir un nuevos personajes de forma aleatoria. Los pools aleatorios irán cambiando en función de que campañas publicitarias e ingame esten activas en un dado momento. El jugador puede tener más de un banner activo en cualquier dado momento para que pueda elegir el que más le guste.
   
   * Menú Tienda: En este menú el usuario accede a las compras  de gemas por microtransacción. Habrá varios packs de cantidades de gemas de los que elegir y occasionalmente incluso ofertas especiales con descuentos. Además, los usuarios podrán acceder una vez al dia en esta pantalla a una bonificación de gemas gratuitas.
 
-#### MENU MISSIONES:
+#### MENUS PRE-COMBATE:
 
   En el menú de misiones el jugador puede elegir entre los tres modos de juego. En los menús de Campaña y Quests el jugador elije una misión, compone el equipo que enviará y confirma su selección para empezar el combate. En el menú de Arena, al jugador se le presentará su ranking además de la próxima batalla que se le asignado, y seguido de esto seleccionará su equipo y iniciará el combate.
   
