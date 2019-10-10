@@ -7,7 +7,7 @@ var CollectionCard = new Phaser.Class({
 		this.y = y;
 		
 		//Imagen de la carta de personaje
-		this.HeroSprite = scene.add.sprite(0,0,"small_card").setScale(1,1);
+		this.HeroSprite = scene.add.sprite(0,0,"azon_small_card_front").setScale(1,1);
 
 		//Container
 		this.cardContainer = scene.add.container(0,0,[this.HeroSprite]);

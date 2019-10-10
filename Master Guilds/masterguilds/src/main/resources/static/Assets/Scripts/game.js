@@ -102,6 +102,8 @@
         		aux.user = game.global.user;
         		game.global.socket.send(JSON.stringify(aux))
 
+        		//Tiene que esperar a que se mande el websocket
+        		//ARREGLAR
 				game.scene.scenes[3].scene.transition({target:'title',duration:100})
 
 			
