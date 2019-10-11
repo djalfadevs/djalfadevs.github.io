@@ -17,117 +17,72 @@ class settings extends Phaser.Scene{
         var MVol=5;
         var GVol=5;
         var Evol=5;
-        this.add.sprite(420,320,'largeButt').setScale(0.6);
-        this.add.sprite(420,570,'largeButt').setScale(0.6);
-        this.add.sprite(420,820,'largeButt').setScale(0.6);
-        this.add.sprite(1300,320,'setnsBar').setScale(1);
-        this.add.sprite(1300,570,'setnsBar').setScale(1);
-        this.add.sprite(1300,820,'setnsBar').setScale(1);
-        this.add.sprite(1120,320,'setNotSel');
-        this.add.sprite(1210,320,'setNotSel'); 	
-        this.add.sprite(1300,320,'setNotSel');
-        this.add.sprite(1390,320,'setNotSel'); 	
-        this.add.sprite(1480,320,'setNotSel');
-        this.add.sprite(1120,570,'setNotSel');
-        this.add.sprite(1210,570,'setNotSel'); 	
-        this.add.sprite(1300,570,'setNotSel');
-        this.add.sprite(1390,570,'setNotSel'); 	
-        this.add.sprite(1480,570,'setNotSel');
-        this.add.sprite(1120,820,'setNotSel');
-        this.add.sprite(1210,820,'setNotSel'); 	
-        this.add.sprite(1300,820,'setNotSel');
-        this.add.sprite(1390,820,'setNotSel'); 	
-        this.add.sprite(1480,820,'setNotSel');
-        var GVol1=this.add.sprite(1120,320,'setSel');
-        var GVol2=this.add.sprite(1210,320,'setSel'); 	
-        var GVol3=this.add.sprite(1300,320,'setSel');
-        var GVol4=this.add.sprite(1390,320,'setSel'); 	
-        var GVol5=this.add.sprite(1480,320,'setSel');
-        var MVol1=this.add.sprite(1120,570,'setSel');
-        var MVol2=this.add.sprite(1210,570,'setSel'); 	
-        var MVol3=this.add.sprite(1300,570,'setSel');
-        var MVol4=this.add.sprite(1390,570,'setSel'); 	
-        var MVol5=this.add.sprite(1480,570,'setSel');
-        var EVol1=this.add.sprite(1120,820,'setSel');
-        var EVol2=this.add.sprite(1210,820,'setSel'); 	
-        var EVol3=this.add.sprite(1300,820,'setSel');
-        var EVol4=this.add.sprite(1390,820,'setSel'); 	
-        var EVol5=this.add.sprite(1480,820,'setSel');
-        var addGB=this.add.sprite(1600,320,'addButt').setScale(0.5).setInteractive()
-        var addMB=this.add.sprite(1600,570,'addButt').setScale(0.5).setInteractive()
-        var addEB=this.add.sprite(1600,820,'addButt').setScale(0.5).setInteractive()
-        var subGB=this.add.sprite(1000,320,'removeButt').setScale(0.5).setInteractive()
-        var subMB=this.add.sprite(1000,570,'removeButt').setScale(0.5).setInteractive()
-        var subEB=this.add.sprite(1000,820,'removeButt').setScale(0.5).setInteractive()
-        this.add.text(285,280,'General',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(320,530,'Music',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(290,780,'Effects',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         
-        var backButt=this.add.sprite(100,100,'backButt').setScale(0.5).setInteractive()
+        var infoBar=this.add.sprite(960,63,'infoBar')
+        this.add.text(250,	10,'Settings',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
+        this.add.text(520,50,'Personalize your experience',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'}).alpha=0.6
+        this.add.sprite(460,340,'smallInfo').setScale(1);
+        this.add.sprite(460,810,'smallInfo').setScale(1);
+      
+        this.add.sprite(1400,350,'setnsBar').setScale(1);
+        this.add.sprite(1400,820,'setnsBar').setScale(1);
+        
+        this.add.sprite(1220,350,'setNotSel');
+        this.add.sprite(1310,350,'setNotSel'); 	
+        this.add.sprite(1400,350,'setNotSel');
+        this.add.sprite(1490,350,'setNotSel'); 	
+        this.add.sprite(1580,350,'setNotSel');
+        this.add.sprite(1220,820,'setNotSel');
+        this.add.sprite(1310,820,'setNotSel'); 	
+        this.add.sprite(1400,820,'setNotSel');
+        this.add.sprite(1490,820,'setNotSel'); 	
+        this.add.sprite(1580,820,'setNotSel');
+
+        var MVol1=this.add.sprite(1220,350,'setSel');
+        var MVol2=this.add.sprite(1310,350,'setSel'); 	
+        var MVol3=this.add.sprite(1400,350,'setSel');
+        var MVol4=this.add.sprite(1490,350,'setSel'); 	
+        var MVol5=this.add.sprite(1580,350,'setSel');
+        var EVol1=this.add.sprite(1220,820,'setSel');
+        var EVol2=this.add.sprite(1310,820,'setSel'); 	
+        var EVol3=this.add.sprite(1400,820,'setSel');
+        var EVol4=this.add.sprite(1490,820,'setSel'); 	
+        var EVol5=this.add.sprite(1580,820,'setSel');
+        var addMB=this.add.sprite(1760,350,'addButt').setScale(1).setInteractive()
+        var addEB=this.add.sprite(1760,820,'addButt').setScale(1).setInteractive()
+        var subMB=this.add.sprite(1040,350,'removeButt').setScale(1).setInteractive()
+        var subEB=this.add.sprite(1040,820,'removeButt').setScale(1).setInteractive()
+        this.add.text(360,310,'Music',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(350,780,'Effects',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        
+        var backButt=this.add.sprite(85,80,'backButt').setScale(1).setInteractive()
         
         backButt.on('pointerdown',function(){this.setFrame(1)});
         backButt.on('pointerup',function(){this.setFrame(0);transition("back",that)})
         backButt.on('pointerout',function(){this.setFrame(0)});
 
-        addGB.on('pointerdown',function(){this.setFrame(1)});
-        addGB.on('pointerup',function(){this.setFrame(0);transition("addG",that)})
-        addGB.on('pointerout',function(){this.setFrame(0)});
+        addMB.on('pointerdown',function(){this.setFrame(1)});
+        addMB.on('pointerup',function(){this.setFrame(0);transition("addM",that)})
+        addMB.on('pointerout',function(){this.setFrame(0)});
         
-        subGB.on('pointerdown',function(){this.setFrame(1)});
-        subGB.on('pointerup',function(){this.setFrame(0);transition("subG",that)})
-        subGB.on('pointerout',function(){this.setFrame(0)});
+        subMB.on('pointerdown',function(){this.setFrame(1)});
+        subMB.on('pointerup',function(){this.setFrame(0);transition("subM",that)})
+        subMB.on('pointerout',function(){this.setFrame(0)});
+        
+        addEB.on('pointerdown',function(){this.setFrame(1)});
+        addEB.on('pointerup',function(){this.setFrame(0);transition("addE",that)})
+        addEB.on('pointerout',function(){this.setFrame(0)});
+        
+        subEB.on('pointerdown',function(){this.setFrame(1)});
+        subEB.on('pointerup',function(){this.setFrame(0);transition("subE",that)})
+        subEB.on('pointerout',function(){this.setFrame(0)}); 
+        
         
         var transition=function(str,t){
-        	console.log(GVol)
             switch(str){
                 case "back":
                     t.scene.transition({target:'title',duration:100});
                     break;
-                case "addG":
-                	if(GVol<5){
-                		GVol+=1;
-                		switch(GVol){
-                		case 1:
-                			GVol1.alpha=1;
-                			break;
-                		case 2:
-                			GVol2.alpha=1;
-                			break;
-                		case 3:
-                			GVol3.alpha=1;
-                			break;
-                		case 4:
-                			GVol4.alpha=1;
-                			break;
-                		case 5:
-                			GVol5.alpha=1;
-                			break;
-                		}
-                	}
-                break;
-                case "subG":
-                	if(GVol>0){
-                		
-                		switch(GVol){
-                		case 1:
-                			GVol1.alpha=0;
-                			break;
-                		case 2:
-                			GVol2.alpha=0;
-                			break;
-                		case 3:
-                			GVol3.alpha=0;
-                			break;
-                		case 4:
-                			GVol4.alpha=0;
-                			break;
-                		case 5:
-                			GVol5.alpha=0;
-                			break;
-                		}
-                		GVol-=1;
-                	}
-                break;
                 case "addM":
                 	if(MVol<5){
                 		MVol+=1;
@@ -170,7 +125,7 @@ class settings extends Phaser.Scene{
                 			MVol5.alpha=0;
                 			break;
                 		}
-                		GVol-=1;
+                		MVol-=1;
                 	}
                 break;
                 case "addE":
