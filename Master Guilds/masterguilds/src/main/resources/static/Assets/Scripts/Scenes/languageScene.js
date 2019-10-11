@@ -19,16 +19,12 @@ create(){
    var ENGLISHButt=this.add.sprite(1450,800,'largeButt').setInteractive()
    this.add.text(1270,740,'English',{fontFamily:"Museo-700" ,fontSize:'100px',color:'#000',fontStyle:'bold'});
    this.add.sprite(1470,440,'ingles');
-   var backButt=this.add.sprite(100,100,'backButt').setScale(0.5).setInteractive()
-   var infoBar=this.add.sprite(960,10,'infoBar')
-   infoBar.alpha=0;
-   var infoTextL=this.add.text(1300,10,'You have selected Spanish',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'});
-   infoTextL.alpha=0;
-   var infoTextE=this.add.text(1300,10,'You have selected English',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'});
-   infoTextE.alpha=0;
+   var backButt=this.add.sprite(85,80,'backButt').setInteractive()    
+   var infoBar=this.add.sprite(960,63,'infoBar')
+   this.add.text(250,	10,'Settings',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
     //temp function
-    LATINOButt.on('pointerdown',function(){this.setFrame(1);infoBar.alpha=1;infoTextL.alpha=1;transition("LATINO",that)});
-    ENGLISHButt.on('pointerdown',function(){this.setFrame(1);infoBar.alpha=1;infoTextE.alpha=1;transition("ENGLISH",that)});
+    LATINOButt.on('pointerdown',function(){this.setFrame(1);transition("LATINO",that)});
+    ENGLISHButt.on('pointerdown',function(){this.setFrame(1);transition("ENGLISH",that)});
     backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)});
     
     LATINOButt.on('pointerup',function(){this.setFrame(0)});
@@ -52,11 +48,11 @@ create(){
             switch(str){
             case "LATINO":
             console.log("latino")
-            t.add.tween({targets:[infoBar,infoTextL],alpha:0,duration:1500,ease:'Sine.easeInOut'})
+
             break;
             case "ENGLISH":
             console.log("english");
-            t.add.tween({targets:[infoBar,infoTextE],alpha:0,duration:1500,ease:'Sine.easeInOut'})
+
             break;
             case "back":
             t.scene.transition({target:'title',duration:100});
