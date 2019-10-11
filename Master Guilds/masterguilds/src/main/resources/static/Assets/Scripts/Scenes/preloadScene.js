@@ -60,6 +60,13 @@ class preload extends Phaser.Scene{
         this.load.image('small_card','Assets/Sprites/UI-UX/carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('azon_small_card_back','Assets/Sprites/UI-UX/cartas/azon_back_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('azon_small_card_front','Assets/Sprites/UI-UX/cartas/azon_front_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('azon_big_card_back','Assets/Sprites/UI-UX/cartas/azon_back_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('azon_big_card_front','Assets/Sprites/UI-UX/cartas/azon_front_carta_grande.png',{frameWidth:346,frameHeight:507});
+
+        this.load.spritesheet('largePlayArenaButt','Assets/Sprites/UI-UX/boton_largo_jugar_arena.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('largePlayMisionsButt','Assets/Sprites/UI-UX/boton_largo_jugar_misiones.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('largePlayHistoryButt','Assets/Sprites/UI-UX/boton_largo_jugar_historia.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('largeAdministrationButt','Assets/Sprites/UI-UX/boton_largo_jugar_administracion.png',{frameWidth:777,frameHeight:195});
 	}
 
 	create(){

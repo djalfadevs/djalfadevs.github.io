@@ -10,7 +10,8 @@ class collection extends Phaser.Scene{
         	cards:[],
             numberOfPages:0,
             numberOfPage:0,
-            numberOfPageText:null
+            numberOfPageText:null,
+            bigcardSprite:null
         }
     }
     preload(){
@@ -77,7 +78,7 @@ class collection extends Phaser.Scene{
     		if(that.extend.cards[j]!=null)
     		that.extend.cards[j].destroy();
     		if(allHeroes[i*9+j]!=null)
-    		that.extend.cards[j] = new CollectionCard(this,600+(j%3)*collsDistance,200+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j]);
+    		that.extend.cards[j] = new CollectionCard(this,1100+(j%3)*collsDistance,200+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],400,400);
     	}
     	
     	

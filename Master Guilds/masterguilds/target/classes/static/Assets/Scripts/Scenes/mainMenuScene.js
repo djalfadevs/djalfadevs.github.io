@@ -9,7 +9,7 @@ class mainMenu extends Phaser.Scene{
 
 	preload(){
         this.add.image(960,540,'backWood');
-        this.add.image(500,550,'largeInfo').setScale(0.9);
+        //this.add.image(500,550,'largeInfo').setScale(0.9);
 	}
 
 	create(){
@@ -20,10 +20,12 @@ class mainMenu extends Phaser.Scene{
         
         //TEMP BUTTON PLACEMENTS
         
-        var playButt=this.add.sprite(1450,250,'largeButt').setInteractive()
+        var historyplayButt=this.add.sprite(650,250,'largePlayHistoryButt').setInteractive()
+        var misionsplayButt=this.add.sprite(650,550,'largePlayMisionsButt').setInteractive()
+        var arenaplayButt=this.add.sprite(650,850,'largePlayArenaButt').setInteractive()
         
         var collButt=this.add.sprite(1450,550,'largeButt').setInteractive()
-        var shopButt=this.add.sprite(1450,850,'largeButt').setInteractive()
+        var shopButt=this.add.sprite(1450,850,'largeAdministrationButt').setInteractive()
         var backButt=this.add.sprite(100,100,'backButt').setScale(0.5).setInteractive()
         backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
         backButt.on('pointerup',function(){this.setFrame(0)})
@@ -32,28 +34,37 @@ class mainMenu extends Phaser.Scene{
         infoBar.alpha=0;
         var infoText=this.add.text(1600,10,'INFOBAR',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'});
         infoText.alpha=0;
-        playButt.on('pointerdown',function(){this.setFrame(1)});
+
+        historyplayButt.on('pointerdown',function(){this.setFrame(1)});
+        misionsplayButt.on('pointerdown',function(){this.setFrame(1)});
+        arenaplayButt.on('pointerdown',function(){this.setFrame(1)});
         collButt.on('pointerdown',function(){this.setFrame(1)});
         shopButt.on('pointerdown',function(){this.setFrame(1)});
         
-        playButt.on('pointerup',function(){this.setFrame(0);transition("play",that)});
+        historyplayButt.on('pointerup',function(){this.setFrame(0);transition("playHistory",that)});
+        misionsplayButt.on('pointerup',function(){this.setFrame(0);transition("playMisions",that)});
+        arenaplayButt.on('pointerup',function(){this.setFrame(0);transition("playArena",that)});
         collButt.on('pointerup',function(){this.setFrame(0);transition("coll",that)});
         shopButt.on('pointerup',function(){this.setFrame(0);transition("shop",that)});
         
-        playButt.on('pointerout',function(){this.setFrame(0)});
+        historyplayButt.on('pointerout',function(){this.setFrame(0)});
+        misionsplayButt.on('pointerout',function(){this.setFrame(0)});
+        arenaplayButt.on('pointerout',function(){this.setFrame(0)});
         collButt.on('pointerout',function(){this.setFrame(0)});
         shopButt.on('pointerout',function(){this.setFrame(0)});
         backButt.on('pointerout',function(){this.setFrame(0)});
 
         
-        this.add.text(1300,215,'Combat',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(700,215,'History',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(700,515,'Misions',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(700,815,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         this.add.text(1250,515,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         this.add.text(1350,815,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
 
         //pointerOverFunctions [COPYPASTED LOGIN]
     
-        playButt.on('pointerover',function(){infoBar.alpha=1;infoText.alpha=1;});
-        playButt.on('pointerout',function(){infoBar.alpha=0;infoText.alpha=0;});
+        historyplayButt.on('pointerover',function(){infoBar.alpha=1;infoText.alpha=1;});
+        historyplayButt.on('pointerout',function(){infoBar.alpha=0;infoText.alpha=0;});
         //reg.on('pointerout',function(){this.setFrame(...)});
         //reg.on('pointerdown',function(){this.setFrame(...); transition("reg")});
         //SFX? .sound.play();
@@ -63,7 +74,7 @@ class mainMenu extends Phaser.Scene{
         
         var transition=function(str,t){
             switch(str){
-                case "play":
+                case "playHistory":
                 t.scene.transition({target:'combatMenu',duration:100});
                 break;
                 case "coll":
