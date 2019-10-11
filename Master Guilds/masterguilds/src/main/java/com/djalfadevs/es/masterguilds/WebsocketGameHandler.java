@@ -88,7 +88,10 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					UserInfo u = mapper.convertValue(aux, UserInfo.class);
 					NamePassword p = player.getNamePassword();
 					game.updateUserInfo(p, u);
-					
+				case "GETMISIONS":
+					msg.put("event", "GETMISIONS");
+					msg.set("misions",game.GetMisions());
+					player.getSession().sendMessage(new TextMessage(msg.toString()));
 			default:
 				break;
 			}

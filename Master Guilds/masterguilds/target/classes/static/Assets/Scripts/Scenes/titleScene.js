@@ -12,12 +12,15 @@ preload(){
 }
 create(){
     var that=this;
-    var play=this.add.sprite(950,700,'largeButt').setScale(0.8).setInteractive();
+    var contact=this.add.sprite(320,900,'largeConButt').setInteractive();
+    this.add.text(160,860,'Contact us',{fontFamily:"Museo-700",fontSize:'69px',color:'#000',fontStyle:'bold'});
+    
+    var play=this.add.sprite(950,700,'largeButt').setInteractive();
     this.add.text(880,660,'Play',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-    var settings=this.add.sprite(480,900,'largeSetButt').setScale(0.7).setInteractive();
-    this.add.text(370,860,'Settings',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
-    var lang=this.add.sprite(1350,900,'largeLangButt').setScale(0.7).setInteractive();
-    this.add.text(1240,860,'Language',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+    var settings=this.add.sprite(950,900,'largeSetButt').setInteractive();
+    this.add.text(840,860,'Settings',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+    var lang=this.add.sprite(1590,900,'largeLangButt').setInteractive();
+    this.add.text(1480,860,'Language',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
     //temp function
     play.on('pointerdown',function(){this.setFrame(1);});
     settings.on('pointerdown',function(){this.setFrame(1);});
@@ -28,6 +31,10 @@ create(){
     play.on('pointerout',function(){this.setFrame(0)});
     settings.on('pointerout',function(){this.setFrame(0)});
     lang.on('pointerout',function(){this.setFrame(0)});
+    
+    contact.on('pointerdown',function(){this.setFrame(1)});
+    contact.on('pointerup',function(){this.setFrame(0);transition("contact",that)});
+    
     //pointerOverFunctions
     //var backButt=this.add.sprite(100,100,'backButt').setScale(0.5).setInteractive({useHandCursor:true})
     
@@ -52,6 +59,9 @@ create(){
             break;
             case "settings":
             t.scene.transition({target:'settings',duration:100});
+            break;
+            case "contact":
+            //t.scene.transition({target:'contact',duration:100});
             break;
             //case "back":
            // console.log("back")

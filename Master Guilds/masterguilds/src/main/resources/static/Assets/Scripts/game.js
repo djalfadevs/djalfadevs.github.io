@@ -110,6 +110,9 @@
 			break;
 			case "FAILLOGIN":
 			break;
+			case "GETMISIONS":
+				game.global.misions = msg.misions;
+			break;
 			default:
 		}
 
