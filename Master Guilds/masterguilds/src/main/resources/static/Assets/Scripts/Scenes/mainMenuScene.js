@@ -20,9 +20,9 @@ class mainMenu extends Phaser.Scene{
         
         //TEMP BUTTON PLACEMENTS
         
-        var historyplayButt=this.add.sprite(650,350,'largePlayHistoryButt').setInteractive()
-        var misionsplayButt=this.add.sprite(650,650,'largePlayMisionsButt').setInteractive()
-        var arenaplayButt=this.add.sprite(650,950,'largePlayArenaButt').setInteractive()    
+        var historyplayButt=this.add.sprite(450,350,'largePlayHistoryButt').setInteractive()
+        var misionsplayButt=this.add.sprite(450,650,'largePlayMisionsButt').setInteractive()
+        var arenaplayButt=this.add.sprite(450,950,'largePlayArenaButt').setInteractive()    
         var collButt=this.add.sprite(1450,650,'largeButt').setInteractive()
         var shopButt=this.add.sprite(1450,950,'largeAdministrationButt').setInteractive()
         var backButt=this.add.sprite(100,100,'backButt').setInteractive()
@@ -58,9 +58,9 @@ class mainMenu extends Phaser.Scene{
         backButt.on('pointerout',function(){this.setFrame(0)});
 
         
-        this.add.text(550,305,'Story',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(515,605,'Missions',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(550,905,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(350,305,'Story',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(315,605,'Missions',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(350,905,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         this.add.text(1250,605,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         this.add.text(1350,905,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
 
