@@ -1,0 +1,21 @@
+11/10/2019	21:20
+
+ACTA REUNIÓN NÚMERO 5
+
+--Plan hasta Enero del juego (Primera Season)
+
+--UI/UX casi terminada, faltan los fondos, tipo 2D
+
+--Personajes legendarios en progreso, faltan el resto
+
+--Música en proceso de ideación
+
+--Logo en proceso de creación
+
+--Maquetación final, alguna escena y alguna clase extra
+
+--Backend terminado, faltan lecturas del frontend, mongo terminado
+
+--Funcionamiento interno de la tienda pendiente
+
+--Hace falta mover personal al área de programación, según se vayan terminando tareas
