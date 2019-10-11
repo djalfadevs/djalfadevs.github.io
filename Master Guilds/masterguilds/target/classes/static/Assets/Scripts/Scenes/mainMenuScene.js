@@ -20,23 +20,25 @@ class mainMenu extends Phaser.Scene{
         
         //TEMP BUTTON PLACEMENTS
         
-        var historyplayButt=this.add.sprite(450,350,'largePlayHistoryButt').setInteractive()
-        var misionsplayButt=this.add.sprite(450,650,'largePlayMisionsButt').setInteractive()
+        var historyplayButt=this.add.sprite(450,500,'largePlayHistoryButt').setInteractive()
+        var misionsplayButt=this.add.sprite(450,720,'largePlayMisionsButt').setInteractive()
         var arenaplayButt=this.add.sprite(450,950,'largePlayArenaButt').setInteractive()    
-        var collButt=this.add.sprite(1450,650,'largeButt').setInteractive()
+        var collButt=this.add.sprite(1450,720,'largeButt').setInteractive()
         var shopButt=this.add.sprite(1450,950,'largeAdministrationButt').setInteractive()
-        var backButt=this.add.sprite(100,100,'backButt').setInteractive()
         
-        var news=this.add.sprite(1450,250,'mediumInfo').setInteractive()
+        var infoBar=this.add.sprite(960,63,'infoBar')
+        this.add.text(250,10,'Main menu',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
+        this.add.text(600,50,'Battle, check your cards or acquire new ones',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'}).alpha=0.6
+        var backButt=this.add.sprite(85,80,'backButt').setInteractive()    
+        var news=this.add.sprite(1450,360,'mediumInfo').setInteractive()
 
         
         backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
         backButt.on('pointerup',function(){this.setFrame(0)})
         //temp function
-        var infoBar=this.add.sprite(960,10,'infoBar')
-        infoBar.alpha=0;
-        var infoText=this.add.text(1600,10,'INFOBAR',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'});
-        infoText.alpha=0;
+        
+        
+      
 
         historyplayButt.on('pointerdown',function(){this.setFrame(1)});
         misionsplayButt.on('pointerdown',function(){this.setFrame(1)});
@@ -58,16 +60,14 @@ class mainMenu extends Phaser.Scene{
         backButt.on('pointerout',function(){this.setFrame(0)});
 
         
-        this.add.text(350,305,'Story',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(315,605,'Missions',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(350,455,'Story',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(315,675,'Missions',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         this.add.text(350,905,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(1250,605,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(1250,675,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         this.add.text(1350,905,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
 
         //pointerOverFunctions [COPYPASTED LOGIN]
-    
-        historyplayButt.on('pointerover',function(){infoBar.alpha=1;infoText.alpha=1;});
-        historyplayButt.on('pointerout',function(){infoBar.alpha=0;infoText.alpha=0;});
+   
         //reg.on('pointerout',function(){this.setFrame(...)});
         //reg.on('pointerdown',function(){this.setFrame(...); transition("reg")});
         //SFX? .sound.play();

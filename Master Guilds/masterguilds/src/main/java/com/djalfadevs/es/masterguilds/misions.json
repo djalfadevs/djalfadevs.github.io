@@ -1,0 +1,69 @@
+[
+	{
+		"ID": 1,
+		"name": "prueba1",
+		"team": {
+			"restrictions": {
+				"maxHeros": 4,
+				"maxHerosFaction": [
+					2,
+					1,
+					1
+				]
+			}
+		},
+		"enemys": {
+			"team": [
+				{
+					"ID": 1,
+					"name": "Takefusa Kubo",
+					"baseAttack": 40,
+					"attack": 40,
+					"baseDefence": 85,
+					"defence": 85,
+					"baseHP": 5000,
+					"HP": 5000,
+					"base_crit_hit_chance": 0.05,
+					"crit_hit_chance": 0.05,
+					"description": [
+						"El lider de los Azon, tuvo que hacerse cargo del Imperio desde muy jovén lo cual le ha hecho una de las personas más resistentes del mundo",
+						"The leader of the Azon, being forced to take care of the Empire from a young age has turned him into one of the most resilient people in the world"
+					],
+					"evasion": 20,
+					"baseEvasion": 20,
+					"abilities": [
+						{
+							"ID": 1,
+							"name": "BUFFSTATS V",
+							"baseActiveTurns": 3,
+							"baseChargeTurns": 6,
+							"description": [
+								"Kubo inspira a un aliado con su coraje, ampliando su capacidad de combate",
+								"Kubo inspires an ally with his bravery, buffing his combat capability"
+							],
+							"remainChargeTurns": 6,
+							"isReady": true
+						}
+					],
+					"image_url": "url",
+					"activeAbilities": [],
+					"baseAggro": 90,
+					"aggro": 90,
+					"faction": "Azon",
+					"rarity": 5,
+					"level": 20,
+					"exp": 1000,
+					"role": "Tank"
+				}
+			],
+			"restrictions": {
+				"maxHeros": 4,
+				"maxHerosFaction": [
+					2,
+					1,
+					1
+				]
+			}
+		}
+	}
+]
