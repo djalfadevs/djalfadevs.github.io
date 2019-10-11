@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: masterguilds
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: lmml_
+Built-By: DigiFire
 Implementation-Vendor-Id: com.djalfadevs.es
 Build-Jdk: 1.8.0_221
 Implementation-URL: http://maven.apache.org

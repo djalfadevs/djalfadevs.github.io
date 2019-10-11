@@ -22,11 +22,11 @@ class mainMenu extends Phaser.Scene{
         
         var historyplayButt=this.add.sprite(650,250,'largePlayHistoryButt').setInteractive()
         var misionsplayButt=this.add.sprite(650,550,'largePlayMisionsButt').setInteractive()
-        var arenaplayButt=this.add.sprite(650,850,'largePlayArenaButt').setInteractive()
-        
-        var collButt=this.add.sprite(1450,550,'largeButt').setInteractive()
-        var shopButt=this.add.sprite(1450,850,'largeAdministrationButt').setInteractive()
+        var arenaplayButt=this.add.sprite(650,850,'largePlayArenaButt').setInteractive()    
+        var collButt=this.add.sprite(1450,400,'largeButt').setInteractive()
+        var shopButt=this.add.sprite(1450,700,'largeAdministrationButt').setInteractive()
         var backButt=this.add.sprite(100,100,'backButt').setScale(0.5).setInteractive()
+        
         backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
         backButt.on('pointerup',function(){this.setFrame(0)})
         //temp function
@@ -55,11 +55,11 @@ class mainMenu extends Phaser.Scene{
         backButt.on('pointerout',function(){this.setFrame(0)});
 
         
-        this.add.text(700,215,'History',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(700,515,'Misions',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(700,815,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(1250,515,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(1350,815,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(550,205,'Story',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(515,505,'Missions',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(550,805,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(1250,355,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(1350,655,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
 
         //pointerOverFunctions [COPYPASTED LOGIN]
     
