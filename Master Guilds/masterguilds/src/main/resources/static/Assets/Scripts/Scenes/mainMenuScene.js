@@ -37,7 +37,6 @@ class mainMenu extends Phaser.Scene{
         backButt.on('pointerup',function(){this.setFrame(0)})
         //temp function
         
-        
       
 
         historyplayButt.on('pointerdown',function(){this.setFrame(1)});
@@ -75,17 +74,23 @@ class mainMenu extends Phaser.Scene{
         //enter.on('pointerout',function(){this.setFrame(...)});
         //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
         
+        //CARGAMOS LAS MISIONES PARA LA PROXIMA ESCENA
+        var msg = new Object();
+        msg.event = "GETMISIONS"
+        game.global.socket.send(JSON.stringify(msg))
+        ///////////////////////////////////////////////
+
         var transition=function(str,t){
             switch(str){
                 case "playHistory":
-                t.scene.transition({target:'combatMenu',duration:100});
+                    t.scene.transition({target:'combatMenu',duration:100});
                 break;
                 case "coll":
                 //console.log("not done yet")
                         t.scene.transition({target:'collection',duration:100});
                 break;
                 case "shop":
-                console.log("not done yet")
+                        //console.log("not done yet")
                         t.scene.transition({target:'shop',duration:100});
                 break;
                 case "back":

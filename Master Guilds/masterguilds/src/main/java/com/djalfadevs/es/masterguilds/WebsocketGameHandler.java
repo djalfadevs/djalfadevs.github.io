@@ -47,7 +47,6 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 			JsonNode node = mapper.readTree(message.getPayload());
 			ObjectNode msg = mapper.createObjectNode();
 			Player player = (Player) session.getAttributes().get("PLAYER");
-
 			switch (node.get("event").asText()) {
 				case "LOGIN":
 					System.out.println("Se esta procesando la peticion LOGIN");
@@ -58,6 +57,7 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 						//player.setUserinfo(userinfo);//ESTO ES POR SI QUEREMOS ASOCIAR A LA SESION LA USER INFO 
 						//aunque veo mejor que se asocie exclusivamente la dupla namePassword y con ella se consiga la 
 						//userinfo del servidor.
+						game.updateUserInfo(namePassword, userinfo);//Actualizamos base de datos mongo
 						msg.put("event", "SUCCESSLOGIN");
 						msg.set("userinfo", mapper.convertValue(userinfo,JsonNode.class));
 					}
@@ -88,10 +88,13 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					UserInfo u = mapper.convertValue(aux, UserInfo.class);
 					NamePassword p = player.getNamePassword();
 					game.updateUserInfo(p, u);
+					
+					break;
 				case "GETMISIONS":
 					msg.put("event", "GETMISIONS");
 					msg.set("misions",game.GetMisions());
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
+					break;
 			default:
 				break;
 			}

@@ -85,7 +85,7 @@
 		console.log("Se ha abierto el WebSocket");
 	}
 	game.global.socket.onclose = () => {
-
+		console.log("Websocket close")
 	}
 
 	game.global.socket.onmessage = (message) => {
@@ -94,24 +94,26 @@
 		switch (msg.event) {
 			case "SUCCESSLOGIN":
 				game.global.user = msg.userinfo;
-				console.log(game.scene)
-
-				
+				game.scene.scenes[3].scene.transition({target:'title',duration:100})
+				//ESTO LO HACE EL PROPIO LOGIN SI ES CORRECTO
+				/* 
 				var aux = new Object();
         		aux.event = "UPDATEUSERINFO"
         		aux.user = game.global.user;
-        		game.global.socket.send(JSON.stringify(aux))
-
-        		//Tiene que esperar a que se mande el websocket
-        		//ARREGLAR
-				game.scene.scenes[3].scene.transition({target:'title',duration:100})
-
-			
+        		*/
+        		/*
+        		const auxWebsocket = new WebSocket("ws://"+location.host+"/mastera");
+        		auxWebsocket.onopen = () => {
+        			auxWebsocket.send(JSON.stringify(aux))
+        			game.scene.scenes[3].scene.transition({target:'title',duration:100})
+        			;}
+        		*/
 			break;
 			case "FAILLOGIN":
 			break;
 			case "GETMISIONS":
 				game.global.misions = msg.misions;
+				console.log(game.global.misions)//DEBUG
 			break;
 			default:
 		}

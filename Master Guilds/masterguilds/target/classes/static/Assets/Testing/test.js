@@ -193,8 +193,8 @@ game.global.simulation.enemys.setRestrictions({maxHeros:4,maxHerosFaction:[3,3,3
 
 game.global.simulation.allies.addMember(testHero);
 game.global.simulation.allies.addMember(testHero4);
-game.global.simulation.enemys.addMember(testHero3);
-game.global.simulation.enemys.addMember(testHero2);
+//game.global.simulation.enemys.addMember(testHero3);
+//game.global.simulation.enemys.addMember(testHero2);
 //game.global.simulation.enemys.addMember(testHero2);
 game.global.simulation.allies.addMember(testHero5);
 //game.global.simulation.allies.removeMember(testHero4);

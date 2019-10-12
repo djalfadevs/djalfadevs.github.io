@@ -17,7 +17,11 @@ class Actor {
 		this.baseEvasion = actor.baseEvasion;
 		this.evasion = actor.evasion;
 		this.description = actor.description;
-		this.abilities = actor.abilities;
+
+		for(var i = 0; i<actor.abilities.length ; i++){
+			this.abilities = new Abilitie(actor.abilities[i]);
+		}
+		
 		this.activeAbilities = actor.activeAbilities;//Indica que habilidades Propias o de Equipo le estan afectando (Seria como los bufos activos por el mismo u otro jugador sobre el)
 		this.image_url = actor.image_url;
 

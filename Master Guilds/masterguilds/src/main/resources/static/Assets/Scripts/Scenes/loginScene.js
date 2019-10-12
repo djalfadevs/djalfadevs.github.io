@@ -50,7 +50,9 @@ create(){
         //transition("reg",that)
     //});
 
+    enter.on('pointerout',function(){this.setFrame(0)});
     enter.on('pointerdown',function(){
+        this.setFrame(1)
         var msg = new Object();
         msg.event = "LOGIN"
         msg.name = nameform.getChildByName("nameField").value;
