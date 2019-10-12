@@ -23,13 +23,13 @@ create(){
    var infoBar=this.add.sprite(960,63,'infoBar')
    this.add.text(250,	10,'Settings',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
     //temp function
-    LATINOButt.on('pointerdown',function(){this.setFrame(1);transition("LATINO",that)});
-    ENGLISHButt.on('pointerdown',function(){this.setFrame(1);transition("ENGLISH",that)});
-    backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)});
+    LATINOButt.on('pointerdown',function(){this.setFrame(1);});
+    ENGLISHButt.on('pointerdown',function(){this.setFrame(1);});
+    backButt.on('pointerdown',function(){this.setFrame(1);});
     
-    LATINOButt.on('pointerup',function(){this.setFrame(0)});
-    ENGLISHButt.on('pointerup',function(){this.setFrame(0)});
-    backButt.on('pointerup',function(){this.setFrame(0);});
+    LATINOButt.on('pointerup',function(){this.setFrame(0);transition("LATINO",that)});
+    ENGLISHButt.on('pointerup',function(){this.setFrame(0);transition("ENGLISH",that)});
+    backButt.on('pointerup',function(){this.setFrame(0);transition("back",that)});
     
     LATINOButt.on('pointerout',function(){this.setFrame(0)});
     ENGLISHButt.on('pointerout',function(){this.setFrame(0)});

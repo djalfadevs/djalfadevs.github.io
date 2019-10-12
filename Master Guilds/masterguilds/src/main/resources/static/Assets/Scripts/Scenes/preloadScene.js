@@ -53,7 +53,10 @@ class preload extends Phaser.Scene{
         this.load.image('largeInfo','Assets/Sprites/UI-UX/papel_info_grande.png',{frameWidth:1022,frameHeight:999});
         this.load.image('mediumInfo','Assets/Sprites/UI-UX/papel_info_mediano.png',{frameWidth:665,frameHeight:518});
         this.load.image('smallInfo','Assets/Sprites/UI-UX/papel_info_pequeno.png',{frameWidth:920,frameHeight:386});
-        
+        this.load.spritesheet('AzonButt','Assets/Sprites/UI-UX/boton_largo_azon.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('KwinButt','Assets/Sprites/UI-UX/boton_largo_kwin.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('FertenButt','Assets/Sprites/UI-UX/boton_largo_ferten.png',{frameWidth:777,frameHeight:195});
+        this.load.image('lockButt','Assets/Sprites/UI-UX/boton_largo_bloqueado.png',{frameWidth:777,frameHeight:195});
         //frame final
         //load.setFrame(2);
         //CARTAS
@@ -63,10 +66,28 @@ class preload extends Phaser.Scene{
         this.load.image('azon_big_card_back','Assets/Sprites/UI-UX/cartas/azon_back_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('azon_big_card_front','Assets/Sprites/UI-UX/cartas/azon_front_carta_grande.png',{frameWidth:346,frameHeight:507});
 
+        this.load.image('ferten_small_card_back','Assets/Sprites/UI-UX/cartas/ferten_back_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('ferten_small_card_front','Assets/Sprites/UI-UX/cartas/ferten_front_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('ferten_big_card_back','Assets/Sprites/UI-UX/cartas/ferten_back_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('ferten_big_card_front','Assets/Sprites/UI-UX/cartas/ferten_front_carta_grande.png',{frameWidth:346,frameHeight:507});
+        
+        this.load.image('kwin_small_card_back','Assets/Sprites/UI-UX/cartas/kwin_back_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('kwin_small_card_front','Assets/Sprites/UI-UX/cartas/kwin_front_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('kwin_big_card_back','Assets/Sprites/UI-UX/cartas/kwin_back_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('kwin_big_card_front','Assets/Sprites/UI-UX/cartas/kwin_front_carta_grande.png',{frameWidth:346,frameHeight:507});
+        
         this.load.spritesheet('largePlayArenaButt','Assets/Sprites/UI-UX/boton_largo_jugar_arena.png',{frameWidth:777,frameHeight:195});
         this.load.spritesheet('largePlayMisionsButt','Assets/Sprites/UI-UX/boton_largo_jugar_misiones.png',{frameWidth:777,frameHeight:195});
         this.load.spritesheet('largePlayHistoryButt','Assets/Sprites/UI-UX/boton_largo_jugar_historia.png',{frameWidth:777,frameHeight:195});
         this.load.spritesheet('largeAdministrationButt','Assets/Sprites/UI-UX/boton_largo_jugar_administracion.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('deffButt','Assets/Sprites/UI-UX/boton_defensa.png',{frameWidth:221,frameHeight:195});
+        this.load.spritesheet('5gems','Assets/Sprites/UI-UX/boton_gema_5.png',{frameWidth:221,frameHeight:195});
+        this.load.spritesheet('20gems','Assets/Sprites/UI-UX/boton_gema_20.png',{frameWidth:221,frameHeight:195});
+        this.load.spritesheet('50gems','Assets/Sprites/UI-UX/boton_gema_50.png',{frameWidth:221,frameHeight:195});
+        this.load.spritesheet('profButt','Assets/Sprites/UI-UX/boton_perfil.png',{frameWidth:221,frameHeight:195});
+        this.load.image('newsPaper','Assets/Sprites/UI-UX/papel_info_novedades.png',{frameWidth:665,frameHeight:518});
+        this.load.image('summonPaper','Assets/Sprites/UI-UX/papel_info_summon_gema.png',{frameWidth:594,frameHeight:474});
+
 	}
 
 	create(){
