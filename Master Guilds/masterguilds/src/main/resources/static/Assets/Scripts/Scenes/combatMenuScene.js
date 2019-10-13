@@ -11,6 +11,7 @@ class combatMenu extends Phaser.Scene{
         console.log("combatMenu")
     }
     create(){
+    	var that = this;
     	//Fondo
         this.add.image(960,540,'backWood');
         //TEMP TEMP TEMP TEMP
@@ -33,10 +34,13 @@ class combatMenu extends Phaser.Scene{
         		for(var i = 0; i< mision.enemys.team.length;i++){
         			simulation.enemys.addMember(new Hero(mision.enemys.team[i]));
         		}
+
         		
         	return simulation;	
         }
         //combatMenu.scene.transition({target:'SimulationScene',duration:100})
         console.log(SelectMisionAndAddDatatoSimulation(0));
+		setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 5000)
+        
     }
 }

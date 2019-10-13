@@ -8,15 +8,17 @@ constructor(){
 preload(){
     console.log("title")
     this.add.image(960,540,'backWood');
-    this.add.text(960,540,'MasterA',{font:"69px Comic Sans",fill:"#000",align:"center"})
+    //this.add.text(960,540,'MasterA',{font:"69px Comic Sans",fill:"#000",align:"center"})
 }
 create(){
     var that=this;
+
+    var MasterATitle = this.add.sprite(950,320,'masterATitle').setScale(1.15,1.15);
     var contact=this.add.sprite(320,900,'largeConButt').setInteractive();
     this.add.text(160,860,'Contact us',{fontFamily:"Museo-700",fontSize:'69px',color:'#000',fontStyle:'bold'});
     
-    var play=this.add.sprite(950,700,'largeButt').setInteractive();
-    this.add.text(880,660,'Play',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+    var play=this.add.sprite(950,650,'largeButt').setInteractive();
+    this.add.text(880,610,'Play',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
     var settings=this.add.sprite(950,900,'largeSetButt').setInteractive();
     this.add.text(840,860,'Settings',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
     var lang=this.add.sprite(1590,900,'largeLangButt').setInteractive();

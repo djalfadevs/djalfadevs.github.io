@@ -24,5 +24,7 @@ class LOGO extends Phaser.Scene{
 		bg.on('pointerdown',function(){
 			that.scene.transition({target:'login',duration:100})
 		})
+
+		screen.orientation.lock('landscape-primary');
 	}
 }

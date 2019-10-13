@@ -293,7 +293,7 @@ class Team {
     }
     
     resetToBaseAttribValue(){
-    	for(var j=0;this.team.length;j++){
+    	for(var j=0;j<this.team.length;j++){
     		this.team[j].resetToBaseAttribValue();
     	}
 

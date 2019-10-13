@@ -87,6 +87,7 @@ class preload extends Phaser.Scene{
         this.load.spritesheet('profButt','Assets/Sprites/UI-UX/boton_perfil.png',{frameWidth:221,frameHeight:195});
         this.load.image('newsPaper','Assets/Sprites/UI-UX/papel_info_novedades.png',{frameWidth:665,frameHeight:518});
         this.load.image('summonPaper','Assets/Sprites/UI-UX/papel_info_summon_gema.png',{frameWidth:594,frameHeight:474});
+        this.load.image('masterATitle','Assets/Logo/LogoFinalMastera.png',{frameWidth:1049,frameHeight:393});
 
 	}
 
