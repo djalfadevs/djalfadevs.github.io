@@ -27,6 +27,11 @@ class contact extends Phaser.Scene{
 	     var IButt =this.add.sprite(1530,700,'largeInstaButt').setInteractive()
 	     var YButt=this.add.sprite(1530,900,'largeYouButt').setInteractive()
 	    
+	     this.add.text(1420,265,'TWITTER',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+	     this.add.text(1400,465,'FACEBOOK',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+	     this.add.text(1380,665,'INSTAGRAM',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+	     this.add.text(1420,865,'YOUTUBE',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+	     
 	     TButt.on('pointerdown',function(){this.setFrame(1);});
 	     TButt.on('pointerup',function(){this.setFrame(0);transition("tw")});
 	     TButt.on('pointerout',function(){this.setFrame(0)})
