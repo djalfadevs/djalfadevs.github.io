@@ -1,4 +1,3 @@
-'use strict'
 //CLASS TO LOAD VISUAL FILES
 class preload extends Phaser.Scene{
 
@@ -88,6 +87,7 @@ class preload extends Phaser.Scene{
         this.load.image('newsPaper','Assets/Sprites/UI-UX/papel_info_novedades.png',{frameWidth:665,frameHeight:518});
         this.load.image('summonPaper','Assets/Sprites/UI-UX/papel_info_summon_gema.png',{frameWidth:594,frameHeight:474});
         this.load.image('masterATitle','Assets/Logo/LogoFinalMastera.png',{frameWidth:1049,frameHeight:393});
+        this.load.image('BLACK','Assets/Sprites/UI-UX/cortinilla_negra.png',{frameWidth:1920,frameHeight:1080});
 
 	}
 
