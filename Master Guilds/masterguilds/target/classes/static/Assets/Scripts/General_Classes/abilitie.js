@@ -17,7 +17,20 @@ class Abilitie {
 		//QUIZA SE PODRIA HACER QUE RECIBA UNA FUNCION QUE DEFINA QUE TIENE QUE HACER CUANDO RECIBA EL PERSONAJE
 		//Y ASI EN VEZ DE LEER EL ID Y HACER ALGO EN FUNCION DE EL , DIRECTAMENTE CUANDO SE ACTIVE EL EFECTO SE LLAMARIA A LA 
 		//FUNCION QUE CONTIENE.
-		this.effectFunction = abilitie.effectFunction; 
+		//FALTA HACER QUE SE PONGA LA FUNCION CORRECTA DE COMO ACTUA UNA HABILIDAD
+		//this.effectFunction = abilitie.effectFunction; 
+
+		//EFFECTFUNTION DEBE IR EN FUNCION DEL ID
+		switch(this.ID){
+			case 1:
+			this.effectFunction = effectFunctionList1; 
+			break;
+			case 2:
+			this.effectFunction = effectFunctionList2;
+			case 3:
+			this.effectFunction = effectFunctionList3;
+			default:
+		}
 
 	}
 

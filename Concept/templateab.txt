@@ -1,0 +1,64 @@
+			{
+				"ID": 1,
+				"name": "BUFFSTATS V",
+				"baseActiveTurns": 3,
+				"baseChargeTurns": 6,
+				"description": [
+					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+					"A boost to all ally's combat abilities by channeling one's conviction."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			}
+
+			{
+				"ID": 2,
+				"name": "HEAL V",
+				"baseActiveTurns": 3,
+				"baseChargeTurns": 6,
+				"description": [
+					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+					"A burst of magical energy that enhances the recievers regeneration."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			}
+
+			{
+				"ID": 3,
+				"name": "RAGE V",
+				"baseActiveTurns": 3,
+				"baseChargeTurns": 6,
+				"description": [
+					"El usuario manipula su ira para subir su fuerza.",
+					"Users of this channel their anger to boost their brute strength."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			}
+
+			{
+				"ID": 4,
+				"name": "TRUESTRIKE V",
+				"baseActiveTurns": 1,
+				"baseChargeTurns": 3,
+				"description": [
+					"Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
+					"A perfectly aimed hit that completely bypass the targets defense."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			}
+
+			{
+				"ID": 5,
+				"name": "LEECHLIFE V",
+				"baseActiveTurns": 1,
+				"baseChargeTurns": 3,
+				"description": [
+					"Una antigua tecnica vampirica que permite absorver parte del daño realizado a un objetivo.",
+					"This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			}

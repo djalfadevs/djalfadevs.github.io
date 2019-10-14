@@ -28,8 +28,12 @@ class chapter extends Phaser.Scene{
     	var world4=this.add.sprite(1530,780,'largeButt').setInteractive()
     	var world5=this.add.sprite(1530,980,'largeButt').setInteractive()
     	
-    	world1.on('pointerdown',function(){this.setFrame(1)})
-    	world2.on('pointerdown',function(){this.setFrame(1)})
+    	world1.on('pointerdown',function(){this.setFrame(1)
+            SelectMisionAndAddDatatoSimulation(0);
+        })
+    	world2.on('pointerdown',function(){this.setFrame(1)
+            SelectMisionAndAddDatatoSimulation(1);
+        })
     	world3.on('pointerdown',function(){this.setFrame(1)})
     	world4.on('pointerdown',function(){this.setFrame(1)})
     	world5.on('pointerdown',function(){this.setFrame(1)})
@@ -103,7 +107,30 @@ class chapter extends Phaser.Scene{
     	function transition(target,that){
     		//future switch for future levels will load different jsons!!!
     		console.log("star world"+target)
-    		that.scene.transition({target:'simulation',duration:100})
+    		setTimeout(function(){that.scene.transition({target:'deck',duration:0});}, 2000)
     	}
+
+         function SelectMisionAndAddDatatoSimulation(indexPos){
+            var mision = game.global.misions[indexPos];
+            var simulation = game.global.simulation;
+
+            //Fijamos lo relacionado con la simulacion Propiamente
+            simulation.escenario = mision.escenario;
+            //fijamos lo relacionado con el bando enemigo
+                //Reseteamos los enemigos
+                simulation.enemys.resetToBaseAttribValue();
+                //Fijamos las restricciones
+                simulation.enemys.restrictions = mision.enemys.restrictions;
+
+                //CREA los heroes y los añade a la lista
+
+                var enemyTeamAux = [];
+                for(var i = 0; i< mision.enemys.team.length;i++){
+                    simulation.enemys.addMember(new Hero(mision.enemys.team[i]));
+                }
+
+                
+            return simulation;  
+        }
     }
 }

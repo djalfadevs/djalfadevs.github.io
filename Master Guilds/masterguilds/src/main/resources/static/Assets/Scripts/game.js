@@ -94,7 +94,7 @@
 		switch (msg.event) {
 			case "SUCCESSLOGIN":
 				game.global.user = msg.userinfo;
-				game.scene.scenes[3].scene.transition({target:'title',duration:100})
+				game.scene.scenes[3].scene.transition({target:'title',duration:0})
 				//ESTO LO HACE EL PROPIO LOGIN SI ES CORRECTO
 				/* 
 				var aux = new Object();
@@ -120,6 +120,7 @@
 
 	}
 
+	
 //}
 
 

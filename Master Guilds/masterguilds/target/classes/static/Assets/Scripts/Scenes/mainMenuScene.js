@@ -30,11 +30,11 @@ class mainMenu extends Phaser.Scene{
         this.add.text(250,10,'Main menu',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
         this.add.text(600,50,'Battle, check your cards or acquire new ones',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'}).alpha=0.6
         var backButt=this.add.sprite(85,80,'backButt').setInteractive()    
-        var news=this.add.sprite(1450,360,'mediumInfo').setInteractive()
+        var news=this.add.sprite(1450,360,'newsPaper').setInteractive()
 
         
-        backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
-        backButt.on('pointerup',function(){this.setFrame(0)})
+        backButt.on('pointerdown',function(){this.setFrame(1);})
+        backButt.on('pointerup',function(){this.setFrame(0);transition("back",that)})
         //temp function
         
       
@@ -83,8 +83,11 @@ class mainMenu extends Phaser.Scene{
         var transition=function(str,t){
             switch(str){
                 case "playHistory":
-                    t.scene.transition({target:'combatMenu',duration:100});
+                    t.scene.transition({target:'chapter',duration:100});
                 break;
+                case "playMissions":
+                	t.scene.transition({target:'combatMenu',duration:100});
+                break
                 case "coll":
                 //console.log("not done yet")
                         t.scene.transition({target:'collection',duration:100});
