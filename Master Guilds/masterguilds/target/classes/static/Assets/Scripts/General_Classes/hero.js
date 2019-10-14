@@ -4,8 +4,8 @@ class Hero extends Actor
 	constructor(hero){
 		//Un total de 16 atributos de los cuales 10 son heredados. // Algunos se duplican para distinguir entre base y el que se usa (bufos);
 		//Hereda todos sus atributos de la clase actor.
-		var m = {ID: hero.ID, name: hero.name, baseAttack:hero.baseAttack, attack: hero.attack, baseDefence: hero.baseDefence,
-		defence: hero.defence, baseHP: hero.baseHP,HP: hero.HP,base_crit_hit_chance: hero.base_crit_hit_chance,
+		var m = {ID: hero.id, name: hero.name, baseAttack:hero.baseAttack, attack: hero.attack, baseDefence: hero.baseDefense,
+		defence: hero.defense, baseHP: hero.baseHP,HP: hero.hp,base_crit_hit_chance: hero.base_crit_hit_chance,
 		crit_hit_chance: hero.crit_hit_chance,description: hero.description,evasion: hero.evasion,baseEvasion: hero.baseEvasion,
 		abilities: hero.abilities, image_url: hero.image_url , activeAbilities: hero.activeAbilities ,
 		baseAggro: hero.baseAggro , aggro: hero.aggro}
