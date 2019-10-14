@@ -21,7 +21,7 @@ class mainMenu extends Phaser.Scene{
         //TEMP BUTTON PLACEMENTS
         
         var historyplayButt=this.add.sprite(450,500,'largePlayHistoryButt').setInteractive()
-        var misionsplayButt=this.add.sprite(450,720,'largePlayMisionsButt').setInteractive()
+        var questsplayButt=this.add.sprite(450,720,'largePlayMisionsButt').setInteractive()
         var arenaplayButt=this.add.sprite(450,950,'largePlayArenaButt').setInteractive()    
         var collButt=this.add.sprite(1450,720,'largeButt').setInteractive()
         var shopButt=this.add.sprite(1450,950,'largeAdministrationButt').setInteractive()
@@ -32,6 +32,10 @@ class mainMenu extends Phaser.Scene{
         var backButt=this.add.sprite(85,80,'backButt').setInteractive()    
         var news=this.add.sprite(1450,360,'newsPaper').setInteractive()
 
+        news.on('pointerup',function(){
+        	that.scene.launch('newsPop')
+        	that.scene.pause();
+        })
         
         backButt.on('pointerdown',function(){this.setFrame(1);})
         backButt.on('pointerup',function(){this.setFrame(0);transition("back",that)})
@@ -40,19 +44,19 @@ class mainMenu extends Phaser.Scene{
       
 
         historyplayButt.on('pointerdown',function(){this.setFrame(1)});
-        misionsplayButt.on('pointerdown',function(){this.setFrame(1)});
+        questsplayButt.on('pointerdown',function(){this.setFrame(1)});
         arenaplayButt.on('pointerdown',function(){this.setFrame(1)});
         collButt.on('pointerdown',function(){this.setFrame(1)});
         shopButt.on('pointerdown',function(){this.setFrame(1)});
         
-        historyplayButt.on('pointerup',function(){this.setFrame(0);transition("playHistory",that)});
-        misionsplayButt.on('pointerup',function(){this.setFrame(0);transition("playMisions",that)});
-        arenaplayButt.on('pointerup',function(){this.setFrame(0);transition("playArena",that)});
-        collButt.on('pointerup',function(){this.setFrame(0);transition("coll",that)});
-        shopButt.on('pointerup',function(){this.setFrame(0);transition("shop",that)});
+        historyplayButt.on('pointerup',function(){this.setFrame(0);transition("playHistory")});
+        questsplayButt.on('pointerup',function(){this.setFrame(0);transition("playQuests")});
+        arenaplayButt.on('pointerup',function(){this.setFrame(0);transition("playArena")});
+        collButt.on('pointerup',function(){this.setFrame(0);transition("coll")});
+        shopButt.on('pointerup',function(){this.setFrame(0);transition("shop")});
         
         historyplayButt.on('pointerout',function(){this.setFrame(0)});
-        misionsplayButt.on('pointerout',function(){this.setFrame(0)});
+        questsplayButt.on('pointerout',function(){this.setFrame(0)});
         arenaplayButt.on('pointerout',function(){this.setFrame(0)});
         collButt.on('pointerout',function(){this.setFrame(0)});
         shopButt.on('pointerout',function(){this.setFrame(0)});
@@ -60,7 +64,7 @@ class mainMenu extends Phaser.Scene{
 
         
         this.add.text(350,455,'Story',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(315,675,'Missions',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        this.add.text(315,675,'Quests',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         this.add.text(350,905,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         this.add.text(1250,675,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
         this.add.text(1350,905,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
@@ -80,24 +84,25 @@ class mainMenu extends Phaser.Scene{
         game.global.socket.send(JSON.stringify(msg))
         ///////////////////////////////////////////////
 
-        var transition=function(str,t){
+        function transition(str){
             switch(str){
                 case "playHistory":
-                    t.scene.transition({target:'chapter',duration:100});
+                    that.scene.transition({target:'chapter',duration:100});
                 break;
-                case "playMissions":
-                	t.scene.transition({target:'combatMenu',duration:100});
+                case "playQuests":
+                	that.scene.launch('comingSoonQ')
+                	that.scene.pause();
                 break
                 case "coll":
                 //console.log("not done yet")
-                        t.scene.transition({target:'collection',duration:100});
+                	that.scene.transition({target:'collection',duration:100});
                 break;
                 case "shop":
                         //console.log("not done yet")
-                        t.scene.transition({target:'shop',duration:100});
+                	that.scene.transition({target:'shop',duration:100});
                 break;
                 case "back":
-                t.scene.transition({target:'title',duration:100});
+                	that.scene.transition({target:'title',duration:100});
                 break;
                 
                 
@@ -111,4 +116,49 @@ class mainMenu extends Phaser.Scene{
 
 	}
 }
+
+class comingSoonQ extends Phaser.Scene{
+	constructor(){
+		super({key:'comingSoonQ'})
+	}
+	create(){
+		var that=this
+		this.add.sprite(960,540,'BLACK');
+		this.add.sprite(960,440,'mediumInfo');
+		this.add.text(800,300,"Coming\n Soon!!",{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
+		var okButt=this.add.sprite(960,850,'largeButt').setInteractive()
+		this.add.text(900,820,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+		okButt.on('pointerout',function(){this.setFrame(0)})
+		okButt.on('pointerdown',function(){this.setFrame(1)})
+		
+		okButt.on('pointerup',function(){
+			this.setFrame(0);
+			that.scene.resume('mainMenu');
+			that.scene.stop();
+		});
+	}
+}
+
+class newsPop extends Phaser.Scene{
+	constructor(){
+		super({key:'newsPop'})
+	}
+	create(){
+		var that=this
+		this.add.sprite(960,540,'BLACK');
+		this.add.sprite(960,500,'largeInfo');
+		this.add.text(800,300,"Coming\n Soon!!",{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
+		var okButt=this.add.sprite(960,950,'largeButt').setInteractive()
+		this.add.text(900,910,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+		okButt.on('pointerout',function(){this.setFrame(0)})
+		okButt.on('pointerdown',function(){this.setFrame(1)})
+		
+		okButt.on('pointerup',function(){
+			this.setFrame(0);
+			that.scene.resume('mainMenu');
+			that.scene.stop();
+		});
+	}
+	}
+
 
