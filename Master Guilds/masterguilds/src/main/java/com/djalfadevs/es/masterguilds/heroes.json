@@ -49,7 +49,7 @@
 		"aggro": 90,
 		"faction": "Azon",
 		"rarity": 5,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -91,7 +91,7 @@
 		"aggro": 20,
 		"faction": "Azon",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -132,7 +132,7 @@
 		"aggro": 30,
 		"faction": "Azon",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -173,7 +173,7 @@
 		"aggro": 70,
 		"faction": "Azon",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -214,7 +214,7 @@
 		"aggro": 20,
 		"faction": "Azon",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -246,7 +246,7 @@
 		"aggro": 50,
 		"faction": "Azon",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -278,7 +278,7 @@
 		"aggro": 80,
 		"faction": "Azon",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -319,7 +319,7 @@
 		"aggro": 10,
 		"faction": "Azon",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -373,7 +373,7 @@
 		"aggro": 70,
 		"faction": "Ferten",
 		"rarity": 5,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -414,7 +414,7 @@
 		"aggro": 75,
 		"faction": "Ferten",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -455,7 +455,7 @@
 		"aggro": 34,
 		"faction": "Ferten",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -496,7 +496,7 @@
 		"aggro": 14,
 		"faction": "Ferten",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -528,7 +528,7 @@
 		"aggro": 50,
 		"faction": "Ferten",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -560,7 +560,7 @@
 		"aggro": 80,
 		"faction": "Ferten",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -601,7 +601,7 @@
 		"aggro": 10,
 		"faction": "Azon",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -655,7 +655,7 @@
 		"aggro": 30,
 		"faction": "Kwin",
 		"rarity": 5,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -698,7 +698,7 @@
 		"aggro": 30,
 		"faction": "Kwin",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -740,7 +740,7 @@
 		"aggro": 30,
 		"faction": "Kwin",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -782,7 +782,7 @@
 		"aggro": 60,
 		"faction": "Kwin",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -813,7 +813,7 @@
 		"aggro": 50,
 		"faction": "Kwin",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -845,7 +845,7 @@
 		"aggro": 80,
 		"faction": "Kwin",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -886,7 +886,7 @@
 		"aggro": 10,
 		"faction": "Kwin",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	}
