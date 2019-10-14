@@ -129,7 +129,9 @@ class chapter extends Phaser.Scene{
                     simulation.enemys.addMember(new Hero(mision.enemys.team[i]));
                 }
 
-                
+                //Allies
+                simulation.allies.restrictions = mision.team.restrictions;
+
             return simulation;  
         }
     }

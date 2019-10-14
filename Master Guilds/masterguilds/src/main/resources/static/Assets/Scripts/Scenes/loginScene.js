@@ -68,8 +68,8 @@ create(){
         else{
         	var msg = new Object();
         	msg.event = "LOGIN"
-        	msg.name = this.extend.nameform.getChildByName("nameField").value;
-        	msg.password = this.extend.passwordform.getChildByName("passwordField").value;
+        	msg.name = that.extend.nameform.getChildByName("nameField").value;
+        	msg.password = that.extend.passwordform.getChildByName("passwordField").value;
         	game.global.socket.send(JSON.stringify(msg))
         //Habra que hacer que hasta que no confirme lo que devuelve el socket no actue nada de lo siguiente
         //transition("ent",that)

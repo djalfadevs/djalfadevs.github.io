@@ -1,7 +1,7 @@
 "use strict";
 class Abilitie {
 	constructor(abilitie){
-		this.ID = abilitie.ID;//Numero ID
+		this.ID = abilitie.id;//Numero ID
 		this.name = abilitie.name; //Nombre string
 		this.baseActiveTurns = abilitie.baseActiveTurns;//Valor numero de turnos que dura
 		this.baseChargeTurns = abilitie.baseChargeTurns;//Valor de los turnos que tarda en cargar //No confundir con los que le quedan en la simulacion
@@ -11,7 +11,7 @@ class Abilitie {
 		//this.RemainActiveTurns = abilitie.RemainActiveTurns; //Necesaria realmente ?? o es cada personaje quien se lo gestiona (creo q personaje)
 		
 		this.remainChargeTurns = abilitie.remainChargeTurns; //Turnos que le quedan para poder ser lanzada de nuevo (Al crear debe ser igual que el baseChargeTurns)
-		this.isReady = abilitie.isReady; //Se puede lanzar o no (Inicialmente al crear estara en false GENERALMENTE)
+		this.isReady = abilitie.ready; //Se puede lanzar o no (Inicialmente al crear estara en false GENERALMENTE)
 
 		//EXPERIMENTAL
 		//QUIZA SE PODRIA HACER QUE RECIBA UNA FUNCION QUE DEFINA QUE TIENE QUE HACER CUANDO RECIBA EL PERSONAJE
@@ -22,14 +22,15 @@ class Abilitie {
 
 		//EFFECTFUNTION DEBE IR EN FUNCION DEL ID
 		switch(this.ID){
-			case 1:
+			case "1":
 			this.effectFunction = effectFunctionList1; 
 			break;
-			case 2:
+			case "2":
 			this.effectFunction = effectFunctionList2;
-			case 3:
+			case "3":
 			this.effectFunction = effectFunctionList3;
 			default:
+			this.effectFunction = null;
 		}
 
 	}

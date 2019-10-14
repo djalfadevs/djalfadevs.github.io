@@ -28,8 +28,7 @@
 				],
 				"remainChargeTurns": 6,
 				"isReady": true
-			}
-
+			},
 			{
 				"ID": 3,
 				"name": "RAGE V",
@@ -71,10 +70,9 @@
 		"evasion": 40,
 		"baseEvasion": 40,
 		"abilities": [
-
 			{
 				"ID": 2,
-				"name": "HEAL II,
+				"name": "HEAL II",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 5,
 				"description": [
@@ -197,7 +195,7 @@
 		"abilities": [
 			{
 				"ID": 1,
-				"name": "HEALTH II",
+				"name": "HEAL II",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 5,
 				"description": [
@@ -352,8 +350,7 @@
 				],
 				"remainChargeTurns": 6,
 				"isReady": true
-			}
-			
+			},
 			{
 				"ID": 4,
 				"name": "TRUESTRIKE V",
@@ -584,7 +581,7 @@
 		"abilities": [
 			{
 				"ID": 1,
-				"name": "HEALTH I",
+				"name": "HEAL I",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 3,
 				"description": [
@@ -634,8 +631,7 @@
 				],
 				"remainChargeTurns": 6,
 				"isReady": true
-			}
-			
+			},
 			{
 				"ID": 5,
 				"name": "LEECHLIFE V",
@@ -677,7 +673,6 @@
 		"evasion": 30,
 		"baseEvasion": 30,
 		"abilities": [
-		
 			{
 				"ID": 5,
 				"name": "LEECHLIFE V",
@@ -690,7 +685,6 @@
 				"remainChargeTurns": 6,
 				"isReady": true
 			}
-			
 		],
 		"image_url": "url",
 		"activeAbilities": [],
@@ -719,14 +713,10 @@
 		],
 		"evasion": 20,
 		"baseEvasion": 20,
-		"abilities": 
-		[
+		"abilities": [
 			{
 				"ID": 2,
-				"name": "HEAL III
-				"baseActiveTurns": 1
-				"baseChargeTurns": 3
-				"description": [
+				"name": [
 					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
 					"A burst of magical energy that enhances the recievers regeneration."
 				],
@@ -761,14 +751,10 @@
 		],
 		"evasion": 5,
 		"baseEvasion": 5,
-		"abilities": 
-		[
+		"abilities": [
 			{
 				"ID": 1,
-				"name": "BUFFSTATS IV
-				"baseActiveTurns": 2
-				"baseChargeTurns": 7
-				"description": [
+				"name": [
 					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
 					"A boost to all ally's combat abilities by channeling one's conviction."
 				],
@@ -803,10 +789,7 @@
 		],
 		"evasion": 35,
 		"baseEvasion": 35,
-		"abilities": 
-		[
-
-		],
+		"abilities": [],
 		"image_url": "url",
 		"activeAbilities": [],
 		"baseAggro": 50,
@@ -869,7 +852,7 @@
 		"abilities": [
 			{
 				"ID": 1,
-				"name": "HEALTH I",
+				"name": "HEAL I",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 3,
 				"description": [

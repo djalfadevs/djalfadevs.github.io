@@ -12,8 +12,8 @@ public class Hero {
 	private String name;
 	private float baseAttack;
 	private float attack;
-	private float baseDefense;
-	private float defense;
+	private float baseDefence;
+	private float defence;
 	private float baseHP;
 	private float HP;
 	private float base_crit_hit_chance;
@@ -62,8 +62,8 @@ public class Hero {
 		this.name = name;
 		this.baseAttack = baseAttack;
 		this.attack = attack;
-		this.baseDefense = baseDefence;
-		this.defense = defence;
+		this.baseDefence = baseDefence;
+		this.defence = defence;
 		this.baseHP = baseHP;
 		this.HP = HP;
 		this.base_crit_hit_chance = base_crit_hit_chance;
@@ -116,19 +116,19 @@ public class Hero {
 	}
 
 	public float getBaseDefense() {
-		return baseDefense;
+		return baseDefence;
 	}
 
 	public void setBaseDefense(float baseDefense) {
-		this.baseDefense = baseDefense;
+		this.baseDefence = baseDefense;
 	}
 
 	public float getDefense() {
-		return defense;
+		return defence;
 	}
 
 	public void setDefense(float defense) {
-		this.defense = defense;
+		this.defence = defense;
 	}
 
 	public float getBaseHP() {

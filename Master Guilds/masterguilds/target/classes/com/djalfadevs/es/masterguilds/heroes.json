@@ -11,7 +11,7 @@
 		"base_crit_hit_chance": 0.05,
 		"crit_hit_chance": 0.05,
 		"description": [
-			"El lider de los Azon, tuvo que hacerse cargo del Imperio desde muy jovÈn lo cual le ha hecho una de las personas m·s resistentes del mundo",
+			"El lider de los Azon, tuvo que hacerse cargo del Imperio desde muy jov√©n lo cual le ha hecho una de las personas m√°s resistentes del mundo",
 			"The leader of the Azon, being forced to take care of the Empire from a young age has turned him into one of the most resilient people in the world"
 		],
 		"evasion": 20,
@@ -23,8 +23,20 @@
 				"baseActiveTurns": 3,
 				"baseChargeTurns": 6,
 				"description": [
-					"Kubo inspira a un aliado con su coraje, ampliando su capacidad de combate",
-					"Kubo inspires an ally with his bravery, buffing his combat capability"
+					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+					"A boost to all ally's combat abilities by channeling one's conviction."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			},
+			{
+				"ID": 3,
+				"name": "RAGE V",
+				"baseActiveTurns": 3,
+				"baseChargeTurns": 6,
+				"description": [
+					"El usuario manipula su ira para subir su fuerza.",
+					"Users of this channel their anger to boost their brute strength."
 				],
 				"remainChargeTurns": 6,
 				"isReady": true
@@ -36,7 +48,7 @@
 		"aggro": 90,
 		"faction": "Azon",
 		"rarity": 5,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -52,22 +64,22 @@
 		"base_crit_hit_chance": 0.05,
 		"crit_hit_chance": 0.05,
 		"description": [
-			"Estratega experto de Azon, su valÌa como general es tan alta, que ya ha sobrevivido a dos generaciones de la dinastÌa Azon, apodado el destructor en su juventud, en su vejez prefiere roles m·s pacÌficos",
+			"Estratega experto de Azon, su val√≠a como general es tan alta, que ya ha sobrevivido a dos generaciones de la dinast√≠a Azon, apodado el destructor en su juventud, en su vejez prefiere roles m√°s pac√≠ficos",
 			"Azon's top tactician, he has proven his worth as a general by surviving two Azon generations, in his youth, he was a famed warrior nicknamed the destroyer, now, in his elderliness he fancies a more peaceful approach"
 		],
 		"evasion": 40,
 		"baseEvasion": 40,
 		"abilities": [
 			{
-				"ID": 1,
-				"name": "HEALTH IV",
+				"ID": 2,
+				"name": "HEAL II",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 5,
 				"description": [
-					"Behrak cura al aliado que se encuentre m·s herido",
-					"Behrak heals the most damaged ally"
+					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+					"A burst of magical energy that enhances the recievers regeneration."
 				],
-				"remainChargeTurns": 5,
+				"remainChargeTurns": 6,
 				"isReady": true
 			}
 		],
@@ -77,7 +89,7 @@
 		"aggro": 20,
 		"faction": "Azon",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -100,15 +112,15 @@
 		"baseEvasion": 70,
 		"abilities": [
 			{
-				"ID": 1,
-				"name": "IGNOREDEFENCE II",
+				"ID": 4,
+				"name": "TRUESTRIKE II",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 7,
 				"description": [
-					"Xin desliza su afilada daga por las rendijas de la armadura del enemigo, ninguna protecciÛn puede pararle",
-					"Xin slides his sharp blade across the cracks and slits of his enemy's armour, no protection can stop him"
+					"Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
+					"A perfectly aimed hit that completely bypass the targets defense."
 				],
-				"remainChargeTurns": 7,
+				"remainChargeTurns": 6,
 				"isReady": true
 			}
 		],
@@ -118,7 +130,7 @@
 		"aggro": 30,
 		"faction": "Azon",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -134,7 +146,7 @@
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
-			"Considerado el hombre m·s fuerte de Azon, pero no el m·s brillante",
+			"Considerado el hombre m√°s fuerte de Azon, pero no el m√°s brillante",
 			"Maybe the strongest man in all of Azon, but not the brightest"
 		],
 		"evasion": 20,
@@ -146,8 +158,8 @@
 				"baseActiveTurns": 2,
 				"baseChargeTurns": 5,
 				"description": [
-					"Peng Tan ayuda a un aliado en combate",
-					"Peng Tan helps an ally in combat"
+					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+					"A boost to all ally's combat abilities by channeling one's conviction."
 				],
 				"remainChargeTurns": 5,
 				"isReady": true
@@ -159,7 +171,7 @@
 		"aggro": 70,
 		"faction": "Azon",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -183,12 +195,12 @@
 		"abilities": [
 			{
 				"ID": 1,
-				"name": "HEALTH II",
+				"name": "HEAL II",
 				"baseActiveTurns": 1,
-				"baseChargeTurns": 4,
+				"baseChargeTurns": 5,
 				"description": [
-					"Qi cura las heridas de un aliado cansado",
-					"Qi heals a tired ally"
+					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+					"A burst of magical energy that enhances the recievers regeneration."
 				],
 				"remainChargeTurns": 4,
 				"isReady": true
@@ -200,7 +212,7 @@
 		"aggro": 20,
 		"faction": "Azon",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -216,7 +228,7 @@
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
-			"InfaterÌa b·sica de Azon",
+			"Infater√≠a b√°sica de Azon",
 			"Azon's basic infantry"
 		],
 		"evasion": 35,
@@ -232,7 +244,7 @@
 		"aggro": 50,
 		"faction": "Azon",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -264,7 +276,7 @@
 		"aggro": 80,
 		"faction": "Azon",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -280,22 +292,22 @@
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
-			"MÈdico de Azon",
+			"M√©dico de Azon",
 			"Azon's doctor"
 		],
 		"evasion": 0,
 		"baseEvasion": 0,
 		"abilities": [
 			{
-				"ID": 1,
-				"name": "HEALTH I",
+				"ID": 2,
+				"name": "HEAL I",
 				"baseActiveTurns": 1,
-				"baseChargeTurns": 3,
+				"baseChargeTurns": 6,
 				"description": [
-					"Cura las heridas de un aliado",
-					"Heal an ally"
+					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+					"A burst of magical energy that enhances the recievers regeneration."
 				],
-				"remainChargeTurns": 3,
+				"remainChargeTurns": 6,
 				"isReady": true
 			}
 		],
@@ -305,13 +317,13 @@
 		"aggro": 10,
 		"faction": "Azon",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
 	{
 		"ID": 9,
-		"name": "CODE: 4NG31",
+		"name": "Balista",
 		"baseAttack": 85,
 		"attack": 85,
 		"baseDefence": 50,
@@ -321,7 +333,7 @@
 		"base_crit_hit_chance": 0.4,
 		"crit_hit_chance": 0.4,
 		"description": [
-			"La mejor tiradora de todo Ferten, solo conocida por el n˙mero de su informe, su pasado est· rodeado de secretos; pero su punterÌa es clara como el agua",
+			"La mejor tiradora de todo Ferten, solo conocida por el n√∫mero de su informe, su pasado est√° rodeado de secretos; pero su punter√≠a es clara como el agua",
 			"Best shot in all of Ferten, only known for her file id , her past may be dubious, but her aim isn't"
 		],
 		"evasion": 60,
@@ -330,10 +342,25 @@
 			{
 				"ID": 1,
 				"name": "BUFFSTATS III",
-				"baseActiveTurns": 3,
-				"baseChargeTurns": 7,
-				"description": "Erase una vez una prueba",
-				"remainChargeTurns": 7,
+				"baseActiveTurns": 1,
+				"baseChargeTurns": 5,
+				"description": [
+					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+					"A boost to all ally's combat abilities by channeling one's conviction."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			},
+			{
+				"ID": 4,
+				"name": "TRUESTRIKE V",
+				"baseActiveTurns": 1,
+				"baseChargeTurns": 3,
+				"description": [
+					"Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
+					"A perfectly aimed hit that completely bypass the targets defense."
+				],
+				"remainChargeTurns": 6,
 				"isReady": true
 			}
 		],
@@ -343,7 +370,7 @@
 		"aggro": 70,
 		"faction": "Ferten",
 		"rarity": 5,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -359,14 +386,23 @@
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
-			"Antiguo miembro de un equipo de fuerzas especiales de Ferten que se gana la vida como Gangster en los bajos fondos de la ciudad de Permac",
-			"Ex Ferten's task-force member that earns his keep as a Gangster in the bad part of the city of Permac"
+			"Antiguo miembro de un equipo de fuerzas especiales del ejercito Ferten que se gana la vida como Gangster en los bajos fondos de la ciudad de Permac",
+			"Ex Ferten Navy member that earns his keep as a Gangster in the bad part of the city of Permac"
 		],
 		"evasion": 30,
 		"baseEvasion": 30,
 		"abilities": [
 			{
-				
+				"ID": 5,
+				"name": "LEECHLIFE II",
+				"baseActiveTurns": 1,
+				"baseChargeTurns": 5,
+				"description": [
+					"Una antigua tecnica vampirica que permite absorver parte del da√±o realizado a un objetivo.",
+					"This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
 			}
 		],
 		"image_url": "url",
@@ -375,7 +411,7 @@
 		"aggro": 75,
 		"faction": "Ferten",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -391,14 +427,23 @@
 		"base_crit_hit_chance": 0.30,
 		"crit_hit_chance": 0.30,
 		"description": [
-			"Miembro de la policÌa de Ferten, no quedan muchos que se atrevan a hacerlo, pero A'lik no solo luce la placa, se pasea por las calles que para otros, serÌan impensables",
+			"Miembro de la polic√≠a de Ferten, no quedan muchos que se atrevan a hacerlo, pero A'lik no solo luce la placa, se pasea por las calles que para otros, ser√≠an impensables",
 			"Member of Ferten's Police force, there's not many who dare become one, but A'lik doesn't only brandish her badge, she also dares tread where many don't even dream of"
 		],
 		"evasion": 30,
 		"baseEvasion": 30,
 		"abilities": [
 			{
-				
+				"ID": 4,
+				"name": "TRUESTRIKE V",
+				"baseActiveTurns": 1,
+				"baseChargeTurns": 3,
+				"description": [
+					"Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
+					"A perfectly aimed hit that completely bypass the targets defense."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
 			}
 		],
 		"image_url": "url",
@@ -407,7 +452,7 @@
 		"aggro": 34,
 		"faction": "Ferten",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -430,7 +475,16 @@
 		"baseEvasion": 30,
 		"abilities": [
 			{
-				
+				"ID": 2,
+				"name": "HEAL IV",
+				"baseActiveTurns": 2,
+				"baseChargeTurns": 6,
+				"description": [
+					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+					"A burst of magical energy that enhances the recievers regeneration."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
 			}
 		],
 		"image_url": "url",
@@ -439,7 +493,7 @@
 		"aggro": 14,
 		"faction": "Ferten",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -455,7 +509,7 @@
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
-			"InfaterÌa b·sica de Ferten",
+			"Infater√≠a b√°sica de Ferten",
 			"Ferten's basic infantry"
 		],
 		"evasion": 35,
@@ -471,7 +525,7 @@
 		"aggro": 50,
 		"faction": "Ferten",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -503,7 +557,7 @@
 		"aggro": 80,
 		"faction": "Ferten",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -527,7 +581,7 @@
 		"abilities": [
 			{
 				"ID": 1,
-				"name": "HEALTH I",
+				"name": "HEAL I",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 3,
 				"description": [
@@ -544,7 +598,7 @@
 		"aggro": 10,
 		"faction": "Azon",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -560,19 +614,34 @@
 		"base_crit_hit_chance": 0.20,
 		"crit_hit_chance": 0.20,
 		"description": [
-			"Miembro del consejo de magia, ha desarrollado estudios y teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo. Nadie sabe si est· loca o es un genio.",
+			"Miembro del consejo de magia, ha desarrollado estudios y teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo. Nadie sabe si est√° loca o es un genio.",
 			"Member of the Magic Council, she has developed theories and studies regarding such complex magic that not even the rest of the council can fully comprehend them. Wether she is a genius, or a maniac is unknown."
 		],
 		"evasion": 40,
 		"baseEvasion": 40,
 		"abilities": [
 			{
-				"ID": 1,
-				"name": "BUFFSTATS III",
+				"ID": 2,
+				"name": "HEAL V",
 				"baseActiveTurns": 3,
-				"baseChargeTurns": 7,
-				"description": "Erase una vez una prueba",
-				"remainChargeTurns": 7,
+				"baseChargeTurns": 6,
+				"description": [
+					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+					"A burst of magical energy that enhances the recievers regeneration."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			},
+			{
+				"ID": 5,
+				"name": "LEECHLIFE V",
+				"baseActiveTurns": 1,
+				"baseChargeTurns": 3,
+				"description": [
+					"Una antigua tecnica vampirica que permite absorver parte del da√±o realizado a un objetivo.",
+					"This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
+				],
+				"remainChargeTurns": 6,
 				"isReady": true
 			}
 		],
@@ -582,7 +651,7 @@
 		"aggro": 30,
 		"faction": "Kwin",
 		"rarity": 5,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -603,14 +672,27 @@
 		],
 		"evasion": 30,
 		"baseEvasion": 30,
-		"abilities": [],
+		"abilities": [
+			{
+				"ID": 5,
+				"name": "LEECHLIFE V",
+				"baseActiveTurns": 1,
+				"baseChargeTurns": 3,
+				"description": [
+					"Una antigua tecnica vampirica que permite absorver parte del da√±o realizado a un objetivo.",
+					"This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			}
+		],
 		"image_url": "url",
 		"activeAbilities": [],
 		"baseAggro": 30,
 		"aggro": 30,
 		"faction": "Kwin",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -626,19 +708,29 @@
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
-			"Ozna cura a la gente de Kwin con su melodia, tanto es asÌ que algunas tropas llevan frascos con aliento de Ozna porque piensan que ayudar·n a su sanaciÛn",
+			"Ozna cura a la gente de Kwin con su melodia, tanto es as√≠ que algunas tropas llevan frascos con aliento de Ozna porque piensan que ayudar√°n a su sanaci√≥n",
 			"Ozna heals the people of Kwin with his melody, it goes as far as troopers carrying flasks with his breath because they believe it will help them heal"
 		],
 		"evasion": 20,
 		"baseEvasion": 20,
-		"abilities": [],
+		"abilities": [
+			{
+				"ID": 2,
+				"name": [
+					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+					"A burst of magical energy that enhances the recievers regeneration."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			}
+		],
 		"image_url": "url",
 		"activeAbilities": [],
 		"baseAggro": 30,
 		"aggro": 30,
 		"faction": "Kwin",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -654,19 +746,29 @@
 		"base_crit_hit_chance": 0.1,
 		"crit_hit_chance": 0.1,
 		"description": [
-			"Mallock es la montaÒa que llora tras la batallas, la destrucciÛn del agua en la riada, la venganza de la tierra",
+			"Mallock es la monta√±a que llora tras la batallas, la destrucci√≥n del agua en la riada, la venganza de la tierra",
 			"Mallock is the mountain that cries after battles, the water's destruction in a flash flood, earth's vengeance"
 		],
 		"evasion": 5,
 		"baseEvasion": 5,
-		"abilities": [],
+		"abilities": [
+			{
+				"ID": 1,
+				"name": [
+					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+					"A boost to all ally's combat abilities by channeling one's conviction."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
+			}
+		],
 		"image_url": "url",
 		"activeAbilities": [],
 		"baseAggro": 60,
 		"aggro": 60,
 		"faction": "Kwin",
 		"rarity": 3,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	},
@@ -687,18 +789,14 @@
 		],
 		"evasion": 35,
 		"baseEvasion": 35,
-		"abilities": [
-			{
-				
-			}
-		],
+		"abilities": [],
 		"image_url": "url",
 		"activeAbilities": [],
 		"baseAggro": 50,
 		"aggro": 50,
 		"faction": "Kwin",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Attacker"
 	},
@@ -730,7 +828,7 @@
 		"aggro": 80,
 		"faction": "Kwin",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Tank"
 	},
@@ -746,7 +844,7 @@
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
-			"Experto en magia de regeneraciÛn de Kwin",
+			"Experto en magia de regeneraci√≥n de Kwin",
 			"Kwin's regeneration magic expert"
 		],
 		"evasion": 0,
@@ -754,7 +852,7 @@
 		"abilities": [
 			{
 				"ID": 1,
-				"name": "HEALTH I",
+				"name": "HEAL I",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 3,
 				"description": [
@@ -771,7 +869,7 @@
 		"aggro": 10,
 		"faction": "Kwin",
 		"rarity": 1,
-		"level": 20,
+		"level": 1,
 		"exp": 1000,
 		"role": "Support"
 	}

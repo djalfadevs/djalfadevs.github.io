@@ -3,6 +3,7 @@ var CollectionCard = new Phaser.Class({
 	function CollectionCard(scene,x,y,hero,xG,yG){
 		this.scene = scene;
 		this.hero = hero;
+		this.simulationHero = new Hero(this.hero);;
 		this.x = x;
 		this.y = y;
 		this.xG = xG
@@ -30,9 +31,11 @@ var CollectionCard = new Phaser.Class({
             that.scene.extend.text.abilities.setText(that.hero.abilities[0].name)
 
             that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
-			if(that.scene.extend.bigcardSprite !=null)
-			that.scene.extend.bigcardSprite.destroy();
-			that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
+			if(that.scene.extend.bigcardSprite !=null){
+					that.scene.extend.bigcardSprite.destroy();
+					that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
+			}
+
 		})
 		}
 		//En el caso del deck despues de seleccionar mision
@@ -49,9 +52,41 @@ var CollectionCard = new Phaser.Class({
             that.scene.extend.text.abilities.setText(that.hero.abilities[0].name)
 
             that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
-			if(that.scene.extend.bigcardSprite !=null)
-			that.scene.extend.bigcardSprite.destroy();
-			that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
+			if(that.scene.extend.bigcardSprite !=null){
+				that.scene.extend.bigcardSprite.destroy();
+				that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
+			}
+			
+
+			//NUEVO DE ESTA ESCENA
+			if(game.global.simulation.allies.canAddMember({actor:that.simulationHero}).canBeAdded){
+				var tAux = that.scene.extend.alliesCards.length;
+
+				game.global.simulation.allies.addMember(that.simulationHero);
+
+				var spriteAux = that.scene.add.sprite(that.scene.extend.positionOfSmallAlliesCards[tAux][0],
+				that.scene.extend.positionOfSmallAlliesCards[tAux][1],'azon_small_card_front').setInteractive().setDepth(2);
+
+				that.scene.extend.alliesCards.push(spriteAux);
+
+				spriteAux.on('pointerdown',function(){
+
+					spriteAux.destroy();
+
+					for(var o = 0; o<that.scene.extend.alliesCards.length;o++){
+						if(spriteAux===that.scene.extend.alliesCards[o]){
+							that.scene.extend.alliesCards.splice(o,1);
+						}
+					}
+
+					for(var o = 0; o<that.scene.extend.alliesCards.length;o++){
+							that.scene.extend.alliesCards[o].setPosition(that.scene.extend.positionOfSmallAlliesCards[o][0],
+								that.scene.extend.positionOfSmallAlliesCards[o][1]);
+					}
+
+					game.global.simulation.allies.removeMember(that.simulationHero);
+				})
+			}		
 		})
 		}
 	

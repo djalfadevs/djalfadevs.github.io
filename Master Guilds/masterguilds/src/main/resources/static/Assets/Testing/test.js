@@ -169,8 +169,8 @@ var testHero5 = new Hero({ID: 5 , name: "IRINA DE AZON" , baseAttack: 700, attac
 		rarity: 5, level: 40 , exp: 1120 , role: "Support"})
 
 //Ponemos nuevas restricciones al equipo
-game.global.simulation.allies.setRestrictions({maxHeros:4,maxHerosFaction:[3,3,3]});
-game.global.simulation.enemys.setRestrictions({maxHeros:4,maxHerosFaction:[3,3,3]});
+//game.global.simulation.allies.setRestrictions({maxHeros:4,maxHerosFaction:[3,3,3]});
+//game.global.simulation.enemys.setRestrictions({maxHeros:4,maxHerosFaction:[3,3,3]});
 
 
 /*
@@ -191,14 +191,14 @@ game.global.simulation.enemys.setRestrictions({maxHeros:4,maxHerosFaction:[3,3,3
 	)
 */
 
-game.global.simulation.allies.addMember(testHero);
-game.global.simulation.allies.addMember(testHero4);
+//game.global.simulation.allies.addMember(testHero);
+//game.global.simulation.allies.addMember(testHero4);
 //game.global.simulation.enemys.addMember(testHero3);
 //game.global.simulation.enemys.addMember(testHero2);
 //game.global.simulation.enemys.addMember(testHero2);
-game.global.simulation.allies.addMember(testHero5);
+//game.global.simulation.allies.addMember(testHero5);
 //game.global.simulation.allies.removeMember(testHero4);
-game.global.simulation.allies.calculateSynergies();
+//game.global.simulation.allies.calculateSynergies();
 
 //game.global.simulation.simulate();
 /*

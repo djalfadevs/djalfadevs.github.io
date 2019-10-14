@@ -23,7 +23,13 @@ class deck extends Phaser.Scene{
                 rarity: null,
                 crit_hit_chance: null,
                 abilities: null,
-            }
+            },
+            positionOfSmallAlliesCards:[[400,400],
+            [500,400],
+            [600,600],
+            [700,600]],
+            alliesCards:[],
+
         }
     }
     preload(){
@@ -52,8 +58,8 @@ class deck extends Phaser.Scene{
         //BOTONES
     	//Boton volver
         var backButt=this.add.sprite(100,100,'backButt').setScale(1).setInteractive();
-        backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
-        backButt.on('pointerup',function(){this.setFrame(0)})
+        backButt.on('pointerdown',function(){this.setFrame(1);})
+        backButt.on('pointerup',function(){this.setFrame(0);transition("back",that)})
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
@@ -71,6 +77,11 @@ class deck extends Phaser.Scene{
             that.extend.numberOfPageText.setText(that.extend.numberOfPage);
             that.drawCards(that.extend.numberOfPage)
             ;})
+
+        var EnterSimulationButt = this.add.sprite(300,1000,'largeButt').setScale(1).setInteractive();
+        EnterSimulationButt.on('pointerup',function(){
+            setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
+        })
 
         this.drawCards(that.extend.numberOfPage);
 

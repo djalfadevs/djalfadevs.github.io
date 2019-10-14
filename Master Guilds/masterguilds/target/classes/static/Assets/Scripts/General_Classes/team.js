@@ -64,7 +64,7 @@ class Team {
 
      
         //Comprueba si el numero de heroes de determinada faccion no ha superado el de las restricciones
-        var i = this.getNumberOfFaction(input.faction); //i debe ser hallado a partir del input.actor es decir del heroe q se introduce MODIFICAR
+        var i = this.getNumberOfFaction(input.actor.faction); //i debe ser hallado a partir del input.actor es decir del heroe q se introduce MODIFICAR
 
         //Tanto en restrictions como en stats el array sigue el mismo orden de faccion
         //Se contempla tambien el caso de que sea un mounstro que no tiene faccion
@@ -72,7 +72,12 @@ class Team {
             canBeAdded = false
         }
 
-
+        //Si ese heroe ya esta añadido
+        for(var j = 0; j<this.team.length;j++){
+            if(this.team[j]===input.actor){
+                canBeAdded= false;
+            }
+        }
         return {canBeAdded:canBeAdded,nFaction:i};
     }
 
@@ -187,7 +192,7 @@ class Team {
     //Parametros : input -> heroe o mounstro que se pretende añadir
     //Añade el heroe u mounstro al equipo si cumple con las restricciones
     addMember(input) {
-        var result = this.canAddMember(input)
+        var result = this.canAddMember({actor:input})
         if (result.canBeAdded) {
             this.team.push(input);
             //Updatea stats
