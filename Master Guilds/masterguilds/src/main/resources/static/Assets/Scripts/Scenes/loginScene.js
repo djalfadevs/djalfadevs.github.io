@@ -58,6 +58,8 @@ create(){
         
         var x = that.extend.nameform.getChildByName("nameField").value;
         
+        var y = that.extend.passwordform.getChildByName("passwordField").value;
+        
         if ( x == null || x == "" || x.includes("/") ) {
         	that.extend.nameform.getChildByName("nameField").hidden=true
         	that.extend.passwordform.getChildByName("passwordField").hidden=true
@@ -65,12 +67,22 @@ create(){
         	that.scene.pause();
 
         }
+        
         else{
-        	var msg = new Object();
-        	msg.event = "LOGIN"
-        	msg.name = that.extend.nameform.getChildByName("nameField").value;
-        	msg.password = that.extend.passwordform.getChildByName("passwordField").value;
-        	game.global.socket.send(JSON.stringify(msg))
+        	if ( y == null || y == "" || y.includes("/") ) {
+            	that.extend.nameform.getChildByName("nameField").hidden=true
+            	that.extend.passwordform.getChildByName("passwordField").hidden=true
+            	that.scene.launch('FailPass')
+            	that.scene.pause();
+
+            }
+        	else{
+        		var msg = new Object();
+        		msg.event = "LOGIN"
+        			msg.name = that.extend.nameform.getChildByName("nameField").value;
+        		msg.password = that.extend.passwordform.getChildByName("passwordField").value;
+        		game.global.socket.send(JSON.stringify(msg))
+        	}
         //Habra que hacer que hasta que no confirme lo que devuelve el socket no actue nada de lo siguiente
         //transition("ent",that)
         }
@@ -85,6 +97,8 @@ create(){
     
     	var x = that.extend.nameform.getChildByName("nameField").value;
     	
+    	var y = that.extend.passwordform.getChildByName("passwordField").value;
+    	
     	if ( x == null || x == "" || x.includes("/") ) {
         	that.extend.nameform.getChildByName("nameField").hidden=true
         	that.extend.passwordform.getChildByName("passwordField").hidden=true
@@ -92,12 +106,22 @@ create(){
         	that.scene.pause();
 
         }
+    	
         else{
-        	var msg = new Object();
-        	msg.event = "SIGNUP"
-        		msg.name = that.extend.nameform.getChildByName("nameField").value;
-        	msg.password = that.extend.passwordform.getChildByName("passwordField").value;
-        	game.global.socket.send(JSON.stringify(msg))
+        	if ( y == null || y == "" || y.includes("/") ) {
+            	that.extend.nameform.getChildByName("nameField").hidden=true
+            	that.extend.passwordform.getChildByName("passwordField").hidden=true
+            	that.scene.launch('FailPass')
+            	that.scene.pause();
+
+            }
+        	else{
+        		var msg = new Object();
+            	msg.event = "SIGNUP"
+            	msg.name = that.extend.nameform.getChildByName("nameField").value;
+            	msg.password = that.extend.passwordform.getChildByName("passwordField").value;
+            	game.global.socket.send(JSON.stringify(msg))
+        	}
         	}});
     
     //SFX? .sound.play();
@@ -106,9 +130,8 @@ create(){
     //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
 
 }
-   
 
-	resume(){
+resume(){
 		this.extend.nameform.getChildByName("nameField").hidden=false
 		this.extend.passwordform.getChildByName("passwordField").hidden=false
 	}
@@ -150,6 +173,32 @@ class FailLogin extends Phaser.Scene{
 		this.add.sprite(960,440,'mediumInfo');
 		this.add.text(700,300,"FAILED LOGIN ATTEMPT \n Either your name contains \n unsupported characters," +
 				"\n is empty or is not \n associated with any\n account ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+		var okButt=this.add.sprite(960,850,'largeButt').setInteractive()
+		this.add.text(900,820,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+		okButt.on('pointerout',function(){this.setFrame(0)})
+		okButt.on('pointerdown',function(){this.setFrame(1)})
+		
+		okButt.on('pointerup',function(){
+			this.setFrame(0);
+			that.scene.resume('login');
+			game.scene.scenes[3].resume();
+			that.scene.stop();
+		});
+	}
+}
+
+class FailPass extends Phaser.Scene{
+	constructor(){
+		super({key:'FailPass'})
+	}
+	create(){
+		console.log("WTF")
+		var that=this
+		
+		this.add.sprite(960,540,'BLACK');
+		this.add.sprite(960,440,'mediumInfo');
+		this.add.text(700,300,"PASSWORD FAIL \n Either your password\n contains unsupported \n characters," +
+				" is empty \n or is not associated \n with this account ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
 		var okButt=this.add.sprite(960,850,'largeButt').setInteractive()
 		this.add.text(900,820,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
 		okButt.on('pointerout',function(){this.setFrame(0)})

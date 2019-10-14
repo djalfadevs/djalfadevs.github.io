@@ -22,7 +22,7 @@
 	//scene: [SimulationScene,PauseScene]
     scene:[preload,LOGO,contact,login,register,title,shop,settings,ranking,
     mainMenu,lang,deck,combatMenu,collection,chapter,
-    SimulationScene,PauseScene,FailLogin,FailRegister]
+    SimulationScene,PauseScene,FailLogin,FailRegister,FailPass]
 };
 
 	var game = new Phaser.Game(config);
