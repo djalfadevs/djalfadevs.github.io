@@ -2,7 +2,7 @@
 	{
 		"ID": 1,
 		"name": "prueba1",
-		"escenario": "escenarioPrueba",
+		"escenario": "Escenario_japones",
 		"team": {
 			"restrictions": {
 				"maxHeros": 4,
