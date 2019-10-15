@@ -5,6 +5,7 @@
 class mainMenu extends Phaser.Scene{
     constructor(){
         super({key:'mainMenu'})
+        this.extend={ENGroup:null,ESGroup:null,ensub:null,essub:null}
     }
 
 	preload(){
@@ -20,18 +21,31 @@ class mainMenu extends Phaser.Scene{
         
         //TEMP BUTTON PLACEMENTS
         
-        var historyplayButt=this.add.sprite(450,500,'largePlayHistoryButt').setInteractive()
-        var questsplayButt=this.add.sprite(450,720,'largePlayMisionsButt').setInteractive()
-        var arenaplayButt=this.add.sprite(450,950,'largePlayArenaButt').setInteractive()    
-        var collButt=this.add.sprite(1450,720,'largeButt').setInteractive()
-        var shopButt=this.add.sprite(1450,950,'largeAdministrationButt').setInteractive()
+        var historyplayButt=this.add.sprite(450,270,'largePlayHistoryButt').setInteractive()
+        //var questsplayButt=this.add.sprite(450,720,'largePlayMisionsButt').setInteractive()
+        var arenaplayButt=this.add.sprite(450,500,'largePlayArenaButt').setInteractive()    
+        var collButt=this.add.sprite(450,720,'largeButt').setInteractive()
+        var shopButt=this.add.sprite(450,950,'largeAdministrationButt').setInteractive()
+        
+        
+        //var historyplayButt=this.add.sprite(450,500,'largePlayHistoryButt').setInteractive()
+        //var questsplayButt=this.add.sprite(450,720,'largePlayMisionsButt').setInteractive()
+        //var arenaplayButt=this.add.sprite(450,950,'largePlayArenaButt').setInteractive()    
+        //var collButt=this.add.sprite(1450,720,'largeButt').setInteractive()
+        //var shopButt=this.add.sprite(1450,950,'largeAdministrationButt').setInteractive()
+        
         
         var infoBar=this.add.sprite(960,63,'infoBar')
-        this.add.text(250,10,'Main menu',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
-        this.add.text(600,50,'Battle, check your cards or acquire new ones',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'}).alpha=0.6
+        var en6=this.add.text(250,10,'Main menu',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
+        that.extend.ensub=this.add.text(600,50,'Battle, check your cards or acquire new ones',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'})
+        
+        var es6=this.add.text(230,10,'Menú principal',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
+        that.extend.essub=this.add.text(680,50,'Pelea, mira tus cartas o consigue otras nuevas',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'})
+        
         var backButt=this.add.sprite(85,80,'backButt').setInteractive()    
-        var news=this.add.sprite(1450,360,'newsPaper').setInteractive()
-
+        //var news=this.add.sprite(1450,360,'newsPaper').setInteractive()
+        var news=this.add.sprite(1450,650,'newsPaper').setInteractive()
+        
         news.on('pointerup',function(){
         	that.scene.launch('newsPop')
         	that.scene.pause();
@@ -44,31 +58,65 @@ class mainMenu extends Phaser.Scene{
       
 
         historyplayButt.on('pointerdown',function(){this.setFrame(1)});
-        questsplayButt.on('pointerdown',function(){this.setFrame(1)});
+        //questsplayButt.on('pointerdown',function(){this.setFrame(1)});
         arenaplayButt.on('pointerdown',function(){this.setFrame(1)});
         collButt.on('pointerdown',function(){this.setFrame(1)});
         shopButt.on('pointerdown',function(){this.setFrame(1)});
         
         historyplayButt.on('pointerup',function(){this.setFrame(0);transition("playHistory")});
-        questsplayButt.on('pointerup',function(){this.setFrame(0);transition("playQuests")});
+        //questsplayButt.on('pointerup',function(){this.setFrame(0);transition("playQuests")});
         arenaplayButt.on('pointerup',function(){this.setFrame(0);transition("playArena")});
         collButt.on('pointerup',function(){this.setFrame(0);transition("coll")});
         shopButt.on('pointerup',function(){this.setFrame(0);transition("shop")});
         
         historyplayButt.on('pointerout',function(){this.setFrame(0)});
-        questsplayButt.on('pointerout',function(){this.setFrame(0)});
+        //questsplayButt.on('pointerout',function(){this.setFrame(0)});
         arenaplayButt.on('pointerout',function(){this.setFrame(0)});
         collButt.on('pointerout',function(){this.setFrame(0)});
         shopButt.on('pointerout',function(){this.setFrame(0)});
         backButt.on('pointerout',function(){this.setFrame(0)});
 
         
-        this.add.text(350,455,'Story',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(315,675,'Quests',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(350,905,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(1250,675,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-        this.add.text(1350,905,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-
+        var en1=this.add.text(350,225,'Story',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var en1=this.add.text(350,455,'Story',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var en2=this.add.text(315,675,'Quests',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        var en2=this.add.text(350,455,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var en3=this.add.text(350,905,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var en4=this.add.text(1250,675,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        var en4=this.add.text(300,675,'Collection',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var en5=this.add.text(1350,905,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        var en5=this.add.text(350,905,'Shop',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        
+        //var es1=this.add.text(330,455,'Historia',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var es2=this.add.text(300,675,'Misiones',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var es2=this.add.text(350,905,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var es4=this.add.text(1270,675,'Colección',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var es5=this.add.text(1340,905,'Tienda',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        
+        var es1=this.add.text(330,225,'Historia',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        //var es2=this.add.text(300,675,'Misiones',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        var es2=this.add.text(350,455,'Arena',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        var es4=this.add.text(290,675,'Colección',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        var es5=this.add.text(350,905,'Tienda',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+        
+        that.extend.ESGroup=this.add.container(0,0);
+        that.extend.ENGroup=this.add.container(0,0);
+    
+        that.extend.ESGroup.add(es1);
+        
+        that.extend.ESGroup.add(es2);
+        that.extend.ESGroup.add(es4);
+        that.extend.ESGroup.add(es5);
+        that.extend.ESGroup.add(es6);
+        //that.extend.ESGroup.add(es7);
+    
+        that.extend.ENGroup.add(en1);
+       
+        that.extend.ENGroup.add(en2);
+        that.extend.ENGroup.add(en4);
+        that.extend.ENGroup.add(en5);
+        that.extend.ENGroup.add(en6);
+        //that.extend.ENGroup.add(en7);
         //pointerOverFunctions [COPYPASTED LOGIN]
    
         //reg.on('pointerout',function(){this.setFrame(...)});
@@ -113,8 +161,29 @@ class mainMenu extends Phaser.Scene{
 	   }
     }
 	update(){
-
+		switch(game.global.user.lang){
+		case "ES":
+			
+			this.extend.ENGroup.alpha=0;
+			this.extend.ESGroup.alpha=1;
+			this.extend.ensub.alpha=0;
+			this.extend.essub.alpha=0.6;
+			
+			
+			
+			break;
+		case "EN":
+			
+			this.extend.ENGroup.alpha=1;
+			this.extend.ESGroup.alpha=0;
+			this.extend.ensub.alpha=0.6;
+			this.extend.essub.alpha=0;
+			break;
+		default:
+			break;
+		}
 	}
+
 }
 
 class comingSoonQ extends Phaser.Scene{
