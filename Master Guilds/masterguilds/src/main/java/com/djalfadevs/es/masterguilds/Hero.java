@@ -25,7 +25,7 @@ public class Hero {
 	private Abilitie[] abilities;//HAY QUE CREAR LA CLASE ABILITIES O Hacer que se guarde un id de estas
 	//@JsonDeserialize(as=ArrayList.class, contentAs=Effect.class)
 	private Effect[] activeAbilities;
-	private String image_url;
+	private List<String> image_url;
 	private float baseAggro;
 	private float aggro;
 	private String faction;
@@ -49,7 +49,7 @@ public class Hero {
 			@JsonProperty("description")String[] description,
 			@JsonProperty("abilities") Abilitie[] abilities,
 			@JsonProperty("activeAbilities") Effect[] activeAbilities,
-			@JsonProperty("image_url")String image_url,
+			@JsonProperty("image_url")List<String> image_url,
 			@JsonProperty("baseAggro")float baseAggro, 
 			@JsonProperty("aggro")float aggro,
 			@JsonProperty("faction")String faction,
@@ -203,11 +203,11 @@ public class Hero {
 		this.activeAbilities = activeAbilities;
 	}
 
-	public String getImage_url() {
+	public List<String> getImage_url() {
 		return image_url;
 	}
 
-	public void setImage_url(String image_url) {
+	public void setImage_url(List<String> image_url) {
 		this.image_url = image_url;
 	}
 

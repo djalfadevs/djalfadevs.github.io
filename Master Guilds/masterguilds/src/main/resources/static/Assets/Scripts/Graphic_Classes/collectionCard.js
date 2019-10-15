@@ -11,7 +11,7 @@ var CollectionCard = new Phaser.Class({
 		
 		var that= this;
 		//Imagen de la carta de personaje
-		this.HeroSprite = scene.add.sprite(0,0,"azon_small_card_front").setScale(1,1).setInteractive();
+		this.HeroSprite = scene.add.sprite(0,0,that.hero.image_url[0]).setScale(1,1).setInteractive();
 
 		//Container
 		this.cardContainer = scene.add.container(0,0,[this.HeroSprite]);
@@ -30,10 +30,10 @@ var CollectionCard = new Phaser.Class({
             that.scene.extend.text.crit_hit_chance.setText(that.hero.base_crit_hit_chance)
             that.scene.extend.text.abilities.setText(that.hero.abilities[0].name)
 
-            that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
+            that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
 			if(that.scene.extend.bigcardSprite !=null){
 					that.scene.extend.bigcardSprite.destroy();
-					that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
+					that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
 			}
 
 		})
@@ -51,10 +51,10 @@ var CollectionCard = new Phaser.Class({
             that.scene.extend.text.crit_hit_chance.setText(that.hero.base_crit_hit_chance)
             that.scene.extend.text.abilities.setText(that.hero.abilities[0].name)
 
-            that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
+            that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
 			if(that.scene.extend.bigcardSprite !=null){
 				that.scene.extend.bigcardSprite.destroy();
-				that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,'azon_big_card_front');
+				that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
 			}
 			
 
@@ -65,7 +65,7 @@ var CollectionCard = new Phaser.Class({
 				game.global.simulation.allies.addMember(that.simulationHero);
 
 				var spriteAux = that.scene.add.sprite(that.scene.extend.positionOfSmallAlliesCards[tAux][0],
-				that.scene.extend.positionOfSmallAlliesCards[tAux][1],'azon_small_card_front').setInteractive().setDepth(2);
+				that.scene.extend.positionOfSmallAlliesCards[tAux][1],that.hero.image_url[0]).setInteractive().setDepth(2);
 
 				that.scene.extend.alliesCards.push(spriteAux);
 

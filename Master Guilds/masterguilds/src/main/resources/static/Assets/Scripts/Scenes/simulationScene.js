@@ -27,10 +27,6 @@ class SimulationScene extends Phaser.Scene
 		this.load.image('background','Assets/Testing/background.jpg')
 		this.load.image('pause','Assets/Testing/pause.png');
 
-		this.load.image('gabriela','Assets/Testing/gabriela.png');
-		this.load.image('diana','Assets/Testing/diana.png');
-		this.load.image('ezna','Assets/Testing/ezna.png');
-		this.load.image('elaina','Assets/Testing/elaina.png');
 
 		this.load.image('buff','Assets/Testing/buff.png');
 	}
@@ -42,7 +38,7 @@ class SimulationScene extends Phaser.Scene
 
 		var simulation = game.global.simulation;
 		//Fondo de batalla
-		var background = this.add.sprite(512,384,'background');
+		var background = this.add.sprite(960,280,simulation.escenario);
 
 		//PAUSA
 		this.extend.pauseButton = this.add.sprite(100,100,'pause')

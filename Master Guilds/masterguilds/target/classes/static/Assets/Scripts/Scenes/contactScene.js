@@ -4,9 +4,74 @@ class contact extends Phaser.Scene{
 		super({key:'contact'})
 	}
 	preload(){
-		
+		this.add.sprite(960,540,'backWood');
+		this.add.sprite(960,63,'infoBar');
+        this.add.text(250,10,'Contact',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
+        this.add.text(500,50,'Talk to us!',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'}).alpha=0.6
+        this.add.image(530,580,'largeInfo')
+        var x=this.add.image(520,350,'djlogo1').setScale(0.1);
+        this.add.text(420,500,"Credits:",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'})
+        this.add.text(300,600," Jesús Ayala Matarín \n " +
+        		"Álvaro García Bardón \n Denís Gudiña López \n Fernando Moreno Díaz \n Luis Miguel Moreno López " +
+        		"\n Ángel Noguero Salgado  ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'})
+        x.alpha=0.7
 	}
 	create(){
-		
+		 var that=this;
+		 var backButt=this.add.sprite(85,80,'backButt').setInteractive();
+		 backButt.on('pointerdown',function(){this.setFrame(1);});
+	     backButt.on('pointerup',function(){this.setFrame(0);transition("back")});
+	     backButt.on('pointerout',function(){this.setFrame(0)})
+	     var TButt=this.add.sprite(1530,300,'largeTweetButt').setInteractive();
+	     var FButt=this.add.sprite(1530,500,'largeFaceButt').setInteractive()
+	     var IButt =this.add.sprite(1530,700,'largeInstaButt').setInteractive()
+	     var YButt=this.add.sprite(1530,900,'largeYouButt').setInteractive()
+	    
+	     this.add.text(1420,265,'TWITTER',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+	     this.add.text(1400,465,'FACEBOOK',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+	     this.add.text(1380,665,'INSTAGRAM',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+	     this.add.text(1420,865,'YOUTUBE',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
+	     
+	     TButt.on('pointerdown',function(){this.setFrame(1);});
+	     TButt.on('pointerup',function(){this.setFrame(0);transition("tw")});
+	     TButt.on('pointerout',function(){this.setFrame(0)})
+	     
+	     FButt.on('pointerdown',function(){this.setFrame(1);});
+	     FButt.on('pointerup',function(){this.setFrame(0);transition("face")});
+	     FButt.on('pointerout',function(){this.setFrame(0)})
+	     
+	     IButt.on('pointerdown',function(){this.setFrame(1);});
+	     IButt.on('pointerup',function(){this.setFrame(0);transition("insta")});
+	     IButt.on('pointerout',function(){this.setFrame(0)})
+	     
+	     YButt.on('pointerdown',function(){this.setFrame(1);});
+	     YButt.on('pointerup',function(){this.setFrame(0);transition("yt")});
+	     YButt.on('pointerout',function(){this.setFrame(0)})
+	     
+	     
+	     var transition=function(str){
+	            switch(str){
+	                case "tw":
+	                	window.open("https://twitter.com/DJALFA_dev");
+	                break;
+	                case "face":
+	                	window.open("https://www.facebook.com/djalfa.devs.1");
+	                break
+	                case "insta":
+	                	//window.open(url);
+	                break;
+	                case "yt":
+	                	//window.open(url);
+	                break;
+	                case "back":
+	                	that.scene.transition({target:'title',duration:0});
+	                break;
+	                
+	                
+	                default:
+	                break;
+	            }
+	        
+		   }
 	}
 }
