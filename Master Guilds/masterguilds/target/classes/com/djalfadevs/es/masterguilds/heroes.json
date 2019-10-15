@@ -42,7 +42,10 @@
 				"isReady": true
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_kubo_carta_pequena",
+			"azon_kubo_carta_grande"
+		],
 		"activeAbilities": [],
 		"baseAggro": 90,
 		"aggro": 90,
@@ -124,7 +127,10 @@
 				"isReady": true
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_Xin_carta_pequena",
+			"azon_Xin_carta_grande"
+		],
 		"activeAbilities": [],
 		"baseAggro": 30,
 		"aggro": 30,

@@ -51,15 +51,15 @@ public class UserInfo {
 			//PRUEBA DE METER HEROE (AL registrar un jugador se le dan unos heroes elegidos por el gamedesigner)
 			//Estos tienen que ver con la historia del juego
 			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(1),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
 			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
 			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
 			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

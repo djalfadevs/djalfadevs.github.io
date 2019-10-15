@@ -64,12 +64,15 @@ class Simulation {
                        //CASO 1 Y 3, BUSCAMOS UN OBJETIVO ALEATORIO PARA MEJORAR SUS ESTADISTICAS, DESPUES DE ESTO, NO VA A ATACAR, POR LO QUE PONEMOS NEWAB A TRUE
                        //EL OBJETIVO ALEATORIO ESTA DENTRO DEL EQUIPO DEL QUE LO LANZA
                       case 1:
+                      case "1":
                       case 3:
+                      case "3":
                        var target=Math.floor(Math.random() * input.team.team.length);
                        input.charToCheck.abilities[i].useAbilitie(input.team.team[target])
                        newAb=true
                        break;
                        //ESTE CASO ES LA CURA, BUSCAMOS EL OBJETIVO CON MENOR VIDA (QUE ESTE VIVO) DE NUESTRO EQUIPO PARA CURARLO, TAMPOCO SE PUEDE ATACAR TRAS ESTO
+                      case "2":
                       case 2:
                        var target=-1
                        var flag=Math.POSITIVE_INFINITY
@@ -84,7 +87,9 @@ class Simulation {
                        break;
                        //ESTOS CASOS SON EFECTOS QUE SE VAN A APLICAR EN EL SIGUIENTE ATAQUE, POR LO QUE NECESITAMOS QUE NEWAB SEA FALSE
                       case 4:
+                      case "4":
                       case 5:
+                      case "5":
                       input.charToCheck.abilities[i].useAbilitie(input.charToCheck)
                       break;
                       default:

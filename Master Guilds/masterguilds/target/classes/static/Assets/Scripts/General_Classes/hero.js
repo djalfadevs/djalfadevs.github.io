@@ -28,6 +28,7 @@ class Hero extends Actor
 		
 		var that = this;
 			//Es el propio efecto el que gestiona con una funcion propia como actua sobre las stats del heroe.
+		if(input.effect.effectFunction!=null)
         input.effect.effectFunction({apply:input.apply,actor:this,effect:input.effect});
 		
 	}
