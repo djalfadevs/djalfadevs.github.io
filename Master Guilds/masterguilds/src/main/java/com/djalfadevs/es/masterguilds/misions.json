@@ -1,99 +1,223 @@
 [
-	{
-		"ID": 1,
-		"name": "prueba1",
-		"escenario": "Escenario_japones",
-		"team": {
-			"restrictions": {
-				"maxHeros": 4,
-				"maxHerosFaction": [
-					4,
-					1,
-					1
-				]
-			}
-		},
-		"enemys": {
-			"team": [
-				{
-					"id": 1,
-					"name": "Takefusa Kubo",
-					"baseAttack": 40,
-					"attack": 40,
-					"baseDefense": 85,
-					"defense": 85,
-					"baseHP": 5000,
-					"hp": 5000,
-					"base_crit_hit_chance": 0.05,
-					"crit_hit_chance": 0.05,
-					"description": [
-						"El lider de los Azon, tuvo que hacerse cargo del Imperio desde muy jovén lo cual le ha hecho una de las personas más resistentes del mundo",
-						"The leader of the Azon, being forced to take care of the Empire from a young age has turned him into one of the most resilient people in the world"
-					],
-					"evasion": 20,
-					"baseEvasion": 20,
-					"abilities": [
-						{
-							"id": "1",
-							"name": "BUFFSTATS V",
-							"baseActiveTurns": 3,
-							"baseChargeTurns": 6,
-							"description": [
-								"Kubo inspira a un aliado con su coraje, ampliando su capacidad de combate",
-								"Kubo inspires an ally with his bravery, buffing his combat capability"
-							],
-							"remainChargeTurns": 6,
-							"ready": true
-						}
-					],
-					"image_url": [
-						"azon_kubo_carta_pequena",
-						"azon_kubo_carta_grande"
-					],
-					"activeAbilities": [],
-					"baseAggro": 90,
-					"aggro": 90,
-					"faction": "Azon",
-					"rarity": 5,
-					"level": 20,
-					"exp": 1000,
-					"role": "Tank"
-				}
-			],
-			"restrictions": {
-				"maxHeros": 4,
-				"maxHerosFaction": [
-					2,
-					1,
-					1
-				]
-			}
-		}
-	},
-	{
-		"ID": 2,
-		"name": "prueba2",
-		"escenario": "escenarioPrueba",
-		"team": {
-			"restrictions": {
-				"maxHeros": 4,
-				"maxHerosFaction": [
-					2,
-					1,
-					1
-				]
-			}
-		},
-		"enemys": {
-			"team": [],
-			"restrictions": {
-				"maxHeros": 4,
-				"maxHerosFaction": [
-					2,
-					1,
-					1
-				]
-			}
-		}
-	}
+   {
+      "ID":1,
+      "name":"prueba1",
+      "escenario":"Escenario_japones",
+      "team":{
+         "restrictions":{
+            "maxHeros":4,
+            "maxHerosFaction":[
+               4,
+               1,
+               1
+            ]
+         }
+      },
+      "enemys":{
+         "team":[
+            {
+               "ID":3,
+               "name":"Xin",
+               "baseAttack":140,
+               "attack":140,
+               "baseDefence":40,
+               "defence":40,
+               "baseHP":200,
+               "HP":200,
+               "base_crit_hit_chance":0.25,
+               "crit_hit_chance":0.25,
+               "description":[
+                  "Un asesino de Azon cuya lealtad va al mayor, nadie conoce su rostro debido a que quien lo ve suele pagarlo con su vida",
+                  "An assassin from Azon whose loyalty goes to the highest bidder, no one knows how he looks since seeing him usually costs you your life"
+               ],
+               "evasion":70,
+               "baseEvasion":70,
+               "abilities":[
+                  {
+                     "ID":4,
+                     "name":"TRUESTRIKE II",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":7,
+                     "description":[
+                        "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
+                        "A perfectly aimed hit that completely bypass the targets defense."
+                     ],
+                     "remainChargeTurns":6,
+                     "isReady":true
+                  }
+               ],
+               "image_url":[
+                  "azon_Xin_carta_pequena",
+                  "azon_Xin_carta_grande"
+               ],
+               "activeAbilities":[
+
+               ],
+               "baseAggro":30,
+               "aggro":30,
+               "faction":"Azon",
+               "rarity":3,
+               "level":1,
+               "exp":1000,
+               "role":"Attacker"
+            },
+            {
+               "ID":6,
+               "name":"Azon Lancer",
+               "baseAttack":90,
+               "attack":90,
+               "baseDefence":20,
+               "defence":20,
+               "baseHP":120,
+               "HP":120,
+               "base_crit_hit_chance":0.15,
+               "crit_hit_chance":0.15,
+               "description":[
+                  "Infatería básica de Azon",
+                  "Azon's basic infantry"
+               ],
+               "evasion":35,
+               "baseEvasion":35,
+               "abilities":[
+                  {
+
+                  }
+               ],
+               "image_url":[
+                  "azon_lancer_cp",
+                  "azon_lancer_cg"
+               ],
+               "activeAbilities":[
+
+               ],
+               "baseAggro":50,
+               "aggro":50,
+               "faction":"Azon",
+               "rarity":1,
+               "level":1,
+               "exp":1000,
+               "role":"Attacker"
+            },
+            {
+               "ID":7,
+               "name":"Azon Shield",
+               "baseAttack":70,
+               "attack":70,
+               "baseDefence":40,
+               "defence":40,
+               "baseHP":200,
+               "HP":200,
+               "base_crit_hit_chance":0.0,
+               "crit_hit_chance":0.0,
+               "description":[
+                  "Tropa pesada de Azon",
+                  "Azon's heavy trooper"
+               ],
+               "evasion":0,
+               "baseEvasion":0,
+               "abilities":[
+                  {
+
+                  }
+               ],
+               "image_url":[
+                  "azon_shield_cp",
+                  "azon_shield_cg"
+               ],
+               "activeAbilities":[
+
+               ],
+               "baseAggro":80,
+               "aggro":80,
+               "faction":"Azon",
+               "rarity":1,
+               "level":1,
+               "exp":1000,
+               "role":"Tank"
+            },
+            {
+               "ID":8,
+               "name":"Azon Medic",
+               "baseAttack":60,
+               "attack":60,
+               "baseDefence":10,
+               "defence":10,
+               "baseHP":200,
+               "HP":200,
+               "base_crit_hit_chance":0.0,
+               "crit_hit_chance":0.0,
+               "description":[
+                  "Médico de Azon",
+                  "Azon's doctor"
+               ],
+               "evasion":0,
+               "baseEvasion":0,
+               "abilities":[
+                  {
+                     "ID":2,
+                     "name":"HEAL I",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":6,
+                     "description":[
+                        "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+                        "A burst of magical energy that enhances the recievers regeneration."
+                     ],
+                     "remainChargeTurns":6,
+                     "isReady":true
+                  }
+               ],
+               "image_url":[
+                  "azon_medic_cp",
+                  "azon_medic_cg"
+               ],
+               "activeAbilities":[
+
+               ],
+               "baseAggro":10,
+               "aggro":10,
+               "faction":"Azon",
+               "rarity":1,
+               "level":1,
+               "exp":1000,
+               "role":"Support"
+            }
+         ],
+         "restrictions":{
+            "maxHeros":4,
+            "maxHerosFaction":[
+               2,
+               1,
+               1
+            ]
+         }
+      }
+   },
+   {
+      "ID":2,
+      "name":"prueba2",
+      "escenario":"escenarioPrueba",
+      "team":{
+         "restrictions":{
+            "maxHeros":4,
+            "maxHerosFaction":[
+               2,
+               1,
+               1
+            ]
+         }
+      },
+      "enemys":{
+         "team":[
+
+         ],
+         "restrictions":{
+            "maxHeros":4,
+            "maxHerosFaction":[
+               2,
+               1,
+               1
+            ]
+         }
+      }
+   }
 ]

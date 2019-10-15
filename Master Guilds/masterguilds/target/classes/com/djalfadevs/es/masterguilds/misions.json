@@ -18,12 +18,12 @@
 				{
 					"id": 1,
 					"name": "Takefusa Kubo",
-					"baseAttack": 40,
-					"attack": 40,
+					"baseAttack": 100,
+					"attack": 100,
 					"baseDefense": 85,
 					"defense": 85,
-					"baseHP": 5000,
-					"hp": 5000,
+					"baseHP": 500,
+					"hp": 500,
 					"base_crit_hit_chance": 0.05,
 					"crit_hit_chance": 0.05,
 					"description": [
