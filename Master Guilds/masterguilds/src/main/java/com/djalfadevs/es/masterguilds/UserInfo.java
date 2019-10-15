@@ -26,6 +26,9 @@ public class UserInfo {
 	private List<Hero> heros;
 	private String clan;
 	private int arenaPoints;
+	private String lang;
+	private int MVol;
+	private int EVol;
 	
 	//Constructor para nuevos usuarios
 	public UserInfo(String name) {
@@ -37,7 +40,9 @@ public class UserInfo {
 		this.heros = new ArrayList<>();
 		this.clan = "empty";//CAMBIAR ??
 		this.setArenaPoints(0);
-		
+		this.lang="EN";
+		this.setMVol(3);
+		this.setEVol(3);
 		//Heroes Al registrarse
 		try {
 			InputStream i = getClass().getResourceAsStream("heroes.json");
@@ -51,15 +56,15 @@ public class UserInfo {
 			//PRUEBA DE METER HEROE (AL registrar un jugador se le dan unos heroes elegidos por el gamedesigner)
 			//Estos tienen que ver con la historia del juego
 			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(1),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
 			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
 			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
 			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
+			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -81,7 +86,8 @@ public class UserInfo {
 	public UserInfo(@JsonProperty("name")String name,@JsonProperty("gold") int gold,
 			@JsonProperty("gems")int gems,@JsonProperty("exp")int exp,@JsonProperty("level")int level,
 			@JsonProperty("heros")List<Hero> list,
-			@JsonProperty("clan")String clan,@JsonProperty("arenaPoints")int arenaPoints) {
+			@JsonProperty("clan")String clan,@JsonProperty("arenaPoints")int arenaPoints,@JsonProperty("lang")String lang,@JsonProperty("MVol")int MVol,
+			@JsonProperty("EVol")int EVol) {
 		this.name = name;
 		this.gold = gold;
 		this.gems = gems;
@@ -90,6 +96,9 @@ public class UserInfo {
 		this.heros = list;
 		this.clan = clan;
 		this.arenaPoints = arenaPoints;
+		this.lang=lang;
+		this.setMVol(MVol);
+		this.setEVol(EVol);
 	}
 	
 	public String getName() {
@@ -145,10 +154,37 @@ public class UserInfo {
 		this.arenaPoints = arenaPoints;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "UserInfo [name=" + name + ", gold=" + gold + ", gems=" + gems + ", exp=" + exp + ", level=" + level
-				+ ", heros=" + heros + ", clan=" + clan + ", arenaPoints=" + arenaPoints + "]";
+				+ ", heros=" + heros + ", clan=" + clan + ", arenaPoints=" + arenaPoints + ", lang=" + lang + ", MVol="
+				+ MVol + ", EVol=" + EVol + "]";
+	}
+
+	public String getLang() {
+		return lang;
+	}
+
+	public void setLang(String language) {
+		this.lang = language;
+	}
+
+	public int getMVol() {
+		return MVol;
+	}
+
+	public void setMVol(int mVol) {
+		MVol = mVol;
+	}
+
+	public int getEVol() {
+		return EVol;
+	}
+
+	public void setEVol(int eVol) {
+		EVol = eVol;
 	}
 	
 	

@@ -63,7 +63,7 @@ create(){
             t.scene.transition({target:'settings',duration:100});
             break;
             case "contact":
-            //t.scene.transition({target:'contact',duration:100});
+            t.scene.transition({target:'contact',duration:100});
             break;
             //case "back":
            // console.log("back")
