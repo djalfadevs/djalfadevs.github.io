@@ -75,7 +75,8 @@ public class Game {
 							auxnode.get("UserInfo").get("exp").asInt(), auxnode.get("UserInfo").get("level").asInt(),
 							mapper.convertValue(auxnode.get("UserInfo").get("heros"), ArrayList.class),
 							auxnode.get("UserInfo").get("clan").asText(),
-							auxnode.get("UserInfo").get("arenaPoints").asInt());
+							auxnode.get("UserInfo").get("arenaPoints").asInt(), auxnode.get("UserInfo").get("lang").asText(),
+							auxnode.get("UserInfo").get("MVol").asInt(),auxnode.get("UserInfo").get("EVol").asInt());
 					infoUsers.put(auxNP, auxUI);
 
 				} catch (IOException e) {
@@ -233,6 +234,9 @@ public class Game {
 			userInfo.set("heros", mapper.valueToTree(auxUserInfo.getHeros()));
 			userInfo.put("clan", auxUserInfo.getClan());
 			userInfo.put("arenaPoints", auxUserInfo.getArenaPoints());
+			userInfo.put("lang", auxUserInfo.getLang());
+			userInfo.put("MVol", auxUserInfo.getMVol());
+			userInfo.put("EVol", auxUserInfo.getEVol());
 			NamePassUserInfo.set("UserInfo", userInfo);
 
 			try {

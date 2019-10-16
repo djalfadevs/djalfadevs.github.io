@@ -2,12 +2,12 @@
 	{
 		"ID": 1,
 		"name": "Takefusa Kubo",
-		"baseAttack": 40,
-		"attack": 40,
+		"baseAttack": 120,
+		"attack": 120,
 		"baseDefence": 85,
 		"defence": 85,
-		"baseHP": 5000,
-		"HP": 5000,
+		"baseHP": 500,
+		"HP": 500,
 		"base_crit_hit_chance": 0.05,
 		"crit_hit_chance": 0.05,
 		"description": [
@@ -58,12 +58,12 @@
 	{
 		"ID": 2,
 		"name": "Berhak Zhu",
-		"baseAttack": 30,
-		"attack": 30,
+		"baseAttack": 80,
+		"attack": 80,
 		"baseDefence": 40,
 		"defence": 40,
-		"baseHP": 2500,
-		"HP": 2500,
+		"baseHP": 250,
+		"HP": 250,
 		"base_crit_hit_chance": 0.05,
 		"crit_hit_chance": 0.05,
 		"description": [
@@ -99,12 +99,12 @@
 	{
 		"ID": 3,
 		"name": "Xin",
-		"baseAttack": 60,
-		"attack": 60,
+		"baseAttack": 140,
+		"attack": 140,
 		"baseDefence": 40,
 		"defence": 40,
-		"baseHP": 1000,
-		"HP": 1000,
+		"baseHP": 200,
+		"HP": 200,
 		"base_crit_hit_chance": 0.25,
 		"crit_hit_chance": 0.25,
 		"description": [
@@ -143,12 +143,12 @@
 	{
 		"ID": 4,
 		"name": "Peng Tan",
-		"baseAttack": 20,
-		"attack": 20,
+		"baseAttack": 90,
+		"attack": 90,
 		"baseDefence": 50,
 		"defence": 50,
-		"baseHP": 3500,
-		"HP": 3500,
+		"baseHP": 350,
+		"HP": 350,
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
@@ -184,12 +184,12 @@
 	{
 		"ID": 5,
 		"name": "Qi Long",
-		"baseAttack": 10,
-		"attack": 10,
+		"baseAttack": 70,
+		"attack": 70,
 		"baseDefence": 30,
 		"defence": 30,
-		"baseHP": 1500,
-		"HP": 1500,
+		"baseHP": 150,
+		"HP": 150,
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
@@ -225,12 +225,12 @@
 	{
 		"ID": 6,
 		"name": "Azon Lancer",
-		"baseAttack": 35,
-		"attack": 35,
+		"baseAttack": 90,
+		"attack": 90,
 		"baseDefence": 20,
 		"defence": 20,
-		"baseHP": 1250,
-		"HP": 1250,
+		"baseHP": 120,
+		"HP": 120,
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
@@ -257,12 +257,12 @@
 	{
 		"ID": 7,
 		"name": "Azon Shield",
-		"baseAttack": 15,
-		"attack": 15,
+		"baseAttack": 70,
+		"attack": 70,
 		"baseDefence": 40,
 		"defence": 40,
-		"baseHP": 2000,
-		"HP": 2000,
+		"baseHP": 200,
+		"HP": 200,
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
@@ -289,12 +289,12 @@
 	{
 		"ID": 8,
 		"name": "Azon Medic",
-		"baseAttack": 5,
-		"attack": 5,
+		"baseAttack": 60,
+		"attack": 60,
 		"baseDefence": 10,
 		"defence": 10,
-		"baseHP": 500,
-		"HP": 500,
+		"baseHP": 200,
+		"HP": 200,
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
@@ -330,12 +330,12 @@
 	{
 		"ID": 9,
 		"name": "Balista",
-		"baseAttack": 85,
-		"attack": 85,
+		"baseAttack": 180,
+		"attack": 180,
 		"baseDefence": 50,
 		"defence": 50,
-		"baseHP": 3000,
-		"HP": 3000,
+		"baseHP": 250,
+		"HP": 250,
 		"base_crit_hit_chance": 0.4,
 		"crit_hit_chance": 0.4,
 		"description": [
@@ -383,12 +383,12 @@
 	{
 		"ID": 10,
 		"name": "Dak Tulson",
-		"baseAttack": 40,
-		"attack": 40,
+		"baseAttack": 90,
+		"attack": 90,
 		"baseDefence": 70,
 		"defence": 70,
-		"baseHP": 3700,
-		"HP": 3700,
+		"baseHP": 370,
+		"HP": 370,
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
@@ -424,12 +424,12 @@
 	{
 		"ID": 11,
 		"name": "A'lik Ibn Khal",
-		"baseAttack": 60,
-		"attack": 60,
+		"baseAttack": 150,
+		"attack": 150,
 		"baseDefence": 40,
 		"defence": 40,
-		"baseHP": 2700,
-		"HP": 2700,
+		"baseHP": 270,
+		"HP": 270,
 		"base_crit_hit_chance": 0.30,
 		"crit_hit_chance": 0.30,
 		"description": [
@@ -465,12 +465,12 @@
 	{
 		"ID": 12,
 		"name": "Doc",
-		"baseAttack": 34,
-		"attack": 34,
+		"baseAttack": 80,
+		"attack": 80,
 		"baseDefence": 22,
 		"defence": 22,
-		"baseHP": 1800,
-		"HP": 1800,
+		"baseHP": 180,
+		"HP": 180,
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
@@ -506,12 +506,12 @@
 	{
 		"ID": 13,
 		"name": "Ferten Private",
-		"baseAttack": 35,
-		"attack": 35,
+		"baseAttack": 110,
+		"attack": 110,
 		"baseDefence": 20,
 		"defence": 20,
-		"baseHP": 1250,
-		"HP": 1250,
+		"baseHP": 120,
+		"HP": 120,
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
@@ -538,12 +538,12 @@
 	{
 		"ID": 14,
 		"name": "Ferten Armoured Unit",
-		"baseAttack": 15,
-		"attack": 15,
-		"baseDefence": 40,
-		"defence": 40,
-		"baseHP": 2000,
-		"HP": 2000,
+		"baseAttack": 60,
+		"attack": 60,
+		"baseDefence": 50,
+		"defence": 50,
+		"baseHP": 300,
+		"HP": 300,
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
@@ -570,12 +570,12 @@
 	{
 		"ID": 15,
 		"name": "Ferten Surgeon",
-		"baseAttack": 5,
-		"attack": 5,
+		"baseAttack": 50,
+		"attack": 50,
 		"baseDefence": 10,
 		"defence": 10,
-		"baseHP": 500,
-		"HP": 500,
+		"baseHP": 50,
+		"HP": 50,
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
@@ -587,7 +587,7 @@
 		"abilities": [
 			{
 				"ID": 1,
-				"name": "HEAL I",
+				"name": "HEAL III",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 3,
 				"description": [
@@ -611,12 +611,12 @@
 	{
 		"ID": 10,
 		"name": "Lavinna",
-		"baseAttack": 30,
-		"attack": 30,
+		"baseAttack": 100,
+		"attack": 100,
 		"baseDefence": 40,
 		"defence": 40,
-		"baseHP": 2500,
-		"HP": 2500,
+		"baseHP": 250,
+		"HP": 250,
 		"base_crit_hit_chance": 0.20,
 		"crit_hit_chance": 0.20,
 		"description": [
@@ -630,7 +630,7 @@
 				"ID": 2,
 				"name": "HEAL V",
 				"baseActiveTurns": 3,
-				"baseChargeTurns": 6,
+				"baseChargeTurns": 5,
 				"description": [
 					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
 					"A burst of magical energy that enhances the recievers regeneration."
@@ -663,18 +663,18 @@
 	},
 	{
 		"ID": 11,
-		"name": "J'grak",
-		"baseAttack": 66,
-		"attack": 66,
+		"name": "Jagrak",
+		"baseAttack": 150,
+		"attack": 150,
 		"baseDefence": 40,
 		"defence": 40,
-		"baseHP": 1900,
-		"HP": 1900,
+		"baseHP": 150,
+		"HP": 150,
 		"base_crit_hit_chance": 0.20,
 		"crit_hit_chance": 0.20,
 		"description": [
-			"Las colinas tienen ojos... los de J'grak, el familiar del bosque",
-			"The hills have eyes...J'grak's, the familiar of the forest"
+			"Las colinas tienen ojos... los de Jagrak, el defensor del bosque",
+			"The hills have eyes. an thier owenr ir Jagrak, the protector of the forest"
 		],
 		"evasion": 30,
 		"baseEvasion": 30,
@@ -705,12 +705,12 @@
 	{
 		"ID": 12,
 		"name": "Ozna",
-		"baseAttack": 20,
-		"attack": 20,
+		"baseAttack": 70,
+		"attack": 70,
 		"baseDefence": 30,
 		"defence": 30,
-		"baseHP": 2200,
-		"HP": 2200,
+		"baseHP": 220,
+		"HP": 220,
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
@@ -722,7 +722,10 @@
 		"abilities": [
 			{
 				"ID": 2,
-				"name": [
+				"name": "HEAL IV",
+				"baseActiveTurns": 2,
+				"baseChargeTurns": 4,
+				"description": [
 					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
 					"A burst of magical energy that enhances the recievers regeneration."
 				],
@@ -743,12 +746,12 @@
 	{
 		"ID": 13,
 		"name": "Mallock",
-		"baseAttack": 15,
-		"attack": 15,
+		"baseAttack": 60,
+		"attack": 60,
 		"baseDefence": 50,
 		"defence": 50,
-		"baseHP": 2300,
-		"HP": 2300,
+		"baseHP": 230,
+		"HP": 230,
 		"base_crit_hit_chance": 0.1,
 		"crit_hit_chance": 0.1,
 		"description": [
@@ -760,7 +763,10 @@
 		"abilities": [
 			{
 				"ID": 1,
-				"name": [
+				"name": "BUFFSTATS IV",
+				"baseActiveTurns": 4,
+				"baseChargeTurns": 6,
+				"description": [
 					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
 					"A boost to all ally's combat abilities by channeling one's conviction."
 				],
@@ -781,12 +787,12 @@
 	{
 		"ID": 14,
 		"name": "Kwin Destroyer",
-		"baseAttack": 35,
-		"attack": 35,
+		"baseAttack": 110,
+		"attack": 110,
 		"baseDefence": 20,
 		"defence": 20,
-		"baseHP": 1250,
-		"HP": 1250,
+		"baseHP": 100,
+		"HP": 100,
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
@@ -809,12 +815,12 @@
 	{
 		"ID": 15,
 		"name": "Kwin Fortitude Wizard",
-		"baseAttack": 15,
-		"attack": 15,
+		"baseAttack":60,
+		"attack":60,
 		"baseDefence": 40,
 		"defence": 40,
-		"baseHP": 2000,
-		"HP": 2000,
+		"baseHP": 200,
+		"HP": 200,
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
@@ -825,7 +831,16 @@
 		"baseEvasion": 0,
 		"abilities": [
 			{
-				
+				"ID": 1,
+				"name": "BUFFSTATS II",
+				"baseActiveTurns": 2,
+				"baseChargeTurns": 6,
+				"description": [
+					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+					"A boost to all ally's combat abilities by channeling one's conviction."
+				],
+				"remainChargeTurns": 6,
+				"isReady": true
 			}
 		],
 		"image_url": "url",
@@ -841,12 +856,12 @@
 	{
 		"ID": 16,
 		"name": "Kwin Restorer",
-		"baseAttack": 5,
-		"attack": 5,
+		"baseAttack": 50,
+		"attack": 50,
 		"baseDefence": 10,
 		"defence": 10,
-		"baseHP": 500,
-		"HP": 500,
+		"baseHP": 150,
+		"HP": 150,
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
@@ -860,7 +875,7 @@
 				"ID": 1,
 				"name": "HEAL I",
 				"baseActiveTurns": 1,
-				"baseChargeTurns": 3,
+				"baseChargeTurns": 4,
 				"description": [
 					"Cura las heridas de un aliado",
 					"Heal an ally"
