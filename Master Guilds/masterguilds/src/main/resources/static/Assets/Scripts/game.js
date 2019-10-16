@@ -79,7 +79,7 @@
 		socket:null,
 	}
 
-	game.global.socket = new WebSocket("ws://"+location.host+"/mastera");
+	game.global.socket = new WebSocket("ws://"+location.href.substring(7)+"/mastera");
 
 	game.global.socket.onopen = () => {
 		console.log("Se ha abierto el WebSocket");

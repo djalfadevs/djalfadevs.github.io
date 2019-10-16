@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 public class Hero {
-
+	private int cardExclusiveId;
 	private int ID;
 	private String name;
 	private float baseAttack;
@@ -81,6 +81,7 @@ public class Hero {
 		this.role = role;
 		this.abilities = abilities;
 		this.activeAbilities = activeAbilities;
+		this.cardExclusiveId = 0;
 	}
 
 	public int getID() {
@@ -265,6 +266,14 @@ public class Hero {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public int getCardExclusiveId() {
+		return cardExclusiveId;
+	}
+
+	public void setCardExclusiveId(int cardExclusiveId) {
+		this.cardExclusiveId = cardExclusiveId;
 	}
 
 }
