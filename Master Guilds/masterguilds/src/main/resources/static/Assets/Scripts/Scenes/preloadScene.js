@@ -105,8 +105,10 @@ class preload extends Phaser.Scene{
         this.load.image('3star','Assets/Sprites/UI-UX/estrella_3.png',{frameWidth:3465,frameHeight:1070});
         this.load.image('5star','Assets/Sprites/UI-UX/estrella_5.png',{frameWidth:5805,frameHeight:1070});
         //FONDOS
-        this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.jpg',{frameWidth:1920,frameHeight:1640});
-        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.jpg',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_steampunk.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_arena.png',{frameWidth:1920,frameHeight:1640});
 	}
 
 	create(){
