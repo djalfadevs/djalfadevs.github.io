@@ -1,8 +1,12 @@
 [
    {
-      "ID":1,
-      "name":"prueba1",
+      "id":1,
+      "name":"Azon",
       "escenario":"Escenario_japones",
+      "description":[
+                  "Convence a los lideres Azon de unirse a tu causa con la ayuda de Berhak!",
+                  "Prove your worth against the Azon's clan leaders and convince them to join your cause with Berhak's help!"
+               ],
       "team":{
          "restrictions":{
             "maxHeros":4,
@@ -43,7 +47,7 @@
                         "A perfectly aimed hit that completely bypass the targets defense."
                      ],
                      "remainChargeTurns":6,
-                     "ready":true
+                     "ready":false
                   }
                ],
                "image_url":[
@@ -79,6 +83,7 @@
                "evasion":35,
                "baseEvasion":35,
                "abilities":[
+
                ],
                "image_url":[
                   "azon_lancer_cp",
@@ -113,6 +118,7 @@
                "evasion":0,
                "baseEvasion":0,
                "abilities":[
+
                ],
                "image_url":[
                   "azon_shield_cp",
@@ -157,7 +163,7 @@
                         "A burst of magical energy that enhances the recievers regeneration."
                      ],
                      "remainChargeTurns":6,
-                     "ready":true
+                     "ready":false
                   }
                ],
                "image_url":[
@@ -187,29 +193,926 @@
       }
    },
    {
-      "ID":2,
-      "name":"prueba2",
-      "escenario":"escenarioPrueba",
+      "id":2,
+      "name":"Ferten",
+      "escenario":"escenario_Ferten",
+            "description":[
+                  "Derrota a la mafia y policia Ferten que se openen en tu camino!",
+                  "Defeat the Ferten Mafia and Police that block your way!"
+               ],
       "team":{
          "restrictions":{
             "maxHeros":4,
             "maxHerosFaction":[
-               2,
-               1,
-               1
+               4,
+               4,
+               4
             ]
          }
       },
       "enemys":{
          "team":[
+            {
+               "id":10,
+               "name":"Dak Tulson",
+               "baseAttack":90,
+               "attack":90,
+               "baseDefense":70,
+               "defence":70,
+               "baseHP":370,
+               "hp":370,
+               "base_crit_hit_chance":0.15,
+               "crit_hit_chance":0.15,
+               "description":[
+                  "Antiguo miembro de un equipo de fuerzas especiales del ejercito Ferten que se gana la vida como Gangster en los bajos fondos de la ciudad de Permac",
+                  "Ex Ferten Navy member that earns his keep as a Gangster in the bad part of the city of Permac"
+               ],
+               "evasion":30,
+               "baseEvasion":30,
+               "abilities":[
+                  {
+                     "id":5,
+                     "name":"LEECHLIFE II",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":5,
+                     "description":[
+                        "Una antigua tecnica vampirica que permite absorver parte del daño realizado a un objetivo.",
+                        "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
 
+               ],
+               "baseAggro":75,
+               "aggro":75,
+               "faction":"Ferten",
+               "rarity":3,
+               "level":1,
+               "exp":1000,
+               "role":"Tank"
+            },
+            {
+               "id":11,
+               "name":"A'lik Ibn Khal",
+               "baseAttack":150,
+               "attack":150,
+               "baseDefense":40,
+               "defence":40,
+               "baseHP":270,
+               "hp":270,
+               "base_crit_hit_chance":0.30,
+               "crit_hit_chance":0.30,
+               "description":[
+                  "Miembro de la policía de Ferten, no quedan muchos que se atrevan a hacerlo, pero A'lik no solo luce la placa, se pasea por las calles que para otros, serían impensables",
+                  "Member of Ferten's Police force, there's not many who dare become one, but A'lik doesn't only brandish her badge, she also dares tread where many don't even dream of"
+               ],
+               "evasion":30,
+               "baseEvasion":30,
+               "abilities":[
+                  {
+                     "id":4,
+                     "name":"TRUESTRIKE V",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":3,
+                     "description":[
+                        "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
+                        "A perfectly aimed hit that completely bypass the targets defense."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":34,
+               "aggro":34,
+               "faction":"Ferten",
+               "rarity":3,
+               "level":1,
+               "exp":1000,
+               "role":"Attacker"
+            },
+            {
+               "id":15,
+               "name":"Ferten Surgeon",
+               "baseAttack":50,
+               "attack":50,
+               "baseDefense":10,
+               "defence":10,
+               "baseHP":50,
+               "hp":50,
+               "base_crit_hit_chance":0.0,
+               "crit_hit_chance":0.0,
+               "description":[
+                  "Tropa de apoyo de Ferten",
+                  "Ferten's support trooper"
+               ],
+               "evasion":0,
+               "baseEvasion":0,
+               "abilities":[
+                  {
+                     "id":1,
+                     "name":"HEAL III",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":3,
+                     "description":[
+                        "Cura las heridas de un aliado",
+                        "Heal an ally"
+                     ],
+                     "remainChargeTurns":3,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":10,
+               "aggro":10,
+               "faction":"Azon",
+               "rarity":1,
+               "level":1,
+               "exp":1000,
+               "role":"Support"
+            },
+            {
+               "id":13,
+               "name":"Ferten Private",
+               "baseAttack":110,
+               "attack":110,
+               "baseDefense":20,
+               "defence":20,
+               "baseHP":120,
+               "hp":120,
+               "base_crit_hit_chance":0.15,
+               "crit_hit_chance":0.15,
+               "description":[
+                  "Infatería básica de Ferten",
+                  "Ferten's basic infantry"
+               ],
+               "evasion":35,
+               "baseEvasion":35,
+               "abilities":[
+                  {
+
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":50,
+               "aggro":50,
+               "faction":"Ferten",
+               "rarity":1,
+               "level":1,
+               "exp":1000,
+               "role":"Attacker"
+            }
          ],
          "restrictions":{
             "maxHeros":4,
             "maxHerosFaction":[
-               2,
                1,
+               4,
                1
+            ]
+         }
+      }
+   },
+   {
+      "id":3,
+      "name":"Kwin",
+      "escenario":"escenario_Kwin",
+      "description":
+      [
+                  "El consejo Kwin desea medir tu fuerza, demuestrales de lo que estas hecho!",
+                  "The Kwin Council wants you to prove your worth, show them what your made of!"
+               ],
+      "team":{
+         "restrictions":{
+            "maxHeros":4,
+            "maxHerosFaction":[
+               4,
+               4,
+               4
+            ]
+         }
+      },
+      "enemys":{
+         "team":[
+            {
+               "id":11,
+               "name":"Jagrak",
+               "baseAttack":150,
+               "attack":150,
+               "baseDefense":40,
+               "defence":40,
+               "baseHP":150,
+               "hp":150,
+               "base_crit_hit_chance":0.20,
+               "crit_hit_chance":0.20,
+               "description":[
+                  "Las colinas tienen ojos... los de Jagrak, el defensor del bosque",
+                  "The hills have eyes. an thier owenr ir Jagrak, the protector of the forest"
+               ],
+               "evasion":30,
+               "baseEvasion":30,
+               "abilities":[
+                  {
+                     "id":5,
+                     "name":"LEECHLIFE V",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":3,
+                     "description":[
+                        "Una antigua tecnica vampirica que permite absorver parte del daño realizado a un objetivo.",
+                        "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":30,
+               "aggro":30,
+               "faction":"Kwin",
+               "rarity":3,
+               "level":1,
+               "exp":1000,
+               "role":"Attacker"
+            },
+            {
+               "id":12,
+               "name":"Ozna",
+               "baseAttack":70,
+               "attack":70,
+               "baseDefense":30,
+               "defence":30,
+               "baseHP":220,
+               "hp":220,
+               "base_crit_hit_chance":0.15,
+               "crit_hit_chance":0.15,
+               "description":[
+                  "Ozna cura a la gente de Kwin con su melodia, tanto es así que algunas tropas llevan frascos con aliento de Ozna porque piensan que ayudarán a su sanación",
+                  "Ozna heals the people of Kwin with his melody, it goes as far as troopers carrying flasks with his breath because they believe it will help them heal"
+               ],
+               "evasion":20,
+               "baseEvasion":20,
+               "abilities":[
+                  {
+                     "id":2,
+                     "name":"HEAL IV",
+                     "baseActiveTurns":2,
+                     "baseChargeTurns":4,
+                     "description":[
+                        "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+                        "A burst of magical energy that enhances the recievers regeneration."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":30,
+               "aggro":30,
+               "faction":"Kwin",
+               "rarity":3,
+               "level":1,
+               "exp":1000,
+               "role":"Support"
+            },
+            {
+               "id":13,
+               "name":"Elmas",
+               "baseAttack":60,
+               "attack":60,
+               "baseDefense":50,
+               "defence":50,
+               "baseHP":230,
+               "hp":230,
+               "base_crit_hit_chance":0.1,
+               "crit_hit_chance":0.1,
+               "description":[
+                  "Mallock es la montaña que llora tras la batallas, la destrucción del agua en la riada, la venganza de la tierra",
+                  "Mallock is the mountain that cries after battles, the water's destruction in a flash flood, earth's vengeance"
+               ],
+               "evasion":5,
+               "baseEvasion":5,
+               "abilities":[
+                  {
+                     "id":1,
+                     "name":"BUFFSTATS IV",
+                     "baseActiveTurns":4,
+                     "baseChargeTurns":6,
+                     "description":[
+                        "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+                        "A boost to all ally's combat abilities by channeling one's conviction."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":60,
+               "aggro":60,
+               "faction":"Kwin",
+               "rarity":3,
+               "level":1,
+               "exp":1000,
+               "role":"Support"
+            },
+            {
+               "id":15,
+               "name":"Kwin Fortitude Wizard",
+               "baseAttack":60,
+               "attack":60,
+               "baseDefense":40,
+               "defence":40,
+               "baseHP":200,
+               "hp":200,
+               "base_crit_hit_chance":0.0,
+               "crit_hit_chance":0.0,
+               "description":[
+                  "Mago de Kwin que usa conjuros para mantener a sus aliados a salvo",
+                  "Wizard from Kwin that uses spells to keep his allies safe"
+               ],
+               "evasion":0,
+               "baseEvasion":0,
+               "abilities":[
+                  {
+                     "id":1,
+                     "name":"BUFFSTATS II",
+                     "baseActiveTurns":2,
+                     "baseChargeTurns":6,
+                     "description":[
+                        "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+                        "A boost to all ally's combat abilities by channeling one's conviction."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":80,
+               "aggro":80,
+               "faction":"Kwin",
+               "rarity":1,
+               "level":1,
+               "exp":1000,
+               "role":"Tank"
+            }
+         ],
+         "restrictions":{
+            "maxHeros":4,
+            "maxHerosFaction":[
+               1,
+               1,
+               4
+            ]
+         }
+      }
+   },
+   {
+      "id":4,
+      "name":"Crju",
+      "escenario":"escenario_Arena",
+      "description":[
+                  "Los aventureros de más renombre del mundo se congregan en Crju, y quieren entrenar contigo!",
+                  "The world's mightiest adventurers are all preparing for the invasion, spar with them to train your troops!"
+               ],
+      "team":{
+         "restrictions":{
+            "maxHeros":4,
+            "maxHerosFaction":[
+               4,
+               4,
+               4
+            ]
+         }
+      },
+      "enemys":{
+         "team":[
+            {
+               "id":1,
+               "name":"Takefusa Kubo",
+               "baseAttack":120,
+               "attack":120,
+               "baseDefense":85,
+               "defence":85,
+               "baseHP":500,
+               "hp":500,
+               "base_crit_hit_chance":0.05,
+               "crit_hit_chance":0.05,
+               "description":[
+                  "El lider de los Azon, tuvo que hacerse cargo del Imperio desde muy jovén lo cual le ha hecho una de las personas más resistentes del mundo",
+                  "The leader of the Azon, being forced to take care of the Empire from a young age has turned him into one of the most resilient people in the world"
+               ],
+               "evasion":20,
+               "baseEvasion":20,
+               "abilities":[
+                  {
+                     "id":1,
+                     "name":"BUFFSTATS V",
+                     "baseActiveTurns":3,
+                     "baseChargeTurns":6,
+                     "description":[
+                        "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+                        "A boost to all ally's combat abilities by channeling one's conviction."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  },
+                  {
+                     "id":3,
+                     "name":"RAGE V",
+                     "baseActiveTurns":3,
+                     "baseChargeTurns":6,
+                     "description":[
+                        "El usuario manipula su ira para subir su fuerza.",
+                        "Users of this channel their anger to boost their brute strength."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":[
+                  "azon_kubo_carta_pequena",
+                  "azon_kubo_carta_grande"
+               ],
+               "activeAbilities":[
+
+               ],
+               "baseAggro":90,
+               "aggro":90,
+               "faction":"Azon",
+               "rarity":5,
+               "level":1,
+               "exp":1000,
+               "role":"Tank"
+            },
+            {
+               "id":9,
+               "name":"Balista",
+               "baseAttack":180,
+               "attack":180,
+               "baseDefense":50,
+               "defence":50,
+               "baseHP":250,
+               "hp":250,
+               "base_crit_hit_chance":0.4,
+               "crit_hit_chance":0.4,
+               "description":[
+                  "La mejor tiradora de todo Ferten, solo conocida por el número de su informe, su pasado está rodeado de secretos; pero su puntería es clara como el agua",
+                  "Best shot in all of Ferten, only known for her file id , her past may be dubious, but her aim isn't"
+               ],
+               "evasion":60,
+               "baseEvasion":60,
+               "abilities":[
+                  {
+                     "id":1,
+                     "name":"BUFFSTATS III",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":5,
+                     "description":[
+                        "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+                        "A boost to all ally's combat abilities by channeling one's conviction."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  },
+                  {
+                     "id":4,
+                     "name":"TRUESTRIKE V",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":3,
+                     "description":[
+                        "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
+                        "A perfectly aimed hit that completely bypass the targets defense."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":70,
+               "aggro":70,
+               "faction":"Ferten",
+               "rarity":5,
+               "level":1,
+               "exp":1000,
+               "role":"Attacker"
+            },
+            {
+               "id":10,
+               "name":"Lavinna",
+               "baseAttack":100,
+               "attack":100,
+               "baseDefense":40,
+               "defence":40,
+               "baseHP":250,
+               "hp":250,
+               "base_crit_hit_chance":0.20,
+               "crit_hit_chance":0.20,
+               "description":[
+                  "Miembro del consejo de magia, ha desarrollado estudios y teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo. Nadie sabe si está loca o es un genio.",
+                  "Member of the Magic Council, she has developed theories and studies regarding such complex magic that not even the rest of the council can fully comprehend them. Wether she is a genius, or a maniac is unknown."
+               ],
+               "evasion":40,
+               "baseEvasion":40,
+               "abilities":[
+                  {
+                     "id":2,
+                     "name":"HEAL V",
+                     "baseActiveTurns":3,
+                     "baseChargeTurns":5,
+                     "description":[
+                        "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+                        "A burst of magical energy that enhances the recievers regeneration."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  },
+                  {
+                     "id":5,
+                     "name":"LEECHLIFE V",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":3,
+                     "description":[
+                        "Una antigua tecnica vampirica que permite absorver parte del daño realizado a un objetivo.",
+                        "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":30,
+               "aggro":30,
+               "faction":"Kwin",
+               "rarity":5,
+               "level":1,
+               "exp":1000,
+               "role":"Support"
+            }
+         ],
+         "restrictions":{
+            "maxHeros":4,
+            "maxHerosFaction":[
+               4,
+               4,
+               4
+            ]
+         }
+      }
+   },
+   {
+      "id":5,
+      "name":"Boss",
+      "escenario":"escenario_Arena",
+      "description":[
+                  "La ultima ronda del entrenamiento siempre es la más dura, a por todas!",
+                  "The final round of training is always the hardest, give it your all!"
+               ],
+      "team":{
+         "restrictions":{
+            "maxHeros":4,
+            "maxHerosFaction":[
+               4,
+               4,
+               4
+            ]
+         }
+      },
+      "enemys":{
+         "team":[
+            {
+               "id":1,
+               "name":"Takefusa Kubo",
+               "baseAttack":120,
+               "attack":120,
+               "baseDefense":85,
+               "defence":85,
+               "baseHP":500,
+               "hp":500,
+               "base_crit_hit_chance":0.05,
+               "crit_hit_chance":0.05,
+               "description":[
+                  "El lider de los Azon, tuvo que hacerse cargo del Imperio desde muy jovén lo cual le ha hecho una de las personas más resistentes del mundo",
+                  "The leader of the Azon, being forced to take care of the Empire from a young age has turned him into one of the most resilient people in the world"
+               ],
+               "evasion":20,
+               "baseEvasion":20,
+               "abilities":[
+                  {
+                     "id":1,
+                     "name":"BUFFSTATS V",
+                     "baseActiveTurns":3,
+                     "baseChargeTurns":6,
+                     "description":[
+                        "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+                        "A boost to all ally's combat abilities by channeling one's conviction."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  },
+                  {
+                     "id":3,
+                     "name":"RAGE V",
+                     "baseActiveTurns":3,
+                     "baseChargeTurns":6,
+                     "description":[
+                        "El usuario manipula su ira para subir su fuerza.",
+                        "Users of this channel their anger to boost their brute strength."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":[
+                  "azon_kubo_carta_pequena",
+                  "azon_kubo_carta_grande"
+               ],
+               "activeAbilities":[
+
+               ],
+               "baseAggro":90,
+               "aggro":90,
+               "faction":"Azon",
+               "rarity":5,
+               "level":1,
+               "exp":1000,
+               "role":"Tank"
+            },
+            {
+               "id":9,
+               "name":"Balista",
+               "baseAttack":180,
+               "attack":180,
+               "baseDefense":50,
+               "defence":50,
+               "baseHP":250,
+               "hp":250,
+               "base_crit_hit_chance":0.4,
+               "crit_hit_chance":0.4,
+               "description":[
+                  "La mejor tiradora de todo Ferten, solo conocida por el número de su informe, su pasado está rodeado de secretos; pero su puntería es clara como el agua",
+                  "Best shot in all of Ferten, only known for her file id , her past may be dubious, but her aim isn't"
+               ],
+               "evasion":60,
+               "baseEvasion":60,
+               "abilities":[
+                  {
+                     "id":1,
+                     "name":"BUFFSTATS III",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":5,
+                     "description":[
+                        "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+                        "A boost to all ally's combat abilities by channeling one's conviction."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  },
+                  {
+                     "id":4,
+                     "name":"TRUESTRIKE V",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":3,
+                     "description":[
+                        "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
+                        "A perfectly aimed hit that completely bypass the targets defense."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":70,
+               "aggro":70,
+               "faction":"Ferten",
+               "rarity":5,
+               "level":1,
+               "exp":1000,
+               "role":"Attacker"
+            },
+            {
+               "id":10,
+               "name":"Lavinna",
+               "baseAttack":100,
+               "attack":100,
+               "baseDefense":40,
+               "defence":40,
+               "baseHP":250,
+               "hp":250,
+               "base_crit_hit_chance":0.20,
+               "crit_hit_chance":0.20,
+               "description":[
+                  "Miembro del consejo de magia, ha desarrollado estudios y teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo. Nadie sabe si está loca o es un genio.",
+                  "Member of the Magic Council, she has developed theories and studies regarding such complex magic that not even the rest of the council can fully comprehend them. Wether she is a genius, or a maniac is unknown."
+               ],
+               "evasion":40,
+               "baseEvasion":40,
+               "abilities":[
+                  {
+                     "id":2,
+                     "name":"HEAL V",
+                     "baseActiveTurns":3,
+                     "baseChargeTurns":5,
+                     "description":[
+                        "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+                        "A burst of magical energy that enhances the recievers regeneration."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  },
+                  {
+                     "id":5,
+                     "name":"LEECHLIFE V",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":3,
+                     "description":[
+                        "Una antigua tecnica vampirica que permite absorver parte del daño realizado a un objetivo.",
+                        "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":30,
+               "aggro":30,
+               "faction":"Kwin",
+               "rarity":5,
+               "level":1,
+               "exp":1000,
+               "role":"Support"
+            },
+            {
+               "id":4,
+               "name":"Peng Tan",
+               "baseAttack":90,
+               "attack":90,
+               "baseDefense":50,
+               "defence":50,
+               "baseHP":350,
+               "hp":350,
+               "base_crit_hit_chance":0.0,
+               "crit_hit_chance":0.0,
+               "description":[
+                  "Considerado el hombre más fuerte de Azon, pero no el más brillante",
+                  "Maybe the strongest man in all of Azon, but not the brightest"
+               ],
+               "evasion":20,
+               "baseEvasion":20,
+               "abilities":[
+                  {
+                     "id":1,
+                     "name":"BUFFSTATS II",
+                     "baseActiveTurns":2,
+                     "baseChargeTurns":5,
+                     "description":[
+                        "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
+                        "A boost to all ally's combat abilities by channeling one's conviction."
+                     ],
+                     "remainChargeTurns":5,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":70,
+               "aggro":70,
+               "faction":"Azon",
+               "rarity":3,
+               "level":1,
+               "exp":1000,
+               "role":"Tank"
+            },
+            {
+               "id":11,
+               "name":"A'lik Ibn Khal",
+               "baseAttack":150,
+               "attack":150,
+               "baseDefense":40,
+               "defence":40,
+               "baseHP":270,
+               "hp":270,
+               "base_crit_hit_chance":0.30,
+               "crit_hit_chance":0.30,
+               "description":[
+                  "Miembro de la policía de Ferten, no quedan muchos que se atrevan a hacerlo, pero A'lik no solo luce la placa, se pasea por las calles que para otros, serían impensables",
+                  "Member of Ferten's Police force, there's not many who dare become one, but A'lik doesn't only brandish her badge, she also dares tread where many don't even dream of"
+               ],
+               "evasion":30,
+               "baseEvasion":30,
+               "abilities":[
+                  {
+                     "id":4,
+                     "name":"TRUESTRIKE V",
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":3,
+                     "description":[
+                        "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
+                        "A perfectly aimed hit that completely bypass the targets defense."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":34,
+               "aggro":34,
+               "faction":"Ferten",
+               "rarity":3,
+               "level":1,
+               "exp":1000,
+               "role":"Attacker"
+            },
+            {
+               "id":12,
+               "name":"Ozna",
+               "baseAttack":70,
+               "attack":70,
+               "baseDefense":30,
+               "defence":30,
+               "baseHP":220,
+               "hp":220,
+               "base_crit_hit_chance":0.15,
+               "crit_hit_chance":0.15,
+               "description":[
+                  "Ozna cura a la gente de Kwin con su melodia, tanto es así que algunas tropas llevan frascos con aliento de Ozna porque piensan que ayudarán a su sanación",
+                  "Ozna heals the people of Kwin with his melody, it goes as far as troopers carrying flasks with his breath because they believe it will help them heal"
+               ],
+               "evasion":20,
+               "baseEvasion":20,
+               "abilities":[
+                  {
+                     "id":2,
+                     "name":"HEAL IV",
+                     "baseActiveTurns":2,
+                     "baseChargeTurns":4,
+                     "description":[
+                        "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+                        "A burst of magical energy that enhances the recievers regeneration."
+                     ],
+                     "remainChargeTurns":6,
+                     "ready":false
+                  }
+               ],
+               "image_url":"url",
+               "activeAbilities":[
+
+               ],
+               "baseAggro":30,
+               "aggro":30,
+               "faction":"Kwin",
+               "rarity":3,
+               "level":1,
+               "exp":1000,
+               "role":"Support"
+            }
+         ],
+         "restrictions":{
+            "maxHeros":8,
+            "maxHerosFaction":[
+               3,
+               3,
+               2
             ]
          }
       }
