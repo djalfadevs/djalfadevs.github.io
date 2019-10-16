@@ -59,13 +59,14 @@ class deck extends Phaser.Scene{
     	//Boton volver
         var backButt=this.add.sprite(100,100,'backButt').setScale(1).setInteractive();
         backButt.on('pointerdown',function(){this.setFrame(1);})
-        backButt.on('pointerup',function(){this.setFrame(0);transition("back",that)})
+        backButt.on('pointerup',function(){this.setFrame(0);transition("back",that);})
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
             that.extend.numberOfPageText.setText(that.extend.numberOfPage);
             that.drawCards(that.extend.numberOfPage)
+         
             ;})
 
         var DownArrowButt=this.add.sprite(1350,1000,'DownArrow').setScale(1).setInteractive();
@@ -76,6 +77,7 @@ class deck extends Phaser.Scene{
             }
             that.extend.numberOfPageText.setText(that.extend.numberOfPage);
             that.drawCards(that.extend.numberOfPage)
+
             ;})
 
         var EnterSimulationButt = this.add.sprite(300,1000,'largeButt').setScale(1).setInteractive();
@@ -114,6 +116,14 @@ class deck extends Phaser.Scene{
     		that.extend.cards[j] = new CollectionCard(this,1100+(j%3)*collsDistance,300+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],400,400);
     	}
     	
+        for(var s = 0; s<that.extend.cards.length; s++){
+            for(var i= 0; i<that.extend.alliesCards.length; i++){
+                 if(that.extend.cards[s].hero.cardExclusiveId==that.extend.alliesCards[i].numberOfCard){
+                            that.extend.cards[s].HeroSprite.setTint(7434609);
+                        }
+            }
+           
+        }
     	
     }
 }

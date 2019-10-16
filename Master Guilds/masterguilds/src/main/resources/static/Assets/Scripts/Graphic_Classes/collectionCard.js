@@ -60,6 +60,11 @@ var CollectionCard = new Phaser.Class({
 
 			//NUEVO DE ESTA ESCENA
 			if(game.global.simulation.allies.canAddMember({actor:that.simulationHero}).canBeAdded){
+
+				//VolverCartaGris//
+				that.HeroSprite.setTint(7434609);
+				/////////////////
+
 				var tAux = that.scene.extend.alliesCards.length;
 
 				game.global.simulation.allies.addMember(that.simulationHero);
@@ -69,7 +74,19 @@ var CollectionCard = new Phaser.Class({
 
 				that.scene.extend.alliesCards.push(spriteAux);
 
+				spriteAux.numberOfCard = that.hero.cardExclusiveId;
+
 				spriteAux.on('pointerdown',function(){
+
+					//Vuelve las cartas al color original
+					that.HeroSprite.clearTint();
+					///////////////////////////
+
+					for(var s = 0; s<that.scene.extend.cards.length; s++){
+                 		if(that.scene.extend.cards[s].hero.cardExclusiveId==spriteAux.numberOfCard ){
+                            that.scene.extend.cards[s].HeroSprite.clearTint();
+            			}
+        			}
 
 					spriteAux.destroy();
 
