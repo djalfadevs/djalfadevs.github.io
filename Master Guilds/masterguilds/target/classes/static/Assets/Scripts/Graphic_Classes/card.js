@@ -1,11 +1,12 @@
 var Card = new Phaser.Class({
 	initialize:
-	function Card(scene,x,y,hero){
+	function Card(scene,x,y,hero,XG,YG){
 		this.scene = scene;
 		this.hero = hero;//Duplicado ? si en el constructor no en el resto de funciones
 		this.x = x;
 		this.y = y;
-		
+		this.XG=XG;
+		this.YG=YG;
 		//Imagen de la carta de personaje
 		this.HeroSprite = scene.add.sprite(0,0,this.hero.image_url[0]).setScale(1,1);
 
@@ -33,8 +34,8 @@ var Card = new Phaser.Class({
 		return new Promise(resolve=>{
 			that.scene.tweens.add({
 			targets: that.cardContainer,
-			x: that.cardContainer.x-200,
-			y: that.cardContainer.y-100,
+			x: that.x,
+			y: that.y,
 			scale: that.cardContainer.scale*2/3,
 			duration:1000,
 			onComplete: function(){
@@ -53,8 +54,8 @@ var Card = new Phaser.Class({
 				//Desplazamos el container que tiene la carta y la barra de vida
 			that.scene.tweens.add({
 				targets: that.cardContainer,
-				x: that.cardContainer.x+200,
-				y: that.cardContainer.y+100,
+				x: that.XG,
+				y: that.YG,
 				scale: that.cardContainer.scale*1.5,
 				duration:1000,
 				onComplete: function(){

@@ -51,11 +51,11 @@ class SimulationScene extends Phaser.Scene
 
 		//Crear las cartas a partir de los personajes de ambos equipos.
 		for(var j = 0; j<simulation.allies.team.length; j++){
-			this.extend.cards.allies[j] = new Card(this,800+j*200,200,simulation.allies.team[j])
+			this.extend.cards.allies[j] = new Card(this,200+j*200,900,simulation.allies.team[j],800,500)
 		}
 
 		for(var i = 0; i<simulation.enemys.team.length; i++){
-			this.extend.cards.enemies[i] = new Card(this,200+i*200,200,simulation.enemys.team[i])
+			this.extend.cards.enemies[i] = new Card(this,1100+i*200,900,simulation.enemys.team[i],1100,500)
 		}
 
 		//Funcion asincrona que realiza toda la ejecucion de la escena

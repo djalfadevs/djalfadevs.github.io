@@ -73,11 +73,14 @@ class Team {
         }
 
         //Si ese heroe ya esta añadido
-        for(var j = 0; j<this.team.length;j++){
-            if(this.team[j]===input.actor){
-                canBeAdded= false;
+        if(input.actor.cardExclusiveId!=null){
+            for(var j = 0; j<this.team.length;j++){
+                if(this.team[j].cardExclusiveId==input.actor.cardExclusiveId){
+                    canBeAdded= false;
+                }
             }
         }
+        
         return {canBeAdded:canBeAdded,nFaction:i};
     }
 

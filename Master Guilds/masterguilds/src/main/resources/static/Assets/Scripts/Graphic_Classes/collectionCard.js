@@ -22,14 +22,26 @@ var CollectionCard = new Phaser.Class({
 			that.HeroSprite.on('pointerdown',function(){
 			that.scene.extend.text.name.setText(that.hero.name);
             that.scene.extend.text.lore.setText(that.hero.description[0]);
+            that.scene.extend.text.loreEN.setText(that.hero.description[1]);
             that.scene.extend.text.attack.setText(that.hero.baseAttack)
-            that.scene.extend.text.defense.setText(that.hero.baseDefence)
+            that.scene.extend.text.defense.setText(that.hero.baseDefense)
             that.scene.extend.text.Hp.setText(that.hero.baseHP);
+            that.scene.extend.text.aggro.setText(that.hero.baseAggro);
             that.scene.extend.text.evasion.setText(that.hero.baseEvasion)
             that.scene.extend.text.rarity.setText(that.hero.rarity)
             that.scene.extend.text.crit_hit_chance.setText(that.hero.base_crit_hit_chance)
-            that.scene.extend.text.abilities.setText(that.hero.abilities[0].name)
-
+            if(that.hero.abilities[0]!=null){
+            	that.scene.extend.text.abilities0.setText(that.hero.abilities[0].name)
+            	that.scene.extend.text.abilities0d.setText(that.hero.abilities[0].description[0])
+            	that.scene.extend.text.abilities0dEN.setText(that.hero.abilities[0].description[1])
+            }
+            if(that.hero.abilities[1]!=null){
+            	that.scene.extend.text.abilities1.setText(that.hero.abilities[1].name)
+            	that.scene.extend.text.abilities1d.setText(that.hero.abilities[1].description[0])
+                 that.scene.extend.text.abilities1dEN.setText(that.hero.abilities[1].description[1])
+            }
+           
+            
             that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
 			if(that.scene.extend.bigcardSprite !=null){
 					that.scene.extend.bigcardSprite.destroy();
@@ -42,15 +54,21 @@ var CollectionCard = new Phaser.Class({
 		else if(that.scene.scene.key=="deck"){
 			that.HeroSprite.on('pointerdown',function(){
 			that.scene.extend.text.name.setText(that.hero.name);
-            that.scene.extend.text.lore.setText(that.hero.description[0]);
             that.scene.extend.text.attack.setText(that.hero.baseAttack)
             that.scene.extend.text.defense.setText(that.hero.baseDefence)
             that.scene.extend.text.Hp.setText(that.hero.baseHP);
+            that.scene.extend.text.aggro.setText(that.hero.baseAggro);
             that.scene.extend.text.evasion.setText(that.hero.baseEvasion)
             that.scene.extend.text.rarity.setText(that.hero.rarity)
             that.scene.extend.text.crit_hit_chance.setText(that.hero.base_crit_hit_chance)
-            that.scene.extend.text.abilities.setText(that.hero.abilities[0].name)
-
+            if(that.hero.abilities[0]!=null){
+            	that.scene.extend.text.abilities0.setText(that.hero.abilities[0].name)
+            }
+            
+            if(that.hero.abilities[1]!=null){
+            	that.scene.extend.text.abilities1.setText(that.hero.abilities[1].name)
+            }
+            
             that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
 			if(that.scene.extend.bigcardSprite !=null){
 				that.scene.extend.bigcardSprite.destroy();
@@ -60,6 +78,11 @@ var CollectionCard = new Phaser.Class({
 
 			//NUEVO DE ESTA ESCENA
 			if(game.global.simulation.allies.canAddMember({actor:that.simulationHero}).canBeAdded){
+
+				//VolverCartaGris//
+				that.HeroSprite.setTint(7434609);
+				/////////////////
+
 				var tAux = that.scene.extend.alliesCards.length;
 
 				game.global.simulation.allies.addMember(that.simulationHero);
@@ -69,7 +92,19 @@ var CollectionCard = new Phaser.Class({
 
 				that.scene.extend.alliesCards.push(spriteAux);
 
+				spriteAux.numberOfCard = that.hero.cardExclusiveId;
+
 				spriteAux.on('pointerdown',function(){
+
+					//Vuelve las cartas al color original
+					that.HeroSprite.clearTint();
+					///////////////////////////
+
+					for(var s = 0; s<that.scene.extend.cards.length; s++){
+                 		if(that.scene.extend.cards[s].hero.cardExclusiveId==spriteAux.numberOfCard ){
+                            that.scene.extend.cards[s].HeroSprite.clearTint();
+            			}
+        			}
 
 					spriteAux.destroy();
 

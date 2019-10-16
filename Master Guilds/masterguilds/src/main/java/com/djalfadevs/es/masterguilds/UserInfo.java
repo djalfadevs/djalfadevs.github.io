@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,6 +31,7 @@ public class UserInfo {
 	private int MVol;
 	private int EVol;
 	
+	public AtomicInteger numeroExclusivoDeCarta = new AtomicInteger(0);
 	//Constructor para nuevos usuarios
 	public UserInfo(String name) {
 		this.name = name;
@@ -55,16 +57,45 @@ public class UserInfo {
 			
 			//PRUEBA DE METER HEROE (AL registrar un jugador se le dan unos heroes elegidos por el gamedesigner)
 			//Estos tienen que ver con la historia del juego
-			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(2),Hero.class));
-			this.heros.add(o.convertValue(auxArrayNode.get(0),Hero.class));
+			Hero auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
+			
+			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
+			
+			auxH = o.convertValue(auxArrayNode.get(2),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
+			
+			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
+			
+			auxH = o.convertValue(auxArrayNode.get(2),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
+			
+			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
+			
+			auxH = o.convertValue(auxArrayNode.get(2),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
+			
+			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
+			
+			auxH = o.convertValue(auxArrayNode.get(2),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
+			
+			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
+			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
+			this.heros.add(auxH);
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

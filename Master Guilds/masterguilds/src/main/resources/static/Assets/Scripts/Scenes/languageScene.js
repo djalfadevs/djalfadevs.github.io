@@ -76,22 +76,25 @@ create(){
             game.global.user.lang="ES"
             console.log(game.global.socket.readyState)
             //console.log(game.global.user.lang)
-            	
+            /*
             var msgL1 = new Object();
             msgL1.event = "UPDATEUSERINFO"
             	msgL1.user=game.global.user
         		game.global.socket.send(JSON.stringify(msgL1))
+            */
             break;
             case "ENGLISH":
             console.log("english");
             
             game.global.user.lang="EN"
-                
-                var msgL2 = new Object();
-            msgL2.event = "UPDATEUSERINFO"
+              
+              /*  
+              var msgL2 = new Object();
+              msgL2.event = "UPDATEUSERINFO"
             	msgL2.user=game.global.user
-            		game.global.socket.send(JSON.stringify(msgL2))
-                break; 
+            	game.global.socket.send(JSON.stringify(msgL2))
+              */
+            break; 
             case "back":
             that.scene.transition({target:'title',duration:100});
             break;
