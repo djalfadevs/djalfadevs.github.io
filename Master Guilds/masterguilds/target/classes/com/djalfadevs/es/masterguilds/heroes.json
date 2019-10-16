@@ -475,7 +475,7 @@
 	},
 	{
 		"ID": 12,
-		"name": "Doc",
+		"name": "Dok",
 		"baseAttack": 80,
 		"attack": 80,
 		"baseDefence": 22,
@@ -485,8 +485,8 @@
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
-			"En la calle todos conocen su nombre, si quieres pasar un buen rato, tienes que llamar a Doc",
-			"Everyone on the street knows their 'name', if you want to have a good time, you've got to call Doc"
+			"En la calle todos conocen su nombre, si quieres pasar un buen rato, tienes que llamar a Dok",
+			"Everyone on the street knows their 'name', if you want to have a good time, you've got to call Dok"
 		],
 		"evasion": 30,
 		"baseEvasion": 30,
@@ -756,7 +756,7 @@
 	},
 	{
 		"ID": 13,
-		"name": "Mallock",
+		"name": "Elmas",
 		"baseAttack": 60,
 		"attack": 60,
 		"baseDefence": 50,
@@ -906,4 +906,3 @@
 		"role": "Support"
 	}
 ]
-
