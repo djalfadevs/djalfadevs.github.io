@@ -94,6 +94,12 @@ class preload extends Phaser.Scene{
         this.load.image('azon_kubo_carta_grande','Assets/Sprites/UI-UX/cartas/azon_kubo_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('azon_Xin_carta_pequena','Assets/Sprites/UI-UX/cartas/azon_Xin_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('azon_Xin_carta_grande','Assets/Sprites/UI-UX/cartas/azon_Xin_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('azon_lancer_cp','Assets/Sprites/UI-UX/cartas/azon_lancer_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('azon_lancer_cg','Assets/Sprites/UI-UX/cartas/azon_lancer_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('azon_shield_cp','Assets/Sprites/UI-UX/cartas/azon_shield_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('azon_shield_cg','Assets/Sprites/UI-UX/cartas/azon_shield_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('azon_medic_cp','Assets/Sprites/UI-UX/cartas/azon_medic_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('azon_medic_cg','Assets/Sprites/UI-UX/cartas/azon_medic_carta_grande.png',{frameWidth:346,frameHeight:507});
 
         //FONDOS
         this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.jpg',{frameWidth:1920,frameHeight:1640});

@@ -82,7 +82,7 @@ class Simulation {
                                target=j
                            }
                        }
-                       input.charToCheck.abilites[i].useAbilitie(input.team.team[target])
+                       input.charToCheck.abilities[i].useAbilitie(input.team.team[target])
                        newAb=true
                        break;
                        //ESTOS CASOS SON EFECTOS QUE SE VAN A APLICAR EN EL SIGUIENTE ATAQUE, POR LO QUE NECESITAMOS QUE NEWAB SEA FALSE

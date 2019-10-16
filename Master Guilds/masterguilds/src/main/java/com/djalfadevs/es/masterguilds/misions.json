@@ -8,22 +8,22 @@
             "maxHeros":4,
             "maxHerosFaction":[
                4,
-               1,
-               1
+               4,
+               4
             ]
          }
       },
       "enemys":{
          "team":[
             {
-               "ID":3,
+               "id":3,
                "name":"Xin",
                "baseAttack":140,
                "attack":140,
-               "baseDefence":40,
-               "defence":40,
+               "baseDefense":40,
+               "defense":40,
                "baseHP":200,
-               "HP":200,
+               "hp":200,
                "base_crit_hit_chance":0.25,
                "crit_hit_chance":0.25,
                "description":[
@@ -34,7 +34,7 @@
                "baseEvasion":70,
                "abilities":[
                   {
-                     "ID":4,
+                     "id":4,
                      "name":"TRUESTRIKE II",
                      "baseActiveTurns":1,
                      "baseChargeTurns":7,
@@ -43,7 +43,7 @@
                         "A perfectly aimed hit that completely bypass the targets defense."
                      ],
                      "remainChargeTurns":6,
-                     "isReady":true
+                     "ready":true
                   }
                ],
                "image_url":[
@@ -62,14 +62,14 @@
                "role":"Attacker"
             },
             {
-               "ID":6,
+               "id":6,
                "name":"Azon Lancer",
                "baseAttack":90,
                "attack":90,
-               "baseDefence":20,
-               "defence":20,
+               "baseDefense":20,
+               "defense":20,
                "baseHP":120,
-               "HP":120,
+               "hp":120,
                "base_crit_hit_chance":0.15,
                "crit_hit_chance":0.15,
                "description":[
@@ -79,9 +79,6 @@
                "evasion":35,
                "baseEvasion":35,
                "abilities":[
-                  {
-
-                  }
                ],
                "image_url":[
                   "azon_lancer_cp",
@@ -99,14 +96,14 @@
                "role":"Attacker"
             },
             {
-               "ID":7,
+               "id":7,
                "name":"Azon Shield",
                "baseAttack":70,
                "attack":70,
-               "baseDefence":40,
-               "defence":40,
+               "baseDefense":40,
+               "defense":40,
                "baseHP":200,
-               "HP":200,
+               "hp":200,
                "base_crit_hit_chance":0.0,
                "crit_hit_chance":0.0,
                "description":[
@@ -116,9 +113,6 @@
                "evasion":0,
                "baseEvasion":0,
                "abilities":[
-                  {
-
-                  }
                ],
                "image_url":[
                   "azon_shield_cp",
@@ -136,14 +130,14 @@
                "role":"Tank"
             },
             {
-               "ID":8,
+               "id":8,
                "name":"Azon Medic",
                "baseAttack":60,
                "attack":60,
-               "baseDefence":10,
-               "defence":10,
+               "baseDefense":10,
+               "defense":10,
                "baseHP":200,
-               "HP":200,
+               "hp":200,
                "base_crit_hit_chance":0.0,
                "crit_hit_chance":0.0,
                "description":[
@@ -154,7 +148,7 @@
                "baseEvasion":0,
                "abilities":[
                   {
-                     "ID":2,
+                     "id":2,
                      "name":"HEAL I",
                      "baseActiveTurns":1,
                      "baseChargeTurns":6,
@@ -163,7 +157,7 @@
                         "A burst of magical energy that enhances the recievers regeneration."
                      ],
                      "remainChargeTurns":6,
-                     "isReady":true
+                     "ready":true
                   }
                ],
                "image_url":[
@@ -183,11 +177,11 @@
             }
          ],
          "restrictions":{
-            "maxHeros":4,
+            "maxHeros":10,
             "maxHerosFaction":[
-               2,
-               1,
-               1
+               10,
+               10,
+               10
             ]
          }
       }

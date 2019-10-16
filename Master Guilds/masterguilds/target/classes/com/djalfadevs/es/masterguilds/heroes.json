@@ -244,7 +244,11 @@
 				
 			}
 		],
-		"image_url": "url",
+		"image_url": 
+		[
+			"azon_lancer_cp",
+			"azon_lancer_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 50,
 		"aggro": 50,
@@ -276,7 +280,10 @@
 				
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_shield_cp",
+			"azon_shield_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 80,
 		"aggro": 80,
@@ -317,7 +324,11 @@
 				"isReady": true
 			}
 		],
-		"image_url": "url",
+		"image_url": 
+		[
+			"azon_medic_cp",
+			"azon_medic_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 10,
 		"aggro": 10,

@@ -17,7 +17,7 @@ class Hero extends Actor
 		this.level = hero.level;
 		this.exp = hero.exp;
 		this.role = hero.role;
-
+		this.cardExclusiveId= hero.cardExclusiveId;
 		//MODIFICAR PARA QUE CUANDO SE LE PASE LAS HABILIDADES LAS CREE USANDO EL CONSTRUCTOR DE HABILIDAD
 
 		}
