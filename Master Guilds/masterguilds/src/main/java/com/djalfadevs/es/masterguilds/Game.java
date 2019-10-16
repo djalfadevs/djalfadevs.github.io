@@ -41,6 +41,7 @@ import com.google.gson.JsonObject;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -56,7 +57,13 @@ public class Game {
 	private List<NamePassword> infoUsersUsing = new ArrayList<>();
 	private Lock lock = new ReentrantLock();
 
-	MongoClient mongoClient = new MongoClient();
+	
+
+
+	MongoClientURI uri = new MongoClientURI(
+    "mongodb+srv://djalfaMongoUser:webosdjalfa69@mastera-mcxiz.mongodb.net/Mastera?retryWrites=true&w=majority");
+
+	MongoClient mongoClient = new MongoClient(uri);
 	MongoDatabase database = mongoClient.getDatabase("Mastera");
 
 	public void loadInfoUsers() {
