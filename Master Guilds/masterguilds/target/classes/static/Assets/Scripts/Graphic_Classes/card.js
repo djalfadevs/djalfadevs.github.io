@@ -139,12 +139,13 @@ var Card = new Phaser.Class({
 		return new Promise(resolve=>{
 			switch(input.turnlog.abilityID){
 				case "1":
-					var AuxParticle = that.scene.add.sprite(400,400,'fuego');
-
+					var AuxParticle = that.scene.add.sprite(0,0,'blue_buff_spritesheet').setScale(1/3);
+					that.cardContainer.add(AuxParticle);
+					
 					 var animConfig = {
-       				 key: 'fuego',
-        			 frames: that.scene.anims.generateFrameNumbers('fuego'),
-        			 duration:2000,
+       				 key: 'blue_buff_anim',
+        			 frames: that.scene.anims.generateFrameNumbers('blue_buff_spritesheet'),
+        			 frameRate:20,
         			 repeat: 0
     				 };
 
@@ -155,12 +156,13 @@ var Card = new Phaser.Class({
     					auxSprite.IDAbility = "1";//Esto me sirve para luego borrar el sprite cuando se vaya el efecto
     					input.tarjet.cardContainer.add(auxSprite);
     					input.tarjet.buffSprites.push(auxSprite);
+    					AuxParticle.destroy();
     					resolve()
     				}
 
     				AuxParticle.on('animationcomplete', resolveFunct, this);
 
-					AuxParticle.play('fuego');
+					AuxParticle.play('blue_buff_anim');
 				break;
 				case "2":
 
@@ -200,12 +202,13 @@ var Card = new Phaser.Class({
 					AuxParticle.play('fuego');
 				break;
 				case"3":
-					var AuxParticle = that.scene.add.sprite(400,400,'fuego');
+					var AuxParticle = that.scene.add.sprite(0,0,'red_buff_spritesheet').setScale(1/3);
+					that.cardContainer.add(AuxParticle);
 
 					 var animConfig = {
-       				 key: 'fuego',
-        			 frames: that.scene.anims.generateFrameNumbers('fuego'),
-        			 duration:2000,
+       				 key: 'red_buff_anim',
+        			 frames: that.scene.anims.generateFrameNumbers('red_buff_spritesheet'),
+        			 frameRate:20,
         			 repeat: 0
     				 };
 
@@ -216,12 +219,13 @@ var Card = new Phaser.Class({
     					auxSprite.IDAbility = "3";//Esto me sirve para luego borrar el sprite cuando se vaya el efecto
     					input.tarjet.cardContainer.add(auxSprite);
     					input.tarjet.buffSprites.push(auxSprite);
+    					AuxParticle.destroy();
     					resolve()
     				}
 
     				AuxParticle.on('animationcomplete', resolveFunct, this);
 
-					AuxParticle.play('fuego');
+					AuxParticle.play('red_buff_anim');
 				break;
 				case"4":
 					var updateLifeBarAnimationAuxFunct = function(){
