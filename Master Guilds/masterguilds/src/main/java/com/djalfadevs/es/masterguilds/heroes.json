@@ -11,7 +11,7 @@
 		"base_crit_hit_chance": 0.05,
 		"crit_hit_chance": 0.05,
 		"description": [
-			"El lider de los Azon, tuvo que hacerse cargo del Imperio desde muy jovén lo cual le ha hecho una de las personas más resistentes del mundo",
+			"El lider de los Azon, tuvo que hacerse cargo del Imperio desde muy joven lo cual le ha hecho una de las personas mas resistentes del mundo",
 			"The leader of the Azon, being forced to take care of the Empire from a young age has turned him into one of the most resilient people in the world"
 		],
 		"evasion": 20,
@@ -27,7 +27,7 @@
 					"A boost to all ally's combat abilities by channeling one's conviction."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			},
 			{
 				"ID": 3,
@@ -39,7 +39,7 @@
 					"Users of this channel their anger to boost their brute strength."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": [
@@ -67,7 +67,7 @@
 		"base_crit_hit_chance": 0.05,
 		"crit_hit_chance": 0.05,
 		"description": [
-			"Estratega experto de Azon, su valía como general es tan alta, que ya ha sobrevivido a dos generaciones de la dinastía Azon, apodado el destructor en su juventud, en su vejez prefiere roles más pacíficos",
+			"Estratega experto de Azon, su valia como general es tan alta, que ya ha sobrevivido a dos generaciones de la dinastia Azon, apodado el destructor en su juventud, en su vejez prefiere roles mas pacificos",
 			"Azon's top tactician, he has proven his worth as a general by surviving two Azon generations, in his youth, he was a famed warrior nicknamed the destroyer, now, in his elderliness he fancies a more peaceful approach"
 		],
 		"evasion": 40,
@@ -83,7 +83,7 @@
 					"A burst of magical energy that enhances the recievers regeneration."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -124,7 +124,7 @@
 					"A perfectly aimed hit that completely bypass the targets defense."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": [
@@ -152,7 +152,7 @@
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
-			"Considerado el hombre más fuerte de Azon, pero no el más brillante",
+			"Considerado el hombre mas fuerte de Azon, pero no el mas brillante",
 			"Maybe the strongest man in all of Azon, but not the brightest"
 		],
 		"evasion": 20,
@@ -168,7 +168,7 @@
 					"A boost to all ally's combat abilities by channeling one's conviction."
 				],
 				"remainChargeTurns": 5,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -209,7 +209,7 @@
 					"A burst of magical energy that enhances the recievers regeneration."
 				],
 				"remainChargeTurns": 4,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -234,7 +234,7 @@
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
-			"Infatería básica de Azon",
+			"Infateria basica de Azon",
 			"Azon's basic infantry"
 		],
 		"evasion": 35,
@@ -305,7 +305,7 @@
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
-			"Médico de Azon",
+			"Medico de Azon",
 			"Azon's doctor"
 		],
 		"evasion": 0,
@@ -321,7 +321,7 @@
 					"A burst of magical energy that enhances the recievers regeneration."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": 
@@ -350,7 +350,7 @@
 		"base_crit_hit_chance": 0.4,
 		"crit_hit_chance": 0.4,
 		"description": [
-			"La mejor tiradora de todo Ferten, solo conocida por el número de su informe, su pasado está rodeado de secretos; pero su puntería es clara como el agua",
+			"La mejor tiradora de todo Ferten, solo conocida por el numero de su informe, su pasado esta rodeado de secretos; pero su punteria es clara como el agua",
 			"Best shot in all of Ferten, only known for her file id , her past may be dubious, but her aim isn't"
 		],
 		"evasion": 60,
@@ -366,7 +366,7 @@
 					"A boost to all ally's combat abilities by channeling one's conviction."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			},
 			{
 				"ID": 4,
@@ -378,7 +378,7 @@
 					"A perfectly aimed hit that completely bypass the targets defense."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -415,11 +415,11 @@
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 5,
 				"description": [
-					"Una antigua tecnica vampirica que permite absorver parte del daño realizado a un objetivo.",
+					"Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
 					"This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -444,7 +444,7 @@
 		"base_crit_hit_chance": 0.30,
 		"crit_hit_chance": 0.30,
 		"description": [
-			"Miembro de la policía de Ferten, no quedan muchos que se atrevan a hacerlo, pero A'lik no solo luce la placa, se pasea por las calles que para otros, serían impensables",
+			"Miembro de la policia de Ferten, no quedan muchos que se atrevan a hacerlo, pero A'lik no solo luce la placa, se pasea por las calles que para otros, serian impensables",
 			"Member of Ferten's Police force, there's not many who dare become one, but A'lik doesn't only brandish her badge, she also dares tread where many don't even dream of"
 		],
 		"evasion": 30,
@@ -460,7 +460,7 @@
 					"A perfectly aimed hit that completely bypass the targets defense."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -501,7 +501,7 @@
 					"A burst of magical energy that enhances the recievers regeneration."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -526,7 +526,7 @@
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
-			"Infatería básica de Ferten",
+			"Infateria basica de Ferten",
 			"Ferten's basic infantry"
 		],
 		"evasion": 35,
@@ -606,7 +606,7 @@
 					"Heal an ally"
 				],
 				"remainChargeTurns": 3,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -631,7 +631,7 @@
 		"base_crit_hit_chance": 0.20,
 		"crit_hit_chance": 0.20,
 		"description": [
-			"Miembro del consejo de magia, ha desarrollado estudios y teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo. Nadie sabe si está loca o es un genio.",
+			"Miembro del consejo de magia, ha desarrollado estudios y teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo. Nadie sabe si esta loca o es un genio.",
 			"Member of the Magic Council, she has developed theories and studies regarding such complex magic that not even the rest of the council can fully comprehend them. Wether she is a genius, or a maniac is unknown."
 		],
 		"evasion": 40,
@@ -647,7 +647,7 @@
 					"A burst of magical energy that enhances the recievers regeneration."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			},
 			{
 				"ID": 5,
@@ -655,11 +655,11 @@
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 3,
 				"description": [
-					"Una antigua tecnica vampirica que permite absorver parte del daño realizado a un objetivo.",
+					"Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
 					"This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -696,11 +696,11 @@
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 3,
 				"description": [
-					"Una antigua tecnica vampirica que permite absorver parte del daño realizado a un objetivo.",
+					"Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
 					"This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -725,7 +725,7 @@
 		"base_crit_hit_chance": 0.15,
 		"crit_hit_chance": 0.15,
 		"description": [
-			"Ozna cura a la gente de Kwin con su melodia, tanto es así que algunas tropas llevan frascos con aliento de Ozna porque piensan que ayudarán a su sanación",
+			"Ozna cura a la gente de Kwin con su melodia, tanto es asi que algunas tropas llevan frascos con aliento de Ozna porque piensan que ayudaran a su sanacion",
 			"Ozna heals the people of Kwin with his melody, it goes as far as troopers carrying flasks with his breath because they believe it will help them heal"
 		],
 		"evasion": 20,
@@ -741,7 +741,7 @@
 					"A burst of magical energy that enhances the recievers regeneration."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -766,7 +766,7 @@
 		"base_crit_hit_chance": 0.1,
 		"crit_hit_chance": 0.1,
 		"description": [
-			"Mallock es la montaña que llora tras la batallas, la destrucción del agua en la riada, la venganza de la tierra",
+			"Mallock es la montana que llora tras la batallas, la destruccion del agua en la riada, la venganza de la tierra",
 			"Mallock is the mountain that cries after battles, the water's destruction in a flash flood, earth's vengeance"
 		],
 		"evasion": 5,
@@ -782,7 +782,7 @@
 					"A boost to all ally's combat abilities by channeling one's conviction."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -851,7 +851,7 @@
 					"A boost to all ally's combat abilities by channeling one's conviction."
 				],
 				"remainChargeTurns": 6,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
@@ -876,7 +876,7 @@
 		"base_crit_hit_chance": 0.0,
 		"crit_hit_chance": 0.0,
 		"description": [
-			"Experto en magia de regeneración de Kwin",
+			"Experto en magia de regeneracion de Kwin",
 			"Kwin's regeneration magic expert"
 		],
 		"evasion": 0,
@@ -892,7 +892,7 @@
 					"Heal an ally"
 				],
 				"remainChargeTurns": 3,
-				"isReady": true
+				"isReady": false
 			}
 		],
 		"image_url": "url",
