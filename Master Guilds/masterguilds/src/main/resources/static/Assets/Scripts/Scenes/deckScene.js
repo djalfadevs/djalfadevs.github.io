@@ -24,10 +24,10 @@ class deck extends Phaser.Scene{
                 abilities0: null,abilities1: null,
                 ENGroup:null,ESGroup:null,star1:null,star3:null,star5:null
             },
-            positionOfSmallAlliesCards:[[400,400],
-            [500,400],
-            [600,600],
-            [700,600]],
+            positionOfSmallAlliesCards:[[550,750],
+            [650,750],
+            [750,750],
+            [850,750]],
             alliesCards:[],
 
         }
@@ -87,8 +87,8 @@ class deck extends Phaser.Scene{
         var es10=this.add.text(520,500,"Habilidades: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
         
         
-        that.extend.ESGroup=this.add.container(0,0);
-        that.extend.ENGroup=this.add.container(0,0);
+        that.extend.ESGroup=this.add.container(0,0).setDepth(3);
+        that.extend.ENGroup=this.add.container(0,0).setDepth(3);
     
         that.extend.ESGroup.add(es1);
         that.extend.ESGroup.add(es2);
@@ -111,9 +111,9 @@ class deck extends Phaser.Scene{
         
         //BOTONES
     	//Boton volver
-        var backButt=this.add.sprite(100,100,'backButt').setScale(1).setInteractive();
-        backButt.on('pointerdown',function(){this.setFrame(1);})
-        backButt.on('pointerup',function(){this.setFrame(0);transition("back",that);})
+        var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
+        backButt.on('pointerdown',function(){this.setFrame(1)})
+        backButt.on('pointerup',function(){this.setFrame(0);that.scene.transition({target:'chapter',duration:100})})
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
@@ -134,11 +134,17 @@ class deck extends Phaser.Scene{
 
             ;})
 
-        var EnterSimulationButt = this.add.sprite(300,1000,'largeButt').setScale(1).setInteractive();
+        var EnterSimulationButt = this.add.sprite(520,850,'largeButt').setScale(1).setInteractive();
         EnterSimulationButt.on('pointerup',function(){
             setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
         })
+        EnterSimulationButt.setDepth(2);
 
+        var en11=this.add.text(440,800,"Start",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(3)
+        var es11=this.add.text(370,800,"Empezar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(3)
+        that.extend.ENGroup.add(en11);
+        that.extend.ESGroup.add(es11);
+        
         this.drawCards(that.extend.numberOfPage);
 
         var transition=function(str,t){
@@ -200,7 +206,7 @@ class deck extends Phaser.Scene{
 			break;
 		}
 		 
-		 switch(this.extend.text.rarity){
+		 switch(this.extend.text.rarity.text){
 		 case "1":
 			 this.extend.star1.alpha=1;
 			 this.extend.star3.alpha=0;
@@ -217,7 +223,6 @@ class deck extends Phaser.Scene{
 			 this.extend.star5.alpha=1;
 			 break;
 		default:
-			console.log(this.extend.text)
 			break;
 		 }
 	}
