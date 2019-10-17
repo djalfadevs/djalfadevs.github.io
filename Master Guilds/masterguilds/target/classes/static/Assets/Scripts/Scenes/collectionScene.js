@@ -15,6 +15,7 @@ class collection extends Phaser.Scene{
             text:{
                 name: null,
                 lore: null,
+                loreEN:null,
                 attack: null,
                 defense: null,
                 Hp: null,
@@ -22,37 +23,106 @@ class collection extends Phaser.Scene{
                 aggro: null,
                 rarity: null,
                 crit_hit_chance: null,
-                abilities: null,
+                abilities0: null,
+                abilities0d: null,
+                abilities0dEN: null,
+                abilities1: null,
+                abilities1d: null,
+                abilities1dEN: null,
+                ENGroup:null,ESGroup:null,star1:null,star3:null,star5:null
             }
         }
     }
     preload(){
     	//Fondo
         this.add.image(960,540,'backWood');
+        this.add.image(530,580,'largeInfo');
+        this.add.sprite(960,63,'infoBar');
     }
     create(){
     	var that=this;
-
+    	var en1=this.add.text(250,10,'Collection',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
+		var es1=this.add.text(250,10,'Colección',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
     	that.extend.numberOfPages = Math.ceil(game.global.user.heros.length/9);
     		
-    	that.extend.numberOfPageText = this.add.text(300,300,that.extend.numberOfPage);
-        var numberOfPagesText = this.add.text(320,320,that.extend.numberOfPages);
+    	that.extend.numberOfPageText = this.add.text(1770,920,that.extend.numberOfPage,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
+        this.add.text(1800,940,"/",{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
+    	var numberOfPagesText = this.add.text(1820,950,that.extend.numberOfPages,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
 
         //Textos
-        this.extend.text.name = this.add.text(200,200,"").setDepth(1);
-        this.extend.text.lore = this.add.text(200,200,"",{wordWrap:{width:200}}).setDepth(1);
-        this.extend.text.attack = this.add.text(200,200,"").setDepth(1);
-        this.extend.text.defense = this.add.text(200,200,"").setDepth(1);
-        this.extend.text.Hp = this.add.text(200,200,"").setDepth(1);
-        this.extend.text.evasion = this.add.text(200,200,"").setDepth(1);
-        this.extend.text.aggro = this.add.text(200,200,"").setDepth(1);
+        this.extend.text.name = this.add.text(695,228,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
+        this.extend.text.lore = this.add.text(520,325,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold',wordWrap:{width:420}}).setDepth(1);
+        this.extend.text.loreEN = this.add.text(520,325,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold',wordWrap:{width:420}}).setDepth(1);
+        this.extend.text.attack = this.add.text(680,548,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
+        this.extend.text.defense = this.add.text(690,588,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
+        this.extend.text.Hp = this.add.text(600,628,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
+        this.extend.text.evasion = this.add.text(690,668,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
+        this.extend.text.aggro = this.add.text(660,708,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.rarity = this.add.text(200,200,"").setDepth(1);
-        this.extend.text.crit_hit_chance = this.add.text(200,200,"").setDepth(1);
-        this.extend.text.abilities = this.add.text(200,200,"").setDepth(1);
-
+        this.extend.text.rarity.alpha=0;
+        this.extend.text.crit_hit_chance = this.add.text(800,748,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
+        this.extend.text.abilities0 = this.add.text(150,820,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
+        this.extend.text.abilities1 = this.add.text(150,860,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
+        
+        this.extend.text.abilities0d = this.add.text(360,828,"",{fontFamily:"Museo-700" ,fontSize:'20px',color:'#000',fontStyle:'bold',wordWrap:{width:610}}).setDepth(1);
+        this.extend.text.abilities1d = this.add.text(360,868,"",{fontFamily:"Museo-700" ,fontSize:'20px',color:'#000',fontStyle:'bold',wordWrap:{width:610}}).setDepth(1);
+        this.extend.text.abilities0dEN = this.add.text(360,828,"",{fontFamily:"Museo-700" ,fontSize:'20px',color:'#000',fontStyle:'bold',wordWrap:{width:610}}).setDepth(1);
+        this.extend.text.abilities1dEN = this.add.text(360,868,"",{fontFamily:"Museo-700" ,fontSize:'20px',color:'#000',fontStyle:'bold',wordWrap:{width:610}}).setDepth(1);
+        
+        that.extend.star1=this.add.sprite(320,220,'1star').setScale(0.05);
+        that.extend.star1.alpha=0;
+        that.extend.star3=this.add.sprite(320,220,'3star').setScale(0.05);
+        that.extend.star3.alpha=0;
+        that.extend.star5=this.add.sprite(320,220,'5star').setScale(0.05);
+        that.extend.star5.alpha=0;
+        
+        var en2=this.add.text(520,220,"Name: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});   
+        var en3=this.add.text(520,280,"Lore: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var en4=this.add.text(520,540,"Attack: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var en5=this.add.text(520,580,"Defense: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var en6=this.add.text(520,620,"HP: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var en7=this.add.text(520,660,"Evasion: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var en8=this.add.text(520,700,"Aggro: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var en9=this.add.text(500,740,"Critical hit rate: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var en10=this.add.text(360,780,"Abilities: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        
+        var es2=this.add.text(520,220,"Nombre: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});   
+        var es3=this.add.text(520,280,"Historia: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var es4=this.add.text(520,540,"Ataque: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var es5=this.add.text(520,580,"Defensa: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var es6=this.add.text(520,620,"HP: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var es7=this.add.text(520,660,"Evasión: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var es8=this.add.text(520,700,"Aggro: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var es9=this.add.text(500,740,"Ratio crítico: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        var es10=this.add.text(360,780,"Habilidades: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+        
+        
+        that.extend.ESGroup=this.add.container(0,0);
+        that.extend.ENGroup=this.add.container(0,0);
+    
+        that.extend.ESGroup.add(es1);
+        that.extend.ESGroup.add(es2);
+        that.extend.ESGroup.add(es3);
+        that.extend.ESGroup.add(es4);
+        that.extend.ESGroup.add(es5);
+        that.extend.ESGroup.add(es6);
+        that.extend.ESGroup.add(es7);
+        that.extend.ESGroup.add(es8);
+        that.extend.ESGroup.add(es9);
+        that.extend.ESGroup.add(es10);
+        that.extend.ENGroup.add(en1);
+        that.extend.ENGroup.add(en2);
+        that.extend.ENGroup.add(en3);
+        that.extend.ENGroup.add(en4);
+        that.extend.ENGroup.add(en5);
+        that.extend.ENGroup.add(en6);
+        that.extend.ENGroup.add(en7);
+        that.extend.ENGroup.add(en8);
+        that.extend.ENGroup.add(en9);
+        that.extend.ENGroup.add(en10);
     	//BOTONES
     	//Boton volver
-        var backButt=this.add.sprite(100,100,'backButt').setScale(1).setInteractive();
+        var backButt=this.add.sprite(85,80,'backButt').setInteractive()  
         backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
         backButt.on('pointerup',function(){this.setFrame(0)})
 
@@ -101,9 +171,60 @@ class collection extends Phaser.Scene{
     		if(that.extend.cards[j]!=null)
     		that.extend.cards[j].destroy();
     		if(allHeroes[i*9+j]!=null)
-    		that.extend.cards[j] = new CollectionCard(this,1100+(j%3)*collsDistance,300+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],400,400);
+    		that.extend.cards[j] = new CollectionCard(this,1100+(j%3)*collsDistance,300+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],320,500);
     	}
     	
     	
     }
+    update(){
+		 switch(game.global.user.lang){
+		case "ES":
+			
+			this.extend.ENGroup.alpha=0;
+			this.extend.ESGroup.alpha=1;
+			this.extend.text.lore.alpha=1;
+			this.extend.text.loreEN.alpha=0;
+			this.extend.text.abilities0d.alpha=1;
+		    this.extend.text.abilities1d.alpha=1;
+		    this.extend.text.abilities0dEN.alpha=0;
+		    this.extend.text.abilities1dEN.alpha=0;
+			
+			
+			break;
+		case "EN":
+			
+			this.extend.ENGroup.alpha=1;
+			this.extend.ESGroup.alpha=0;
+			this.extend.text.lore.alpha=0;
+			this.extend.text.loreEN.alpha=1;
+			this.extend.text.abilities0d.alpha=0;
+		    this.extend.text.abilities1d.alpha=0;
+		    this.extend.text.abilities0dEN.alpha=1;
+		    this.extend.text.abilities1dEN.alpha=1;
+			break;
+		default:
+			break;
+		}
+
+		 switch(this.extend.text.rarity.text){
+		 case "1":
+			 this.extend.star1.alpha=1;
+			 this.extend.star3.alpha=0;
+			 this.extend.star5.alpha=0;
+			 break;
+		 case "3":
+			 this.extend.star1.alpha=0;
+			 this.extend.star3.alpha=1;
+			 this.extend.star5.alpha=0;
+			 break;
+		 case "5":
+			 this.extend.star1.alpha=0;
+			 this.extend.star3.alpha=0;
+			 this.extend.star5.alpha=1;
+			 break;
+		default:
+			console.log(this.extend.text)
+			break;
+		 }
+	}
 }

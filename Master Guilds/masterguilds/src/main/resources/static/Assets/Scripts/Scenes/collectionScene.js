@@ -13,6 +13,8 @@ class collection extends Phaser.Scene{
             numberOfPageText:null,
             bigcardSprite:null,
             text:{
+            	click:null,
+            	draw1:null,
                 name: null,
                 lore: null,
                 loreEN:null,
@@ -40,6 +42,8 @@ class collection extends Phaser.Scene{
         this.add.sprite(960,63,'infoBar');
     }
     create(){
+    	this.extend.click=this.sound.add('click')
+    	this.extend.draw1=this.sound.add('draw1');
     	var that=this;
     	var en1=this.add.text(250,10,'Collection',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 		var es1=this.add.text(250,10,'Colección',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
@@ -59,7 +63,7 @@ class collection extends Phaser.Scene{
         this.extend.text.evasion = this.add.text(690,668,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.aggro = this.add.text(660,708,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.rarity = this.add.text(200,200,"").setDepth(1);
-        this.extend.text.rarity.alpha=0
+        this.extend.text.rarity.alpha=0;
         this.extend.text.crit_hit_chance = this.add.text(800,748,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.abilities0 = this.add.text(150,820,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.abilities1 = this.add.text(150,860,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
@@ -122,12 +126,14 @@ class collection extends Phaser.Scene{
         that.extend.ENGroup.add(en10);
     	//BOTONES
     	//Boton volver
-        var backButt=this.add.sprite(100,100,'backButt').setScale(1).setInteractive();
+        var backButt=this.add.sprite(85,80,'backButt').setInteractive()  
+        that.extend.click.play();
         backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
         backButt.on('pointerup',function(){this.setFrame(0)})
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
+        	that.extend.click.play();
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
             that.extend.numberOfPageText.setText(that.extend.numberOfPage);
             that.drawCards(that.extend.numberOfPage)
@@ -135,6 +141,7 @@ class collection extends Phaser.Scene{
 
         var DownArrowButt=this.add.sprite(1350,1000,'DownArrow').setScale(1).setInteractive();
         DownArrowButt.on('pointerup',function(){
+        	that.extend.click.play();
             that.extend.numberOfPage-=1
             if(that.extend.numberOfPage<0){
                 that.extend.numberOfPage=that.extend.numberOfPages-1;
@@ -146,6 +153,7 @@ class collection extends Phaser.Scene{
         this.drawCards(that.extend.numberOfPage);
 
         var transition=function(str,t){
+        	that.extend.click.play();
             switch(str){
                 case "back":
                 t.scene.transition({target:'mainMenu',duration:100});
@@ -177,6 +185,8 @@ class collection extends Phaser.Scene{
     	
     }
     update(){
+    	this.extend.click.setVolume(game.global.user.evol)
+    	this.extend.draw1.setVolume(game.global.user.evol)
 		 switch(game.global.user.lang){
 		case "ES":
 			
@@ -206,7 +216,7 @@ class collection extends Phaser.Scene{
 			break;
 		}
 
-		 switch(this.extend.text.rarity){
+		 switch(this.extend.text.rarity.text){
 		 case "1":
 			 this.extend.star1.alpha=1;
 			 this.extend.star3.alpha=0;

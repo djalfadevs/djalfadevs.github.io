@@ -13,6 +13,8 @@ class deck extends Phaser.Scene{
             numberOfPageText:null,
             bigcardSprite:null,
             text:{
+            	click:null,
+            	draw1:null,
                 name: null,
                 attack: null,
                 defense: null,
@@ -24,10 +26,10 @@ class deck extends Phaser.Scene{
                 abilities0: null,abilities1: null,
                 ENGroup:null,ESGroup:null,star1:null,star3:null,star5:null
             },
-            positionOfSmallAlliesCards:[[400,400],
-            [500,400],
-            [600,600],
-            [700,600]],
+            positionOfSmallAlliesCards:[[550,750],
+            [650,750],
+            [750,750],
+            [850,750]],
             alliesCards:[],
 
         }
@@ -39,12 +41,14 @@ class deck extends Phaser.Scene{
     }
     create(){
     	var that=this;
+    	this.extend.click=this.sound.add('click');
+        that.extend.alliesCards = [];
     	var en1=this.add.text(250,10,'Team selection',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 		var es1=this.add.text(250,10,'Selección de equipo',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 
     	that.extend.numberOfPages = Math.ceil(game.global.user.heros.length/9);
     		
-    	that.extend.numberOfPageText = this.add.text(1770,920,that.extend.numberOfPage,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
+    	that.extend.numberOfPageText = this.add.text(1770,920,that.extend.numberOfPage+1,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
         this.add.text(1800,940,"/",{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
     	var numberOfPagesText = this.add.text(1820,950,that.extend.numberOfPages,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
 
@@ -87,8 +91,8 @@ class deck extends Phaser.Scene{
         var es10=this.add.text(520,500,"Habilidades: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
         
         
-        that.extend.ESGroup=this.add.container(0,0);
-        that.extend.ENGroup=this.add.container(0,0);
+        that.extend.ESGroup=this.add.container(0,0).setDepth(3);
+        that.extend.ENGroup=this.add.container(0,0).setDepth(3);
     
         that.extend.ESGroup.add(es1);
         that.extend.ESGroup.add(es2);
@@ -111,37 +115,51 @@ class deck extends Phaser.Scene{
         
         //BOTONES
     	//Boton volver
-        var backButt=this.add.sprite(100,100,'backButt').setScale(1).setInteractive();
-        backButt.on('pointerdown',function(){this.setFrame(1);})
-        backButt.on('pointerup',function(){this.setFrame(0);transition("back",that);})
+        var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
+        backButt.on('pointerdown',function(){this.setFrame(1)})
+        backButt.on('pointerup',function(){this.setFrame(0);
+        	that.extend.click.play();
+            game.global.simulation.SetSimulationtoStartState();
+            that.scene.transition({target:'chapter',duration:0})
+        })
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
+        	that.extend.click.play();
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
-            that.extend.numberOfPageText.setText(that.extend.numberOfPage);
+            that.extend.numberOfPageText.setText(that.extend.numberOfPage+1);
             that.drawCards(that.extend.numberOfPage)
          
             ;})
 
         var DownArrowButt=this.add.sprite(1350,1000,'DownArrow').setScale(1).setInteractive();
         DownArrowButt.on('pointerup',function(){
+        	that.extend.click.play();
             that.extend.numberOfPage-=1
             if(that.extend.numberOfPage<0){
                 that.extend.numberOfPage=that.extend.numberOfPages-1;
             }
-            that.extend.numberOfPageText.setText(that.extend.numberOfPage);
+            that.extend.numberOfPageText.setText(that.extend.numberOfPage+1);
             that.drawCards(that.extend.numberOfPage)
 
             ;})
 
-        var EnterSimulationButt = this.add.sprite(300,1000,'largeButt').setScale(1).setInteractive();
+        var EnterSimulationButt = this.add.sprite(520,850,'largeButt').setScale(1).setDepth(4).setInteractive()
         EnterSimulationButt.on('pointerup',function(){
+        	that.extend.click.play();
             setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
         })
+        //EnterSimulationButt.setDepth(2);
 
+        var en11=this.add.text(440,800,"Start",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+        var es11=this.add.text(370,800,"Empezar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+        that.extend.ENGroup.add(en11);
+        that.extend.ESGroup.add(es11);
+        
         this.drawCards(that.extend.numberOfPage);
 
         var transition=function(str,t){
+        	t.extend.click.play();
             switch(str){
                 case "back":
                 t.scene.transition({target:'mainMenu',duration:100});
@@ -182,6 +200,10 @@ class deck extends Phaser.Scene{
     }
     
     update(){
+    	this.extend.click.setVolume(game.global.user.evol)
+    	if(this.extend.draw1!=null){
+    		this.extend.draw1.setVolume(game.global.user.evol)
+    	}
 		 switch(game.global.user.lang){
 		case "ES":
 			
@@ -200,7 +222,7 @@ class deck extends Phaser.Scene{
 			break;
 		}
 		 
-		 switch(this.extend.text.rarity){
+		 switch(this.extend.text.rarity.text){
 		 case "1":
 			 this.extend.star1.alpha=1;
 			 this.extend.star3.alpha=0;
@@ -217,7 +239,6 @@ class deck extends Phaser.Scene{
 			 this.extend.star5.alpha=1;
 			 break;
 		default:
-			console.log(this.extend.text)
 			break;
 		 }
 	}

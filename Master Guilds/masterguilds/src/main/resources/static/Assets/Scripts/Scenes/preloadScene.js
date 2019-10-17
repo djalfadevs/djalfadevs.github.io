@@ -30,6 +30,7 @@ class preload extends Phaser.Scene{
         this.load.image('setNotSel','Assets/Sprites/UI-UX/ajustes_no_seleccionado.png',{frameWidth:75,frameHeight:88});
         this.load.image('lifeBar','Assets/Sprites/UI-UX/barra_vida_salud.png',{frameWidth:399,frameHeight:29});
         this.load.image('lifeBarBg','Assets/Sprites/UI-UX/barra_vida.png',{frameWidth:443,frameHeight:54});
+        this.load.image('lifeBarBg2','Assets/Sprites/UI-UX/barra_vidaSup.png',{frameWidth:443,frameHeight:54});
         this.load.spritesheet('backButt','Assets/Sprites/UI-UX/boton_atras.png',{frameWidth:155,frameHeight:137});
         //load.setFrame(2);
         this.load.spritesheet('helpButt','Assets/Sprites/UI-UX/boton_ayuda.png',{frameWidth:110,frameHeight:97});
@@ -104,11 +105,31 @@ class preload extends Phaser.Scene{
         this.load.image('1star','Assets/Sprites/UI-UX/estrella_1.png',{frameWidth:1125,frameHeight:1070});
         this.load.image('3star','Assets/Sprites/UI-UX/estrella_3.png',{frameWidth:3465,frameHeight:1070});
         this.load.image('5star','Assets/Sprites/UI-UX/estrella_5.png',{frameWidth:5805,frameHeight:1070});
-        //FONDOS
-        this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.jpg',{frameWidth:1920,frameHeight:1640});
-        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.jpg',{frameWidth:1920,frameHeight:1640});
-	}
+        
 
+        //TESTING
+        this.load.spritesheet('fuego','Assets/Testing/fuego.jpg',{ frameWidth: 200, frameHeight: 200 });
+
+        //FONDOS
+        this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_steampunk.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_arena.png',{frameWidth:1920,frameHeight:1640});
+
+        //VICTORIA y DERROTA
+        this.load.image('TextWinEN','Assets/Sprites/UI-UX/VictoriayDerrota/VictoryEnglishFinal1.png',{frameWidth:1100,frameHeight:300});
+        this.load.image('TextWinES','Assets/Sprites/UI-UX/VictoriayDerrota/VictorySpanishFinal1.png',{frameWidth:1100,frameHeight:300});
+        this.load.image('TextDefeatEN','Assets/Sprites/UI-UX/VictoriayDerrota/DefeatEnglishFinal.png',{frameWidth:1100,frameHeight:300});
+        this.load.image('TextDefeatES','Assets/Sprites/UI-UX/VictoriayDerrota/DefeatSpanishFinal.png',{frameWidth:1100,frameHeight:300});
+
+        //BUFFS
+        this.load.image('AttackBuff','Assets/Sprites/UI-UX/Buffs/buffatacico.png',{frameWidth:50,frameHeight:50});
+        this.load.image('AllBuff','Assets/Sprites/UI-UX/Buffs/buffstatico.png',{frameWidth:50,frameHeight:50});
+        
+        this.load.audio('click','Assets/Sounds/Click.wav');
+        this.load.audio('draw1','Assets/Sounds/Deal1CardV1.wav')
+
+    }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero
 		//tween to fade and change scene
@@ -123,5 +144,6 @@ class preload extends Phaser.Scene{
 
 	update(){
         //not needed for now...
+		
 	}
 }

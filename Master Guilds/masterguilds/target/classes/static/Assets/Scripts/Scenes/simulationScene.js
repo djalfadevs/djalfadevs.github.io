@@ -67,10 +67,23 @@ class SimulationScene extends Phaser.Scene
 
 					if(game.global.simulation.allies.stats.aliveActors>0){//VICTORIA
 						console.log("VICTORIA")//debug
+						that.extend.winOrDefeat = that.add.sprite(500,500,'TextWinEN');
+
+						//LLAMAR SUBIDA DE NIVEL Y O RECOMPENSAS//
+						/////////////////////////////////////////
+
+						//RESETEAR SIMULACION Y VOLVER AL MENU O OTRA ESCENA
+						//////////////////////////////////////////////////
+
 					}
 					else//DERROTA
 					{
 						console.log("DERROTA")//debug
+						that.extend.winOrDefeat = that.add.sprite(500,500,'TextDefeatEN');
+
+						//RESETEAR SIMULACION Y VOLVER AL MENU O OTRA ESCENA
+						//////////////////////////////////////////////////
+
 					}
 		}
 		
@@ -105,7 +118,7 @@ class SimulationScene extends Phaser.Scene
 	}
 
 	simulation(){
-
+		var that = this;
 		return new Promise(resolve =>{
 				console.log(game.global.simulation)//DEBUG
 				var simulation = game.global.simulation;//Realiza un turno de la simulacion
@@ -114,6 +127,7 @@ class SimulationScene extends Phaser.Scene
 				//Hasta que no acabe no pinta (aqui no hay problema porque no hay nada asincrono).
 				this.pintar()
 				.then(()=>{simulation.nextTurn();})
+				.then(()=>{that.resetBuffDraw();})
 				.then(()=>resolve());
 				//Hasta que no termine de pintar no puede cambiar de turno
 				
@@ -129,7 +143,7 @@ class SimulationScene extends Phaser.Scene
 			var turnlog = simulation.log[simulation.turn];
 			var allyCard;
 			var enemyCard;
-
+			var tarjet;
 		//Hasta que no acabe la animacion de ataque o habilidad esto no se puede lanzar
 			var returnFunctionAux = function(){
 				return Promise.all([allyCard.returnMoveAnimation(),enemyCard.returnMoveAnimation()])	
@@ -140,23 +154,34 @@ class SimulationScene extends Phaser.Scene
 				if(this.extend.cards.allies[i].hero===turnlog.ally){
 					allyCard = this.extend.cards.allies[i];
 				}
+				if(turnlog.abilitieTarjets!=null){
+					if(this.extend.cards.allies[i].hero===turnlog.abilitieTarjets[0]){
+						tarjet = this.extend.cards.allies[i];
+					}
+				}
 			}
 
 			for(var j = 0 ; j<this.extend.cards.enemies.length; j++){
 				if(this.extend.cards.enemies[j].hero===turnlog.enemy){
 					enemyCard = this.extend.cards.enemies[j];
 				}
+				if(turnlog.abilitieTarjets!=null){
+					if(this.extend.cards.enemies[j].hero===turnlog.abilitieTarjets[0]){
+						tarjet = this.extend.cards.enemies[j];
+					}
+				}
+				
 			}
 
 			Promise.all([allyCard.moveAnimation(),enemyCard.moveAnimation()])
 			.then(()=>{
 			//Hasta que no lleguen ambas cartas al sitio no puede continuar con esto
 			//MODIFICAR QUIZA EL ATTACKANIMATION DE UNA CARTA DEBA LLAMAR AL UPDATELIFEBAR DEL ENEMIGO
-				if(turnlog.isPhysicalHit)//Golpe Fisico
+				if(turnlog.isPhysicalHit && !(turnlog.abilityID!=null))//Golpe Fisico Exclusivamente
 				{
 					if(simulation.turn % 2 == 0)//Turno par
 					{
-					return allyCard.attackAnimation()
+					return allyCard.attackAnimation({isEnemy:false,enemy:enemyCard})
 				/*
 				.then(() => {console.log("Animacion de ataque aliado ")//DEBUG)
 							returnFunctionAux();
@@ -165,7 +190,7 @@ class SimulationScene extends Phaser.Scene
 					}
 					else //Turno impar
 					{
-					return enemyCard.attackAnimation()
+					return enemyCard.attackAnimation({isEnemy:true,enemy:allyCard})
 				/*
 				.then(() => {console.log("Animacion de ataque enemigo ")//DEBUG)
 							returnFunctionAux();
@@ -173,11 +198,11 @@ class SimulationScene extends Phaser.Scene
 				*/
 					}
 				}
-				else//Habilidad
+				else//Habilidad CON O SIN DAÑO
 				{
 					if(simulation.turn % 2 == 0)//Turno par
 					{
-					return allyCard.useAbilityAnimation()
+					return allyCard.useAbilityAnimation({isEnemy:false,enemy:enemyCard,turnlog:turnlog,tarjet:tarjet})
 				/*
 				.then(() => {console.log("Animacion de habilidad aliado");//DEBUG
 							returnFunctionAux();
@@ -188,7 +213,7 @@ class SimulationScene extends Phaser.Scene
 					else //Turno impar
 					{
 				//enemyCard.useAbilityAnimation();
-					return enemyCard.useAbilityAnimation()
+					return enemyCard.useAbilityAnimation({isEnemy:true,enemy:allyCard,turnlog:turnlog,tarjet:tarjet})
 				/*
 				.then(() => {console.log("Animacion de habilidad enemigo");//DEBUG
 							returnFunctionAux();
@@ -201,5 +226,18 @@ class SimulationScene extends Phaser.Scene
 			.then(()=>resolve())
 		})
 
+	}
+
+	resetBuffDraw(){
+		return new Promise(resolve=>{
+			for(var j = 0 ; j<this.extend.cards.enemies.length; j++){
+				this.extend.cards.enemies[j].resetDrawBuffs();
+			}
+
+			for(var j = 0 ; j<this.extend.cards.allies.length; j++){
+				this.extend.cards.allies[j].resetDrawBuffs();
+			}
+			resolve();
+		})		
 	}
 }

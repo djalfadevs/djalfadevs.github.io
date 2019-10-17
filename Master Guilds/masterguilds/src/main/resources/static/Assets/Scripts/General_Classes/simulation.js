@@ -60,6 +60,8 @@ class Simulation {
         var stop=false
         while((i<input.charToCheck.abilities.length)&&(!stop)){
               if(input.charToCheck.abilities[i].isReady){  
+               this.log[this.turn].abilityID=input.charToCheck.abilities[i].ID;//Se añade al log que habilidad se va a usar
+               this.log[this.turn].abilitieTarjets= [];
                switch(input.charToCheck.abilities[i].ID){
                        //CASO 1 Y 3, BUSCAMOS UN OBJETIVO ALEATORIO PARA MEJORAR SUS ESTADISTICAS, DESPUES DE ESTO, NO VA A ATACAR, POR LO QUE PONEMOS NEWAB A TRUE
                        //EL OBJETIVO ALEATORIO ESTA DENTRO DEL EQUIPO DEL QUE LO LANZA
@@ -69,6 +71,7 @@ class Simulation {
                       case "3":
                        var target=Math.floor(Math.random() * input.team.team.length);
                        input.charToCheck.abilities[i].useAbilitie(input.team.team[target])
+                       this.log[this.turn].abilitieTarjets.push(input.team.team[target]);
                        newAb=true
                        break;
                        //ESTE CASO ES LA CURA, BUSCAMOS EL OBJETIVO CON MENOR VIDA (QUE ESTE VIVO) DE NUESTRO EQUIPO PARA CURARLO, TAMPOCO SE PUEDE ATACAR TRAS ESTO
@@ -82,6 +85,7 @@ class Simulation {
                                target=j
                            }
                        }
+                       this.log[this.turn].abilitieTarjets.push(input.team.team[target]);
                        input.charToCheck.abilities[i].useAbilitie(input.team.team[target])
                        newAb=true
                        break;
@@ -90,6 +94,7 @@ class Simulation {
                       case "4":
                       case 5:
                       case "5":
+                      this.log[this.turn].abilitieTarjets.push(input.charToCheck);
                       input.charToCheck.abilities[i].useAbilitie(input.charToCheck)
                       break;
                       default:
@@ -223,5 +228,37 @@ class Simulation {
 		this.log = [] //Log de la simulacion
 		this.lastMovement = null // Ultimo movimiento de la simulacion
 		this.escenario = null 
+    }
+
+    SetSimulationtoStartState(){
+        this.allies = new Team({ //Se llama al constructor de Team
+        //El constructor de Team utiliza solo los valores que se le pasan como input
+        //Por tanto tendra los valores inicializados como se describe a continuacion
+        //Estos valores podrian ponerse directamente en el constructor
+        //ya que solo existen dos objetos Team en todo el juego que son estos y reciben el mismo parametro
+        team:[],
+        stats:{herosFaction:[0,0,0],aliveActors:0},
+          //Por otro lado 
+          //tendriamos la variable .attackOrder Y .maxAggroActor que ahora mismo serian undefined
+        restrictions:{maxHeros:0,maxHerosFaction:[0,0,0]},
+        synergies:[]})
+        this.enemys = new Team({ //Se llama al constructor de Team
+        //El constructor de Team utiliza solo los valores que se le pasan como input
+        //Por tanto tendra los valores inicializados como se describe a continuacion
+        //Estos valores podrian ponerse directamente en el constructor
+        //ya que solo existen dos objetos Team en todo el juego que son estos y reciben el mismo parametro
+        team:[],
+        stats:{herosFaction:[0,0,0],aliveActors:0},
+          //Por otro lado 
+          //tendriamos la variable .attackOrder Y .maxAggroActor que ahora mismo serian undefined
+        restrictions:{maxHeros:0,maxHerosFaction:[0,0,0]},
+        synergies:[]})
+
+        this.turn=0;
+        this.enemyAttacking=0;
+        this.allieAttacking=0;
+        this.log = [] //Log de la simulacion
+        this.lastMovement = null // Ultimo movimiento de la simulacion
+        this.escenario = null 
     }
 }
