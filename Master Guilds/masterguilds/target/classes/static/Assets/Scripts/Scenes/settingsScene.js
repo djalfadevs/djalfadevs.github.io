@@ -7,7 +7,7 @@ class settings extends Phaser.Scene{
     
     constructor(){
         super({key:"settings"})
-         this.extend={ENGroup:null,ESGroup:null,MVol1:null,MVol2:null,MVol3:null,MVol4:null,MVol5:null,EVol1:null,EVol2:null,EVol3:null,EVol4:null,EVol5:null}
+         this.extend={click:null,ENGroup:null,ESGroup:null,MVol1:null,MVol2:null,MVol3:null,MVol4:null,MVol5:null,EVol1:null,EVol2:null,EVol3:null,EVol4:null,EVol5:null}
     }
     preload(){
         console.log("settings")
@@ -15,8 +15,9 @@ class settings extends Phaser.Scene{
     }
     create(){
         var that=this;
+   	 	this.extend.click=this.sound.add('click');
+
         var MVol=5;
-        var GVol=5;
         var Evol=5;
         
         var infoBar=this.add.sprite(960,63,'infoBar')
@@ -95,7 +96,9 @@ class settings extends Phaser.Scene{
         subEB.on('pointerout',function(){this.setFrame(0)}); 
         
         
-        var transition=function(str,t){
+        var transition=function(str){
+        	that.extend.click.play();
+
             switch(str){
                 case "back":
                     that.scene.transition({target:'title',duration:100});
@@ -131,6 +134,7 @@ class settings extends Phaser.Scene{
     }
 
     update(){
+    	this.extend.click.setVolume(game.global.user.evol)
 		switch(game.global.user.lang){
 		case "ES":
 			

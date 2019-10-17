@@ -79,7 +79,7 @@ var Card = new Phaser.Class({
 		var that = this;
 		var DamageText;
 
-		var DamageTextTween = function(){
+		var DamageTextTween = function(angleAux){
 			return new Promise(resolve=>{
 			that.scene.tweens.add({
 			targets: DamageText,
@@ -93,7 +93,7 @@ var Card = new Phaser.Class({
 				//Vuelve a la posicion inicial de rotacion
 				that.scene.tweens.add({
 				targets: that.HeroSprite,
-				angle: that.HeroSprite.angle-20,
+				angle: that.HeroSprite.angle-angleAux,
 				duration: 1000,
 				onComplete: function(){resolve();}
 				})
@@ -105,21 +105,22 @@ var Card = new Phaser.Class({
 
 		return new Promise(resolve=>{
 				//Primero realiza el giro del sprite y al terminar lanza el texto con el daño , despues vuelve a la rotacion base.
+				var angleAux;
 				if(input.isEnemy){
-
+					angleAux=-20;
 				}
 				else{
-
+					angleAux=20;
 				}
 				
 			that.scene.tweens.add({
 				targets: that.HeroSprite,
-				angle: that.HeroSprite.angle+20,
+				angle: that.HeroSprite.angle+angleAux,
 				duration: 1000,
 				onComplete: function(){
 				//Puede que PROBLEMA porque no se haya creado aun el texto en escena ????
-				DamageText = that.scene.add.text(that.cardContainer.x+20,that.cardContainer.y+50,'Damage test')
-				Promise.all([DamageTextTween(),that.updateLifeBarAnimation(input)]).then(function(){console.log("Esto se ejecuta despues de la vida y el texto")
+				DamageText = that.scene.add.text(that.cardContainer.x+20,that.cardContainer.y+50,Math.ceil(input.turnlog.TDamage));
+				Promise.all([DamageTextTween(angleAux),that.updateLifeBarAnimation(input)]).then(function(){console.log("Esto se ejecuta despues de la vida y el texto")
 					resolve()});
 				}
 			})

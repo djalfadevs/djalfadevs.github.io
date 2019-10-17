@@ -4,7 +4,7 @@
 class title extends Phaser.Scene{
 constructor(){
     super({key:"title"})
-    this.extend={nameform:null,passwordform:null,ENGroup:null,ESGroup:null}
+    this.extend={click:null,nameform:null,passwordform:null,ENGroup:null,ESGroup:null}
 }
 preload(){
     console.log("title")
@@ -13,7 +13,7 @@ preload(){
 }
 create(){
     var that=this;
-
+    this.extend.click=this.sound.add('click');
     var MasterATitle = this.add.sprite(950,320,'masterATitle').setScale(1.15,1.15);
     var contact=this.add.sprite(320,900,'largeConButt').setInteractive();
     var en4=this.add.text(160,860,'Contact us',{fontFamily:"Museo-700",fontSize:'69px',color:'#000',fontStyle:'bold'});
@@ -70,6 +70,7 @@ create(){
     //enter.on('pointerout',function(){this.setFrame(...)});
     //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
     var transition=function(str,t){
+    	t.extend.click.play();
     switch(str){
             case "play":
             t.scene.transition({target:'mainMenu',duration:0});
@@ -96,6 +97,10 @@ create(){
 }
 
 update(){
+	if(game.global.user.evol!=null){
+		this.extend.click.setVolume(game.global.user.evol)
+	}
+	
 	switch(game.global.user.lang){
 	case "ES":
 		
