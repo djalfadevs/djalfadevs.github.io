@@ -122,7 +122,7 @@ class collection extends Phaser.Scene{
         that.extend.ENGroup.add(en10);
     	//BOTONES
     	//Boton volver
-        var backButt=this.add.sprite(100,100,'backButt').setScale(1).setInteractive();
+        var backButt=this.add.sprite(85,80,'backButt').setInteractive()  
         backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
         backButt.on('pointerup',function(){this.setFrame(0)})
 
