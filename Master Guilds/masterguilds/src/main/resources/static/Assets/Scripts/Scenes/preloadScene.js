@@ -104,6 +104,9 @@ class preload extends Phaser.Scene{
         //FONDOS
         this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.jpg',{frameWidth:1920,frameHeight:1640});
         this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.jpg',{frameWidth:1920,frameHeight:1640});
+
+        //TESTING
+        this.load.spritesheet('fuego','Assets/Testing/fuego.jpg',{ frameWidth: 200, frameHeight: 200 });
 	}
 
 	create(){

@@ -152,11 +152,11 @@ class SimulationScene extends Phaser.Scene
 			.then(()=>{
 			//Hasta que no lleguen ambas cartas al sitio no puede continuar con esto
 			//MODIFICAR QUIZA EL ATTACKANIMATION DE UNA CARTA DEBA LLAMAR AL UPDATELIFEBAR DEL ENEMIGO
-				if(turnlog.isPhysicalHit)//Golpe Fisico
+				if(turnlog.isPhysicalHit && !(turnlog.abilityID!=null))//Golpe Fisico Exclusivamente
 				{
 					if(simulation.turn % 2 == 0)//Turno par
 					{
-					return allyCard.attackAnimation()
+					return allyCard.attackAnimation({isEnemy:false,enemy:enemyCard})
 				/*
 				.then(() => {console.log("Animacion de ataque aliado ")//DEBUG)
 							returnFunctionAux();
@@ -165,7 +165,7 @@ class SimulationScene extends Phaser.Scene
 					}
 					else //Turno impar
 					{
-					return enemyCard.attackAnimation()
+					return enemyCard.attackAnimation({isEnemy:true,enemy:allyCard})
 				/*
 				.then(() => {console.log("Animacion de ataque enemigo ")//DEBUG)
 							returnFunctionAux();
@@ -173,11 +173,11 @@ class SimulationScene extends Phaser.Scene
 				*/
 					}
 				}
-				else//Habilidad
+				else//Habilidad CON O SIN DAÑO
 				{
 					if(simulation.turn % 2 == 0)//Turno par
 					{
-					return allyCard.useAbilityAnimation()
+					return allyCard.useAbilityAnimation({isEnemy:false,enemy:enemyCard,turnlog:turnlog})
 				/*
 				.then(() => {console.log("Animacion de habilidad aliado");//DEBUG
 							returnFunctionAux();
@@ -188,7 +188,7 @@ class SimulationScene extends Phaser.Scene
 					else //Turno impar
 					{
 				//enemyCard.useAbilityAnimation();
-					return enemyCard.useAbilityAnimation()
+					return enemyCard.useAbilityAnimation({isEnemy:true,enemy:allyCard,turnlog:turnlog})
 				/*
 				.then(() => {console.log("Animacion de habilidad enemigo");//DEBUG
 							returnFunctionAux();

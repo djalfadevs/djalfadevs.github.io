@@ -38,7 +38,7 @@
                "baseEvasion":70,
                "abilities":[
                   {
-                     "id":4,
+                     "id":"4",
                      "name":"TRUESTRIKE II",
                      "baseActiveTurns":1,
                      "baseChargeTurns":7,
@@ -154,7 +154,7 @@
                "baseEvasion":0,
                "abilities":[
                   {
-                     "id":2,
+                     "id":"2",
                      "name":"HEAL I",
                      "baseActiveTurns":1,
                      "baseChargeTurns":6,
@@ -231,7 +231,7 @@
                "baseEvasion":30,
                "abilities":[
                   {
-                     "id":5,
+                     "id":"5",
                      "name":"LEECHLIFE II",
                      "baseActiveTurns":1,
                      "baseChargeTurns":5,
@@ -274,7 +274,7 @@
                "baseEvasion":30,
                "abilities":[
                   {
-                     "id":4,
+                     "id":"4",
                      "name":"TRUESTRIKE V",
                      "baseActiveTurns":1,
                      "baseChargeTurns":3,
@@ -317,7 +317,7 @@
                "baseEvasion":0,
                "abilities":[
                   {
-                     "id":1,
+                     "id":"1",
                      "name":"HEAL III",
                      "baseActiveTurns":1,
                      "baseChargeTurns":3,
@@ -426,7 +426,7 @@
                "baseEvasion":30,
                "abilities":[
                   {
-                     "id":5,
+                     "id":"5",
                      "name":"LEECHLIFE V",
                      "baseActiveTurns":1,
                      "baseChargeTurns":3,
