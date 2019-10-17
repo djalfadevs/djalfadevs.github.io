@@ -4,6 +4,7 @@
 class chapter extends Phaser.Scene{
     constructor(){
         super({key: 'chapter'})
+        this.extend={click:null}
     }
     preload(){
         this.add.image(960,540,'backWood');
@@ -18,6 +19,7 @@ class chapter extends Phaser.Scene{
     	//hacer inputenabled false y alphas aqui, NO LUEGO, AQUI!
     	
     	var that=this;
+    	this.extend.click=this.sound.add('click');
     	var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
         backButt.on('pointerdown',function(){this.setFrame(1)})
         backButt.on('pointerup',function(){this.setFrame(0);that.scene.transition({target:'mainMenu',duration:100})})
@@ -81,6 +83,7 @@ class chapter extends Phaser.Scene{
     	startButt.on('pointerout',function(){this.setFrame(0)});
     	
     	function infoShow(num,str){
+    		that.extend.click.play();
     		infoText2.setText("World "+num);
     		switch(str){
     		case "locked":
@@ -105,6 +108,7 @@ class chapter extends Phaser.Scene{
     		target=num;
     	}
     	function transition(target,that){
+    		that.extend.click.play();
     		//future switch for future levels will load different jsons!!!
     		console.log("star world"+target)
     		setTimeout(function(){that.scene.transition({target:'deck',duration:0});}, 2000)
@@ -134,5 +138,8 @@ class chapter extends Phaser.Scene{
 
             return simulation;  
         }
+    }
+    update(){
+    	this.extend.click.setVolume(game.global.user.evol);
     }
 }

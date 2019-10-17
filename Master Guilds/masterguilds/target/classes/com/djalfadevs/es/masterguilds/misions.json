@@ -157,7 +157,7 @@
                      "id":"2",
                      "name":"HEAL I",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":6,
+                     "baseChargeTurns":12,
                      "description":[
                         "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
                         "A burst of magical energy that enhances the recievers regeneration."
@@ -234,7 +234,7 @@
                      "id":"5",
                      "name":"LEECHLIFE II",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":5,
+                     "baseChargeTurns":10,
                      "description":[
                         "Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
                         "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
@@ -277,7 +277,7 @@
                      "id":"4",
                      "name":"TRUESTRIKE V",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":3,
+                     "baseChargeTurns":7,
                      "description":[
                         "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
                         "A perfectly aimed hit that completely bypass the targets defense."
@@ -318,9 +318,9 @@
                "abilities":[
                   {
                      "id":"1",
-                     "name":"HEAL III",
-                     "baseActiveTurns":1,
-                     "baseChargeTurns":3,
+                     "name":"HEAL II",
+                     "baseActiveTurns":2,
+                     "baseChargeTurns":8,
                      "description":[
                         "Cura las heridas de un aliado",
                         "Heal an ally"
@@ -427,9 +427,9 @@
                "abilities":[
                   {
                      "id":"5",
-                     "name":"LEECHLIFE V",
+                     "name":"LEECHLIFE IV",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":3,
+                     "baseChargeTurns":6,
                      "description":[
                         "Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
                         "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
@@ -471,8 +471,8 @@
                   {
                      "id":"2",
                      "name":"HEAL IV",
-                     "baseActiveTurns":2,
-                     "baseChargeTurns":4,
+                     "baseActiveTurns":4,
+                     "baseChargeTurns":10,
                      "description":[
                         "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
                         "A burst of magical energy that enhances the recievers regeneration."
@@ -514,8 +514,8 @@
                   {
                      "id":"1",
                      "name":"BUFFSTATS IV",
-                     "baseActiveTurns":4,
-                     "baseChargeTurns":6,
+                     "baseActiveTurns":3,
+                     "baseChargeTurns":12,
                      "description":[
                         "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
                         "A boost to all ally's combat abilities by channeling one's conviction."
@@ -557,8 +557,8 @@
                   {
                      "id":"1",
                      "name":"BUFFSTATS II",
-                     "baseActiveTurns":2,
-                     "baseChargeTurns":6,
+                     "baseActiveTurns":1,
+                     "baseChargeTurns":7,
                      "description":[
                         "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
                         "A boost to all ally's combat abilities by channeling one's conviction."
@@ -631,8 +631,8 @@
                   {
                      "id":"1",
                      "name":"BUFFSTATS V",
-                     "baseActiveTurns":3,
-                     "baseChargeTurns":6,
+                     "baseActiveTurns":6,
+                     "baseChargeTurns":12,
                      "description":[
                         "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
                         "A boost to all ally's combat abilities by channeling one's conviction."
@@ -644,7 +644,7 @@
                      "id":"3",
                      "name":"RAGE V",
                      "baseActiveTurns":3,
-                     "baseChargeTurns":6,
+                     "baseChargeTurns":8,
                      "description":[
                         "El usuario manipula su ira para subir su fuerza.",
                         "Users of this channel their anger to boost their brute strength."
@@ -690,7 +690,7 @@
                      "id":"1",
                      "name":"BUFFSTATS III",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":5,
+                     "baseChargeTurns":7,
                      "description":[
                         "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
                         "A boost to all ally's combat abilities by channeling one's conviction."
@@ -702,7 +702,7 @@
                      "id":"4",
                      "name":"TRUESTRIKE V",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":3,
+                     "baseChargeTurns":5,
                      "description":[
                         "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
                         "A perfectly aimed hit that completely bypass the targets defense."
@@ -744,8 +744,8 @@
                   {
                      "id":"2",
                      "name":"HEAL V",
-                     "baseActiveTurns":3,
-                     "baseChargeTurns":5,
+                     "baseActiveTurns":4,
+                     "baseChargeTurns":8,
                      "description":[
                         "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
                         "A burst of magical energy that enhances the recievers regeneration."
@@ -757,7 +757,7 @@
                      "id":"5",
                      "name":"LEECHLIFE V",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":3,
+                     "baseChargeTurns":5,
                      "description":[
                         "Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
                         "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
@@ -830,8 +830,8 @@
                   {
                      "id":"1",
                      "name":"BUFFSTATS V",
-                     "baseActiveTurns":3,
-                     "baseChargeTurns":6,
+                     "baseActiveTurns":6,
+                     "baseChargeTurns":12,
                      "description":[
                         "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
                         "A boost to all ally's combat abilities by channeling one's conviction."
@@ -843,7 +843,7 @@
                      "id":"3",
                      "name":"RAGE V",
                      "baseActiveTurns":3,
-                     "baseChargeTurns":6,
+                     "baseChargeTurns":8,
                      "description":[
                         "El usuario manipula su ira para subir su fuerza.",
                         "Users of this channel their anger to boost their brute strength."
@@ -889,7 +889,7 @@
                      "id":"1",
                      "name":"BUFFSTATS III",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":5,
+                     "baseChargeTurns":7,
                      "description":[
                         "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
                         "A boost to all ally's combat abilities by channeling one's conviction."
@@ -901,7 +901,7 @@
                      "id":"4",
                      "name":"TRUESTRIKE V",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":3,
+                     "baseChargeTurns":5,
                      "description":[
                         "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
                         "A perfectly aimed hit that completely bypass the targets defense."
@@ -943,8 +943,8 @@
                   {
                      "id":"2",
                      "name":"HEAL V",
-                     "baseActiveTurns":3,
-                     "baseChargeTurns":5,
+                     "baseActiveTurns":4,
+                     "baseChargeTurns":8,
                      "description":[
                         "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
                         "A burst of magical energy that enhances the recievers regeneration."
@@ -956,7 +956,7 @@
                      "id":"5",
                      "name":"LEECHLIFE V",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":3,
+                     "baseChargeTurns":5,
                      "description":[
                         "Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
                         "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
@@ -998,8 +998,8 @@
                   {
                      "id":"1",
                      "name":"BUFFSTATS II",
-                     "baseActiveTurns":2,
-                     "baseChargeTurns":5,
+                     "baseActiveTurns":4,
+                     "baseChargeTurns":10,
                      "description":[
                         "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
                         "A boost to all ally's combat abilities by channeling one's conviction."
@@ -1040,9 +1040,9 @@
                "abilities":[
                   {
                      "id":"4",
-                     "name":"TRUESTRIKE V",
+                     "name":"TRUESTRIKE IV",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":3,
+                     "baseChargeTurns":7,
                      "description":[
                         "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
                         "A perfectly aimed hit that completely bypass the targets defense."
@@ -1084,8 +1084,8 @@
                   {
                      "id":"2",
                      "name":"HEAL IV",
-                     "baseActiveTurns":2,
-                     "baseChargeTurns":4,
+                     "baseActiveTurns":4,
+                     "baseChargeTurns":10,
                      "description":[
                         "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
                         "A burst of magical energy that enhances the recievers regeneration."

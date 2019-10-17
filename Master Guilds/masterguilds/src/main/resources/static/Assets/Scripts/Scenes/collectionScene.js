@@ -44,12 +44,15 @@ class collection extends Phaser.Scene{
     create(){
     	this.extend.click=this.sound.add('click')
     	this.extend.draw1=this.sound.add('draw1');
+        this.extend.click.setVolume(game.global.user.evol)
+        this.extend.draw1.setVolume(game.global.user.evol)
+
     	var that=this;
     	var en1=this.add.text(250,10,'Collection',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 		var es1=this.add.text(250,10,'Colección',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
     	that.extend.numberOfPages = Math.ceil(game.global.user.heros.length/9);
     		
-    	that.extend.numberOfPageText = this.add.text(1770,920,that.extend.numberOfPage,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
+    	that.extend.numberOfPageText = this.add.text(1770,920,that.extend.numberOfPage+1,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
         this.add.text(1800,940,"/",{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
     	var numberOfPagesText = this.add.text(1820,950,that.extend.numberOfPages,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
 
@@ -124,6 +127,9 @@ class collection extends Phaser.Scene{
         that.extend.ENGroup.add(en8);
         that.extend.ENGroup.add(en9);
         that.extend.ENGroup.add(en10);
+
+
+        this.lenguajeupdate();
     	//BOTONES
     	//Boton volver
         var backButt=this.add.sprite(85,80,'backButt').setInteractive()  
@@ -135,7 +141,7 @@ class collection extends Phaser.Scene{
         UpArrowButt.on('pointerup',function(){
         	that.extend.click.play();
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
-            that.extend.numberOfPageText.setText(that.extend.numberOfPage);
+            that.extend.numberOfPageText.setText(that.extend.numberOfPage+1);
             that.drawCards(that.extend.numberOfPage)
             ;})
 
@@ -146,7 +152,7 @@ class collection extends Phaser.Scene{
             if(that.extend.numberOfPage<0){
                 that.extend.numberOfPage=that.extend.numberOfPages-1;
             }
-            that.extend.numberOfPageText.setText(that.extend.numberOfPage);
+            that.extend.numberOfPageText.setText(that.extend.numberOfPage+1);
             that.drawCards(that.extend.numberOfPage)
             ;})
 
@@ -185,56 +191,61 @@ class collection extends Phaser.Scene{
     	
     }
     update(){
-    	this.extend.click.setVolume(game.global.user.evol)
-    	this.extend.draw1.setVolume(game.global.user.evol)
-		 switch(game.global.user.lang){
-		case "ES":
-			
-			this.extend.ENGroup.alpha=0;
-			this.extend.ESGroup.alpha=1;
-			this.extend.text.lore.alpha=1;
-			this.extend.text.loreEN.alpha=0;
-			this.extend.text.abilities0d.alpha=1;
-		    this.extend.text.abilities1d.alpha=1;
-		    this.extend.text.abilities0dEN.alpha=0;
-		    this.extend.text.abilities1dEN.alpha=0;
-			
-			
-			break;
-		case "EN":
-			
-			this.extend.ENGroup.alpha=1;
-			this.extend.ESGroup.alpha=0;
-			this.extend.text.lore.alpha=0;
-			this.extend.text.loreEN.alpha=1;
-			this.extend.text.abilities0d.alpha=0;
-		    this.extend.text.abilities1d.alpha=0;
-		    this.extend.text.abilities0dEN.alpha=1;
-		    this.extend.text.abilities1dEN.alpha=1;
-			break;
-		default:
-			break;
-		}
-
-		 switch(this.extend.text.rarity.text){
-		 case "1":
-			 this.extend.star1.alpha=1;
-			 this.extend.star3.alpha=0;
-			 this.extend.star5.alpha=0;
-			 break;
-		 case "3":
-			 this.extend.star1.alpha=0;
-			 this.extend.star3.alpha=1;
-			 this.extend.star5.alpha=0;
-			 break;
-		 case "5":
-			 this.extend.star1.alpha=0;
-			 this.extend.star3.alpha=0;
-			 this.extend.star5.alpha=1;
-			 break;
-		default:
-			console.log(this.extend.text)
-			break;
-		 }
+		 
 	}
+
+    lenguajeupdate(){
+        switch(game.global.user.lang){
+        case "ES":
+            
+            this.extend.ENGroup.alpha=0;
+            this.extend.ESGroup.alpha=1;
+            this.extend.text.lore.alpha=1;
+            this.extend.text.loreEN.alpha=0;
+            this.extend.text.abilities0d.alpha=1;
+            this.extend.text.abilities1d.alpha=1;
+            this.extend.text.abilities0dEN.alpha=0;
+            this.extend.text.abilities1dEN.alpha=0;
+            
+            
+            break;
+        case "EN":
+            
+            this.extend.ENGroup.alpha=1;
+            this.extend.ESGroup.alpha=0;
+            this.extend.text.lore.alpha=0;
+            this.extend.text.loreEN.alpha=1;
+            this.extend.text.abilities0d.alpha=0;
+            this.extend.text.abilities1d.alpha=0;
+            this.extend.text.abilities0dEN.alpha=1;
+            this.extend.text.abilities1dEN.alpha=1;
+            break;
+        default:
+            break;
+        }
+
+    }
+
+    startsupdate(){
+        switch(this.extend.text.rarity.text){
+         case "1":
+             this.extend.star1.alpha=1;
+             this.extend.star3.alpha=0;
+             this.extend.star5.alpha=0;
+             break;
+         case "3":
+             this.extend.star1.alpha=0;
+             this.extend.star3.alpha=1;
+             this.extend.star5.alpha=0;
+             break;
+         case "5":
+             this.extend.star1.alpha=0;
+             this.extend.star3.alpha=0;
+             this.extend.star5.alpha=1;
+             break;
+        default:
+            console.log(this.extend.text)
+            break;
+         }
+    }
 }

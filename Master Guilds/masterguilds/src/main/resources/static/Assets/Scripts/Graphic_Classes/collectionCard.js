@@ -50,6 +50,7 @@ var CollectionCard = new Phaser.Class({
 					that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
 			}
 
+			that.scene.startsupdate();//Cambia las estrellas que se muestran en la escena
 		})
 		}
 		//En el caso del deck despues de seleccionar mision
@@ -78,7 +79,7 @@ var CollectionCard = new Phaser.Class({
 				that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
 			}
 			
-
+			that.scene.startsupdate();//Cambia las estrellas que se muestran en la escena
 			//NUEVO DE ESTA ESCENA
 			if(game.global.simulation.allies.canAddMember({actor:that.simulationHero}).canBeAdded){
 

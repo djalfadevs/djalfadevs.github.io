@@ -181,7 +181,7 @@ class SimulationScene extends Phaser.Scene
 				{
 					if(simulation.turn % 2 == 0)//Turno par
 					{
-					return allyCard.attackAnimation({isEnemy:false,enemy:enemyCard})
+					return allyCard.attackAnimation({isEnemy:false,enemy:enemyCard,turnlog:turnlog})
 				/*
 				.then(() => {console.log("Animacion de ataque aliado ")//DEBUG)
 							returnFunctionAux();
@@ -190,7 +190,7 @@ class SimulationScene extends Phaser.Scene
 					}
 					else //Turno impar
 					{
-					return enemyCard.attackAnimation({isEnemy:true,enemy:allyCard})
+					return enemyCard.attackAnimation({isEnemy:true,enemy:allyCard,turnlog:turnlog})
 				/*
 				.then(() => {console.log("Animacion de ataque enemigo ")//DEBUG)
 							returnFunctionAux();
