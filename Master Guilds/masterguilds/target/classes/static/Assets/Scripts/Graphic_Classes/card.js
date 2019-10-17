@@ -146,7 +146,13 @@ var Card = new Phaser.Class({
 
     				that.scene.anims.create(animConfig);
 
-    				var resolveFunct = function(){resolve()}
+    				var resolveFunct = function(){
+    					var auxSprite = that.scene.add.sprite(25,-150,'AllBuff').setDepth(5);
+    					auxSprite.IDAbility = "1";//Esto me sirve para luego borrar el sprite cuando se vaya el efecto
+    					input.tarjet.cardContainer.add(auxSprite);
+    					input.tarjet.buffSprites.push(auxSprite);
+    					resolve()
+    				}
 
     				AuxParticle.on('animationcomplete', resolveFunct, this);
 
@@ -201,7 +207,13 @@ var Card = new Phaser.Class({
 
     				that.scene.anims.create(animConfig);
 
-    				var resolveFunct = function(){resolve()}
+    				var resolveFunct = function(){
+    					var auxSprite = that.scene.add.sprite(-25,-150,'AttackBuff').setDepth(5);
+    					auxSprite.IDAbility = "3";//Esto me sirve para luego borrar el sprite cuando se vaya el efecto
+    					input.tarjet.cardContainer.add(auxSprite);
+    					input.tarjet.buffSprites.push(auxSprite);
+    					resolve()
+    				}
 
     				AuxParticle.on('animationcomplete', resolveFunct, this);
 
@@ -279,7 +291,21 @@ var Card = new Phaser.Class({
 			onComplete: function(){resolve();}
 			})
 		})	
-	}
+	},
 
+	resetDrawBuffs(){
+		var that = this;
+		var borrar = true;
+		for(var jaux2 = 0;jaux2 < that.buffSprites.length ;jaux2++){
+			for(var jaux = 0;jaux < that.hero.activeAbilities.length; jaux++){
+				if(that.hero.activeAbilities[jaux].ID == that.buffSprites[jaux2].IDAbility){
+					borrar = false;
+					}
+				}
+				if(borrar){
+					that.buffSprites[jaux2].destroy();
+				}
+		}
+	}
 
 })

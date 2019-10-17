@@ -100,15 +100,31 @@ class preload extends Phaser.Scene{
         this.load.image('azon_shield_cg','Assets/Sprites/UI-UX/cartas/azon_shield_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('azon_medic_cp','Assets/Sprites/UI-UX/cartas/azon_medic_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('azon_medic_cg','Assets/Sprites/UI-UX/cartas/azon_medic_carta_grande.png',{frameWidth:346,frameHeight:507});
-
-        //FONDOS
-        this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.jpg',{frameWidth:1920,frameHeight:1640});
-        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.jpg',{frameWidth:1920,frameHeight:1640});
+        
+        this.load.image('1star','Assets/Sprites/UI-UX/estrella_1.png',{frameWidth:1125,frameHeight:1070});
+        this.load.image('3star','Assets/Sprites/UI-UX/estrella_3.png',{frameWidth:3465,frameHeight:1070});
+        this.load.image('5star','Assets/Sprites/UI-UX/estrella_5.png',{frameWidth:5805,frameHeight:1070});
+        
 
         //TESTING
         this.load.spritesheet('fuego','Assets/Testing/fuego.jpg',{ frameWidth: 200, frameHeight: 200 });
-	}
 
+        //FONDOS
+        this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_steampunk.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_arena.png',{frameWidth:1920,frameHeight:1640});
+
+        //VICTORIA y DERROTA
+        this.load.image('TextWinEN','Assets/Sprites/UI-UX/VictoriayDerrota/VictoryEnglishFinal1.png',{frameWidth:1100,frameHeight:300});
+        this.load.image('TextWinES','Assets/Sprites/UI-UX/VictoriayDerrota/VictorySpanishFinal1.png',{frameWidth:1100,frameHeight:300});
+        this.load.image('TextDefeatEN','Assets/Sprites/UI-UX/VictoriayDerrota/DefeatEnglishFinal.png',{frameWidth:1100,frameHeight:300});
+        this.load.image('TextDefeatES','Assets/Sprites/UI-UX/VictoriayDerrota/DefeatSpanishFinal.png',{frameWidth:1100,frameHeight:300});
+
+        //BUFFS
+        this.load.image('AttackBuff','Assets/Sprites/UI-UX/Buffs/buffatacico.png',{frameWidth:50,frameHeight:50});
+        this.load.image('AllBuff','Assets/Sprites/UI-UX/Buffs/buffstatico.png',{frameWidth:50,frameHeight:50});
+    }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero
 		//tween to fade and change scene

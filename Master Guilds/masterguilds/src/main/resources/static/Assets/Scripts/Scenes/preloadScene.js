@@ -114,6 +114,16 @@ class preload extends Phaser.Scene{
         this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.png',{frameWidth:1920,frameHeight:1640});
         this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_steampunk.png',{frameWidth:1920,frameHeight:1640});
         this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_arena.png',{frameWidth:1920,frameHeight:1640});
+
+        //VICTORIA y DERROTA
+        this.load.image('TextWinEN','Assets/Sprites/UI-UX/VictoriayDerrota/VictoryEnglishFinal1.png',{frameWidth:1100,frameHeight:300});
+        this.load.image('TextWinES','Assets/Sprites/UI-UX/VictoriayDerrota/VictorySpanishFinal1.png',{frameWidth:1100,frameHeight:300});
+        this.load.image('TextDefeatEN','Assets/Sprites/UI-UX/VictoriayDerrota/DefeatEnglishFinal.png',{frameWidth:1100,frameHeight:300});
+        this.load.image('TextDefeatES','Assets/Sprites/UI-UX/VictoriayDerrota/DefeatSpanishFinal.png',{frameWidth:1100,frameHeight:300});
+
+        //BUFFS
+        this.load.image('AttackBuff','Assets/Sprites/UI-UX/Buffs/buffatacico.png',{frameWidth:50,frameHeight:50});
+        this.load.image('AllBuff','Assets/Sprites/UI-UX/Buffs/buffstatico.png',{frameWidth:50,frameHeight:50});
     }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero
