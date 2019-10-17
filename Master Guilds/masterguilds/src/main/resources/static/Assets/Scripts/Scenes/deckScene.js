@@ -13,6 +13,8 @@ class deck extends Phaser.Scene{
             numberOfPageText:null,
             bigcardSprite:null,
             text:{
+            	click:null,
+            	draw1:null,
                 name: null,
                 attack: null,
                 defense: null,
@@ -39,6 +41,7 @@ class deck extends Phaser.Scene{
     }
     create(){
     	var that=this;
+    	this.extend.click=this.sound.add('click');
         that.extend.alliesCards = [];
     	var en1=this.add.text(250,10,'Team selection',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 		var es1=this.add.text(250,10,'Selección de equipo',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
@@ -115,12 +118,14 @@ class deck extends Phaser.Scene{
         var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
         backButt.on('pointerdown',function(){this.setFrame(1)})
         backButt.on('pointerup',function(){this.setFrame(0);
+        	that.extend.click.play();
             game.global.simulation.SetSimulationtoStartState();
             that.scene.transition({target:'chapter',duration:0})
         })
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
+        	that.extend.click.play();
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
             that.extend.numberOfPageText.setText(that.extend.numberOfPage+1);
             that.drawCards(that.extend.numberOfPage)
@@ -129,6 +134,7 @@ class deck extends Phaser.Scene{
 
         var DownArrowButt=this.add.sprite(1350,1000,'DownArrow').setScale(1).setInteractive();
         DownArrowButt.on('pointerup',function(){
+        	that.extend.click.play();
             that.extend.numberOfPage-=1
             if(that.extend.numberOfPage<0){
                 that.extend.numberOfPage=that.extend.numberOfPages-1;
@@ -140,6 +146,7 @@ class deck extends Phaser.Scene{
 
         var EnterSimulationButt = this.add.sprite(520,850,'largeButt').setScale(1).setDepth(4).setInteractive()
         EnterSimulationButt.on('pointerup',function(){
+        	that.extend.click.play();
             setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
         })
         //EnterSimulationButt.setDepth(2);
@@ -152,6 +159,7 @@ class deck extends Phaser.Scene{
         this.drawCards(that.extend.numberOfPage);
 
         var transition=function(str,t){
+        	t.extend.click.play();
             switch(str){
                 case "back":
                 t.scene.transition({target:'mainMenu',duration:100});
@@ -192,6 +200,10 @@ class deck extends Phaser.Scene{
     }
     
     update(){
+    	this.extend.click.setVolume(game.global.user.evol)
+    	if(this.extend.draw1!=null){
+    		this.extend.draw1.setVolume(game.global.user.evol)
+    	}
 		 switch(game.global.user.lang){
 		case "ES":
 			

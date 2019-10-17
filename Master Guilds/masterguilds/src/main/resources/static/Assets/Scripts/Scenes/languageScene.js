@@ -5,7 +5,7 @@
 class lang extends Phaser.Scene{
     constructor(){
         super({key:'lang'})
-        this.extend={ESGroup:null,ENGroup:null}
+        this.extend={click:null,ESGroup:null,ENGroup:null}
     }
 preload(){
     console.log("LANGUAGE")
@@ -13,7 +13,7 @@ preload(){
 }
 create(){
     var that = this;
-    
+    this.extend.click=this.sound.add('click');
     console.log(game.global.user.lang)
     //might go bw 
    var LATINOButt=this.add.sprite(500,800,'largeButt').setInteractive()
@@ -69,6 +69,8 @@ create(){
         //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
         
            var transition=function(str){
+  	    	 that.extend.click.play();
+
             switch(str){
             case "LATINO":
             //console.log(game.global.user.lang)
@@ -107,6 +109,7 @@ create(){
 }
 
 update(){
+	this.extend.click.setVolume(game.global.user.evol)
 	switch(game.global.user.lang){
 	case "ES":
 		

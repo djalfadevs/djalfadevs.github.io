@@ -5,7 +5,7 @@
 class mainMenu extends Phaser.Scene{
     constructor(){
         super({key:'mainMenu'})
-        this.extend={ENGroup:null,ESGroup:null,ensub:null,essub:null}
+        this.extend={click:null,ENGroup:null,ESGroup:null,ensub:null,essub:null}
     }
 
 	preload(){
@@ -15,6 +15,8 @@ class mainMenu extends Phaser.Scene{
 
 	create(){
 		var that=this;
+		
+		this.extend.click=this.sound.add('click');
         //var botCombate=this.add.sprite('').setInteractive({useHandCursor:true});
         //var bot Galeria=this.add.sprite().setInteractive({useHandCursor});
         console.log("mainMenu")
@@ -133,6 +135,7 @@ class mainMenu extends Phaser.Scene{
         ///////////////////////////////////////////////
 
         function transition(str){
+        	that.extend.click.play();
             switch(str){
                 case "playHistory":
                     that.scene.transition({target:'chapter',duration:100});
@@ -161,6 +164,7 @@ class mainMenu extends Phaser.Scene{
 	   }
     }
 	update(){
+		this.extend.click.setVolume(game.global.user.evol)
 		switch(game.global.user.lang){
 		case "ES":
 			
@@ -192,6 +196,16 @@ class comingSoonQ extends Phaser.Scene{
 	}
 	create(){
 		var that=this
+		var config={
+	            mute: false,
+	            volume: game.global.user.EVol,
+	            rate: 1,
+	            detune: 0,
+	            seek: 0,
+	            loop: false,
+	            delay: 0
+	        }
+	   	 	var click=this.sound.add('click',config);
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,440,'mediumInfo');
 		this.add.text(800,300,"Coming\n Soon!!",{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
@@ -201,6 +215,7 @@ class comingSoonQ extends Phaser.Scene{
 		okButt.on('pointerdown',function(){this.setFrame(1)})
 		
 		okButt.on('pointerup',function(){
+			click.play();
 			this.setFrame(0);
 			that.scene.resume('mainMenu');
 			that.scene.stop();
@@ -211,9 +226,11 @@ class comingSoonQ extends Phaser.Scene{
 class newsPop extends Phaser.Scene{
 	constructor(){
 		super({key:'newsPop'})
+		this.extend={click:null}
 	}
 	create(){
 		var that=this
+		this.extend.click=this.sound.add('click');
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,500,'largeInfo');
 		this.add.text(800,300,"Coming\n Soon!!",{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
@@ -223,10 +240,14 @@ class newsPop extends Phaser.Scene{
 		okButt.on('pointerdown',function(){this.setFrame(1)})
 		
 		okButt.on('pointerup',function(){
-			this.setFrame(0);
+			click.play();
+			that.setFrame(0);
 			that.scene.resume('mainMenu');
 			that.scene.stop();
 		});
+	}
+	update(){
+		this.extend.click.setVolume(game.global.user.evol)
 	}
 	}
 
