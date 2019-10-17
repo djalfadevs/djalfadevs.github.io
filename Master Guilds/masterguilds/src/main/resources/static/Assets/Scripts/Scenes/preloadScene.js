@@ -125,6 +125,9 @@ class preload extends Phaser.Scene{
         //BUFFS
         this.load.image('AttackBuff','Assets/Sprites/UI-UX/Buffs/buffatacico.png',{frameWidth:50,frameHeight:50});
         this.load.image('AllBuff','Assets/Sprites/UI-UX/Buffs/buffstatico.png',{frameWidth:50,frameHeight:50});
+        
+        this.load.audio('click','Assets/Sounds/Click.wav');
+        this.load.audio('draw1','Assets/Sounds/Deal1CardV1.wav')
 
     }
 	create(){
@@ -141,5 +144,6 @@ class preload extends Phaser.Scene{
 
 	update(){
         //not needed for now...
+		
 	}
 }
