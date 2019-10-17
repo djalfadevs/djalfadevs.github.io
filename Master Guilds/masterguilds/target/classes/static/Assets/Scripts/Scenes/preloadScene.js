@@ -30,6 +30,7 @@ class preload extends Phaser.Scene{
         this.load.image('setNotSel','Assets/Sprites/UI-UX/ajustes_no_seleccionado.png',{frameWidth:75,frameHeight:88});
         this.load.image('lifeBar','Assets/Sprites/UI-UX/barra_vida_salud.png',{frameWidth:399,frameHeight:29});
         this.load.image('lifeBarBg','Assets/Sprites/UI-UX/barra_vida.png',{frameWidth:443,frameHeight:54});
+        this.load.image('lifeBarBg2','Assets/Sprites/UI-UX/barra_vidaSup.png',{frameWidth:443,frameHeight:54});
         this.load.spritesheet('backButt','Assets/Sprites/UI-UX/boton_atras.png',{frameWidth:155,frameHeight:137});
         //load.setFrame(2);
         this.load.spritesheet('helpButt','Assets/Sprites/UI-UX/boton_ayuda.png',{frameWidth:110,frameHeight:97});
@@ -124,6 +125,7 @@ class preload extends Phaser.Scene{
         //BUFFS
         this.load.image('AttackBuff','Assets/Sprites/UI-UX/Buffs/buffatacico.png',{frameWidth:50,frameHeight:50});
         this.load.image('AllBuff','Assets/Sprites/UI-UX/Buffs/buffstatico.png',{frameWidth:50,frameHeight:50});
+
     }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero

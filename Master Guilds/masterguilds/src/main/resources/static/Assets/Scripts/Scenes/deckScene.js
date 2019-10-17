@@ -39,12 +39,13 @@ class deck extends Phaser.Scene{
     }
     create(){
     	var that=this;
+        that.extend.alliesCards = [];
     	var en1=this.add.text(250,10,'Team selection',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 		var es1=this.add.text(250,10,'Selección de equipo',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 
     	that.extend.numberOfPages = Math.ceil(game.global.user.heros.length/9);
     		
-    	that.extend.numberOfPageText = this.add.text(1770,920,that.extend.numberOfPage,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
+    	that.extend.numberOfPageText = this.add.text(1770,920,that.extend.numberOfPage+1,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
         this.add.text(1800,940,"/",{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
     	var numberOfPagesText = this.add.text(1820,950,that.extend.numberOfPages,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'});
 
@@ -113,12 +114,15 @@ class deck extends Phaser.Scene{
     	//Boton volver
         var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
         backButt.on('pointerdown',function(){this.setFrame(1)})
-        backButt.on('pointerup',function(){this.setFrame(0);that.scene.transition({target:'chapter',duration:100})})
+        backButt.on('pointerup',function(){this.setFrame(0);
+            game.global.simulation.SetSimulationtoStartState();
+            that.scene.transition({target:'chapter',duration:0})
+        })
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
-            that.extend.numberOfPageText.setText(that.extend.numberOfPage);
+            that.extend.numberOfPageText.setText(that.extend.numberOfPage+1);
             that.drawCards(that.extend.numberOfPage)
          
             ;})
@@ -129,19 +133,19 @@ class deck extends Phaser.Scene{
             if(that.extend.numberOfPage<0){
                 that.extend.numberOfPage=that.extend.numberOfPages-1;
             }
-            that.extend.numberOfPageText.setText(that.extend.numberOfPage);
+            that.extend.numberOfPageText.setText(that.extend.numberOfPage+1);
             that.drawCards(that.extend.numberOfPage)
 
             ;})
 
-        var EnterSimulationButt = this.add.sprite(520,850,'largeButt').setScale(1).setInteractive();
+        var EnterSimulationButt = this.add.sprite(520,850,'largeButt').setScale(1).setDepth(4).setInteractive()
         EnterSimulationButt.on('pointerup',function(){
             setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
         })
-        EnterSimulationButt.setDepth(2);
+        //EnterSimulationButt.setDepth(2);
 
-        var en11=this.add.text(440,800,"Start",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(3)
-        var es11=this.add.text(370,800,"Empezar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(3)
+        var en11=this.add.text(440,800,"Start",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+        var es11=this.add.text(370,800,"Empezar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
         that.extend.ENGroup.add(en11);
         that.extend.ESGroup.add(es11);
         

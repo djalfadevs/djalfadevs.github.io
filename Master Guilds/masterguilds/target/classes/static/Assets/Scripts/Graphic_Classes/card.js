@@ -12,16 +12,19 @@ var Card = new Phaser.Class({
 
 		//Rectangulo con la barra de vida se dibujo antes que el marco de la vida
 
-		this.lifeRect = scene.add.rectangle(0,0-100,100,20,6422272);
+		this.lifeRect = scene.add.rectangle(0,135,145,10,6422272);
 		
-		//Marco de la vida
-		//this.lifeBarSprite = scene.add.sprite(x,y-100,'pause');
+		//Marco de la vida Abajo
+		this.lifeBarSprite = scene.add.sprite(0,135,'lifeBarBg').setScale(1/3);
+
+		//Marco de la vida Arriba
+		this.lifeBarSpriteSup = scene.add.sprite(0,135,'lifeBarBg2').setScale(1/3);
 
 		//Lista con referencia a los sprite que representan los bufos
 		this.buffSprites = [];
 
 		//USAR CONTAINER SI TENEMOS QUE TENER UN ORDEN DE RENDERIZADO 
-		this.cardContainer = scene.add.container(0,0,[this.HeroSprite,this.lifeRect]);
+		this.cardContainer = scene.add.container(0,0,[this.HeroSprite,this.lifeBarSprite,this.lifeRect,this.lifeBarSpriteSup]);
 		this.cardContainer.setPosition(x,y)
 
 		

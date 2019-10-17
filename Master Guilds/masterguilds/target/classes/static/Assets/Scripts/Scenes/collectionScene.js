@@ -59,7 +59,7 @@ class collection extends Phaser.Scene{
         this.extend.text.evasion = this.add.text(690,668,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.aggro = this.add.text(660,708,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.rarity = this.add.text(200,200,"").setDepth(1);
-        this.extend.text.rarity.alpha=0
+        this.extend.text.rarity.alpha=0;
         this.extend.text.crit_hit_chance = this.add.text(800,748,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.abilities0 = this.add.text(150,820,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.abilities1 = this.add.text(150,860,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
@@ -122,7 +122,7 @@ class collection extends Phaser.Scene{
         that.extend.ENGroup.add(en10);
     	//BOTONES
     	//Boton volver
-        var backButt=this.add.sprite(100,100,'backButt').setScale(1).setInteractive();
+        var backButt=this.add.sprite(85,80,'backButt').setInteractive()  
         backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
         backButt.on('pointerup',function(){this.setFrame(0)})
 
@@ -206,7 +206,7 @@ class collection extends Phaser.Scene{
 			break;
 		}
 
-		 switch(this.extend.text.rarity){
+		 switch(this.extend.text.rarity.text){
 		 case "1":
 			 this.extend.star1.alpha=1;
 			 this.extend.star3.alpha=0;
