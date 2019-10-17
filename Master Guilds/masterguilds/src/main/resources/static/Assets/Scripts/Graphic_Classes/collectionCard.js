@@ -10,6 +10,7 @@ var CollectionCard = new Phaser.Class({
 		this.yG = yG;
 		
 		var that= this;
+		
 		//Imagen de la carta de personaje
 		this.HeroSprite = scene.add.sprite(0,0,that.hero.image_url[0]).setScale(1,1).setInteractive();
 
@@ -20,6 +21,7 @@ var CollectionCard = new Phaser.Class({
 		//En el caso del inventario de cartas
 		if(that.scene.scene.key=="collection"){
 			that.HeroSprite.on('pointerdown',function(){
+				that.scene.extend.draw1.play();
 			that.scene.extend.text.name.setText(that.hero.name);
             that.scene.extend.text.lore.setText(that.hero.description[0]);
             that.scene.extend.text.loreEN.setText(that.hero.description[1]);
@@ -53,6 +55,7 @@ var CollectionCard = new Phaser.Class({
 		//En el caso del deck despues de seleccionar mision
 		else if(that.scene.scene.key=="deck"){
 			that.HeroSprite.on('pointerdown',function(){
+				that.scene.extend.draw1.play();
 			that.scene.extend.text.name.setText(that.hero.name);
             that.scene.extend.text.attack.setText(that.hero.baseAttack)
             that.scene.extend.text.defense.setText(that.hero.baseDefence)
