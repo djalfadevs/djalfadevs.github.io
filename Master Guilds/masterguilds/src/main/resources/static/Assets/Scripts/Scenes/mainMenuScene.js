@@ -48,10 +48,10 @@ class mainMenu extends Phaser.Scene{
         //var news=this.add.sprite(1450,360,'newsPaper').setInteractive()
         var news=this.add.sprite(1450,650,'newsPaper').setInteractive()
         
-        news.on('pointerup',function(){
-        	that.scene.launch('newsPop')
-        	that.scene.pause();
-        })
+        //news.on('pointerup',function(){
+        	//that.scene.launch('newsPop')
+        	//that.scene.pause();
+        //})
         
         backButt.on('pointerdown',function(){this.setFrame(1);})
         backButt.on('pointerup',function(){this.setFrame(0);transition("back",that)})
