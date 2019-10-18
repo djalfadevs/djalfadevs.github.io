@@ -19,8 +19,8 @@ create(){
     var en4=this.add.text(160,860,'Contact us',{fontFamily:"Museo-700",fontSize:'69px',color:'#000',fontStyle:'bold'});
     var es4=this.add.text(170,860,'Contacto',{fontFamily:"Museo-700",fontSize:'69px',color:'#000',fontStyle:'bold'});
     var play=this.add.sprite(950,650,'largeButt').setInteractive();
-    var en1=this.add.text(880,610,'Play',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-    var es1=this.add.text(850,610,'Jugar',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+    var en1=this.add.text(880,610,'Play',{fontFamily:"Museo-700" ,fontSize:'75px',color:'#000',fontStyle:'bold'})
+    var es1=this.add.text(850,610,'Jugar',{fontFamily:"Museo-700" ,fontSize:'75px',color:'#000',fontStyle:'bold'})
     var settings=this.add.sprite(950,900,'largeSetButt').setInteractive();
     var en2=this.add.text(840,860,'Settings',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
     var es2=this.add.text(850,860,'Ajustes',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
