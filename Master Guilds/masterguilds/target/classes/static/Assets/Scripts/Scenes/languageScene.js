@@ -14,6 +14,7 @@ preload(){
 create(){
     var that = this;
     this.extend.click=this.sound.add('click');
+	this.extend.click.setVolume(game.global.user.evol)
     console.log(game.global.user.lang)
     //might go bw 
    var LATINOButt=this.add.sprite(500,800,'largeButt').setInteractive()
@@ -53,7 +54,13 @@ create(){
     
     LATINOButt.on('pointerup',function(){this.setFrame(0);transition("LATINO")});
     ENGLISHButt.on('pointerup',function(){this.setFrame(0);transition("ENGLISH")});
-    backButt.on('pointerup',function(){this.setFrame(0);transition("back")});
+    backButt.on('pointerup',function(){this.setFrame(0);
+        var msg = new Object();
+        msg.event = "UPDATEUSERINFO"
+        msg.userAux = new User(game.global.user);
+        game.global.socket.send(JSON.stringify(msg))
+      transition("back")
+    });
     
     LATINOButt.on('pointerout',function(){this.setFrame(0)});
     ENGLISHButt.on('pointerout',function(){this.setFrame(0)});
@@ -109,7 +116,7 @@ create(){
 }
 
 update(){
-	this.extend.click.setVolume(game.global.user.evol)
+
 	switch(game.global.user.lang){
 	case "ES":
 		

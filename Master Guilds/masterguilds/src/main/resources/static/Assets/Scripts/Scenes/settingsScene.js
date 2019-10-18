@@ -76,7 +76,15 @@ class settings extends Phaser.Scene{
         that.extend.ENGroup.add(en3);
         
         backButt.on('pointerdown',function(){this.setFrame(1)});
-        backButt.on('pointerup',function(){this.setFrame(0);transition("back")})
+        backButt.on('pointerup',function(){this.setFrame(0);
+        		var msg = new Object();
+				msg.event = "UPDATEUSERINFO"
+				msg.userAux = new User(game.global.user);
+				var msgS = JSON.stringify(msg)
+				game.global.socket.send(msgS)
+        	transition("back")
+        })
+
         backButt.on('pointerout',function(){this.setFrame(0)});
 
         addMB.on('pointerdown',function(){this.setFrame(1)});
