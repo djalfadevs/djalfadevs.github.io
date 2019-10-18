@@ -48,7 +48,7 @@ class PauseScene extends Phaser.Scene
 			this.setFrame(0)
 		})
 		this.extend.resumeButton.on('pointerup',function(){
-			click.play();
+			that.extend.click.play();
 			this.setFrame(0);
 			that.scene.resume('SimulationScene');
 			
@@ -67,10 +67,10 @@ class PauseScene extends Phaser.Scene
 			game.global.simulation.resetSimulation();
 			game.global.simulation.SetSimulationtoStartState();
     		that.scene.transition({target:'chapter',duration:0});
+
 		})
-	}
-	update(){
-		this.extend.click.setVolume(game.global.user.evol)
+
+    	this.extend.click.setVolume(game.global.user.evol)
 		switch(game.global.user.lang){
 		case "EN":
 		this.extend.ENGroup.alpha=1;
@@ -83,5 +83,8 @@ class PauseScene extends Phaser.Scene
 		default:
 			break;
 		}
+	}
+	update(){
+
 	}
 }

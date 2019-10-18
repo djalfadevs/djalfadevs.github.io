@@ -28,8 +28,8 @@ public class UserInfo {
 	private String clan;
 	private int arenaPoints;
 	private String lang;
-	private int MVol;
-	private int EVol;
+	private int mvol;
+	private int evol;
 	
 	public AtomicInteger numeroExclusivoDeCarta = new AtomicInteger(0);
 	//Constructor para nuevos usuarios
@@ -43,8 +43,8 @@ public class UserInfo {
 		this.clan = "empty";//CAMBIAR ??
 		this.setArenaPoints(0);
 		this.lang="EN";
-		this.setMVol(3);
-		this.setEVol(3);
+		this.setmvol(3);
+		this.setevol(3);
 		//Heroes Al registrarse
 		try {
 			InputStream i = getClass().getResourceAsStream("heroes.json");
@@ -61,41 +61,6 @@ public class UserInfo {
 			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
 			this.heros.add(auxH);
 			
-			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
-			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
-			this.heros.add(auxH);
-			
-			auxH = o.convertValue(auxArrayNode.get(2),Hero.class);
-			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
-			this.heros.add(auxH);
-			
-			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
-			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
-			this.heros.add(auxH);
-			
-			auxH = o.convertValue(auxArrayNode.get(2),Hero.class);
-			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
-			this.heros.add(auxH);
-			
-			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
-			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
-			this.heros.add(auxH);
-			
-			auxH = o.convertValue(auxArrayNode.get(2),Hero.class);
-			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
-			this.heros.add(auxH);
-			
-			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
-			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
-			this.heros.add(auxH);
-			
-			auxH = o.convertValue(auxArrayNode.get(2),Hero.class);
-			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
-			this.heros.add(auxH);
-			
-			auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
-			auxH.setCardExclusiveId(numeroExclusivoDeCarta.getAndIncrement());
-			this.heros.add(auxH);
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -117,8 +82,8 @@ public class UserInfo {
 	public UserInfo(@JsonProperty("name")String name,@JsonProperty("gold") int gold,
 			@JsonProperty("gems")int gems,@JsonProperty("exp")int exp,@JsonProperty("level")int level,
 			@JsonProperty("heros")List<Hero> list,
-			@JsonProperty("clan")String clan,@JsonProperty("arenaPoints")int arenaPoints,@JsonProperty("lang")String lang,@JsonProperty("MVol")int MVol,
-			@JsonProperty("EVol")int EVol) {
+			@JsonProperty("clan")String clan,@JsonProperty("arenaPoints")int arenaPoints,@JsonProperty("lang")String lang,@JsonProperty("mvol")int ol,
+			@JsonProperty("evol")int evol) {
 		this.name = name;
 		this.gold = gold;
 		this.gems = gems;
@@ -128,8 +93,8 @@ public class UserInfo {
 		this.clan = clan;
 		this.arenaPoints = arenaPoints;
 		this.lang=lang;
-		this.setMVol(MVol);
-		this.setEVol(EVol);
+		this.setmvol(mvol);
+		this.setevol(evol);
 	}
 	
 	public String getName() {
@@ -190,8 +155,8 @@ public class UserInfo {
 	@Override
 	public String toString() {
 		return "UserInfo [name=" + name + ", gold=" + gold + ", gems=" + gems + ", exp=" + exp + ", level=" + level
-				+ ", heros=" + heros + ", clan=" + clan + ", arenaPoints=" + arenaPoints + ", lang=" + lang + ", MVol="
-				+ MVol + ", EVol=" + EVol + "]";
+				+ ", heros=" + heros + ", clan=" + clan + ", arenaPoints=" + arenaPoints + ", lang=" + lang + ", mvol="
+				+ mvol + ", evol=" + evol + "]";
 	}
 
 	public String getLang() {
@@ -202,20 +167,20 @@ public class UserInfo {
 		this.lang = language;
 	}
 
-	public int getMVol() {
-		return MVol;
+	public int getmvol() {
+		return mvol;
 	}
 
-	public void setMVol(int mVol) {
-		MVol = mVol;
+	public void setmvol(int mVol) {
+		mvol = mVol;
 	}
 
-	public int getEVol() {
-		return EVol;
+	public int getevol() {
+		return evol;
 	}
 
-	public void setEVol(int eVol) {
-		EVol = eVol;
+	public void setevol(int eVol) {
+		evol = eVol;
 	}
 	
 	

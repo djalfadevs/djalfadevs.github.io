@@ -118,6 +118,30 @@ class mainMenu extends Phaser.Scene{
         that.extend.ENGroup.add(en4);
         that.extend.ENGroup.add(en5);
         that.extend.ENGroup.add(en6);
+        
+        this.extend.click.setVolume(game.global.user.evol)
+		switch(game.global.user.lang){
+		case "ES":
+			
+			this.extend.ENGroup.alpha=0;
+			this.extend.ESGroup.alpha=1;
+			this.extend.ensub.alpha=0;
+			this.extend.essub.alpha=0.6;
+			
+			
+			
+			break;
+		case "EN":
+			
+			this.extend.ENGroup.alpha=1;
+			this.extend.ESGroup.alpha=0;
+			this.extend.ensub.alpha=0.6;
+			this.extend.essub.alpha=0;
+			break;
+		default:
+			break;
+		}
+        
         //that.extend.ENGroup.add(en7);
         //pointerOverFunctions [COPYPASTED LOGIN]
    
@@ -164,28 +188,7 @@ class mainMenu extends Phaser.Scene{
 	   }
     }
 	update(){
-		this.extend.click.setVolume(game.global.user.evol)
-		switch(game.global.user.lang){
-		case "ES":
-			
-			this.extend.ENGroup.alpha=0;
-			this.extend.ESGroup.alpha=1;
-			this.extend.ensub.alpha=0;
-			this.extend.essub.alpha=0.6;
-			
-			
-			
-			break;
-		case "EN":
-			
-			this.extend.ENGroup.alpha=1;
-			this.extend.ESGroup.alpha=0;
-			this.extend.ensub.alpha=0.6;
-			this.extend.essub.alpha=0;
-			break;
-		default:
-			break;
-		}
+		
 	}
 
 }
@@ -196,16 +199,8 @@ class comingSoonQ extends Phaser.Scene{
 	}
 	create(){
 		var that=this
-		var config={
-	            mute: false,
-	            volume: game.global.user.EVol,
-	            rate: 1,
-	            detune: 0,
-	            seek: 0,
-	            loop: false,
-	            delay: 0
-	        }
-	   	 	var click=this.sound.add('click',config);
+	   	var click=this.sound.add('click');
+		click.setVolume(game.global.user.evol);
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,440,'mediumInfo');
 		this.add.text(800,300,"Coming\n Soon!!",{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
@@ -216,6 +211,7 @@ class comingSoonQ extends Phaser.Scene{
 		
 		okButt.on('pointerup',function(){
 			click.play();
+			
 			this.setFrame(0);
 			that.scene.resume('mainMenu');
 			that.scene.stop();
@@ -231,6 +227,7 @@ class newsPop extends Phaser.Scene{
 	create(){
 		var that=this
 		this.extend.click=this.sound.add('click');
+		this.extend.click.setVolume(game.global.user.evol);
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,500,'largeInfo');
 		this.add.text(800,300,"Coming\n Soon!!",{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
@@ -247,7 +244,6 @@ class newsPop extends Phaser.Scene{
 		});
 	}
 	update(){
-		this.extend.click.setVolume(game.global.user.evol)
 	}
 	}
 

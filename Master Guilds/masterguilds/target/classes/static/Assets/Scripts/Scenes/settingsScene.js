@@ -76,7 +76,15 @@ class settings extends Phaser.Scene{
         that.extend.ENGroup.add(en3);
         
         backButt.on('pointerdown',function(){this.setFrame(1)});
-        backButt.on('pointerup',function(){this.setFrame(0);transition("back")})
+        backButt.on('pointerup',function(){this.setFrame(0);
+        		var msg = new Object();
+				msg.event = "UPDATEUSERINFO"
+				msg.userAux = new User(game.global.user);
+				var msgS = JSON.stringify(msg)
+				game.global.socket.send(msgS)
+        	transition("back")
+        })
+
         backButt.on('pointerout',function(){this.setFrame(0)});
 
         addMB.on('pointerdown',function(){this.setFrame(1)});
@@ -94,6 +102,28 @@ class settings extends Phaser.Scene{
         subEB.on('pointerdown',function(){this.setFrame(1)});
         subEB.on('pointerup',function(){this.setFrame(0);transition("subE")})
         subEB.on('pointerout',function(){this.setFrame(0)}); 
+        
+        switch(game.global.user.lang){
+		case "ES":
+			
+			this.extend.ENGroup.alpha=0;
+			this.extend.ESGroup.alpha=1;
+			this.extend.ensub.alpha=0;
+			this.extend.essub.alpha=0.6;
+			
+			
+			
+			break;
+		case "EN":
+			
+			this.extend.ENGroup.alpha=1;
+			this.extend.ESGroup.alpha=0;
+			this.extend.ensub.alpha=0.6;
+			this.extend.essub.alpha=0;
+			break;
+		default:
+			break;
+		}
         
         
         var transition=function(str){
@@ -135,27 +165,7 @@ class settings extends Phaser.Scene{
 
     update(){
     	this.extend.click.setVolume(game.global.user.evol)
-		switch(game.global.user.lang){
-		case "ES":
-			
-			this.extend.ENGroup.alpha=0;
-			this.extend.ESGroup.alpha=1;
-			this.extend.ensub.alpha=0;
-			this.extend.essub.alpha=0.6;
-			
-			
-			
-			break;
-		case "EN":
-			
-			this.extend.ENGroup.alpha=1;
-			this.extend.ESGroup.alpha=0;
-			this.extend.ensub.alpha=0.6;
-			this.extend.essub.alpha=0;
-			break;
-		default:
-			break;
-		}
+		
 		
 		switch(game.global.user.mvol){
 		case 0:
