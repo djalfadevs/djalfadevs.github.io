@@ -140,6 +140,7 @@ var Card = new Phaser.Class({
 		return new Promise(resolve=>{
 			switch(input.turnlog.abilityID){
 				case "1":
+					var that = this;
 					var AuxParticle = that.scene.add.sprite(0,0,'blue_buff_spritesheet').setScale(1/3);
 					that.cardContainer.add(AuxParticle);
 					
@@ -166,11 +167,13 @@ var Card = new Phaser.Class({
 					AuxParticle.play('blue_buff_anim');
 				break;
 				case "2":
-
 					//var resolveFunct = function(){resolve()}
+					var that = this;
+					var AuxParticle = that.scene.add.sprite(0,0,'curacion_spritesheet').setScale(1/3);
+					input.tarjet.cardContainer.add(AuxParticle);
 
 					var updateLifeBarAnimationAuxFunct = function(){
-
+						AuxParticle.destroy();
 						var auxHealthCard;
 						for(var j = 0 ; j<that.scene.extend.cards.enemies.length; j++){
 							if(that.scene.extend.cards.enemies[j].hero===input.turnlog.abilitieTarjets[0]){
@@ -184,25 +187,24 @@ var Card = new Phaser.Class({
 						}
 
 						that.updateLifeBarAnimation({enemy:auxHealthCard}).then(()=>{resolve()});
-					}
+					}	
 
-					var AuxParticle = that.scene.add.sprite(400,400,'fuego');
-
-					 var animConfig = {
-       				 key: 'fuego',
-        			 frames: that.scene.anims.generateFrameNumbers('fuego'),
-        			 duration:2000,
-        			 repeat: 0
-    				 };
+					var animConfig = {
+       				key: 'curacion_spritesheet_anim',
+        			frames: that.scene.anims.generateFrameNumbers('curacion_spritesheet'),
+        			frameRate:9,
+        			repeat: 0
+    				};
 
     				that.scene.anims.create(animConfig);
 
     		
     				AuxParticle.on('animationcomplete', updateLifeBarAnimationAuxFunct,this);
 
-					AuxParticle.play('fuego');
+					AuxParticle.play('curacion_spritesheet_anim');
 				break;
 				case"3":
+					var that = this;
 					var AuxParticle = that.scene.add.sprite(0,0,'red_buff_spritesheet').setScale(1/3);
 					that.cardContainer.add(AuxParticle);
 
@@ -229,16 +231,37 @@ var Card = new Phaser.Class({
 					AuxParticle.play('red_buff_anim');
 				break;
 				case"4":
+				var that = this;
+				var DamageText;
+				var AuxParticle = that.scene.add.sprite(0,0,'ataque_spritesheet').setScale(1/3);
+					input.enemy.cardContainer.add(AuxParticle);
+
+				var DamageTextTween = function(){
+					return new Promise(resolve=>{
+						that.scene.tweens.add({
+						targets: DamageText,
+						y: DamageText.y-30,
+						alpha:0,
+						duration: 1000,
+						onComplete: function(){
+						DamageText.destroy();
+						resolve(); 
+							}
+						})
+					})
+				}
 					var updateLifeBarAnimationAuxFunct = function(){
-						that.updateLifeBarAnimation({enemy:input.enemy}).then(()=>{resolve()});
+						AuxParticle.destroy();
+						DamageText = that.scene.add.text(that.cardContainer.x+20,that.cardContainer.y+50,Math.ceil(input.turnlog.TDamage));
+						DamageTextTween()
+						.then(()=>that.updateLifeBarAnimation({enemy:input.enemy}))
+						.then(()=>{resolve()});
 					}
 
-					var AuxParticle = that.scene.add.sprite(400,400,'fuego');
-
 					 var animConfig = {
-       				 key: 'fuego',
-        			 frames: that.scene.anims.generateFrameNumbers('fuego'),
-        			 duration:2000,
+       				 key: 'ataque_spritesheet_anim',
+        			 frames: that.scene.anims.generateFrameNumbers('ataque_spritesheet'),
+        			 frameRate:20,
         			 repeat: 0
     				 };
 
@@ -247,19 +270,42 @@ var Card = new Phaser.Class({
     		
     				AuxParticle.on('animationcomplete', updateLifeBarAnimationAuxFunct,this);
 
-					AuxParticle.play('fuego');
+					AuxParticle.play('ataque_spritesheet_anim');
 				break;
 				case"5":
+				var that = this;
+				var DamageText;
+
+				var DamageTextTween = function(){
+					return new Promise(resolve=>{
+						that.scene.tweens.add({
+						targets: DamageText,
+						y: DamageText.y-30,
+						alpha:0,
+						duration: 1000,
+						onComplete: function(){
+						DamageText.destroy();
+						resolve(); 
+							}
+						})
+					})
+				}
 					var updateLifeBarAnimationAuxFunct = function(){
-						that.updateLifeBarAnimation({enemy:input.enemy}).then(()=>{resolve()});
+						AuxParticle.destroy()
+						DamageText = that.scene.add.text(that.cardContainer.x+20,that.cardContainer.y+50,Math.ceil(input.turnlog.TDamage));
+						DamageTextTween()
+						.then(()=>that.updateLifeBarAnimation({enemy:input.enemy}))
+						.then(()=>that.updateLifeBarAnimation({enemy:that}))
+						.then(()=>{resolve()})
 					}
 
-					var AuxParticle = that.scene.add.sprite(400,400,'fuego');
+					var AuxParticle = that.scene.add.sprite(0,0,'chupa_spritesheet').setScale(1/3);
+					input.enemy.cardContainer.add(AuxParticle);
 
 					 var animConfig = {
-       				 key: 'fuego',
-        			 frames: that.scene.anims.generateFrameNumbers('fuego'),
-        			 duration:2000,
+       				 key: 'chupa_spritesheet_anim',
+        			 frames: that.scene.anims.generateFrameNumbers('chupa_spritesheet'),
+        			 frameRate:20,
         			 repeat: 0
     				 };
 
@@ -268,7 +314,7 @@ var Card = new Phaser.Class({
     		
     				AuxParticle.on('animationcomplete', updateLifeBarAnimationAuxFunct,this);
 
-					AuxParticle.play('fuego');
+					AuxParticle.play('chupa_spritesheet_anim');
 				break;
 				default:
 				resolve();
