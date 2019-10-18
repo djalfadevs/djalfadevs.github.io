@@ -1,15 +1,22 @@
 # DJALFA
 
 ## Equipo:
-- **Fernando:** Diseño UI/UX, artista 2D, animación VFX, diseño gráfico y redes sociales
-- **Alvaro:** Game Design, Marketing, y Relaciones Públicas
-- **Denis:** Project manager, sonido, banda sonora y documentación
-- **Ángel:** Programación front-end
-- **Luismi:** Programación back-end
-- **Jesús:** Diseño de personajes y artista 2D
+- **Fernando Moreno Díaz:** Diseño UI/UX, artista 2D, animación VFX, diseño gráfico y redes sociales
+- **Álvaro García Bardón:** Game design, marketing, portfolio, y relaciones públicas
+- **Denis Gudiña Núñez:** Project manager, sonido, banda sonora y documentación
+- **Ángel Noguero Salgado:** Programación
+- **Luismi Moreno López:** Programación
+- **Jesús Ayala Matarín:** Diseño de personajes y artista 2D
 
 ## Portfolio:
 http://djalfadevs.github.io
+
+## Redes sociales
+- **Twitter:** https://twitter.com/DJALFA_dev
+- **Instagram:** https://www.instagram.com/djalfa_dev/
+- **Youtube:** https://www.youtube.com/channel/UC3AbbLPjMgXdeAemHnZdYhQ
+- **Facebook**: https://es-es.facebook.com/djalfa.devs.1
+- **Itch.io:** https://djalfa-devs.itch.io/
 
 ## MasterA Game Design Document
 ### Introducción
