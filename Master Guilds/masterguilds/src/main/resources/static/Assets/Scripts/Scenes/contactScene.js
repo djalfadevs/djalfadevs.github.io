@@ -99,7 +99,7 @@ class contact extends Phaser.Scene{
 	                	window.open("https://www.instagram.com/djalfa_dev/");
 	                break;
 	                case "yt":
-	                	window.open("https://www.youtube.com/channel/UC3AbbLPjMgXdeAemHnZdYhQ)";
+	                	window.open("https://www.youtube.com/channel/UC3AbbLPjMgXdeAemHnZdYhQ");
 	                break;
 	                case "back":
 	                	that.scene.transition({target:'title',duration:0});
