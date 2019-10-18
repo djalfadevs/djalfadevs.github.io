@@ -32,6 +32,15 @@ class SimulationScene extends Phaser.Scene
 	}
 
 	create(){
+		//Efecto de fadeIn (la escena aparece poco a poco)
+		this.scene.setVisible(false);
+  		this.add.text(160,120,'FADE IN CAMERA EFFECT').setOrigin(0.5);
+  		this.input.once('pointerdown',function(){
+    		this.scene.setVisible(true);
+    		this.cameras.main.fadeIn(500);
+  		},this);
+
+
 		var that = this;
 		//Inicializacion de variables propias
 		this.extend.cards = {allies: [], enemies: []}
