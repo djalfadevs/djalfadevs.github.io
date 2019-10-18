@@ -7841,7 +7841,7 @@ a.text-dark:focus,a.text-dark:hover{
     transition:all .2s ease-in-out;
     opacity:0;
     background-color:rgba(253, 126, 20, .9)
-}
+    }
 .portfolio .portfolio-item .portfolio-item-caption:hover{
     opacity:1
 }
