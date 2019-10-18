@@ -96,10 +96,10 @@ class contact extends Phaser.Scene{
 	                	window.open("https://www.facebook.com/djalfa.devs.1");
 	                break
 	                case "insta":
-	                	//window.open(url);
+	                	window.open("https://www.instagram.com/djalfa_dev/");
 	                break;
 	                case "yt":
-	                	//window.open(url);
+	                	window.open("https://www.youtube.com/channel/UC3AbbLPjMgXdeAemHnZdYhQ");
 	                break;
 	                case "back":
 	                	that.scene.transition({target:'title',duration:0});

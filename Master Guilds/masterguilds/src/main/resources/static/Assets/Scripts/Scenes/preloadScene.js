@@ -23,6 +23,8 @@ class preload extends Phaser.Scene{
         this.load.spritesheet('largeInstaButt','Assets/Sprites/UI-UX/boton_largo_instagram.png',{frameWidth:777,frameHeight:195});
         this.load.spritesheet('largeTweetButt','Assets/Sprites/UI-UX/boton_largo_twitter.png',{frameWidth:777,frameHeight:195});
         this.load.spritesheet('largeYouButt','Assets/Sprites/UI-UX/boton_largo_youtube.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('largeShopButt','Assets/Sprites/UI-UX/boton_largo_tienda.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('largeFinalButt','Assets/Sprites/UI-UX/boton_largo_nivel_final.png',{frameWidth:777,frameHeight:195});
         this.load.image('textBox','Assets/Sprites/UI-UX/caja_texto.png',{frameWidth:956,frameHeight:186});
         //load.setFrame(1);
         this.load.image('backWood','Assets/Sprites/UI-UX/fondo_madera.png',{frameWidth:1920,frameHeight:1080});
@@ -104,7 +106,7 @@ class preload extends Phaser.Scene{
         this.load.image('azon_medic_cg','Assets/Sprites/UI-UX/cartas/azon_medic_carta_grande.png',{frameWidth:346,frameHeight:507});
         //Ferten
         this.load.image('ferten_armoured_cp','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_pequena.png',{frameWidth:163,frameHeight:239});
-        this.load.image('ferten_armoured_cg','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('ferten_aromoured_cg','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('ferten_private_cp','Assets/Sprites/UI-UX/cartas/ferten_private_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('ferten_private_cg','Assets/Sprites/UI-UX/cartas/ferten_private_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('ferten_surgeon_cp','Assets/Sprites/UI-UX/cartas/ferten_surgeon_carta_pequena.png',{frameWidth:163,frameHeight:239});

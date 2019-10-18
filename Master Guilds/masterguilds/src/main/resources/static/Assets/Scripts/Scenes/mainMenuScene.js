@@ -27,7 +27,7 @@ class mainMenu extends Phaser.Scene{
         //var questsplayButt=this.add.sprite(450,720,'largePlayMisionsButt').setInteractive()
         var arenaplayButt=this.add.sprite(450,500,'largePlayArenaButt').setInteractive()    
         var collButt=this.add.sprite(450,720,'largeButt').setInteractive()
-        var shopButt=this.add.sprite(450,950,'largeAdministrationButt').setInteractive()
+        var shopButt=this.add.sprite(450,950,'largeShopButt').setInteractive()
         
         
         //var historyplayButt=this.add.sprite(450,500,'largePlayHistoryButt').setInteractive()
