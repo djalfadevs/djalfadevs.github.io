@@ -13,9 +13,10 @@ var Card = new Phaser.Class({
 		//Rectangulo con la barra de vida se dibujo antes que el marco de la vida
 
 		this.lifeRect = scene.add.rectangle(0,135,145,10,6422272);
-		
+		this.lifeRect.maxWidthposible = 135;
 		//Marco de la vida Abajo
 		this.lifeBarSprite = scene.add.sprite(0,135,'lifeBarBg').setScale(1/3);
+		
 
 		//Marco de la vida Arriba
 		this.lifeBarSpriteSup = scene.add.sprite(0,135,'lifeBarBg2').setScale(1/3);
@@ -294,7 +295,7 @@ var Card = new Phaser.Class({
 		return new Promise(resolve=>{
 			that.scene.tweens.add({
 			targets: input.enemy.lifeRect,
-			width: (input.enemy.lifeRect.width*input.enemy.hero.HP)/input.enemy.hero.baseHP,
+			width: (that.lifeRect.maxWidthposible*input.enemy.hero.HP)/input.enemy.hero.baseHP,
 			duration: 2000,
 			onComplete: function(){resolve();}
 			})
