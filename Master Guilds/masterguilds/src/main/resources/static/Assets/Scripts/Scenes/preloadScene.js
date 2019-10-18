@@ -91,6 +91,7 @@ class preload extends Phaser.Scene{
         this.load.image('BLACK','Assets/Sprites/UI-UX/cortinilla_negra.png',{frameWidth:1920,frameHeight:1080});
 
         //CARTAS PERSONAJES
+        //Azon
         this.load.image('azon_kubo_carta_pequena','Assets/Sprites/UI-UX/cartas/azon_kubo_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('azon_kubo_carta_grande','Assets/Sprites/UI-UX/cartas/azon_kubo_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('azon_Xin_carta_pequena','Assets/Sprites/UI-UX/cartas/azon_Xin_carta_pequena.png',{frameWidth:163,frameHeight:239});
@@ -101,6 +102,20 @@ class preload extends Phaser.Scene{
         this.load.image('azon_shield_cg','Assets/Sprites/UI-UX/cartas/azon_shield_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('azon_medic_cp','Assets/Sprites/UI-UX/cartas/azon_medic_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('azon_medic_cg','Assets/Sprites/UI-UX/cartas/azon_medic_carta_grande.png',{frameWidth:346,frameHeight:507});
+        //Ferten
+        this.load.image('ferten_armoured_cp','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('ferten_armoured_cg','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('ferten_private_cp','Assets/Sprites/UI-UX/cartas/ferten_private_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('ferten_private_cg','Assets/Sprites/UI-UX/cartas/ferten_private_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('ferten_surgeon_cp','Assets/Sprites/UI-UX/cartas/ferten_surgeon_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('ferten_surgeon_cg','Assets/Sprites/UI-UX/cartas/ferten_surgeon_carta_grande.png',{frameWidth:346,frameHeight:507});
+        //Kwin
+        this.load.image('kwin_destroyer_cp','Assets/Sprites/UI-UX/cartas/kwin_destroyer_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('kwin_destroyer_cg','Assets/Sprites/UI-UX/cartas/kwin_destroyer_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('kwin_shielder_cp','Assets/Sprites/UI-UX/cartas/kwin_shielder_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('kwin_shielder_cg','Assets/Sprites/UI-UX/cartas/kwin_shielder_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('kwin_wizard_cp','Assets/Sprites/UI-UX/cartas/kwin_wizard_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('kwin_wizard_cg','Assets/Sprites/UI-UX/cartas/kwin_wizard_carta_grande.png',{frameWidth:346,frameHeight:507});
         
         this.load.image('1star','Assets/Sprites/UI-UX/estrella_1.png',{frameWidth:1125,frameHeight:1070});
         this.load.image('3star','Assets/Sprites/UI-UX/estrella_3.png',{frameWidth:3465,frameHeight:1070});
@@ -109,8 +124,12 @@ class preload extends Phaser.Scene{
 
         //TESTING
         this.load.spritesheet('fuego','Assets/Testing/fuego.jpg',{ frameWidth: 200, frameHeight: 200 });
+        //BUFFOS VFX
         this.load.spritesheet('red_buff_spritesheet','Assets/Sprites/VFX_combate/buffo_rojo_spritesheet.png',{ frameWidth: 566, frameHeight:618  });
         this.load.spritesheet('blue_buff_spritesheet','Assets/Sprites/VFX_combate/buffo_azul_spritesheet.png',{ frameWidth: 566, frameHeight:618  });
+        this.load.spritesheet('curacion_spritesheet','Assets/Sprites/VFX_combate/curacion_spritesheet_fix.png',{ frameWidth: 700, frameHeight:800  });
+        this.load.spritesheet('ataque_spritesheet','Assets/Sprites/VFX_combate/ataque_spritesheet.png',{ frameWidth: 520, frameHeight:642  });
+        this.load.spritesheet('chupa_spritesheet','Assets/Sprites/VFX_combate/chupa_spritesheet.png',{ frameWidth: 520, frameHeight:642  });
         //FONDOS
         this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.png',{frameWidth:1920,frameHeight:1640});
         this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.png',{frameWidth:1920,frameHeight:1640});

@@ -109,8 +109,12 @@ class preload extends Phaser.Scene{
 
         //TESTING
         this.load.spritesheet('fuego','Assets/Testing/fuego.jpg',{ frameWidth: 200, frameHeight: 200 });
+        //BUFFOS VFX
         this.load.spritesheet('red_buff_spritesheet','Assets/Sprites/VFX_combate/buffo_rojo_spritesheet.png',{ frameWidth: 566, frameHeight:618  });
         this.load.spritesheet('blue_buff_spritesheet','Assets/Sprites/VFX_combate/buffo_azul_spritesheet.png',{ frameWidth: 566, frameHeight:618  });
+        this.load.spritesheet('curacion_spritesheet','Assets/Sprites/VFX_combate/curacion_spritesheet_fix.png',{ frameWidth: 700, frameHeight:800  });
+        this.load.spritesheet('ataque_spritesheet','Assets/Sprites/VFX_combate/ataque_spritesheet.png',{ frameWidth: 520, frameHeight:642  });
+        this.load.spritesheet('chupa_spritesheet','Assets/Sprites/VFX_combate/chupa_spritesheet.png',{ frameWidth: 520, frameHeight:642  });
         //FONDOS
         this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.png',{frameWidth:1920,frameHeight:1640});
         this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.png',{frameWidth:1920,frameHeight:1640});
