@@ -12,7 +12,7 @@ var Card = new Phaser.Class({
 
 		//Rectangulo con la barra de vida se dibujo antes que el marco de la vida
 
-		this.lifeRect = scene.add.rectangle(0,135,145,10,6422272);
+		this.lifeRect = scene.add.rectangle(0,135,145,10,373026);
 		this.lifeRect.maxWidthposible = 145;
 		//Marco de la vida Abajo
 		this.lifeBarSprite = scene.add.sprite(0,135,'lifeBarBg').setScale(1/3);

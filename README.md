@@ -2,7 +2,7 @@
 
 ## Equipo:
 - **Fernando Moreno Díaz:** Diseño UI/UX, artista 2D, animación VFX, diseño gráfico y redes sociales
-- **Álvaro García Bardón:** Game design, marketing, portfolio, y relaciones públicas
+- **Álvaro García Bardón:** Game design, server management, marketing, portfolio, y relaciones públicas
 - **Denis Gudiña Núñez:** Project manager, sonido, banda sonora y documentación
 - **Ángel Noguero Salgado:** Programación
 - **Luismi Moreno López:** Programación

@@ -179,7 +179,8 @@ class mainMenu extends Phaser.Scene{
                 case "back":
                 	that.scene.transition({target:'title',duration:100});
                 break;
-                
+                case "playArena":
+                    that.scene.transition({target:'arena',duration:100});
                 
                 default:
                 break;
