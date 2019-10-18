@@ -78,10 +78,10 @@ class Simulation {
                       case "2":
                       case 2:
                        var target=-1
-                       var flag=Math.POSITIVE_INFINITY
+                       var flag=1
                        for(var j=0;j<input.team.team.length;j++){
-                           if((Math.min(flag,input.team.team[j].HP)!=flag)&&(input.team.team[j].HP>0)){
-                               flag=Math.min(flag,input.team.team[j].HP)
+                           if(((input.team.team[j].HP/input.team.team[j].baseHP)<=flag)&&(input.team.team[j].HP>0)){
+                               flag=(input.team.team[j].HP/input.team.team[j].baseHP)
                                target=j
                            }
                        }

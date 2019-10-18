@@ -22,7 +22,7 @@ preload(){
 create(){
     var that=this;
    	 this.extend.click=this.sound.add('click');
-    
+   	this.extend.click.setVolume(3)
     this.add.image(960,540,'backWood');
      
     var infoBar=this.add.sprite(960,63,'infoBar')
@@ -150,6 +150,7 @@ class FailRegister extends Phaser.Scene{
 	create(){
 		var that=this
 	   	this.extend.click=this.sound.add('click');
+		this.extend.click.setVolume(3)
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,440,'mediumInfo');
 		this.add.text(700,300,"FAILED SIGN UP ATTEMPT \n Either your name contains \n unsupported characters," +
@@ -180,6 +181,7 @@ class FailLogin extends Phaser.Scene{
 	create(){
 		var that=this
 	   	this.extend.click=this.sound.add('click');
+		this.extend.click.setVolume(3)
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,440,'mediumInfo');
 		this.add.text(700,300,"FAILED LOGIN ATTEMPT \n Either your name contains \n unsupported characters," +
@@ -198,7 +200,6 @@ class FailLogin extends Phaser.Scene{
 		});
 	}
 	update(){
-		this.extend.click.setVolume(game.global.user.EVol)
 	}
 }
 
@@ -210,6 +211,7 @@ class FailPass extends Phaser.Scene{
 	create(){
 		var that=this
 	   	this.extend.click=this.sound.add('click');
+		this.extend.click.setVolume(3)
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,440,'mediumInfo');
 		this.add.text(700,300,"PASSWORD FAIL \n Either your password\n contains unsupported \n characters," +

@@ -27,8 +27,10 @@ class Abilitie {
 			break;
 			case "2":
 			this.effectFunction = effectFunctionList2;
+			break;
 			case "3":
 			this.effectFunction = effectFunctionList3;
+			break;
 			default:
 			this.effectFunction = null;
 		}

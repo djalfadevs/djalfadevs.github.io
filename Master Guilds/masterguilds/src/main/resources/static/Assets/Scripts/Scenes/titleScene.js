@@ -55,6 +55,28 @@ create(){
     that.extend.ENGroup.add(en2);
     that.extend.ENGroup.add(en4);
     
+	if(game.global.user.evol!=null){
+		this.extend.click.setVolume(game.global.user.evol)
+	}
+	
+	switch(game.global.user.lang){
+	case "ES":
+		
+		this.extend.ENGroup.alpha=0;
+		this.extend.ESGroup.alpha=1;
+		
+		break;
+	case "EN":
+		
+		this.extend.ENGroup.alpha=1;
+		this.extend.ESGroup.alpha=0;
+		
+		break;
+	default:
+		break;
+	}
+    
+    
     //pointerOverFunctions
     //var backButt=this.add.sprite(100,100,'backButt').setScale(0.5).setInteractive({useHandCursor:true})
     
@@ -97,26 +119,7 @@ create(){
 }
 
 update(){
-	if(game.global.user.evol!=null){
-		this.extend.click.setVolume(game.global.user.evol)
-	}
-	
-	switch(game.global.user.lang){
-	case "ES":
-		
-		this.extend.ENGroup.alpha=0;
-		this.extend.ESGroup.alpha=1;
-		
-		break;
-	case "EN":
-		
-		this.extend.ENGroup.alpha=1;
-		this.extend.ESGroup.alpha=0;
-		
-		break;
-	default:
-		break;
-	}
+
 }
 
 }

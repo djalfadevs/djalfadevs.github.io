@@ -14,6 +14,7 @@ preload(){
 create(){
     var that = this;
     this.extend.click=this.sound.add('click');
+	this.extend.click.setVolume(game.global.user.evol)
     console.log(game.global.user.lang)
     //might go bw 
    var LATINOButt=this.add.sprite(500,800,'largeButt').setInteractive()
@@ -109,7 +110,7 @@ create(){
 }
 
 update(){
-	this.extend.click.setVolume(game.global.user.evol)
+
 	switch(game.global.user.lang){
 	case "ES":
 		

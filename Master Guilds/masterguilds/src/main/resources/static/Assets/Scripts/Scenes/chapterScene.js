@@ -20,6 +20,7 @@ class chapter extends Phaser.Scene{
     	
     	var that=this;
     	this.extend.click=this.sound.add('click');
+    	this.extend.click.setVolume(game.global.user.evol)
     	var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
         backButt.on('pointerdown',function(){this.setFrame(1)})
         backButt.on('pointerup',function(){this.setFrame(0);that.scene.transition({target:'mainMenu',duration:100})})
@@ -140,6 +141,5 @@ class chapter extends Phaser.Scene{
         }
     }
     update(){
-    	this.extend.click.setVolume(game.global.user.evol);
     }
 }
