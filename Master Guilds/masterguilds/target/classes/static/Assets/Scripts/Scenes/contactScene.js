@@ -2,7 +2,7 @@
 class contact extends Phaser.Scene{
 	constructor(){
 		super({key:'contact'})
-		this.extend={ENGroup:null,ESGroup:null}
+		this.extend={click:null,ENGroup:null,ESGroup:null}
 	}
 	preload(){
 		this.add.sprite(960,540,'backWood');
@@ -14,6 +14,7 @@ class contact extends Phaser.Scene{
         x.alpha=0.7
 	}
 	create(){
+		this.extend.click=this.sound.add('click');
 		 var that=this;
 		 var en1=this.add.text(250,10,'Contact',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 		 var es1=this.add.text(250,10,'Contacto',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
@@ -62,9 +63,31 @@ class contact extends Phaser.Scene{
         that.extend.ENGroup.add(en1);
         that.extend.ENGroup.add(en2);
 
-	     
+        this.extend.click.setVolume(game.global.user.evol)
+		 switch(game.global.user.lang){
+		case "ES":
+			
+			this.extend.ENGroup.alpha=0;
+			this.extend.ESGroup.alpha=1;
+			this.extend.ensub.alpha=0;
+			this.extend.essub.alpha=0.6;
+			
+			
+			
+			break;
+		case "EN":
+			
+			this.extend.ENGroup.alpha=1;
+			this.extend.ESGroup.alpha=0;
+			this.extend.ensub.alpha=0.6;
+			this.extend.essub.alpha=0;
+			break;
+		default:
+			break;
+		}
 	     
 	     var transition=function(str){
+	    	 that.extend.click.play();
 	            switch(str){
 	                case "tw":
 	                	window.open("https://twitter.com/DJALFA_dev");
@@ -92,26 +115,6 @@ class contact extends Phaser.Scene{
 		   }
 	}
 	update(){
-		 switch(game.global.user.lang){
- 		case "ES":
- 			
- 			this.extend.ENGroup.alpha=0;
- 			this.extend.ESGroup.alpha=1;
- 			this.extend.ensub.alpha=0;
- 			this.extend.essub.alpha=0.6;
- 			
- 			
- 			
- 			break;
- 		case "EN":
- 			
- 			this.extend.ENGroup.alpha=1;
- 			this.extend.ESGroup.alpha=0;
- 			this.extend.ensub.alpha=0.6;
- 			this.extend.essub.alpha=0;
- 			break;
- 		default:
- 			break;
- 		}
+		
 	}
 }

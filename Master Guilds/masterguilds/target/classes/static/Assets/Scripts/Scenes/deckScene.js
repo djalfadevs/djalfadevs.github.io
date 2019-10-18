@@ -13,6 +13,8 @@ class deck extends Phaser.Scene{
             numberOfPageText:null,
             bigcardSprite:null,
             text:{
+            	click:null,
+            	draw1:null,
                 name: null,
                 attack: null,
                 defense: null,
@@ -39,6 +41,11 @@ class deck extends Phaser.Scene{
     }
     create(){
     	var that=this;
+    	this.extend.click=this.sound.add('click');
+        this.extend.draw1=this.sound.add('draw1');
+        this.extend.draw1.setVolume(game.global.user.evol)
+        this.extend.click.setVolume(game.global.user.evol)
+
         that.extend.alliesCards = [];
     	var en1=this.add.text(250,10,'Team selection',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 		var es1=this.add.text(250,10,'Selección de equipo',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
@@ -115,12 +122,14 @@ class deck extends Phaser.Scene{
         var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
         backButt.on('pointerdown',function(){this.setFrame(1)})
         backButt.on('pointerup',function(){this.setFrame(0);
+        	that.extend.click.play();
             game.global.simulation.SetSimulationtoStartState();
             that.scene.transition({target:'chapter',duration:0})
         })
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
+        	that.extend.click.play();
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
             that.extend.numberOfPageText.setText(that.extend.numberOfPage+1);
             that.drawCards(that.extend.numberOfPage)
@@ -129,6 +138,7 @@ class deck extends Phaser.Scene{
 
         var DownArrowButt=this.add.sprite(1350,1000,'DownArrow').setScale(1).setInteractive();
         DownArrowButt.on('pointerup',function(){
+        	that.extend.click.play();
             that.extend.numberOfPage-=1
             if(that.extend.numberOfPage<0){
                 that.extend.numberOfPage=that.extend.numberOfPages-1;
@@ -140,18 +150,22 @@ class deck extends Phaser.Scene{
 
         var EnterSimulationButt = this.add.sprite(520,850,'largeButt').setScale(1).setDepth(4).setInteractive()
         EnterSimulationButt.on('pointerup',function(){
+        	that.extend.click.play();
             setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
         })
         //EnterSimulationButt.setDepth(2);
 
         var en11=this.add.text(440,800,"Start",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
         var es11=this.add.text(370,800,"Empezar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
-        that.extend.ENGroup.add(en11);
-        that.extend.ESGroup.add(es11);
+        that.extend.textStart = en11;
+        that.extend.textoEmpezar = es11;
         
         this.drawCards(that.extend.numberOfPage);
 
+        this.lenguajeupdate();//Muestra el español o el ingles
+
         var transition=function(str,t){
+        	t.extend.click.play();
             switch(str){
                 case "back":
                 t.scene.transition({target:'mainMenu',duration:100});
@@ -192,42 +206,51 @@ class deck extends Phaser.Scene{
     }
     
     update(){
-		 switch(game.global.user.lang){
-		case "ES":
-			
-			this.extend.ENGroup.alpha=0;
-			this.extend.ESGroup.alpha=1;
-
-			
-			
-			break;
-		case "EN":
-			
-			this.extend.ENGroup.alpha=1;
-			this.extend.ESGroup.alpha=0;
-			break;
-		default:
-			break;
-		}
 		 
-		 switch(this.extend.text.rarity.text){
-		 case "1":
-			 this.extend.star1.alpha=1;
-			 this.extend.star3.alpha=0;
-			 this.extend.star5.alpha=0;
-			 break;
-		 case "3":
-			 this.extend.star1.alpha=0;
-			 this.extend.star3.alpha=1;
-			 this.extend.star5.alpha=0;
-			 break;
-		 case "5":
-			 this.extend.star1.alpha=0;
-			 this.extend.star3.alpha=0;
-			 this.extend.star5.alpha=1;
-			 break;
-		default:
-			break;
-		 }
 	}
+
+    lenguajeupdate(){
+        switch(game.global.user.lang){
+        case "ES":
+            
+            this.extend.ENGroup.alpha=0;
+            this.extend.ESGroup.alpha=1;
+            this.extend.textStart.alpha=0;
+            this.extend.textoEmpezar.alpha=1;
+            
+            break;
+        case "EN":
+            
+            this.extend.ENGroup.alpha=1;
+            this.extend.ESGroup.alpha=0;
+            this.extend.textStart.alpha=1;
+            this.extend.textoEmpezar.alpha=0;
+            break;
+        default:
+            break;
+        }
+    }
+
+    startsupdate(){
+        switch(this.extend.text.rarity.text){
+         case "1":
+             this.extend.star1.alpha=1;
+             this.extend.star3.alpha=0;
+             this.extend.star5.alpha=0;
+             break;
+         case "3":
+             this.extend.star1.alpha=0;
+             this.extend.star3.alpha=1;
+             this.extend.star5.alpha=0;
+             break;
+         case "5":
+             this.extend.star1.alpha=0;
+             this.extend.star3.alpha=0;
+             this.extend.star5.alpha=1;
+             break;
+        default:
+            console.log(this.extend.text)
+            break;
+         }
+    }
 }

@@ -7,7 +7,7 @@ class settings extends Phaser.Scene{
     
     constructor(){
         super({key:"settings"})
-         this.extend={ENGroup:null,ESGroup:null,MVol1:null,MVol2:null,MVol3:null,MVol4:null,MVol5:null,EVol1:null,EVol2:null,EVol3:null,EVol4:null,EVol5:null}
+         this.extend={click:null,ENGroup:null,ESGroup:null,MVol1:null,MVol2:null,MVol3:null,MVol4:null,MVol5:null,EVol1:null,EVol2:null,EVol3:null,EVol4:null,EVol5:null}
     }
     preload(){
         console.log("settings")
@@ -15,8 +15,9 @@ class settings extends Phaser.Scene{
     }
     create(){
         var that=this;
+   	 	this.extend.click=this.sound.add('click');
+
         var MVol=5;
-        var GVol=5;
         var Evol=5;
         
         var infoBar=this.add.sprite(960,63,'infoBar')
@@ -75,7 +76,15 @@ class settings extends Phaser.Scene{
         that.extend.ENGroup.add(en3);
         
         backButt.on('pointerdown',function(){this.setFrame(1)});
-        backButt.on('pointerup',function(){this.setFrame(0);transition("back")})
+        backButt.on('pointerup',function(){this.setFrame(0);
+        		var msg = new Object();
+				msg.event = "UPDATEUSERINFO"
+				msg.userAux = new User(game.global.user);
+				var msgS = JSON.stringify(msg)
+				game.global.socket.send(msgS)
+        	transition("back")
+        })
+
         backButt.on('pointerout',function(){this.setFrame(0)});
 
         addMB.on('pointerdown',function(){this.setFrame(1)});
@@ -94,8 +103,32 @@ class settings extends Phaser.Scene{
         subEB.on('pointerup',function(){this.setFrame(0);transition("subE")})
         subEB.on('pointerout',function(){this.setFrame(0)}); 
         
+        switch(game.global.user.lang){
+		case "ES":
+			
+			this.extend.ENGroup.alpha=0;
+			this.extend.ESGroup.alpha=1;
+			this.extend.ensub.alpha=0;
+			this.extend.essub.alpha=0.6;
+			
+			
+			
+			break;
+		case "EN":
+			
+			this.extend.ENGroup.alpha=1;
+			this.extend.ESGroup.alpha=0;
+			this.extend.ensub.alpha=0.6;
+			this.extend.essub.alpha=0;
+			break;
+		default:
+			break;
+		}
         
-        var transition=function(str,t){
+        
+        var transition=function(str){
+        	that.extend.click.play();
+
             switch(str){
                 case "back":
                     that.scene.transition({target:'title',duration:100});
@@ -131,27 +164,8 @@ class settings extends Phaser.Scene{
     }
 
     update(){
-		switch(game.global.user.lang){
-		case "ES":
-			
-			this.extend.ENGroup.alpha=0;
-			this.extend.ESGroup.alpha=1;
-			this.extend.ensub.alpha=0;
-			this.extend.essub.alpha=0.6;
-			
-			
-			
-			break;
-		case "EN":
-			
-			this.extend.ENGroup.alpha=1;
-			this.extend.ESGroup.alpha=0;
-			this.extend.ensub.alpha=0.6;
-			this.extend.essub.alpha=0;
-			break;
-		default:
-			break;
-		}
+    	this.extend.click.setVolume(game.global.user.evol)
+		
 		
 		switch(game.global.user.mvol){
 		case 0:

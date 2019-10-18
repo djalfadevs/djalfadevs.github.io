@@ -5,7 +5,7 @@
 class lang extends Phaser.Scene{
     constructor(){
         super({key:'lang'})
-        this.extend={ESGroup:null,ENGroup:null}
+        this.extend={click:null,ESGroup:null,ENGroup:null}
     }
 preload(){
     console.log("LANGUAGE")
@@ -13,7 +13,8 @@ preload(){
 }
 create(){
     var that = this;
-    
+    this.extend.click=this.sound.add('click');
+	this.extend.click.setVolume(game.global.user.evol)
     console.log(game.global.user.lang)
     //might go bw 
    var LATINOButt=this.add.sprite(500,800,'largeButt').setInteractive()
@@ -53,7 +54,13 @@ create(){
     
     LATINOButt.on('pointerup',function(){this.setFrame(0);transition("LATINO")});
     ENGLISHButt.on('pointerup',function(){this.setFrame(0);transition("ENGLISH")});
-    backButt.on('pointerup',function(){this.setFrame(0);transition("back")});
+    backButt.on('pointerup',function(){this.setFrame(0);
+        var msg = new Object();
+        msg.event = "UPDATEUSERINFO"
+        msg.userAux = new User(game.global.user);
+        game.global.socket.send(JSON.stringify(msg))
+      transition("back")
+    });
     
     LATINOButt.on('pointerout',function(){this.setFrame(0)});
     ENGLISHButt.on('pointerout',function(){this.setFrame(0)});
@@ -69,6 +76,8 @@ create(){
         //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
         
            var transition=function(str){
+  	    	 that.extend.click.play();
+
             switch(str){
             case "LATINO":
             //console.log(game.global.user.lang)
@@ -107,6 +116,7 @@ create(){
 }
 
 update(){
+
 	switch(game.global.user.lang){
 	case "ES":
 		

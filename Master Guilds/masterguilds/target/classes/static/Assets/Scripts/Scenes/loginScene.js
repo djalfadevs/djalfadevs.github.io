@@ -3,7 +3,7 @@ class login extends Phaser.Scene{
 
 constructor(){
     super('login');
-    this.extend={nameform:null,passwordform:null}
+    this.extend={click:null,nameform:null,passwordform:null}
 }    
     
 //var music
@@ -21,8 +21,8 @@ preload(){
 }
 create(){
     var that=this;
-
-    console.log("login")
+   	 this.extend.click=this.sound.add('click');
+   	this.extend.click.setVolume(3)
     this.add.image(960,540,'backWood');
      
     var infoBar=this.add.sprite(960,63,'infoBar')
@@ -54,6 +54,7 @@ create(){
     enter.on('pointerout',function(){this.setFrame(0)});
     enter.on('pointerdown',function(){this.setFrame(1)});
     enter.on('pointerup',function(){
+    	that.extend.click.play();
         this.setFrame(0)
         
         var x = that.extend.nameform.getChildByName("nameField").value;
@@ -94,7 +95,7 @@ create(){
     reg.on('pointerout',function(){this.setFrame(0)});
     reg.on('pointerdown',function(){this.setFrame(1)});
     reg.on('pointerup',function(){this.setFrame(0);
-    
+    	that.extend.click.play();
     	var x = that.extend.nameform.getChildByName("nameField").value;
     	
     	var y = that.extend.passwordform.getChildByName("passwordField").value;
@@ -135,15 +136,21 @@ resume(){
 		this.extend.nameform.getChildByName("nameField").hidden=false
 		this.extend.passwordform.getChildByName("passwordField").hidden=false
 	}
+
+update(){
+	
+}
 }
 
 class FailRegister extends Phaser.Scene{
 	constructor(){
 		super({key:'FailRegister'})
+		this.extend={click:null}
 	}
 	create(){
 		var that=this
-		
+	   	this.extend.click=this.sound.add('click');
+		this.extend.click.setVolume(3)
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,440,'mediumInfo');
 		this.add.text(700,300,"FAILED SIGN UP ATTEMPT \n Either your name contains \n unsupported characters," +
@@ -154,21 +161,27 @@ class FailRegister extends Phaser.Scene{
 		okButt.on('pointerdown',function(){this.setFrame(1)})
 		
 		okButt.on('pointerup',function(){
+			that.extend.click.play();
 			this.setFrame(0);
 			that.scene.resume('login');
 			game.scene.scenes[3].resume();
 			that.scene.stop();
 		});
 	}
+	update(){
+		
+	}
 }
 
 class FailLogin extends Phaser.Scene{
 	constructor(){
 		super({key:'FailLogin'})
+		this.extend={click:null}
 	}
 	create(){
 		var that=this
-		
+	   	this.extend.click=this.sound.add('click');
+		this.extend.click.setVolume(3)
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,440,'mediumInfo');
 		this.add.text(700,300,"FAILED LOGIN ATTEMPT \n Either your name contains \n unsupported characters," +
@@ -179,22 +192,26 @@ class FailLogin extends Phaser.Scene{
 		okButt.on('pointerdown',function(){this.setFrame(1)})
 		
 		okButt.on('pointerup',function(){
+			that.extend.click.play();
 			this.setFrame(0);
 			that.scene.resume('login');
 			game.scene.scenes[3].resume();
 			that.scene.stop();
 		});
 	}
+	update(){
+	}
 }
 
 class FailPass extends Phaser.Scene{
 	constructor(){
 		super({key:'FailPass'})
+		this.extend={click:null}
 	}
 	create(){
-		console.log("WTF")
 		var that=this
-		
+	   	this.extend.click=this.sound.add('click');
+		this.extend.click.setVolume(3)
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,440,'mediumInfo');
 		this.add.text(700,300,"PASSWORD FAIL \n Either your password\n contains unsupported \n characters," +
@@ -205,10 +222,14 @@ class FailPass extends Phaser.Scene{
 		okButt.on('pointerdown',function(){this.setFrame(1)})
 		
 		okButt.on('pointerup',function(){
+			that.extend.click.play();
 			this.setFrame(0);
 			that.scene.resume('login');
 			game.scene.scenes[3].resume();
 			that.scene.stop();
 		});
+	}
+	update(){
+	
 	}
 }

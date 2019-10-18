@@ -63,7 +63,28 @@ class contact extends Phaser.Scene{
         that.extend.ENGroup.add(en1);
         that.extend.ENGroup.add(en2);
 
-	     
+        this.extend.click.setVolume(game.global.user.evol)
+		 switch(game.global.user.lang){
+		case "ES":
+			
+			this.extend.ENGroup.alpha=0;
+			this.extend.ESGroup.alpha=1;
+			this.extend.ensub.alpha=0;
+			this.extend.essub.alpha=0.6;
+			
+			
+			
+			break;
+		case "EN":
+			
+			this.extend.ENGroup.alpha=1;
+			this.extend.ESGroup.alpha=0;
+			this.extend.ensub.alpha=0.6;
+			this.extend.essub.alpha=0;
+			break;
+		default:
+			break;
+		}
 	     
 	     var transition=function(str){
 	    	 that.extend.click.play();
@@ -94,27 +115,6 @@ class contact extends Phaser.Scene{
 		   }
 	}
 	update(){
-		this.extend.click.setVolume(game.global.user.evol)
-		 switch(game.global.user.lang){
- 		case "ES":
- 			
- 			this.extend.ENGroup.alpha=0;
- 			this.extend.ESGroup.alpha=1;
- 			this.extend.ensub.alpha=0;
- 			this.extend.essub.alpha=0.6;
- 			
- 			
- 			
- 			break;
- 		case "EN":
- 			
- 			this.extend.ENGroup.alpha=1;
- 			this.extend.ESGroup.alpha=0;
- 			this.extend.ensub.alpha=0.6;
- 			this.extend.essub.alpha=0;
- 			break;
- 		default:
- 			break;
- 		}
+		
 	}
 }

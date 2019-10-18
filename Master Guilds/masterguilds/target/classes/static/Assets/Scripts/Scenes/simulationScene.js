@@ -41,7 +41,7 @@ class SimulationScene extends Phaser.Scene
 		var background = this.add.sprite(960,280,simulation.escenario);
 
 		//PAUSA
-		this.extend.pauseButton = this.add.sprite(100,100,'pause')
+		this.extend.pauseButton = this.add.sprite(100,100,'PauseButt')
 		.setInteractive()
 		.on('pointerdown',()=>{
 			this.scene.launch('PauseScene');
@@ -67,8 +67,14 @@ class SimulationScene extends Phaser.Scene
 
 					if(game.global.simulation.allies.stats.aliveActors>0){//VICTORIA
 						console.log("VICTORIA")//debug
-						that.extend.winOrDefeat = that.add.sprite(500,500,'TextWinEN');
-
+						that.extend.winOrDefeat = that.add.sprite(960,200,'TextWinEN');
+						
+						//
+						setTimeout(function(){ 
+							that.scene.launch('rewardScene');
+							that.scene.pause();
+						 }, 3000);
+						
 						//LLAMAR SUBIDA DE NIVEL Y O RECOMPENSAS//
 						/////////////////////////////////////////
 
@@ -79,8 +85,17 @@ class SimulationScene extends Phaser.Scene
 					else//DERROTA
 					{
 						console.log("DERROTA")//debug
-						that.extend.winOrDefeat = that.add.sprite(500,500,'TextDefeatEN');
+						that.extend.winOrDefeat = that.add.sprite(960,200,'TextDefeatEN');
 
+						setTimeout(function(){ 
+							var msg = new Object();
+							msg.event = "UPDATEUSERINFO"
+							msg.userAux = new User(game.global.user);
+							game.global.socket.send(JSON.stringify(msg))
+							that.scene.launch('rewardScene');
+							that.scene.pause();
+						 }, 3000);
+						
 						//RESETEAR SIMULACION Y VOLVER AL MENU O OTRA ESCENA
 						//////////////////////////////////////////////////
 
@@ -181,7 +196,7 @@ class SimulationScene extends Phaser.Scene
 				{
 					if(simulation.turn % 2 == 0)//Turno par
 					{
-					return allyCard.attackAnimation({isEnemy:false,enemy:enemyCard})
+					return allyCard.attackAnimation({isEnemy:false,enemy:enemyCard,turnlog:turnlog})
 				/*
 				.then(() => {console.log("Animacion de ataque aliado ")//DEBUG)
 							returnFunctionAux();
@@ -190,7 +205,7 @@ class SimulationScene extends Phaser.Scene
 					}
 					else //Turno impar
 					{
-					return enemyCard.attackAnimation({isEnemy:true,enemy:allyCard})
+					return enemyCard.attackAnimation({isEnemy:true,enemy:allyCard,turnlog:turnlog})
 				/*
 				.then(() => {console.log("Animacion de ataque enemigo ")//DEBUG)
 							returnFunctionAux();

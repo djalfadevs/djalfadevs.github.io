@@ -83,9 +83,9 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
 					break;
 				case "UPDATEUSERINFO":
-					JsonNode aux = node.get("user");
-					System.out.println("UPDATEUSERINFO a");
+					JsonNode aux = node.get("userAux");
 					UserInfo u = mapper.convertValue(aux, UserInfo.class);
+					System.out.println(u.toString() + "tarararararara");
 					NamePassword p = player.getNamePassword();
 					game.updateUserInfo(p, u);
 					

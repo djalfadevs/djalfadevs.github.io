@@ -1,0 +1,14 @@
+ATAQUE
+------
+4 sprites de 520 x 642 cada uno
+animación de 0,15 segundos (4/0,15 = 20 FPS)
+
+BUFFOS
+------
+3 sprites
+animación de 0,05 segundos (3/0,5 = 60 FPS)
+
+CURACIÓN
+--------
+19 sprites de 700x800 cada uno
+animación de 2 segundos (19/2 = 9,5 FPS)

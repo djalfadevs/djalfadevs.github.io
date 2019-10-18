@@ -4,7 +4,7 @@
 class title extends Phaser.Scene{
 constructor(){
     super({key:"title"})
-    this.extend={nameform:null,passwordform:null,ENGroup:null,ESGroup:null}
+    this.extend={click:null,nameform:null,passwordform:null,ENGroup:null,ESGroup:null}
 }
 preload(){
     console.log("title")
@@ -13,14 +13,14 @@ preload(){
 }
 create(){
     var that=this;
-
+    this.extend.click=this.sound.add('click');
     var MasterATitle = this.add.sprite(950,320,'masterATitle').setScale(1.15,1.15);
     var contact=this.add.sprite(320,900,'largeConButt').setInteractive();
     var en4=this.add.text(160,860,'Contact us',{fontFamily:"Museo-700",fontSize:'69px',color:'#000',fontStyle:'bold'});
     var es4=this.add.text(170,860,'Contacto',{fontFamily:"Museo-700",fontSize:'69px',color:'#000',fontStyle:'bold'});
     var play=this.add.sprite(950,650,'largeButt').setInteractive();
-    var en1=this.add.text(880,610,'Play',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
-    var es1=this.add.text(850,610,'Jugar',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+    var en1=this.add.text(880,610,'Play',{fontFamily:"Museo-700" ,fontSize:'75px',color:'#000',fontStyle:'bold'})
+    var es1=this.add.text(850,610,'Jugar',{fontFamily:"Museo-700" ,fontSize:'75px',color:'#000',fontStyle:'bold'})
     var settings=this.add.sprite(950,900,'largeSetButt').setInteractive();
     var en2=this.add.text(840,860,'Settings',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
     var es2=this.add.text(850,860,'Ajustes',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#000',fontStyle:'bold'})
@@ -55,6 +55,28 @@ create(){
     that.extend.ENGroup.add(en2);
     that.extend.ENGroup.add(en4);
     
+	if(game.global.user.evol!=null){
+		this.extend.click.setVolume(game.global.user.evol)
+	}
+	
+	switch(game.global.user.lang){
+	case "ES":
+		
+		this.extend.ENGroup.alpha=0;
+		this.extend.ESGroup.alpha=1;
+		
+		break;
+	case "EN":
+		
+		this.extend.ENGroup.alpha=1;
+		this.extend.ESGroup.alpha=0;
+		
+		break;
+	default:
+		break;
+	}
+    
+    
     //pointerOverFunctions
     //var backButt=this.add.sprite(100,100,'backButt').setScale(0.5).setInteractive({useHandCursor:true})
     
@@ -70,6 +92,7 @@ create(){
     //enter.on('pointerout',function(){this.setFrame(...)});
     //enter.on('pointerdown',function(){this.setFrame(...); transition("ent")});
     var transition=function(str,t){
+    	t.extend.click.play();
     switch(str){
             case "play":
             t.scene.transition({target:'mainMenu',duration:0});
@@ -96,22 +119,7 @@ create(){
 }
 
 update(){
-	switch(game.global.user.lang){
-	case "ES":
-		
-		this.extend.ENGroup.alpha=0;
-		this.extend.ESGroup.alpha=1;
-		
-		break;
-	case "EN":
-		
-		this.extend.ENGroup.alpha=1;
-		this.extend.ESGroup.alpha=0;
-		
-		break;
-	default:
-		break;
-	}
+
 }
 
 }
