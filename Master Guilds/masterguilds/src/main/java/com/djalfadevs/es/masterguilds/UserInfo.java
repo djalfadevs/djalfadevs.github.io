@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -31,6 +32,8 @@ public class UserInfo {
 	private int mvol;
 	private int evol;
 	private int numberofmision;
+	private int[] defensa;
+	
 	
 	public AtomicInteger numeroexclusivodecarta;
 	//Constructor para nuevos usuarios
@@ -47,6 +50,7 @@ public class UserInfo {
 		this.setmvol(3);
 		this.setevol(3);
 		this.numberofmision=5;
+		this.defensa= new int[]{-1,-1,-1,-1};
 		this.numeroexclusivodecarta =  new AtomicInteger(0);
 		//Heroes Al registrarse
 		try {
@@ -87,7 +91,7 @@ public class UserInfo {
 			@JsonProperty("heros")List<Hero> list,
 			@JsonProperty("clan")String clan,@JsonProperty("arenaPoints")int arenaPoints,@JsonProperty("lang")String lang,@JsonProperty("mvol")int ol,
 			@JsonProperty("evol")int evol, @JsonProperty("numberofmision")int numberofmision,
-			@JsonProperty("numeroexclusivodecarta")int numeroExclusivoDeCarta) {
+			@JsonProperty("numeroexclusivodecarta")int numeroExclusivoDeCarta,@JsonProperty("defensa")int[]defensa) {
 		this.name = name;
 		this.gold = gold;
 		this.gems = gems;
@@ -101,6 +105,7 @@ public class UserInfo {
 		this.setevol(evol);
 		this.numberofmision = numberofmision;
 		this.numeroexclusivodecarta = new AtomicInteger(numeroExclusivoDeCarta);
+		this.defensa=defensa;
 	}
 	
 	public String getName() {
@@ -156,12 +161,22 @@ public class UserInfo {
 		this.arenaPoints = arenaPoints;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "UserInfo [name=" + name + ", gold=" + gold + ", gems=" + gems + ", exp=" + exp + ", level=" + level
 				+ ", heros=" + heros + ", clan=" + clan + ", arenaPoints=" + arenaPoints + ", lang=" + lang + ", mvol="
-				+ mvol + ", evol=" + evol + ", numberofmision=" + numberofmision + ", numeroexclusivodecarta="
-				+ numeroexclusivodecarta + "]";
+				+ mvol + ", evol=" + evol + ", numberofmision=" + numberofmision + ", defensa="
+				+ Arrays.toString(defensa) + ", numeroexclusivodecarta=" + numeroexclusivodecarta + "]";
+	}
+
+	public int[] getDefensa() {
+		return defensa;
+	}
+
+	public void setDefensa(int[] defensa) {
+		this.defensa = defensa;
 	}
 
 	public int getNumberofmision() {

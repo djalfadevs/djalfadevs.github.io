@@ -89,7 +89,8 @@ public class Game {
 							auxnode.get("UserInfo").get("arenaPoints").asInt(), auxnode.get("UserInfo").get("lang").asText(),
 							auxnode.get("UserInfo").get("mvol").asInt(),auxnode.get("UserInfo").get("evol").asInt(),
 							auxnode.get("UserInfo").get("numberofmision").asInt(),
-							auxnode.get("UserInfo").get("numeroexclusivodecarta").asInt());
+							auxnode.get("UserInfo").get("numeroexclusivodecarta").asInt(),
+							mapper.convertValue(auxnode.get("UserInfo").get("defensa"), int[].class));
 					infoUsers.put(auxNP, auxUI);
 
 				} catch (IOException e) {
@@ -195,6 +196,7 @@ public class Game {
 				userInfo.put("evol", auxUserInfo.getevol());
 				userInfo.put("numberofmision", auxUserInfo.getNumberofmision());
 				userInfo.put("numeroexclusivodecarta",auxUserInfo.getNumeroExclusivoDeCarta().get());
+				userInfo.set("defensa", mapper.valueToTree(auxUserInfo.getDefensa()));
 				NamePassUserInfo.set("UserInfo", userInfo);
 
 				
@@ -253,6 +255,7 @@ public class Game {
 		auxUserinfo.setGems(u.getGems());
 		auxUserinfo.setGold(u.getGold());
 		auxUserinfo.setNumeroExclusivoDeCarta(u.getNumeroExclusivoDeCarta());
+		auxUserinfo.setDefensa(u.getDefensa());
 		infoUsers.put(n, auxUserinfo);
 		
 		//updateUserInfoMongo();
@@ -302,6 +305,7 @@ public class Game {
 		userInfo.put("evol", auxUserInfo.getevol());
 		userInfo.put("numberofmision", auxUserInfo.getNumberofmision());
 		userInfo.put("numeroexclusivodecarta",auxUserInfo.getNumeroExclusivoDeCarta().get());
+		userInfo.set("defensa", mapper.valueToTree(auxUserInfo.getDefensa()));
 		NamePassUserInfo.set("UserInfo", userInfo);
 		
 		try {
@@ -352,6 +356,7 @@ public class Game {
 			userInfo.put("evol", auxUserInfo.getevol());
 			userInfo.put("numberofmision", auxUserInfo.getNumberofmision());
 			userInfo.put("numeroexclusivodecarta",auxUserInfo.getNumeroExclusivoDeCarta().get());
+			userInfo.set("defensa", mapper.valueToTree(auxUserInfo.getDefensa()));
 			NamePassUserInfo.set("UserInfo", userInfo);
 
 			try {
