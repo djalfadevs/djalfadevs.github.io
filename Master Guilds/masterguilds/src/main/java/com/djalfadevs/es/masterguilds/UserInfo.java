@@ -46,7 +46,7 @@ public class UserInfo {
 		this.lang="EN";
 		this.setmvol(3);
 		this.setevol(3);
-		this.numberofmision=0;
+		this.numberofmision=5;
 		//Heroes Al registrarse
 		try {
 			InputStream i = getClass().getResourceAsStream("heroes.json");

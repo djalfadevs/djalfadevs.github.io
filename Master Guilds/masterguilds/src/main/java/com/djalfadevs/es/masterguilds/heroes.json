@@ -86,7 +86,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_Zhu_carta_pequena",
+			"azon_Zhu_carta_grande"
+		],
 		"activeAbilities": [],
 		"baseAggro": 20,
 		"aggro": 20,
@@ -171,7 +174,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"ferten_small_card_back",
+			"ferten_big_card_back"
+		],
 		"activeAbilities": [],
 		"baseAggro": 70,
 		"aggro": 70,
@@ -212,7 +218,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_small_card_back",
+			"azon_big_card_back"
+		],
 		"activeAbilities": [],
 		"baseAggro": 20,
 		"aggro": 20,
@@ -240,12 +249,8 @@
 		"evasion": 35,
 		"baseEvasion": 35,
 		"abilities": [
-			{
-				
-			}
 		],
-		"image_url": 
-		[
+		"image_url": [
 			"azon_lancer_cp",
 			"azon_lancer_cg"
 		],
@@ -276,9 +281,6 @@
 		"evasion": 0,
 		"baseEvasion": 0,
 		"abilities": [
-			{
-				
-			}
 		],
 		"image_url": [
 			"azon_shield_cp",
@@ -324,8 +326,7 @@
 				"isReady": false
 			}
 		],
-		"image_url": 
-		[
+		"image_url": [
 			"azon_medic_cp",
 			"azon_medic_cg"
 		],
@@ -381,7 +382,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"ferten_balista_cp",
+			"ferten_balista_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 70,
 		"aggro": 70,
@@ -422,7 +426,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_small_card_back",
+			"azon_big_card_back"
+		],
 		"activeAbilities": [],
 		"baseAggro": 75,
 		"aggro": 75,
@@ -463,7 +470,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_small_card_back",
+			"azon_big_card_back"
+		],
 		"activeAbilities": [],
 		"baseAggro": 34,
 		"aggro": 34,
@@ -504,7 +514,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_small_card_back",
+			"azon_big_card_back"
+		],
 		"activeAbilities": [],
 		"baseAggro": 14,
 		"aggro": 14,
@@ -532,11 +545,11 @@
 		"evasion": 35,
 		"baseEvasion": 35,
 		"abilities": [
-			{
-				
-			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"ferten_private_cp",
+			"ferten_private_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 50,
 		"aggro": 50,
@@ -564,11 +577,11 @@
 		"evasion": 0,
 		"baseEvasion": 0,
 		"abilities": [
-			{
-				
-			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"ferten_armoured_cp",
+			"ferten_armoured_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 80,
 		"aggro": 80,
@@ -609,7 +622,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"ferten_surgeon_cp",
+			"ferten_surgeon_cg"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 10,
 		"aggro": 10,
@@ -662,7 +679,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_small_card_back",
+			"azon_big_card_back"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 30,
 		"aggro": 30,
@@ -703,7 +724,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_small_card_back",
+			"azon_big_card_back"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 30,
 		"aggro": 30,
@@ -744,7 +769,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_small_card_back",
+			"azon_big_card_back"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 30,
 		"aggro": 30,
@@ -785,7 +814,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_small_card_back",
+			"azon_big_card_back"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 60,
 		"aggro": 60,
@@ -813,7 +846,11 @@
 		"evasion": 35,
 		"baseEvasion": 35,
 		"abilities": [],
-		"image_url": "url",
+		"image_url": [
+			"kwin_destroyer_cp",
+			"kwin_destroyer_cg"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 50,
 		"aggro": 50,
@@ -826,8 +863,8 @@
 	{
 		"ID": 15,
 		"name": "Kwin Fortitude Wizard",
-		"baseAttack":60,
-		"attack":60,
+		"baseAttack": 60,
+		"attack": 60,
 		"baseDefence": 40,
 		"defence": 40,
 		"baseHP": 200,
@@ -854,7 +891,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"kwin_shielder_cp",
+			"kwin_shielder_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 80,
 		"aggro": 80,
@@ -895,7 +935,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"kwin_wizard_cp",
+			"kwin_wizard_cg"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 10,
 		"aggro": 10,
