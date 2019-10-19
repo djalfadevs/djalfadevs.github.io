@@ -20,7 +20,7 @@
 			{
 				"ID": 1,
 				"name": "BUFFSTATS V",
-				"baseActiveTurns": 6,
+				"baseActiveTurns": 7,
 				"baseChargeTurns": 12,
 				"description": [
 					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
@@ -32,7 +32,7 @@
 			{
 				"ID": 3,
 				"name": "RAGE V",
-				"baseActiveTurns": 3,
+				"baseActiveTurns": 4,
 				"baseChargeTurns": 8,
 				"description": [
 					"El usuario manipula su ira para subir su fuerza.",
@@ -360,7 +360,7 @@
 			{
 				"ID": 1,
 				"name": "BUFFSTATS III",
-				"baseActiveTurns": 1,
+				"baseActiveTurns": 3,
 				"baseChargeTurns": 7,
 				"description": [
 					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
@@ -504,7 +504,7 @@
 			{
 				"ID": 2,
 				"name": "HEAL IV",
-				"baseActiveTurns": 2,
+				"baseActiveTurns": 3,
 				"baseChargeTurns": 6,
 				"description": [
 					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
@@ -804,7 +804,7 @@
 			{
 				"ID": 1,
 				"name": "BUFFSTATS IV",
-				"baseActiveTurns": 3,
+				"baseActiveTurns": 4,
 				"baseChargeTurns": 12,
 				"description": [
 					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
@@ -881,7 +881,7 @@
 			{
 				"ID": 1,
 				"name": "BUFFSTATS II",
-				"baseActiveTurns": 1,
+				"baseActiveTurns": 2,
 				"baseChargeTurns": 7,
 				"description": [
 					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",

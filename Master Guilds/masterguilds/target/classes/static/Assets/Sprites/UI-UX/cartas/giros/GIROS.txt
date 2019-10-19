@@ -1,0 +1,15 @@
+Los sprites son potencia de 2 ;)
+
+GIROS
+-----
+
+Cada spritesheet se compone de 8 sprites del mismo tamaño (aunque haya espacios en blanco)
+Si la animación va a 30 FPS, cada sprite ocupa 3 frames
+Se debe reproducir el bucle varias veces antes de soltar la animación de humo (pueden ser ticks o cosas así)
+
+
+HUMO
+----
+Cada spritesheet se compone de 13 sprites del mismo tamaño (aunque haya espacios en blanco)
+Si la animación va a 30 FPS, cada sprite ocupa 2 frames
+Sólo se reproduce una vez
