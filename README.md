@@ -187,4 +187,6 @@ Nuestra táctica para atraer una amplia base de usuarios se basa en enganchar al
 ### Marketing
 
 El marketing inicial para el juego constará de tres anuncios cortos demostrando el concepto del juego. Cada uno de estos anuncios estará tematizado según una de las facciones del mundo, consiguiendo así una amplia variedad en la generación de interés y fomentando el universo interno del juego para continuar desarrollándolo en el futuro tanto en este proyecto como en posibles proyectos futuros. Estos videos también serán combinados para hacer una promoción más larga que demuestra la diversidad de nuestro juego.
-Además de eso promocionaremos a través de redes sociales las diversas campañas y eventos que se vallan añadiendo al juego; con la primera de todas siendo la previamente mencionada campaña de lanzamiento que aumentará las posibilidades de conseguir personajes fuertes y ofrecerá durante un tiempo limitado ofertas especiales en gemas pagadas.
+Además de eso promocionaremos a través de redes sociales las diversas campañas y eventos que se vallan añadiendo al juego; con la primera de todas siendo la previamente mencionada campaña de lanzamiento que aumentará las posibilidades de conseguir personajes fuertes y ofrecerá durante un tiempo limitado ofertas especiales en gemas pagadas. Estos eventos y actualizaciones se irán definiendo por temporadas en las que al jugador se le presenta que puede esperar a lo largo de los proximos 4 meses del juego.
+
+![alt text](https://github.com/djalfadevs/djalfadevs.github.io/blob/master/Concept/RoadMap.png "Season 1")
