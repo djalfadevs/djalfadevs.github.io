@@ -50,6 +50,12 @@ MasterA busca la intuitividad de la interfaz mediante un sistema basado unicamen
 
 Gracias a un diseño ligero y gráficos enteramente 2D, MasterA podrá correr en practicamente cualquier dispositivo con acceso a internet. Los únicos requisitos tangibles serán un navegador web moderno y una conexión estable a internet.
 
+### Audiencia
+
+MasterA busca atraer especialmente a usuarios de entre 15 y 25 años masculinos ya que esta demografica es la que más beneficios genera en hobbies con planes de negocio similares al nuestro, como los juegos de cartas collecionables y juegos f2p del espacio movil. Con esto dicho, no descartamos la posibilidad de otras audiencias mostrando interés en el juego; en Japon, que es el mercado que estableció las bases de los juegos free to play y continua el más lucrativo hoy en dia, la demográfica principal de estos servicios es de individuales más adultos, que buscan los huecos en su dia a dia para jugar y estan dispuestos a invertir dinero de forma más regular. Con esto establecido nuestros personajes principalmente apelarán a hombres pero tendremos suficiente diversidad en ellos como para que la audiencia femenina también pueda estarinteresada.
+
+Los territorios En los que vamos a lanzar inicialmente son España y Estados Unidos, seguidos rapidamente por el resto de territorios hispanoparlantes e ingleses, y posteriormente con una possible expansión a Japon. Estos territorios iniciales fortalecen nuestras posibilidades de exito gracias a nuetra familiaridad con ellos y nuestro equipo multilingüe. Japón por otro lado ofrece una oportunidad increible de expansión pero requiere una investigación en profundidad y localiczación externa de los contenidos.
+
 ### Jugabilidad
 #### RECLUTAMIENTO Y MEJORAS
 
@@ -169,3 +175,16 @@ Con estos aspectos esperamos conseguir un *metagame* interesante para jugadores 
   
   Además, cuenta con un botón que abre la seleción de equipo que quiera subir al servidor para que compitan los otros usuarios.
   
+  
+  ## Modelo de Negocio
+  
+  ### Monetización
+  
+  MasterA es un juego free-to-start que se caracteriza por poder ser completado sin la necesidad de invertir dinero en ningún momento. Esta decisión en la dirección monetaria fue tomada tras la investigación de nuestro equipo de gestión y recursos humanos, quienes proporcionaron extensiva documentación de los juegos más rentables del espacio móvil y casual. En estos documentos quedan claramente expuestos los aspectos que los juegos más populares tienen en común: ser totalmente gratuitos para comenzar, disponer de jugabilidad altamente accesible que se base en estrategias en vez de la habilidad del usuario, y proporcionar algún aspecto claro de progresión del usuario según le dedica horas al juego. 
+Con esto en mente, queremos resaltar MasterA al igual que estos juegos populares no es un juego totalmente gratuito, su plan de monetización se basa en la colección de sus personajes mediante un divisa in-game, aprovechando la naturaleza adictiva de los hobbies basados en el coleccionismo. Los personajes se obtienen de forma aleatoria, de forma similar a abrir un sobre de cromos, con distintas rarezas para personajes especiales. Algunos personajes estarán disponibles solamente durante eventos limitados por tiempo, generando así en los interesados una sensación de urgencia para conseguirlos antes de que se termine el plazo. Los juegos de cartas coleccionables han sido de hecho una gran inspiración para tanto nuestro diseño de juego, diseño visual y diseño monetario. 
+Nuestra táctica para atraer una amplia base de usuarios se basa en enganchar al jugador mediante una introducción al juego con contenido manejable para un principiante y una cantidad generosa de gemas (la previamente mencionada divisa in-game) con la intención de demostrarles el funcionamiento del juego y su monetización. Además, durante las primeras dos semanas se implementará una campaña de inicio para atraer a usuarios a probar nuestro servicio, aumentando nuestra visibilidad durante el periodo más crucial de lanzamiento. Una vez el jugador este iniciado en el juego, se irán reduciendo gradualmente las recompensas de objetos premium para fomentar la tienda de micro pagos.
+
+### Marketing
+
+El marketing inicial para el juego constará de tres anuncios cortos demostrando el concepto del juego. Cada uno de estos anuncios estará tematizado según una de las facciones del mundo, consiguiendo así una amplia variedad en la generación de interés y fomentando el universo interno del juego para continuar desarrollándolo en el futuro tanto en este proyecto como en posibles proyectos futuros. Estos videos también serán combinados para hacer una promoción más larga que demuestra la diversidad de nuestro juego.
+Además de eso promocionaremos a través de redes sociales las diversas campañas y eventos que se vallan añadiendo al juego; con la primera de todas siendo la previamente mencionada campaña de lanzamiento que aumentará las posibilidades de conseguir personajes fuertes y ofrecerá durante un tiempo limitado ofertas especiales en gemas pagadas.
