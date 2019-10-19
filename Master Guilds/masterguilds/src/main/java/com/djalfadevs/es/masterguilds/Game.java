@@ -83,7 +83,8 @@ public class Game {
 							mapper.convertValue(auxnode.get("UserInfo").get("heros"), ArrayList.class),
 							auxnode.get("UserInfo").get("clan").asText(),
 							auxnode.get("UserInfo").get("arenaPoints").asInt(), auxnode.get("UserInfo").get("lang").asText(),
-							auxnode.get("UserInfo").get("mvol").asInt(),auxnode.get("UserInfo").get("evol").asInt());
+							auxnode.get("UserInfo").get("mvol").asInt(),auxnode.get("UserInfo").get("evol").asInt(),
+							auxnode.get("UserInfo").get("numberofmision").asInt());
 					infoUsers.put(auxNP, auxUI);
 
 				} catch (IOException e) {
@@ -207,6 +208,7 @@ public class Game {
 	public void updateConfigUser(NamePassword n,UserInfo u) {
 		UserInfo auxUserinfo = infoUsers.get(n);
 		auxUserinfo.setName(u.getName());
+		auxUserinfo.setNumberofmision(u.getNumberofmision());
 		auxUserinfo.setArenaPoints(u.getArenaPoints());
 		auxUserinfo.setClan(u.getClan());
 		auxUserinfo.setevol(u.getevol());
@@ -277,6 +279,7 @@ public class Game {
 			userInfo.put("lang", auxUserInfo.getLang());
 			userInfo.put("mvol", auxUserInfo.getmvol());
 			userInfo.put("evol", auxUserInfo.getevol());
+			userInfo.put("numberofmision", auxUserInfo.getNumberofmision());
 			NamePassUserInfo.set("UserInfo", userInfo);
 
 			try {
@@ -315,11 +318,19 @@ public class Game {
 	public void setInfoUsers(ConcurrentHashMap<NamePassword, UserInfo> infoUsers) {
 		this.infoUsers = infoUsers;
 	}
-	public JsonNode getArenaRival() {
+	public ArrayNode getArenaRival() {
 		List<UserInfo> auxl = (List<UserInfo>) infoUsers.values();
 		ObjectMapper o = new ObjectMapper();
+
 		JsonNode auxjson = o.convertValue(auxl.get((int) (Math.random()*auxl.size())),JsonNode.class);
-		return auxjson ;
+		JsonNode auxjson2 = o.convertValue(auxl.get((int) (Math.random()*auxl.size())),JsonNode.class);
+		JsonNode auxjson3 = o.convertValue(auxl.get((int) (Math.random()*auxl.size())),JsonNode.class);
+		
+		ArrayNode auxarraynode = o.createArrayNode();
+		auxarraynode.add(auxjson);
+		auxarraynode.add(auxjson2);
+		auxarraynode.add(auxjson3);
+		return auxarraynode ;
 	}
 	
 	public JsonNode getNewChapter(NamePassword p3) {

@@ -30,6 +30,7 @@ public class UserInfo {
 	private String lang;
 	private int mvol;
 	private int evol;
+	private int numberofmision;
 	
 	public AtomicInteger numeroExclusivoDeCarta = new AtomicInteger(0);
 	//Constructor para nuevos usuarios
@@ -45,6 +46,7 @@ public class UserInfo {
 		this.lang="EN";
 		this.setmvol(3);
 		this.setevol(3);
+		this.numberofmision=0;
 		//Heroes Al registrarse
 		try {
 			InputStream i = getClass().getResourceAsStream("heroes.json");
@@ -83,7 +85,7 @@ public class UserInfo {
 			@JsonProperty("gems")int gems,@JsonProperty("exp")int exp,@JsonProperty("level")int level,
 			@JsonProperty("heros")List<Hero> list,
 			@JsonProperty("clan")String clan,@JsonProperty("arenaPoints")int arenaPoints,@JsonProperty("lang")String lang,@JsonProperty("mvol")int ol,
-			@JsonProperty("evol")int evol) {
+			@JsonProperty("evol")int evol, @JsonProperty("numberofmision")int numberofmision) {
 		this.name = name;
 		this.gold = gold;
 		this.gems = gems;
@@ -95,6 +97,7 @@ public class UserInfo {
 		this.lang=lang;
 		this.setmvol(mvol);
 		this.setevol(evol);
+		this.numberofmision = numberofmision;
 	}
 	
 	public String getName() {
@@ -154,7 +157,16 @@ public class UserInfo {
 	public String toString() {
 		return "UserInfo [name=" + name + ", gold=" + gold + ", gems=" + gems + ", exp=" + exp + ", level=" + level
 				+ ", heros=" + heros + ", clan=" + clan + ", arenaPoints=" + arenaPoints + ", lang=" + lang + ", mvol="
-				+ mvol + ", evol=" + evol + ", numeroExclusivoDeCarta=" + numeroExclusivoDeCarta + "]";
+				+ mvol + ", evol=" + evol + ", numberofmision=" + numberofmision + ", numeroExclusivoDeCarta="
+				+ numeroExclusivoDeCarta + "]";
+	}
+
+	public int getNumberofmision() {
+		return numberofmision;
+	}
+
+	public void setNumberofmision(int numberofmision) {
+		this.numberofmision = numberofmision;
 	}
 
 	public String getLang() {

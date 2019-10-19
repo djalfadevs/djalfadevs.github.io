@@ -363,7 +363,7 @@ class buy5 extends Phaser.Scene{
 class buy20 extends Phaser.Scene{
 	constructor(){
 		super({key:"buy20"})
-		
+		this.extend={buy:null,click:null}
 	}
 	preload(){
 		
@@ -417,7 +417,7 @@ class buy20 extends Phaser.Scene{
 class buy50 extends Phaser.Scene{
 	constructor(){
 		super({key:"buy50"})
-		
+		this.extend={buy:null,click:null}
 	}
 	preload(){
 		

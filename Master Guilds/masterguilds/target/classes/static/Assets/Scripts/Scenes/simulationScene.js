@@ -88,6 +88,9 @@ class SimulationScene extends Phaser.Scene
 							that.scene.pause();
 						 }, 3000);
 						
+						if(game.global.user.numberofmision<game.global.simulation.idmision){
+							game.global.user.numberofmision=game.global.simulation.idmision;
+						}
 						//LLAMAR SUBIDA DE NIVEL Y O RECOMPENSAS//
 						/////////////////////////////////////////
 

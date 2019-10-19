@@ -37,9 +37,15 @@ class chapter extends Phaser.Scene{
     	world2.on('pointerdown',function(){this.setFrame(1)
             SelectMisionAndAddDatatoSimulation(1);
         })
-    	world3.on('pointerdown',function(){this.setFrame(1)})
-    	world4.on('pointerdown',function(){this.setFrame(1)})
-    	world5.on('pointerdown',function(){this.setFrame(1)})
+    	world3.on('pointerdown',function(){this.setFrame(1)
+            SelectMisionAndAddDatatoSimulation(2);
+        })
+    	world4.on('pointerdown',function(){this.setFrame(1)
+            SelectMisionAndAddDatatoSimulation(3);
+        })
+    	world5.on('pointerdown',function(){this.setFrame(1)
+            SelectMisionAndAddDatatoSimulation(4);
+        })
     	
     	world1.on('pointerout',function(){this.setFrame(0)})
     	world2.on('pointerout',function(){this.setFrame(0)})
@@ -83,6 +89,34 @@ class chapter extends Phaser.Scene{
     	startButt.on('pointerup',function(){this.setFrame(0);transition(target,that)});
     	startButt.on('pointerout',function(){this.setFrame(0)});
     	
+
+        function misionReveal(){
+            var i = game.global.user.numberofmision;
+
+            if(i>=1){
+                Xworld2.destroy();
+                world2.inputEnabled=true;
+                world2.alpha=1;
+            }
+            if(i>=2){
+                Xworld3.destroy();
+                world3.inputEnabled=true;
+                world3.alpha=1;
+            }
+            if(i>=3){
+                 Xworld4.destroy();
+                 world4.inputEnabled=true;
+                 world4.alpha=1;
+            }
+            if(i>=4){
+                 Xworld5.destroy();
+                 world5.inputEnabled=true;
+                 world5.alpha=1;
+            }
+        }
+
+        misionReveal();
+
     	function infoShow(num,str){
     		that.extend.click.play();
     		infoText2.setText("World "+num);
@@ -119,6 +153,7 @@ class chapter extends Phaser.Scene{
             var mision = game.global.misions[indexPos];
             var simulation = game.global.simulation;
 
+            simulation.idmision = mision.id;
             //Fijamos lo relacionado con la simulacion Propiamente
             simulation.escenario = mision.escenario;
             //fijamos lo relacionado con el bando enemigo
