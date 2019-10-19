@@ -150,13 +150,11 @@ public class UserInfo {
 		this.arenaPoints = arenaPoints;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "UserInfo [name=" + name + ", gold=" + gold + ", gems=" + gems + ", exp=" + exp + ", level=" + level
 				+ ", heros=" + heros + ", clan=" + clan + ", arenaPoints=" + arenaPoints + ", lang=" + lang + ", mvol="
-				+ mvol + ", evol=" + evol + "]";
+				+ mvol + ", evol=" + evol + ", numeroExclusivoDeCarta=" + numeroExclusivoDeCarta + "]";
 	}
 
 	public String getLang() {
@@ -175,13 +173,26 @@ public class UserInfo {
 		mvol = mVol;
 	}
 
+	
 	public int getevol() {
 		return evol;
 	}
 
-	public void setevol(int eVol) {
-		evol = eVol;
+	public void setevol(int evol) {
+		this.evol = evol;
 	}
+
+	public AtomicInteger getNumeroExclusivoDeCarta() {
+		return numeroExclusivoDeCarta;
+	}
+
+	public void setNumeroExclusivoDeCarta(AtomicInteger numeroExclusivoDeCarta) {
+		this.numeroExclusivoDeCarta = numeroExclusivoDeCarta;
+	}
+	
+	
+
+
 	
 	
 

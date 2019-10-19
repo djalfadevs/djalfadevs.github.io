@@ -334,7 +334,7 @@ public class Game {
 			
 			int auxRandomnumber = (int) (Math.random()*auxArrayNode.size());
 			
-			Hero auxH = o.convertValue(auxArrayNode.get(auxRandomnumber),Hero.class);
+			Hero auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
 			auxH.setCardExclusiveId(auxUserinfo.numeroExclusivoDeCarta.getAndIncrement());//Creamos el heroe
 			
 			auxUserinfo.getHeros().add(auxH);//Actualizamos el mapa 
