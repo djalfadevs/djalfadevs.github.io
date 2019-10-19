@@ -37,12 +37,21 @@ var CollectionCard = new Phaser.Class({
             	that.scene.extend.text.abilities0d.setText(that.hero.abilities[0].description[0])
             	that.scene.extend.text.abilities0dEN.setText(that.hero.abilities[0].description[1])
             }
+            else{
+            	that.scene.extend.text.abilities0.setText(" ")
+            	that.scene.extend.text.abilities0d.setText(" ")
+            	that.scene.extend.text.abilities0dEN.setText(" ")
+            }
             if(that.hero.abilities[1]!=null){
             	that.scene.extend.text.abilities1.setText(that.hero.abilities[1].name)
             	that.scene.extend.text.abilities1d.setText(that.hero.abilities[1].description[0])
                  that.scene.extend.text.abilities1dEN.setText(that.hero.abilities[1].description[1])
             }
-           
+            else{
+            	that.scene.extend.text.abilities1.setText(" ")
+            	that.scene.extend.text.abilities1d.setText(" ")
+            	that.scene.extend.text.abilities1dEN.setText(" ")
+            }
             
             that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
 			if(that.scene.extend.bigcardSprite !=null){
@@ -68,9 +77,15 @@ var CollectionCard = new Phaser.Class({
             if(that.hero.abilities[0]!=null){
             	that.scene.extend.text.abilities0.setText(that.hero.abilities[0].name)
             }
+            else{
+            	that.scene.extend.text.abilities0.setText(" ")
+            }
             
             if(that.hero.abilities[1]!=null){
             	that.scene.extend.text.abilities1.setText(that.hero.abilities[1].name)
+            }
+            else{
+            	that.scene.extend.text.abilities1.setText(" ")
             }
             
             that.scene.extend.bigcardSprite = scene.add.sprite(that.xG,that.yG,that.hero.image_url[1]);
