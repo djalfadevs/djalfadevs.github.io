@@ -53,7 +53,7 @@ public class UserInfo {
 			ArrayNode auxArrayNode = o.readValue(br,ArrayNode.class );
 			br.close();
 			System.out.println(o.writeValueAsString(auxArrayNode.get(0)));
-			System.out.println("llalalsdmlsdsldsdl");
+			//System.out.println("llalalsdmlsdsldsdl");
 			
 			//PRUEBA DE METER HEROE (AL registrar un jugador se le dan unos heroes elegidos por el gamedesigner)
 			//Estos tienen que ver con la historia del juego

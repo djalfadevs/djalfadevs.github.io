@@ -56,9 +56,11 @@ create(){
     ENGLISHButt.on('pointerup',function(){this.setFrame(0);transition("ENGLISH")});
     backButt.on('pointerup',function(){this.setFrame(0);
         var msg = new Object();
-        msg.event = "UPDATEUSERINFO"
+        msg.event = "UPDATECONFIGUSER"
         msg.userAux = new User(game.global.user);
-        game.global.socket.send(JSON.stringify(msg))
+        msg.userAux.heros=[];
+        var msgS = JSON.stringify(msg)
+        game.global.socket.send(msgS)
       transition("back")
     });
     

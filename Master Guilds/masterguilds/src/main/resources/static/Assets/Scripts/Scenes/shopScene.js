@@ -114,6 +114,11 @@ create(){
     
     summon.on('pointerup',function(){
     	this.setFrame(0)
+
+    	  var msg = new Object();
+          msg.event = "GETNEWHERO" 
+          game.global.socket.send(JSON.stringify(msg))
+
     	that.extend.unlock.play();
     	that.scene.launch('summon');
     	that.scene.pause();

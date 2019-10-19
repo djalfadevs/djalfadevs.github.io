@@ -57,7 +57,8 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 						//player.setUserinfo(userinfo);//ESTO ES POR SI QUEREMOS ASOCIAR A LA SESION LA USER INFO 
 						//aunque veo mejor que se asocie exclusivamente la dupla namePassword y con ella se consiga la 
 						//userinfo del servidor.
-						game.updateUserInfo(namePassword, userinfo);//Actualizamos base de datos mongo
+						game.getInfoUsers().put(namePassword, userinfo);//Quiza redeundante porq ya deberia estar guardado
+						game.updateUserInfoMongo();//Actualizamos base de datos mongo
 						msg.put("event", "SUCCESSLOGIN");
 						msg.set("userinfo", mapper.convertValue(userinfo,JsonNode.class));
 					}
@@ -82,17 +83,38 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					msg.set("ranking", mapper.convertValue(listaRanking, JsonNode.class));
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
 					break;
-				case "UPDATEUSERINFO":
+				case "UPDATECONFIGUSER":
 					JsonNode aux = node.get("userAux");
 					UserInfo u = mapper.convertValue(aux, UserInfo.class);
 					System.out.println(u.toString() + "tarararararara");
 					NamePassword p = player.getNamePassword();
-					game.updateUserInfo(p, u);
-					
+					game.updateConfigUser(p, u);
+					break;
+				case "UPDATEHEROINFO":
+					JsonNode aux2 = node.get("userHero");
+					Hero h = mapper.convertValue(aux2, Hero.class);
+					NamePassword p2 = player.getNamePassword();
+					game.updateHeroInfo(p2, h);
+					break;
+				case "UPDATEMONGO":
+					game.updateUserInfoMongo();
 					break;
 				case "GETMISIONS":
 					msg.put("event", "GETMISIONS");
 					msg.set("misions",game.GetMisions());
+					player.getSession().sendMessage(new TextMessage(msg.toString()));
+					break;
+				case "GETNEWHERO":
+					NamePassword p3 = player.getNamePassword();
+					
+					msg.put("event", "GETNEWHERO");
+					msg.set("hero",game.getNewChapter(p3));
+					player.getSession().sendMessage(new TextMessage(msg.toString()));
+					
+					break;
+				case "GETARENARIVAL":
+					msg.put("event", "GETARENARIVAL");
+					msg.set("rival",game.getArenaRival());
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
 					break;
 			default:
