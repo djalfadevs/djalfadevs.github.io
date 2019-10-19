@@ -32,7 +32,8 @@ class rewardScene extends Phaser.Scene{
 			game.scene.scenes[15].scene.stop();
 			game.global.simulation.resetSimulation();
 			game.global.simulation.SetSimulationtoStartState();
-    		that.scene.transition({target:'chapter',duration:0});
+			
+    		that.scene.transition({target:game.global.lastScene,duration:0});
 		})
 
 		that.extend.ESGroup=this.add.container(0,0);

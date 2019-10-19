@@ -124,7 +124,7 @@ class deck extends Phaser.Scene{
         backButt.on('pointerup',function(){this.setFrame(0);
         	that.extend.click.play();
             game.global.simulation.SetSimulationtoStartState();
-            that.scene.transition({target:'chapter',duration:0})
+            that.scene.transition({target:game.global.lastScene,duration:0})
         })
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
@@ -168,7 +168,7 @@ class deck extends Phaser.Scene{
         	t.extend.click.play();
             switch(str){
                 case "back":
-                t.scene.transition({target:'mainMenu',duration:100});
+                t.scene.transition({target:game.global.lastScene,duration:100});
                 break;
                 
                 
