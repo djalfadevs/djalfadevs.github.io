@@ -37,8 +37,8 @@ create(){
     
     this.extend.nameform = this.add.dom(1310, 360).createFromCache('nameform');
     this.extend.passwordform = this.add.dom(1230, 660).createFromCache('passwordform');
-    this.add.text(355,860,'Register',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'});
-    this.add.text(1260,860,'Enter',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'});
+    this.add.text(350,860,'Sign up',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'});
+    this.add.text(1250,860,'Log in',{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'});
 
     var nameformButt=this.add.sprite(1275,360,'textBox');
     var passformButt=this.add.sprite(1275,660,'textBox');
@@ -156,7 +156,7 @@ class FailRegister extends Phaser.Scene{
 		this.add.text(700,300,"FAILED SIGN UP ATTEMPT \n Either your name contains \n unsupported characters," +
 				"\n is empty or is already \n associated with another\n account ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
 		var okButt=this.add.sprite(960,850,'largeButt').setInteractive()
-		this.add.text(900,820,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+		this.add.text(900,810,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
 		okButt.on('pointerout',function(){this.setFrame(0)})
 		okButt.on('pointerdown',function(){this.setFrame(1)})
 		
@@ -187,7 +187,7 @@ class FailLogin extends Phaser.Scene{
 		this.add.text(700,300,"FAILED LOGIN ATTEMPT \n Either your name contains \n unsupported characters," +
 				"\n is empty or is not \n associated with any\n account ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
 		var okButt=this.add.sprite(960,850,'largeButt').setInteractive()
-		this.add.text(900,820,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+		this.add.text(900,810,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
 		okButt.on('pointerout',function(){this.setFrame(0)})
 		okButt.on('pointerdown',function(){this.setFrame(1)})
 		
@@ -217,7 +217,7 @@ class FailPass extends Phaser.Scene{
 		this.add.text(700,300,"PASSWORD FAIL \n Either your password\n contains unsupported \n characters," +
 				" is empty \n or is not associated \n with this account ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
 		var okButt=this.add.sprite(960,850,'largeButt').setInteractive()
-		this.add.text(900,820,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+		this.add.text(900,810,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
 		okButt.on('pointerout',function(){this.setFrame(0)})
 		okButt.on('pointerdown',function(){this.setFrame(1)})
 		

@@ -32,6 +32,7 @@ class SimulationScene extends Phaser.Scene
 	}
 
 	create(){
+
 		var that = this;
 		//Inicializacion de variables propias
 		this.extend.cards = {allies: [], enemies: []}
@@ -58,8 +59,20 @@ class SimulationScene extends Phaser.Scene
 			this.extend.cards.enemies[i] = new Card(this,1100+i*200,900,simulation.enemys.team[i],1100,500)
 		}
 
+		var fadeinfunction = function(){
+			return new Promise(resolve=>{
+			//Efecto de fadeIn (la escena aparece poco a poco)
+			//that.scene.setVisible(false);
+  			//this.add.text(160,120,'FADE IN CAMERA EFFECT').setOrigin(0.5);
+    		//that.scene.setVisible(true);
+    		//that.cameras.main.setAlpha(0)
+    		that.cameras.main.fadeIn(500);
+    		setTimeout(()=>resolve(),500);
+			})
+		}
 		//Funcion asincrona que realiza toda la ejecucion de la escena
 		var auxSimulationFunct = async function(){
+					await fadeinfunction();
 					while((game.global.simulation.allies.stats.aliveActors>0)&&(game.global.simulation.enemys.stats.aliveActors>0)){
 						await that.simulation();//Simulacion tanto grafica como interna(logica) de la batalla
 					}
@@ -75,6 +88,9 @@ class SimulationScene extends Phaser.Scene
 							that.scene.pause();
 						 }, 3000);
 						
+						if(game.global.user.numberofmision<game.global.simulation.idmision){
+							game.global.user.numberofmision=game.global.simulation.idmision;
+						}
 						//LLAMAR SUBIDA DE NIVEL Y O RECOMPENSAS//
 						/////////////////////////////////////////
 

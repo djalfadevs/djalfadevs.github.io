@@ -30,6 +30,7 @@ public class UserInfo {
 	private String lang;
 	private int mvol;
 	private int evol;
+	private int numberofmision;
 	
 	public AtomicInteger numeroExclusivoDeCarta = new AtomicInteger(0);
 	//Constructor para nuevos usuarios
@@ -45,6 +46,7 @@ public class UserInfo {
 		this.lang="EN";
 		this.setmvol(3);
 		this.setevol(3);
+		this.numberofmision=0;
 		//Heroes Al registrarse
 		try {
 			InputStream i = getClass().getResourceAsStream("heroes.json");
@@ -53,7 +55,7 @@ public class UserInfo {
 			ArrayNode auxArrayNode = o.readValue(br,ArrayNode.class );
 			br.close();
 			System.out.println(o.writeValueAsString(auxArrayNode.get(0)));
-			System.out.println("llalalsdmlsdsldsdl");
+			//System.out.println("llalalsdmlsdsldsdl");
 			
 			//PRUEBA DE METER HEROE (AL registrar un jugador se le dan unos heroes elegidos por el gamedesigner)
 			//Estos tienen que ver con la historia del juego
@@ -83,7 +85,7 @@ public class UserInfo {
 			@JsonProperty("gems")int gems,@JsonProperty("exp")int exp,@JsonProperty("level")int level,
 			@JsonProperty("heros")List<Hero> list,
 			@JsonProperty("clan")String clan,@JsonProperty("arenaPoints")int arenaPoints,@JsonProperty("lang")String lang,@JsonProperty("mvol")int ol,
-			@JsonProperty("evol")int evol) {
+			@JsonProperty("evol")int evol, @JsonProperty("numberofmision")int numberofmision) {
 		this.name = name;
 		this.gold = gold;
 		this.gems = gems;
@@ -95,6 +97,7 @@ public class UserInfo {
 		this.lang=lang;
 		this.setmvol(mvol);
 		this.setevol(evol);
+		this.numberofmision = numberofmision;
 	}
 	
 	public String getName() {
@@ -150,13 +153,20 @@ public class UserInfo {
 		this.arenaPoints = arenaPoints;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "UserInfo [name=" + name + ", gold=" + gold + ", gems=" + gems + ", exp=" + exp + ", level=" + level
 				+ ", heros=" + heros + ", clan=" + clan + ", arenaPoints=" + arenaPoints + ", lang=" + lang + ", mvol="
-				+ mvol + ", evol=" + evol + "]";
+				+ mvol + ", evol=" + evol + ", numberofmision=" + numberofmision + ", numeroExclusivoDeCarta="
+				+ numeroExclusivoDeCarta + "]";
+	}
+
+	public int getNumberofmision() {
+		return numberofmision;
+	}
+
+	public void setNumberofmision(int numberofmision) {
+		this.numberofmision = numberofmision;
 	}
 
 	public String getLang() {
@@ -175,13 +185,26 @@ public class UserInfo {
 		mvol = mVol;
 	}
 
+	
 	public int getevol() {
 		return evol;
 	}
 
-	public void setevol(int eVol) {
-		evol = eVol;
+	public void setevol(int evol) {
+		this.evol = evol;
 	}
+
+	public AtomicInteger getNumeroExclusivoDeCarta() {
+		return numeroExclusivoDeCarta;
+	}
+
+	public void setNumeroExclusivoDeCarta(AtomicInteger numeroExclusivoDeCarta) {
+		this.numeroExclusivoDeCarta = numeroExclusivoDeCarta;
+	}
+	
+	
+
+
 	
 	
 

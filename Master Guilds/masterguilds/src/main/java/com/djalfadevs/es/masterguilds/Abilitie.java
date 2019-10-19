@@ -1,5 +1,7 @@
 package com.djalfadevs.es.masterguilds;
 
+import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Abilitie {
@@ -70,6 +72,51 @@ public boolean isReady() {
 public void setReady(boolean isReady) {
 	this.isReady = isReady;
 }
+@Override
+public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + ((ID == null) ? 0 : ID.hashCode());
+	result = prime * result + baseActiveTurns;
+	result = prime * result + baseChargeTurns;
+	result = prime * result + Arrays.hashCode(description);
+	result = prime * result + (isReady ? 1231 : 1237);
+	result = prime * result + ((name == null) ? 0 : name.hashCode());
+	result = prime * result + remainChargeTurns;
+	return result;
+}
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Abilitie other = (Abilitie) obj;
+	if (ID == null) {
+		if (other.ID != null)
+			return false;
+	} else if (!ID.equals(other.ID))
+		return false;
+	if (baseActiveTurns != other.baseActiveTurns)
+		return false;
+	if (baseChargeTurns != other.baseChargeTurns)
+		return false;
+	if (!Arrays.equals(description, other.description))
+		return false;
+	if (isReady != other.isReady)
+		return false;
+	if (name == null) {
+		if (other.name != null)
+			return false;
+	} else if (!name.equals(other.name))
+		return false;
+	if (remainChargeTurns != other.remainChargeTurns)
+		return false;
+	return true;
+}
+
 
 
 }

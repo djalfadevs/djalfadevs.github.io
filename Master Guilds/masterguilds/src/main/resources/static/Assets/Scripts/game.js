@@ -115,6 +115,10 @@
 				game.global.misions = msg.misions;
 				console.log(game.global.misions)//DEBUG
 			break;
+			case "GETNEWHERO":
+				game.global.obtainedHero = msg.hero;
+				game.global.user.heros.push(msg.hero);
+			break;
 			default:
 		}
 

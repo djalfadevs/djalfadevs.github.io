@@ -13,5 +13,6 @@ class User {
 		this.evol = user.evol;
 		this.lang = user.lang;
 		this.numeroExclusivoDeCarta = user.numeroExclusivoDeCarta;
+		this.numberofmision = user.numberofmision;
 	}
 }

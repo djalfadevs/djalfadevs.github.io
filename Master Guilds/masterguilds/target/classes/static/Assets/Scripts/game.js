@@ -22,7 +22,7 @@
 	//scene: [SimulationScene,PauseScene]
     scene:[preload,LOGO,contact,login,register,title,shop,settings,ranking,
     mainMenu,lang,deck,combatMenu,collection,chapter,
-    SimulationScene,PauseScene,FailLogin,FailRegister,FailPass,comingSoonQ,newsPop,rewardScene,arena]
+    SimulationScene,PauseScene,FailLogin,FailRegister,FailPass,comingSoonQ,newsPop,rewardScene,arena,buy5,buy20,buy50,summon]
 };
 
 	var game = new Phaser.Game(config);
@@ -115,6 +115,10 @@
 				game.global.misions = msg.misions;
 				console.log(game.global.misions)//DEBUG
 			break;
+			case "GETNEWHERO":
+				game.global.obtainedHero = msg.hero;
+				game.global.user.heros.push(msg.hero);
+			break;
 			default:
 		}
 
@@ -122,5 +126,4 @@
 
 	
 //}
-
 

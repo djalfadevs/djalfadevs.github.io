@@ -114,6 +114,11 @@ create(){
     
     summon.on('pointerup',function(){
     	this.setFrame(0)
+
+    	  var msg = new Object();
+          msg.event = "GETNEWHERO" 
+          game.global.socket.send(JSON.stringify(msg))
+
     	that.extend.unlock.play();
     	that.scene.launch('summon');
     	that.scene.pause();
@@ -358,7 +363,7 @@ class buy5 extends Phaser.Scene{
 class buy20 extends Phaser.Scene{
 	constructor(){
 		super({key:"buy20"})
-		
+		this.extend={buy:null,click:null}
 	}
 	preload(){
 		
@@ -412,7 +417,7 @@ class buy20 extends Phaser.Scene{
 class buy50 extends Phaser.Scene{
 	constructor(){
 		super({key:"buy50"})
-		
+		this.extend={buy:null,click:null}
 	}
 	preload(){
 		

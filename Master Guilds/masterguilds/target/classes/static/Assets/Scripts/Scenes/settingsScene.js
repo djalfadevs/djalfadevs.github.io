@@ -78,8 +78,9 @@ class settings extends Phaser.Scene{
         backButt.on('pointerdown',function(){this.setFrame(1)});
         backButt.on('pointerup',function(){this.setFrame(0);
         		var msg = new Object();
-				msg.event = "UPDATEUSERINFO"
+				msg.event = "UPDATECONFIGUSER"
 				msg.userAux = new User(game.global.user);
+				msg.userAux.heros=[];
 				var msgS = JSON.stringify(msg)
 				game.global.socket.send(msgS)
         	transition("back")

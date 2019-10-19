@@ -1,5 +1,7 @@
 package com.djalfadevs.es.masterguilds;
 
+import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Effect {
@@ -61,6 +63,47 @@ public class Effect {
 	public void setAppliedValues(float[] appliedValues) {
 		this.appliedValues = appliedValues;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
+		result = prime * result + Arrays.hashCode(appliedValues);
+		result = prime * result + (isActive ? 1231 : 1237);
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + remainActiveTurns;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Effect other = (Effect) obj;
+		if (ID == null) {
+			if (other.ID != null)
+				return false;
+		} else if (!ID.equals(other.ID))
+			return false;
+		if (!Arrays.equals(appliedValues, other.appliedValues))
+			return false;
+		if (isActive != other.isActive)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (remainActiveTurns != other.remainActiveTurns)
+			return false;
+		return true;
+	}
+	
 	
 	
 }

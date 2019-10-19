@@ -83,7 +83,8 @@ public class Game {
 							mapper.convertValue(auxnode.get("UserInfo").get("heros"), ArrayList.class),
 							auxnode.get("UserInfo").get("clan").asText(),
 							auxnode.get("UserInfo").get("arenaPoints").asInt(), auxnode.get("UserInfo").get("lang").asText(),
-							auxnode.get("UserInfo").get("mvol").asInt(),auxnode.get("UserInfo").get("evol").asInt());
+							auxnode.get("UserInfo").get("mvol").asInt(),auxnode.get("UserInfo").get("evol").asInt(),
+							auxnode.get("UserInfo").get("numberofmision").asInt());
 					infoUsers.put(auxNP, auxUI);
 
 				} catch (IOException e) {
@@ -204,9 +205,43 @@ public class Game {
 		return l;
 
 	}
-
-	public void updateUserInfo(NamePassword n, UserInfo u) {
-		infoUsers.put(n, u);
+	public void updateConfigUser(NamePassword n,UserInfo u) {
+		UserInfo auxUserinfo = infoUsers.get(n);
+		auxUserinfo.setName(u.getName());
+		auxUserinfo.setNumberofmision(u.getNumberofmision());
+		auxUserinfo.setArenaPoints(u.getArenaPoints());
+		auxUserinfo.setClan(u.getClan());
+		auxUserinfo.setevol(u.getevol());
+		auxUserinfo.setmvol(u.getmvol());
+		auxUserinfo.setExp(u.getExp());
+		auxUserinfo.setLevel(u.getLevel());
+		auxUserinfo.setLang(u.getLang());
+		auxUserinfo.setGems(u.getGems());
+		auxUserinfo.setGold(u.getGold());
+		infoUsers.put(n, auxUserinfo);
+		
+		//updateUserInfoMongo();
+	}
+	
+	public void updateHeroInfo(NamePassword n, Hero h) {
+		UserInfo auxUserinfo = infoUsers.get(n);
+		boolean encontrado = false;
+		int i = 0;
+		while(!encontrado && i<auxUserinfo.getHeros().size()) {
+			if(auxUserinfo.getHeros().equals(h)) {
+				auxUserinfo.getHeros().set(i, h);
+				encontrado=true;
+			}
+			i++;
+		}
+		infoUsers.put(n, auxUserinfo);
+		//if(!encontrado) {
+		//	auxUserinfo.getHeros().add(h);
+		//}	
+		//updateUserInfoMongo();
+	}
+	public void updateUserInfoMongo() {
+		//infoUsers.put(n, u);
 
 		// Actualizamos tambien la base de datos
 		MongoCollection<Document> coll = database.getCollection("Users");
@@ -244,6 +279,7 @@ public class Game {
 			userInfo.put("lang", auxUserInfo.getLang());
 			userInfo.put("mvol", auxUserInfo.getmvol());
 			userInfo.put("evol", auxUserInfo.getevol());
+			userInfo.put("numberofmision", auxUserInfo.getNumberofmision());
 			NamePassUserInfo.set("UserInfo", userInfo);
 
 			try {
@@ -274,4 +310,56 @@ public class Game {
 		return null;
 		
 	}
+
+	public ConcurrentHashMap<NamePassword, UserInfo> getInfoUsers() {
+		return infoUsers;
+	}
+
+	public void setInfoUsers(ConcurrentHashMap<NamePassword, UserInfo> infoUsers) {
+		this.infoUsers = infoUsers;
+	}
+	public ArrayNode getArenaRival() {
+		List<UserInfo> auxl = (List<UserInfo>) infoUsers.values();
+		ObjectMapper o = new ObjectMapper();
+
+		JsonNode auxjson = o.convertValue(auxl.get((int) (Math.random()*auxl.size())),JsonNode.class);
+		JsonNode auxjson2 = o.convertValue(auxl.get((int) (Math.random()*auxl.size())),JsonNode.class);
+		JsonNode auxjson3 = o.convertValue(auxl.get((int) (Math.random()*auxl.size())),JsonNode.class);
+		
+		ArrayNode auxarraynode = o.createArrayNode();
+		auxarraynode.add(auxjson);
+		auxarraynode.add(auxjson2);
+		auxarraynode.add(auxjson3);
+		return auxarraynode ;
+	}
+	
+	public JsonNode getNewChapter(NamePassword p3) {
+		try {
+			UserInfo auxUserinfo = infoUsers.get(p3);
+			
+			InputStream i = getClass().getResourceAsStream("heroes.json");
+			ObjectMapper o = new ObjectMapper();
+			BufferedReader br = new BufferedReader(new InputStreamReader(i, "UTF-8"));
+			ArrayNode auxArrayNode = o.readValue(br,ArrayNode.class );
+			br.close();
+			
+			int auxRandomnumber = (int) (Math.random()*auxArrayNode.size());
+			
+			Hero auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
+			auxH.setCardExclusiveId(auxUserinfo.numeroExclusivoDeCarta.getAndIncrement());//Creamos el heroe
+			
+			auxUserinfo.getHeros().add(auxH);//Actualizamos el mapa 
+			
+			JsonNode herojson = o.convertValue(auxH,JsonNode.class );
+			return herojson;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+		
+	}
+	
+	
 }
