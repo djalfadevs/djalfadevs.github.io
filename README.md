@@ -4,7 +4,7 @@
 - **Fernando Moreno Díaz:** Diseño UI/UX, artista 2D, animación VFX, diseño gráfico y redes sociales
 - **Álvaro García Bardón:** Game design, server management, marketing, portfolio, y relaciones públicas
 - **Denis Gudiña Núñez:** Project manager, sonido, banda sonora y documentación
-- **Ángel Noguero Salgado:** Programación
+- **Ángel Noguero Salgado:** Programación, Game design
 - **Luismi Moreno López:** Programación
 - **Jesús Ayala Matarín:** Diseño de personajes y artista 2D
 

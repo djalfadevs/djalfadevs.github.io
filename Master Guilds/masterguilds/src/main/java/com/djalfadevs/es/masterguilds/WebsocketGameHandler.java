@@ -97,7 +97,7 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					game.updateHeroInfo(p2, h);
 					break;
 				case "UPDATEMONGO":
-					game.updateUserInfoMongo();
+					game.updateUserInfoMongo2(player.getNamePassword());
 					break;
 				case "GETMISIONS":
 					msg.put("event", "GETMISIONS");
@@ -110,7 +110,7 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					msg.put("event", "GETNEWHERO");
 					msg.set("hero",game.getNewChapter(p3));
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
-					
+					game.updateUserInfoMongo2(player.getNamePassword());
 					break;
 				case "GETARENARIVAL":
 					msg.put("event", "GETARENARIVAL");
