@@ -502,7 +502,7 @@ class summon extends Phaser.Scene{
 		setTimeout(function(){
 		okButt.setInteractive();
 		that.add.sprite(960,200,'5star').setScale(0.1).setDepth(2)
-		that.add.sprite(960,500,'BIGLuismi')
+		that.add.sprite(960,500,game.global.obtainedHero.image_url[1])
 		},2000)
 		
 		

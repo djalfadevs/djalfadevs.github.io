@@ -4,9 +4,9 @@
       "name":"Azon",
       "escenario":"Escenario_japones",
       "description":[
-                  "Convence a los lideres Azon de unirse a tu causa con la ayuda de Berhak!",
-                  "Prove your worth against the Azon's clan leaders and convince them to join your cause with Berhak's help!"
-               ],
+         "Convence a los lideres Azon de unirse a tu causa con la ayuda de Berhak!",
+         "Prove your worth against the Azon's clan leaders and convince them to join your cause with Berhak's help!"
+      ],
       "team":{
          "restrictions":{
             "maxHeros":4,
@@ -20,47 +20,36 @@
       "enemys":{
          "team":[
             {
-               "id":3,
-               "name":"Xin",
-               "baseAttack":140,
-               "attack":140,
-               "baseDefense":40,
-               "defense":40,
-               "baseHP":200,
-               "hp":200,
-               "base_crit_hit_chance":0.25,
-               "crit_hit_chance":0.25,
+               "id":6,
+               "name":"Azon Lancer",
+               "baseAttack":90,
+               "attack":90,
+               "baseDefense":20,
+               "defense":20,
+               "baseHP":120,
+               "hp":120,
+               "base_crit_hit_chance":0.15,
+               "crit_hit_chance":0.15,
                "description":[
-                  "Un asesino de Azon cuya lealtad va al mayor, nadie conoce su rostro debido a que quien lo ve suele pagarlo con su vida",
-                  "An assassin from Azon whose loyalty goes to the highest bidder, no one knows how he looks since seeing him usually costs you your life"
+                  "Infateria basica de Azon",
+                  "Azon's basic infantry"
                ],
-               "evasion":70,
-               "baseEvasion":70,
+               "evasion":35,
+               "baseEvasion":35,
                "abilities":[
-                  {
-                     "id":"4",
-                     "name":"TRUESTRIKE II",
-                     "baseActiveTurns":1,
-                     "baseChargeTurns":7,
-                     "description":[
-                        "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
-                        "A perfectly aimed hit that completely bypass the targets defense."
-                     ],
-                     "remainChargeTurns":6,
-                     "ready":false
-                  }
+
                ],
                "image_url":[
-                  "azon_Xin_carta_pequena",
-                  "azon_Xin_carta_grande"
+                  "azon_lancer_cp",
+                  "azon_lancer_cg"
                ],
                "activeAbilities":[
 
                ],
-               "baseAggro":30,
-               "aggro":30,
+               "baseAggro":50,
+               "aggro":50,
                "faction":"Azon",
-               "rarity":3,
+               "rarity":1,
                "level":1,
                "exp":1000,
                "role":"Attacker"
@@ -196,10 +185,10 @@
       "id":2,
       "name":"Ferten",
       "escenario":"escenario_Ferten",
-            "description":[
-                  "Derrota a la mafia y policia Ferten que se openen en tu camino!",
-                  "Defeat the Ferten Mafia and Police that block your way!"
-               ],
+      "description":[
+         "Derrota a la mafia y policia Ferten que se openen en tu camino!",
+         "Defeat the Ferten Mafia and Police that block your way!"
+      ],
       "team":{
          "restrictions":{
             "maxHeros":4,
@@ -218,7 +207,7 @@
                "baseAttack":90,
                "attack":90,
                "baseDefense":70,
-               "defence":70,
+               "defense":70,
                "baseHP":370,
                "hp":370,
                "base_crit_hit_chance":0.15,
@@ -243,7 +232,10 @@
                      "ready":false
                   }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "ferten_dak_cp",
+                  "ferten_dak_cg"
+               ],
                "activeAbilities":[
 
                ],
@@ -256,44 +248,36 @@
                "role":"Tank"
             },
             {
-               "id":11,
-               "name":"A'lik Ibn Khal",
-               "baseAttack":150,
-               "attack":150,
-               "baseDefense":40,
-               "defence":40,
-               "baseHP":270,
-               "hp":270,
-               "base_crit_hit_chance":0.30,
-               "crit_hit_chance":0.30,
+               "ID":13,
+               "name":"Ferten Private",
+               "baseAttack":110,
+               "attack":110,
+               "baseDefence":20,
+               "defence":20,
+               "baseHP":120,
+               "HP":120,
+               "base_crit_hit_chance":0.15,
+               "crit_hit_chance":0.15,
                "description":[
-                  "Miembro de la policia de Ferten, no quedan muchos que se atrevan a hacerlo, pero A'lik no solo luce la placa, se pasea por las calles que para otros, serian impensables",
-                  "Member of Ferten's Police force, there's not many who dare become one, but A'lik doesn't only brandish her badge, she also dares tread where many don't even dream of"
+                  "Infateria basica de Ferten",
+                  "Ferten's basic infantry"
                ],
-               "evasion":30,
-               "baseEvasion":30,
+               "evasion":35,
+               "baseEvasion":35,
                "abilities":[
-                  {
-                     "id":"4",
-                     "name":"TRUESTRIKE V",
-                     "baseActiveTurns":1,
-                     "baseChargeTurns":7,
-                     "description":[
-                        "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
-                        "A perfectly aimed hit that completely bypass the targets defense."
-                     ],
-                     "remainChargeTurns":6,
-                     "ready":false
-                  }
+
                ],
-               "image_url":"url",
+               "image_url":[
+                  "ferten_private_cp",
+                  "ferten_private_cg"
+               ],
                "activeAbilities":[
 
                ],
-               "baseAggro":34,
-               "aggro":34,
+               "baseAggro":50,
+               "aggro":50,
                "faction":"Ferten",
-               "rarity":3,
+               "rarity":1,
                "level":1,
                "exp":1000,
                "role":"Attacker"
@@ -304,7 +288,7 @@
                "baseAttack":50,
                "attack":50,
                "baseDefense":10,
-               "defence":10,
+               "defense":10,
                "baseHP":50,
                "hp":50,
                "base_crit_hit_chance":0.0,
@@ -329,7 +313,10 @@
                      "ready":false
                   }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "ferten_surgeon_cp",
+                  "ferten_surgeon_cg"
+               ],
                "activeAbilities":[
 
                ],
@@ -347,7 +334,7 @@
                "baseAttack":110,
                "attack":110,
                "baseDefense":20,
-               "defence":20,
+               "defense":20,
                "baseHP":120,
                "hp":120,
                "base_crit_hit_chance":0.15,
@@ -359,11 +346,12 @@
                "evasion":35,
                "baseEvasion":35,
                "abilities":[
-                  {
 
-                  }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "ferten_private_cp",
+                  "ferten_private_cg"
+               ],
                "activeAbilities":[
 
                ],
@@ -390,11 +378,10 @@
       "id":3,
       "name":"Kwin",
       "escenario":"escenario_Kwin",
-      "description":
-      [
-                  "El consejo Kwin desea medir tu fuerza, demuestrales de lo que estas hecho!",
-                  "The Kwin Council wants you to prove your worth, show them what your made of!"
-               ],
+      "description":[
+         "El consejo Kwin desea medir tu fuerza, demuestrales de lo que estas hecho!",
+         "The Kwin Council wants you to prove your worth, show them what your made of!"
+      ],
       "team":{
          "restrictions":{
             "maxHeros":4,
@@ -408,47 +395,62 @@
       "enemys":{
          "team":[
             {
-               "id":11,
-               "name":"Jagrak",
-               "baseAttack":150,
-               "attack":150,
-               "baseDefense":40,
+               "ID":10,
+               "name":"Lavinna",
+               "baseAttack":100,
+               "attack":100,
+               "baseDefence":40,
                "defence":40,
-               "baseHP":150,
-               "hp":150,
+               "baseHP":250,
+               "HP":250,
                "base_crit_hit_chance":0.20,
                "crit_hit_chance":0.20,
                "description":[
-                  "Las colinas tienen ojos... los de Jagrak, el defensor del bosque",
-                  "The hills have eyes. an thier owenr ir Jagrak, the protector of the forest"
+                  "Ha desarrollado teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo.",
+                  "She has developed theories regarding such complex magic that not even the rest of the council can fully comprehend them."
                ],
-               "evasion":30,
-               "baseEvasion":30,
+               "evasion":40,
+               "baseEvasion":40,
                "abilities":[
                   {
-                     "id":"5",
-                     "name":"LEECHLIFE IV",
+                     "ID":2,
+                     "name":"HEAL V",
+                     "baseActiveTurns":4,
+                     "baseChargeTurns":8,
+                     "description":[
+                        "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+                        "A burst of magical energy that enhances the recievers regeneration."
+                     ],
+                     "remainChargeTurns":6,
+                     "isReady":false
+                  },
+                  {
+                     "ID":5,
+                     "name":"LEECHLIFE V",
                      "baseActiveTurns":1,
-                     "baseChargeTurns":6,
+                     "baseChargeTurns":5,
                      "description":[
                         "Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
                         "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
                      ],
                      "remainChargeTurns":6,
-                     "ready":false
+                     "isReady":false
                   }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "kwin_lav_cp",
+                  "kwin_lav_cg"
+               ],
                "activeAbilities":[
 
                ],
                "baseAggro":30,
                "aggro":30,
                "faction":"Kwin",
-               "rarity":3,
+               "rarity":5,
                "level":1,
                "exp":1000,
-               "role":"Attacker"
+               "role":"Support"
             },
             {
                "id":12,
@@ -456,7 +458,7 @@
                "baseAttack":70,
                "attack":70,
                "baseDefense":30,
-               "defence":30,
+               "defense":30,
                "baseHP":220,
                "hp":220,
                "base_crit_hit_chance":0.15,
@@ -481,7 +483,10 @@
                      "ready":false
                   }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "kwin_oz_cp",
+                  "kwin_oz_cg"
+               ],
                "activeAbilities":[
 
                ],
@@ -494,47 +499,39 @@
                "role":"Support"
             },
             {
-               "id":13,
-               "name":"Elmas",
-               "baseAttack":60,
-               "attack":60,
-               "baseDefense":50,
-               "defence":50,
-               "baseHP":230,
-               "hp":230,
-               "base_crit_hit_chance":0.1,
-               "crit_hit_chance":0.1,
+               "ID":14,
+               "name":"Kwin Destroyer",
+               "baseAttack":110,
+               "attack":110,
+               "baseDefence":20,
+               "defence":20,
+               "baseHP":100,
+               "HP":100,
+               "base_crit_hit_chance":0.15,
+               "crit_hit_chance":0.15,
                "description":[
-                  "Mallock es la montana que llora tras la batallas, la destruccion del agua en la riada, la venganza de la tierra",
-                  "Mallock is the mountain that cries after battles, the water's destruction in a flash flood, earth's vengeance"
+                  "Mago de Kwin especializado en la magia destructora",
+                  "Wizard from Kwin who specializes on destruction magic"
                ],
-               "evasion":5,
-               "baseEvasion":5,
+               "evasion":35,
+               "baseEvasion":35,
                "abilities":[
-                  {
-                     "id":"1",
-                     "name":"BUFFSTATS IV",
-                     "baseActiveTurns":3,
-                     "baseChargeTurns":12,
-                     "description":[
-                        "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
-                        "A boost to all ally's combat abilities by channeling one's conviction."
-                     ],
-                     "remainChargeTurns":6,
-                     "ready":false
-                  }
+
                ],
-               "image_url":"url",
+               "image_url":[
+                  "kwin_destroyer_cp",
+                  "kwin_destroyer_cg"
+               ],
                "activeAbilities":[
 
                ],
-               "baseAggro":60,
-               "aggro":60,
+               "baseAggro":50,
+               "aggro":50,
                "faction":"Kwin",
-               "rarity":3,
+               "rarity":1,
                "level":1,
                "exp":1000,
-               "role":"Support"
+               "role":"Attacker"
             },
             {
                "id":15,
@@ -542,7 +539,7 @@
                "baseAttack":60,
                "attack":60,
                "baseDefense":40,
-               "defence":40,
+               "defense":40,
                "baseHP":200,
                "hp":200,
                "base_crit_hit_chance":0.0,
@@ -567,7 +564,10 @@
                      "ready":false
                   }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "kwin_shielder_cp",
+                  "kwin_shielder_cg"
+               ],
                "activeAbilities":[
 
                ],
@@ -595,9 +595,9 @@
       "name":"Crju",
       "escenario":"escenario_Arena",
       "description":[
-                  "Los aventureros de mas renombre del mundo se congregan en Crju, y quieren entrenar contigo!",
-                  "The world's mightiest adventurers are all preparing for the invasion, spar with them to train your troops!"
-               ],
+         "Los aventureros de mas renombre del mundo se congregan en Crju, y quieren entrenar contigo!",
+         "The world's mightiest adventurers are all preparing for the invasion, spar with them to train your troops!"
+      ],
       "team":{
          "restrictions":{
             "maxHeros":4,
@@ -616,7 +616,7 @@
                "baseAttack":120,
                "attack":120,
                "baseDefense":85,
-               "defence":85,
+               "defense":85,
                "baseHP":500,
                "hp":500,
                "base_crit_hit_chance":0.05,
@@ -674,7 +674,7 @@
                "baseAttack":180,
                "attack":180,
                "baseDefense":50,
-               "defence":50,
+               "defense":50,
                "baseHP":250,
                "hp":250,
                "base_crit_hit_chance":0.4,
@@ -711,7 +711,10 @@
                      "ready":false
                   }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "ferten_balista_cp",
+                  "ferten_balista_cg"
+               ],
                "activeAbilities":[
 
                ],
@@ -724,60 +727,95 @@
                "role":"Attacker"
             },
             {
-               "id":10,
-               "name":"Lavinna",
-               "baseAttack":100,
-               "attack":100,
-               "baseDefense":40,
-               "defence":40,
-               "baseHP":250,
-               "hp":250,
-               "base_crit_hit_chance":0.20,
-               "crit_hit_chance":0.20,
-               "description":[
-                  "Miembro del consejo de magia, ha desarrollado estudios y teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo. Nadie sabe si esta loca o es un genio.",
-                  "Member of the Magic Council, she has developed theories and studies regarding such complex magic that not even the rest of the council can fully comprehend them. Wether she is a genius, or a maniac is unknown."
-               ],
-               "evasion":40,
-               "baseEvasion":40,
-               "abilities":[
-                  {
-                     "id":"2",
-                     "name":"HEAL V",
-                     "baseActiveTurns":4,
-                     "baseChargeTurns":8,
-                     "description":[
-                        "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
-                        "A burst of magical energy that enhances the recievers regeneration."
-                     ],
-                     "remainChargeTurns":6,
-                     "ready":false
-                  },
-                  {
-                     "id":"5",
-                     "name":"LEECHLIFE V",
-                     "baseActiveTurns":1,
-                     "baseChargeTurns":5,
-                     "description":[
-                        "Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
-                        "This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
-                     ],
-                     "remainChargeTurns":6,
-                     "ready":false
-                  }
-               ],
-               "image_url":"url",
-               "activeAbilities":[
+      "ID": 15,
+      "name": "Ferten Surgeon",
+      "baseAttack": 50,
+      "attack": 50,
+      "baseDefence": 10,
+      "defence": 10,
+      "baseHP": 50,
+      "HP": 50,
+      "base_crit_hit_chance": 0.0,
+      "crit_hit_chance": 0.0,
+      "description": [
+         "Tropa de apoyo de Ferten",
+         "Ferten's support trooper"
+      ],
+      "evasion": 0,
+      "baseEvasion": 0,
+      "abilities": [
+         {
+            "ID": 1,
+            "name": "HEAL III",
+            "baseActiveTurns": 2,
+            "baseChargeTurns": 8,
+            "description": [
+               "Cura las heridas de un aliado",
+               "Heal an ally"
+            ],
+            "remainChargeTurns": 3,
+            "isReady": false
+         }
+      ],
+      "image_url": [
+         "ferten_surgeon_cp",
+         "ferten_surgeon_cg"
+         ]
+      ,
+      "activeAbilities": [],
+      "baseAggro": 10,
+      "aggro": 10,
+      "faction": "Azon",
+      "rarity": 1,
+      "level": 1,
+      "exp": 1000,
+      "role": "Support"
+   },
+      {
+      "ID": 8,
+      "name": "Azon Medic",
+      "baseAttack": 60,
+      "attack": 60,
+      "baseDefence": 10,
+      "defence": 10,
+      "baseHP": 200,
+      "HP": 200,
+      "base_crit_hit_chance": 0.0,
+      "crit_hit_chance": 0.0,
+      "description": [
+         "Medico de Azon",
+         "Azon's doctor"
+      ],
+      "evasion": 0,
+      "baseEvasion": 0,
+      "abilities": [
+         {
+            "ID": 2,
+            "name": "HEAL I",
+            "baseActiveTurns": 2,
+            "baseChargeTurns": 12,
+            "description": [
+               "Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
+               "A burst of magical energy that enhances the recievers regeneration."
+            ],
+            "remainChargeTurns": 6,
+            "isReady": false
+         }
+      ],
+      "image_url": [
+         "azon_medic_cp",
+         "azon_medic_cg"
+      ],
+      "activeAbilities": [],
+      "baseAggro": 10,
+      "aggro": 10,
+      "faction": "Azon",
+      "rarity": 1,
+      "level": 1,
+      "exp": 1000,
+      "role": "Support"
+   }
 
-               ],
-               "baseAggro":30,
-               "aggro":30,
-               "faction":"Kwin",
-               "rarity":5,
-               "level":1,
-               "exp":1000,
-               "role":"Support"
-            }
          ],
          "restrictions":{
             "maxHeros":4,
@@ -794,9 +832,9 @@
       "name":"Boss",
       "escenario":"escenario_Arena",
       "description":[
-                  "La ultima ronda del entrenamiento siempre es la mas dura, a por todas!",
-                  "The final round of training is always the hardest, give it your all!"
-               ],
+         "La ultima ronda del entrenamiento siempre es la mas dura, a por todas!",
+         "The final round of training is always the hardest, give it your all!"
+      ],
       "team":{
          "restrictions":{
             "maxHeros":4,
@@ -815,7 +853,7 @@
                "baseAttack":120,
                "attack":120,
                "baseDefense":85,
-               "defence":85,
+               "defense":85,
                "baseHP":500,
                "hp":500,
                "base_crit_hit_chance":0.05,
@@ -873,7 +911,7 @@
                "baseAttack":180,
                "attack":180,
                "baseDefense":50,
-               "defence":50,
+               "defense":50,
                "baseHP":250,
                "hp":250,
                "base_crit_hit_chance":0.4,
@@ -910,7 +948,10 @@
                      "ready":false
                   }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "ferten_balista_cp",
+                  "ferten_balista_cg"
+               ],
                "activeAbilities":[
 
                ],
@@ -928,7 +969,7 @@
                "baseAttack":100,
                "attack":100,
                "baseDefense":40,
-               "defence":40,
+               "defense":40,
                "baseHP":250,
                "hp":250,
                "base_crit_hit_chance":0.20,
@@ -965,7 +1006,10 @@
                      "ready":false
                   }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "kwin_lav_cp",
+                  "kwin_lav_cg"
+               ],
                "activeAbilities":[
 
                ],
@@ -978,98 +1022,12 @@
                "role":"Support"
             },
             {
-               "id":4,
-               "name":"Peng Tan",
-               "baseAttack":90,
-               "attack":90,
-               "baseDefense":50,
-               "defence":50,
-               "baseHP":350,
-               "hp":350,
-               "base_crit_hit_chance":0.0,
-               "crit_hit_chance":0.0,
-               "description":[
-                  "Considerado el hombre mas fuerte de Azon, pero no el mas brillante",
-                  "Maybe the strongest man in all of Azon, but not the brightest"
-               ],
-               "evasion":20,
-               "baseEvasion":20,
-               "abilities":[
-                  {
-                     "id":"1",
-                     "name":"BUFFSTATS II",
-                     "baseActiveTurns":4,
-                     "baseChargeTurns":10,
-                     "description":[
-                        "Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
-                        "A boost to all ally's combat abilities by channeling one's conviction."
-                     ],
-                     "remainChargeTurns":5,
-                     "ready":false
-                  }
-               ],
-               "image_url":"url",
-               "activeAbilities":[
-
-               ],
-               "baseAggro":70,
-               "aggro":70,
-               "faction":"Azon",
-               "rarity":3,
-               "level":1,
-               "exp":1000,
-               "role":"Tank"
-            },
-            {
-               "id":11,
-               "name":"A'lik Ibn Khal",
-               "baseAttack":150,
-               "attack":150,
-               "baseDefense":40,
-               "defence":40,
-               "baseHP":270,
-               "hp":270,
-               "base_crit_hit_chance":0.30,
-               "crit_hit_chance":0.30,
-               "description":[
-                  "Miembro de la policia de Ferten, no quedan muchos que se atrevan a hacerlo, pero A'lik no solo luce la placa, se pasea por las calles que para otros, serian impensables",
-                  "Member of Ferten's Police force, there's not many who dare become one, but A'lik doesn't only brandish her badge, she also dares tread where many don't even dream of"
-               ],
-               "evasion":30,
-               "baseEvasion":30,
-               "abilities":[
-                  {
-                     "id":"4",
-                     "name":"TRUESTRIKE IV",
-                     "baseActiveTurns":1,
-                     "baseChargeTurns":7,
-                     "description":[
-                        "Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
-                        "A perfectly aimed hit that completely bypass the targets defense."
-                     ],
-                     "remainChargeTurns":6,
-                     "ready":false
-                  }
-               ],
-               "image_url":"url",
-               "activeAbilities":[
-
-               ],
-               "baseAggro":34,
-               "aggro":34,
-               "faction":"Ferten",
-               "rarity":3,
-               "level":1,
-               "exp":1000,
-               "role":"Attacker"
-            },
-            {
                "id":12,
                "name":"Ozna",
                "baseAttack":70,
                "attack":70,
                "baseDefense":30,
-               "defence":30,
+               "defense":30,
                "baseHP":220,
                "hp":220,
                "base_crit_hit_chance":0.15,
@@ -1094,9 +1052,11 @@
                      "ready":false
                   }
                ],
-               "image_url":"url",
+               "image_url":[
+                  "kwin_oz_cp",
+                  "kwin_oz_cg"
+               ],
                "activeAbilities":[
-
                ],
                "baseAggro":30,
                "aggro":30,
@@ -1108,11 +1068,11 @@
             }
          ],
          "restrictions":{
-            "maxHeros":8,
+            "maxHeros":4,
             "maxHerosFaction":[
-               3,
-               3,
-               2
+               4,
+               4,
+               4
             ]
          }
       }

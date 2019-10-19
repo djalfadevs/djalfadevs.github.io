@@ -97,6 +97,8 @@ class preload extends Phaser.Scene{
         //Azon
         this.load.image('azon_kubo_carta_pequena','Assets/Sprites/UI-UX/cartas/azon_kubo_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('azon_kubo_carta_grande','Assets/Sprites/UI-UX/cartas/azon_kubo_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('azon_Zhu_carta_pequena','Assets/Sprites/UI-UX/cartas/azon_Zhu_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('azon_Zhu_carta_grande','Assets/Sprites/UI-UX/cartas/azon_Zhu_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('azon_Xin_carta_pequena','Assets/Sprites/UI-UX/cartas/azon_Xin_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('azon_Xin_carta_grande','Assets/Sprites/UI-UX/cartas/azon_Xin_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('azon_lancer_cp','Assets/Sprites/UI-UX/cartas/azon_lancer_carta_pequena.png',{frameWidth:163,frameHeight:239});
@@ -106,13 +108,24 @@ class preload extends Phaser.Scene{
         this.load.image('azon_medic_cp','Assets/Sprites/UI-UX/cartas/azon_medic_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('azon_medic_cg','Assets/Sprites/UI-UX/cartas/azon_medic_carta_grande.png',{frameWidth:346,frameHeight:507});
         //Ferten
+        this.load.image('ferten_balista_cp','Assets/Sprites/UI-UX/cartas/ferten_balista_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('ferten_balista_cg','Assets/Sprites/UI-UX/cartas/ferten_balista_carta_grande.png',{frameWidth:346,frameHeight:507});
+
+        this.load.image('ferten_dak_cp','Assets/Sprites/UI-UX/cartas/ferten_dak_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('ferten_dak_cg','Assets/Sprites/UI-UX/cartas/ferten_dak_carta_grande.png',{frameWidth:346,frameHeight:507});
+
         this.load.image('ferten_armoured_cp','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_pequena.png',{frameWidth:163,frameHeight:239});
-        this.load.image('ferten_armoured_cg','Assets/Sprites/UI-UX/cartas/ferten_aromoured_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('ferten_armoured_cg','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('ferten_private_cp','Assets/Sprites/UI-UX/cartas/ferten_private_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('ferten_private_cg','Assets/Sprites/UI-UX/cartas/ferten_private_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('ferten_surgeon_cp','Assets/Sprites/UI-UX/cartas/ferten_surgeon_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('ferten_surgeon_cg','Assets/Sprites/UI-UX/cartas/ferten_surgeon_carta_grande.png',{frameWidth:346,frameHeight:507});
         //Kwin
+        this.load.image('kwin_lav_cp','Assets/Sprites/UI-UX/cartas/kwin_lavinna_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('kwin_lav_cg','Assets/Sprites/UI-UX/cartas/kwin_lavinna_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('kwin_oz_cp','Assets/Sprites/UI-UX/cartas/kwin_ozna_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('kwin_oz_cg','Assets/Sprites/UI-UX/cartas/kwin_ozna_carta_grande.png',{frameWidth:346,frameHeight:507});
+
         this.load.image('kwin_destroyer_cp','Assets/Sprites/UI-UX/cartas/kwin_destroyer_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('kwin_destroyer_cg','Assets/Sprites/UI-UX/cartas/kwin_destroyer_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('kwin_shielder_cp','Assets/Sprites/UI-UX/cartas/kwin_shielder_carta_pequena.png',{frameWidth:163,frameHeight:239});
@@ -160,6 +173,8 @@ class preload extends Phaser.Scene{
         this.load.audio('buyS','Assets/Sounds/BuyingShop.wav');
         this.load.audio('buyPrompt','Assets/Sounds/SellingShop.wav');
         this.load.audio('dealCard','Assets/Sounds/Enchant.wav');
+        this.load.spritesheet('rank','Assets/Sprites/UI-UX/boton_perfil.png',{frameWidth:221.5,frameHeight:195});
+        this.load.spritesheet('arenaBg','Assets/Sprites/Fondos_combate/Escenario_arena_spritesheet.png',{frameWidth:1920,frameHeight:1640})
     }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero

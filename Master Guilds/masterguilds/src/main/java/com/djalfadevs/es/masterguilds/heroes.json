@@ -86,7 +86,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"azon_Zhu_carta_pequena",
+			"azon_Zhu_carta_grande"
+		],
 		"activeAbilities": [],
 		"baseAggro": 20,
 		"aggro": 20,
@@ -140,88 +143,7 @@
 		"exp": 1000,
 		"role": "Attacker"
 	},
-	{
-		"ID": 4,
-		"name": "Peng Tan",
-		"baseAttack": 90,
-		"attack": 90,
-		"baseDefence": 50,
-		"defence": 50,
-		"baseHP": 350,
-		"HP": 350,
-		"base_crit_hit_chance": 0.0,
-		"crit_hit_chance": 0.0,
-		"description": [
-			"Considerado el hombre mas fuerte de Azon, pero no el mas brillante",
-			"Maybe the strongest man in all of Azon, but not the brightest"
-		],
-		"evasion": 20,
-		"baseEvasion": 20,
-		"abilities": [
-			{
-				"ID": 1,
-				"name": "BUFFSTATS II",
-				"baseActiveTurns": 4,
-				"baseChargeTurns": 10,
-				"description": [
-					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
-					"A boost to all ally's combat abilities by channeling one's conviction."
-				],
-				"remainChargeTurns": 5,
-				"isReady": false
-			}
-		],
-		"image_url": "url",
-		"activeAbilities": [],
-		"baseAggro": 70,
-		"aggro": 70,
-		"faction": "Azon",
-		"rarity": 3,
-		"level": 1,
-		"exp": 1000,
-		"role": "Tank"
-	},
-	{
-		"ID": 5,
-		"name": "Qi Long",
-		"baseAttack": 70,
-		"attack": 70,
-		"baseDefence": 30,
-		"defence": 30,
-		"baseHP": 150,
-		"HP": 150,
-		"base_crit_hit_chance": 0.0,
-		"crit_hit_chance": 0.0,
-		"description": [
-			"Una doncella guerrera de Azon especializada en medicina, aunque dicen que su belleza es capaz de curar",
-			"A damsel from Azon who specializes in medicine, although it is said that her beauty alone can heal"
-		],
-		"evasion": 20,
-		"baseEvasion": 20,
-		"abilities": [
-			{
-				"ID": 1,
-				"name": "HEAL II",
-				"baseActiveTurns": 2,
-				"baseChargeTurns": 10,
-				"description": [
-					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
-					"A burst of magical energy that enhances the recievers regeneration."
-				],
-				"remainChargeTurns": 4,
-				"isReady": false
-			}
-		],
-		"image_url": "url",
-		"activeAbilities": [],
-		"baseAggro": 20,
-		"aggro": 20,
-		"faction": "Azon",
-		"rarity": 3,
-		"level": 1,
-		"exp": 1000,
-		"role": "Support"
-	},
+
 	{
 		"ID": 6,
 		"name": "Azon Lancer",
@@ -240,12 +162,8 @@
 		"evasion": 35,
 		"baseEvasion": 35,
 		"abilities": [
-			{
-				
-			}
 		],
-		"image_url": 
-		[
+		"image_url": [
 			"azon_lancer_cp",
 			"azon_lancer_cg"
 		],
@@ -276,9 +194,6 @@
 		"evasion": 0,
 		"baseEvasion": 0,
 		"abilities": [
-			{
-				
-			}
 		],
 		"image_url": [
 			"azon_shield_cp",
@@ -324,8 +239,7 @@
 				"isReady": false
 			}
 		],
-		"image_url": 
-		[
+		"image_url": [
 			"azon_medic_cp",
 			"azon_medic_cg"
 		],
@@ -381,7 +295,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"ferten_balista_cp",
+			"ferten_balista_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 70,
 		"aggro": 70,
@@ -422,7 +339,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+        "image_url":[
+            "ferten_dak_cp",
+            "ferten_dak_cg"
+        ],
 		"activeAbilities": [],
 		"baseAggro": 75,
 		"aggro": 75,
@@ -432,88 +352,7 @@
 		"exp": 1000,
 		"role": "Tank"
 	},
-	{
-		"ID": 11,
-		"name": "A'lik Ibn Khal",
-		"baseAttack": 150,
-		"attack": 150,
-		"baseDefence": 40,
-		"defence": 40,
-		"baseHP": 270,
-		"HP": 270,
-		"base_crit_hit_chance": 0.30,
-		"crit_hit_chance": 0.30,
-		"description": [
-			"Miembro de la policia de Ferten, no quedan muchos que se atrevan a hacerlo, pero A'lik no solo luce la placa, se pasea por las calles que para otros, serian impensables",
-			"Member of Ferten's Police force, there's not many who dare become one, but A'lik doesn't only brandish her badge, she also dares tread where many don't even dream of"
-		],
-		"evasion": 30,
-		"baseEvasion": 30,
-		"abilities": [
-			{
-				"ID": 4,
-				"name": "TRUESTRIKE IV",
-				"baseActiveTurns": 1,
-				"baseChargeTurns": 7,
-				"description": [
-					"Con punteria certera, esta tecnica da directamente en el cuerpo del objetivo, ignorando sus defensas.",
-					"A perfectly aimed hit that completely bypass the targets defense."
-				],
-				"remainChargeTurns": 6,
-				"isReady": false
-			}
-		],
-		"image_url": "url",
-		"activeAbilities": [],
-		"baseAggro": 34,
-		"aggro": 34,
-		"faction": "Ferten",
-		"rarity": 3,
-		"level": 1,
-		"exp": 1000,
-		"role": "Attacker"
-	},
-	{
-		"ID": 12,
-		"name": "Dok",
-		"baseAttack": 80,
-		"attack": 80,
-		"baseDefence": 22,
-		"defence": 22,
-		"baseHP": 180,
-		"HP": 180,
-		"base_crit_hit_chance": 0.15,
-		"crit_hit_chance": 0.15,
-		"description": [
-			"En la calle todos conocen su nombre, si quieres pasar un buen rato, tienes que llamar a Dok",
-			"Everyone on the street knows their 'name', if you want to have a good time, you've got to call Dok"
-		],
-		"evasion": 30,
-		"baseEvasion": 30,
-		"abilities": [
-			{
-				"ID": 2,
-				"name": "HEAL IV",
-				"baseActiveTurns": 3,
-				"baseChargeTurns": 6,
-				"description": [
-					"Un flujo de mana dirigido a las capacides regenerativas innatas del recptor.",
-					"A burst of magical energy that enhances the recievers regeneration."
-				],
-				"remainChargeTurns": 6,
-				"isReady": false
-			}
-		],
-		"image_url": "url",
-		"activeAbilities": [],
-		"baseAggro": 14,
-		"aggro": 14,
-		"faction": "Ferten",
-		"rarity": 3,
-		"level": 1,
-		"exp": 1000,
-		"role": "Support"
-	},
+	
 	{
 		"ID": 13,
 		"name": "Ferten Private",
@@ -532,11 +371,11 @@
 		"evasion": 35,
 		"baseEvasion": 35,
 		"abilities": [
-			{
-				
-			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"ferten_private_cp",
+			"ferten_private_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 50,
 		"aggro": 50,
@@ -564,11 +403,11 @@
 		"evasion": 0,
 		"baseEvasion": 0,
 		"abilities": [
-			{
-				
-			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"ferten_armoured_cp",
+			"ferten_armoured_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 80,
 		"aggro": 80,
@@ -609,7 +448,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"ferten_surgeon_cp",
+			"ferten_surgeon_cg"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 10,
 		"aggro": 10,
@@ -631,8 +474,8 @@
 		"base_crit_hit_chance": 0.20,
 		"crit_hit_chance": 0.20,
 		"description": [
-			"Miembro del consejo de magia, ha desarrollado estudios y teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo. Nadie sabe si esta loca o es un genio.",
-			"Member of the Magic Council, she has developed theories and studies regarding such complex magic that not even the rest of the council can fully comprehend them. Wether she is a genius, or a maniac is unknown."
+			"Ha desarrollado teorias acerca de magia tan compleja que ni el resto del consejo puede llegar a entenderlos por completo.",
+			"She has developed theories regarding such complex magic that not even the rest of the council can fully comprehend them."
 		],
 		"evasion": 40,
 		"baseEvasion": 40,
@@ -662,7 +505,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"kwin_lav_cp",
+			"kwin_lav_cg"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 30,
 		"aggro": 30,
@@ -672,47 +519,7 @@
 		"exp": 1000,
 		"role": "Support"
 	},
-	{
-		"ID": 11,
-		"name": "Jagrak",
-		"baseAttack": 150,
-		"attack": 150,
-		"baseDefence": 40,
-		"defence": 40,
-		"baseHP": 150,
-		"HP": 150,
-		"base_crit_hit_chance": 0.20,
-		"crit_hit_chance": 0.20,
-		"description": [
-			"Las colinas tienen ojos... los de Jagrak, el defensor del bosque",
-			"The hills have eyes. an thier owenr ir Jagrak, the protector of the forest"
-		],
-		"evasion": 30,
-		"baseEvasion": 30,
-		"abilities": [
-			{
-				"ID": 5,
-				"name": "LEECHLIFE IV",
-				"baseActiveTurns": 1,
-				"baseChargeTurns": 6,
-				"description": [
-					"Una antigua tecnica vampirica que permite absorver parte del dano realizado a un objetivo.",
-					"This old vampiric tecnique allows the user to regain part of the damage inflicted upon the enemy."
-				],
-				"remainChargeTurns": 6,
-				"isReady": false
-			}
-		],
-		"image_url": "url",
-		"activeAbilities": [],
-		"baseAggro": 30,
-		"aggro": 30,
-		"faction": "Kwin",
-		"rarity": 3,
-		"level": 1,
-		"exp": 1000,
-		"role": "Attacker"
-	},
+
 	{
 		"ID": 12,
 		"name": "Ozna",
@@ -744,7 +551,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"kwin_oz_cp",
+			"kwin_oz_cg"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 30,
 		"aggro": 30,
@@ -754,47 +565,7 @@
 		"exp": 1000,
 		"role": "Support"
 	},
-	{
-		"ID": 13,
-		"name": "Elmas",
-		"baseAttack": 60,
-		"attack": 60,
-		"baseDefence": 50,
-		"defence": 50,
-		"baseHP": 230,
-		"HP": 230,
-		"base_crit_hit_chance": 0.1,
-		"crit_hit_chance": 0.1,
-		"description": [
-			"Elmas es la montana que llora tras la batallas, la destruccion del agua en la riada, la venganza de la tierra",
-			"Elmas is the mountain that cries after battles, the water's destruction in a flash flood, earth's vengeance"
-		],
-		"evasion": 5,
-		"baseEvasion": 5,
-		"abilities": [
-			{
-				"ID": 1,
-				"name": "BUFFSTATS IV",
-				"baseActiveTurns": 4,
-				"baseChargeTurns": 12,
-				"description": [
-					"Aumento de capacidad de combate a los aliados mediante la fuerza del coraje.",
-					"A boost to all ally's combat abilities by channeling one's conviction."
-				],
-				"remainChargeTurns": 6,
-				"isReady": false
-			}
-		],
-		"image_url": "url",
-		"activeAbilities": [],
-		"baseAggro": 60,
-		"aggro": 60,
-		"faction": "Kwin",
-		"rarity": 3,
-		"level": 1,
-		"exp": 1000,
-		"role": "Support"
-	},
+
 	{
 		"ID": 14,
 		"name": "Kwin Destroyer",
@@ -813,7 +584,11 @@
 		"evasion": 35,
 		"baseEvasion": 35,
 		"abilities": [],
-		"image_url": "url",
+		"image_url": [
+			"kwin_destroyer_cp",
+			"kwin_destroyer_cg"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 50,
 		"aggro": 50,
@@ -826,8 +601,8 @@
 	{
 		"ID": 15,
 		"name": "Kwin Fortitude Wizard",
-		"baseAttack":60,
-		"attack":60,
+		"baseAttack": 60,
+		"attack": 60,
 		"baseDefence": 40,
 		"defence": 40,
 		"baseHP": 200,
@@ -854,7 +629,10 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"kwin_shielder_cp",
+			"kwin_shielder_cg"
+		],
 		"activeAbilities": [],
 		"baseAggro": 80,
 		"aggro": 80,
@@ -895,7 +673,11 @@
 				"isReady": false
 			}
 		],
-		"image_url": "url",
+		"image_url": [
+			"kwin_wizard_cp",
+			"kwin_wizard_cg"
+			]
+		,
 		"activeAbilities": [],
 		"baseAggro": 10,
 		"aggro": 10,

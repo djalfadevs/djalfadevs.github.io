@@ -84,7 +84,8 @@ public class Game {
 							auxnode.get("UserInfo").get("clan").asText(),
 							auxnode.get("UserInfo").get("arenaPoints").asInt(), auxnode.get("UserInfo").get("lang").asText(),
 							auxnode.get("UserInfo").get("mvol").asInt(),auxnode.get("UserInfo").get("evol").asInt(),
-							auxnode.get("UserInfo").get("numberofmision").asInt());
+							auxnode.get("UserInfo").get("numberofmision").asInt(),
+							auxnode.get("UserInfo").get("numeroexclusivodecarta").asInt());
 					infoUsers.put(auxNP, auxUI);
 
 				} catch (IOException e) {
@@ -218,6 +219,7 @@ public class Game {
 		auxUserinfo.setLang(u.getLang());
 		auxUserinfo.setGems(u.getGems());
 		auxUserinfo.setGold(u.getGold());
+		auxUserinfo.setNumeroExclusivoDeCarta(u.getNumeroExclusivoDeCarta());
 		infoUsers.put(n, auxUserinfo);
 		
 		//updateUserInfoMongo();
@@ -280,6 +282,7 @@ public class Game {
 			userInfo.put("mvol", auxUserInfo.getmvol());
 			userInfo.put("evol", auxUserInfo.getevol());
 			userInfo.put("numberofmision", auxUserInfo.getNumberofmision());
+			userInfo.put("numeroexclusivodecarta",auxUserInfo.getNumeroExclusivoDeCarta().get());
 			NamePassUserInfo.set("UserInfo", userInfo);
 
 			try {
@@ -319,7 +322,7 @@ public class Game {
 		this.infoUsers = infoUsers;
 	}
 	public ArrayNode getArenaRival() {
-		List<UserInfo> auxl = (List<UserInfo>) infoUsers.values();
+		List<UserInfo> auxl = new ArrayList<UserInfo> (infoUsers.values());
 		ObjectMapper o = new ObjectMapper();
 
 		JsonNode auxjson = o.convertValue(auxl.get((int) (Math.random()*auxl.size())),JsonNode.class);
@@ -345,8 +348,8 @@ public class Game {
 			
 			int auxRandomnumber = (int) (Math.random()*auxArrayNode.size());
 			
-			Hero auxH = o.convertValue(auxArrayNode.get(0),Hero.class);
-			auxH.setCardExclusiveId(auxUserinfo.numeroExclusivoDeCarta.getAndIncrement());//Creamos el heroe
+			Hero auxH = o.convertValue(auxArrayNode.get(auxRandomnumber),Hero.class);
+			auxH.setCardExclusiveId(auxUserinfo.numeroexclusivodecarta.getAndIncrement());//Creamos el heroe
 			
 			auxUserinfo.getHeros().add(auxH);//Actualizamos el mapa 
 			

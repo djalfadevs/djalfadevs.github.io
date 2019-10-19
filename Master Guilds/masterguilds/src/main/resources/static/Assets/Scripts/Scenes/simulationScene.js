@@ -82,6 +82,13 @@ class SimulationScene extends Phaser.Scene
 						console.log("VICTORIA")//debug
 						that.extend.winOrDefeat = that.add.sprite(960,200,'TextWinEN');
 						
+						if(game.global.lastScene=="arena"){
+							game.global.user.arenaPoints+=15;
+							var msg = new Object();
+				    		msg.event = "UPDATECOFINGUSER"
+				    		game.global.socket.send(JSON.stringify(msg))
+				        	}
+						
 						//
 						setTimeout(function(){ 
 							that.scene.launch('rewardScene');
@@ -96,16 +103,24 @@ class SimulationScene extends Phaser.Scene
 
 						//RESETEAR SIMULACION Y VOLVER AL MENU O OTRA ESCENA
 						//////////////////////////////////////////////////
-
+						
 					}
 					else//DERROTA
 					{
 						console.log("DERROTA")//debug
 						that.extend.winOrDefeat = that.add.sprite(960,200,'TextDefeatEN');
-
+						
+						if(game.global.lastScene=="arena"){
+							game.global.user.arenaPoints-=20;
+							var msg = new Object();
+				    		msg.event = "UPDATECOFINGUSER"
+				    		game.global.socket.send(JSON.stringify(msg))
+				        	}
+						
+						
 						setTimeout(function(){ 
 							var msg = new Object();
-							msg.event = "UPDATEUSERINFO"
+							msg.event = "UPDATECOFINGUSER"
 							msg.userAux = new User(game.global.user);
 							game.global.socket.send(JSON.stringify(msg))
 							that.scene.launch('rewardScene');
