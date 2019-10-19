@@ -28,8 +28,8 @@ class chapter extends Phaser.Scene{
         var world1=this.add.sprite(1530,180,'AzonButt').setInteractive();
     	var world2=this.add.sprite(1530,380,'FertenButt').setInteractive()
     	var world3=this.add.sprite(1530,580,'KwinButt').setInteractive()
-    	var world4=this.add.sprite(1530,780,'largeButt').setInteractive()
-    	var world5=this.add.sprite(1530,980,'largeButt').setInteractive()
+    	var world4=this.add.sprite(1530,780,'largePlayHistoryButt').setInteractive()
+    	var world5=this.add.sprite(1530,980,'largeFinalButt').setInteractive()
     	
     	world1.on('pointerdown',function(){this.setFrame(1)
             SelectMisionAndAddDatatoSimulation(0);

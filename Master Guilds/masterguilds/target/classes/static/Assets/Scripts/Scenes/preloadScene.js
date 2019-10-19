@@ -23,6 +23,8 @@ class preload extends Phaser.Scene{
         this.load.spritesheet('largeInstaButt','Assets/Sprites/UI-UX/boton_largo_instagram.png',{frameWidth:777,frameHeight:195});
         this.load.spritesheet('largeTweetButt','Assets/Sprites/UI-UX/boton_largo_twitter.png',{frameWidth:777,frameHeight:195});
         this.load.spritesheet('largeYouButt','Assets/Sprites/UI-UX/boton_largo_youtube.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('largeShopButt','Assets/Sprites/UI-UX/boton_largo_tienda.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('largeFinalButt','Assets/Sprites/UI-UX/boton_largo_nivel_final.png',{frameWidth:777,frameHeight:195});
         this.load.image('textBox','Assets/Sprites/UI-UX/caja_texto.png',{frameWidth:956,frameHeight:186});
         //load.setFrame(1);
         this.load.image('backWood','Assets/Sprites/UI-UX/fondo_madera.png',{frameWidth:1920,frameHeight:1080});
@@ -84,6 +86,7 @@ class preload extends Phaser.Scene{
         this.load.spritesheet('5gems','Assets/Sprites/UI-UX/boton_gema_5.png',{frameWidth:221,frameHeight:195});
         this.load.spritesheet('20gems','Assets/Sprites/UI-UX/boton_gema_20.png',{frameWidth:221,frameHeight:195});
         this.load.spritesheet('50gems','Assets/Sprites/UI-UX/boton_gema_50.png',{frameWidth:221,frameHeight:195});
+        this.load.image('gems','Assets/Sprites/UI-UX/gema.png',{frameWidth:83,frameHeight:100});
         this.load.spritesheet('profButt','Assets/Sprites/UI-UX/boton_perfil.png',{frameWidth:221,frameHeight:195});
         this.load.image('newsPaper','Assets/Sprites/UI-UX/papel_info_novedades.png',{frameWidth:665,frameHeight:518});
         this.load.image('summonPaper','Assets/Sprites/UI-UX/papel_info_summon_gema.png',{frameWidth:594,frameHeight:474});
@@ -104,7 +107,7 @@ class preload extends Phaser.Scene{
         this.load.image('azon_medic_cg','Assets/Sprites/UI-UX/cartas/azon_medic_carta_grande.png',{frameWidth:346,frameHeight:507});
         //Ferten
         this.load.image('ferten_armoured_cp','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_pequena.png',{frameWidth:163,frameHeight:239});
-        this.load.image('ferten_armoured_cg','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('ferten_armoured_cg','Assets/Sprites/UI-UX/cartas/ferten_aromoured_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('ferten_private_cp','Assets/Sprites/UI-UX/cartas/ferten_private_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('ferten_private_cg','Assets/Sprites/UI-UX/cartas/ferten_private_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('ferten_surgeon_cp','Assets/Sprites/UI-UX/cartas/ferten_surgeon_carta_pequena.png',{frameWidth:163,frameHeight:239});
@@ -116,6 +119,11 @@ class preload extends Phaser.Scene{
         this.load.image('kwin_shielder_cg','Assets/Sprites/UI-UX/cartas/kwin_shielder_carta_grande.png',{frameWidth:346,frameHeight:507});
         this.load.image('kwin_wizard_cp','Assets/Sprites/UI-UX/cartas/kwin_wizard_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('kwin_wizard_cg','Assets/Sprites/UI-UX/cartas/kwin_wizard_carta_grande.png',{frameWidth:346,frameHeight:507});
+        
+        
+        //luismi
+        this.load.image('BIGLuismi','Assets/Sprites/UI-UX/cartas/luimi.png',{frameWidth:346,frameHeight:507});
+        this.load.image('LuismiChikito','Assets/Sprites/UI-UX/cartas/luimi_peq.png',{frameWidth:163,frameHeight:239})
         
         this.load.image('1star','Assets/Sprites/UI-UX/estrella_1.png',{frameWidth:1125,frameHeight:1070});
         this.load.image('3star','Assets/Sprites/UI-UX/estrella_3.png',{frameWidth:3465,frameHeight:1070});
@@ -148,7 +156,10 @@ class preload extends Phaser.Scene{
         
         this.load.audio('click','Assets/Sounds/Click.wav');
         this.load.audio('draw1','Assets/Sounds/Deal1CardV1.wav')
-
+        this.load.audio('unlock','Assets/Sounds/UnlockShop.wav');
+        this.load.audio('buyS','Assets/Sounds/BuyingShop.wav');
+        this.load.audio('buyPrompt','Assets/Sounds/SellingShop.wav');
+        this.load.audio('dealCard','Assets/Sounds/Enchant.wav');
     }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero

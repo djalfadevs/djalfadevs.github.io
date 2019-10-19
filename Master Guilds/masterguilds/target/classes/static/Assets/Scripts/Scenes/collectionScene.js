@@ -133,8 +133,8 @@ class collection extends Phaser.Scene{
     	//BOTONES
     	//Boton volver
         var backButt=this.add.sprite(85,80,'backButt').setInteractive()  
-        that.extend.click.play();
-        backButt.on('pointerdown',function(){this.setFrame(1);transition("back",that)})
+       
+        backButt.on('pointerdown',function(){this.setFrame(1); that.extend.click.play();transition("back",that)})
         backButt.on('pointerup',function(){this.setFrame(0)})
 
         var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
