@@ -391,7 +391,7 @@ public class Game {
 		this.infoUsers = infoUsers;
 	}
 	public ArrayNode getArenaRival() {
-		List<UserInfo> auxl = (List<UserInfo>) infoUsers.values();
+		List<UserInfo> auxl = new ArrayList<UserInfo> (infoUsers.values());
 		ObjectMapper o = new ObjectMapper();
 
 		JsonNode auxjson = o.convertValue(auxl.get((int) (Math.random()*auxl.size())),JsonNode.class);

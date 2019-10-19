@@ -17,7 +17,7 @@ class chapter extends Phaser.Scene{
     	
     	//habria que leer aqui el nivel en el que estamos!!!!!!
     	//hacer inputenabled false y alphas aqui, NO LUEGO, AQUI!
-    	
+    	game.global.lastScene="chapter";
     	var that=this;
     	this.extend.click=this.sound.add('click');
     	this.extend.click.setVolume(game.global.user.evol)
@@ -26,10 +26,10 @@ class chapter extends Phaser.Scene{
         backButt.on('pointerup',function(){this.setFrame(0);that.scene.transition({target:'mainMenu',duration:100})})
         
         var world1=this.add.sprite(1530,180,'AzonButt').setInteractive();
-    	var world2=this.add.sprite(1530,380,'FertenButt').setInteractive()
-    	var world3=this.add.sprite(1530,580,'KwinButt').setInteractive()
-    	var world4=this.add.sprite(1530,780,'largePlayHistoryButt').setInteractive()
-    	var world5=this.add.sprite(1530,980,'largeFinalButt').setInteractive()
+    	var world2=this.add.sprite(1530,380,'FertenButt')
+    	var world3=this.add.sprite(1530,580,'KwinButt')
+    	var world4=this.add.sprite(1530,780,'largePlayHistoryButt')
+    	var world5=this.add.sprite(1530,980,'largeFinalButt')
     	
     	world1.on('pointerdown',function(){this.setFrame(1)
             SelectMisionAndAddDatatoSimulation(0);
@@ -58,11 +58,6 @@ class chapter extends Phaser.Scene{
     	world3.on('pointerup',function(){this.setFrame(0);infoShow(3,"world3")})
     	world4.on('pointerup',function(){this.setFrame(0);infoShow(4,"world4")})
     	world5.on('pointerup',function(){this.setFrame(0);infoShow(5,"world5")})
-    	
-    	world2.inputEnabled=false;
-    	world3.inputEnabled=false;
-    	world4.inputEnabled=false;
-    	world5.inputEnabled=false;
     	
     	world2.alpha=0;
     	world3.alpha=0;
@@ -95,22 +90,22 @@ class chapter extends Phaser.Scene{
 
             if(i>=1){
                 Xworld2.destroy();
-                world2.inputEnabled=true;
+                world2.setInteractive();
                 world2.alpha=1;
             }
             if(i>=2){
                 Xworld3.destroy();
-                world3.inputEnabled=true;
+                world3.setInteractive();
                 world3.alpha=1;
             }
             if(i>=3){
                  Xworld4.destroy();
-                 world4.inputEnabled=true;
+                 world4.setInteractive();
                  world4.alpha=1;
             }
             if(i>=4){
                  Xworld5.destroy();
-                 world5.inputEnabled=true;
+                 world5.setInteractive();
                  world5.alpha=1;
             }
         }
@@ -145,7 +140,7 @@ class chapter extends Phaser.Scene{
     	function transition(target,that){
     		that.extend.click.play();
     		//future switch for future levels will load different jsons!!!
-    		console.log("star world"+target)
+    		console.log("start world"+target)
     		setTimeout(function(){that.scene.transition({target:'deck',duration:0});}, 2000)
     	}
 

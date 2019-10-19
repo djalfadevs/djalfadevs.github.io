@@ -173,6 +173,8 @@ class preload extends Phaser.Scene{
         this.load.audio('buyS','Assets/Sounds/BuyingShop.wav');
         this.load.audio('buyPrompt','Assets/Sounds/SellingShop.wav');
         this.load.audio('dealCard','Assets/Sounds/Enchant.wav');
+        this.load.spritesheet('rank','Assets/Sprites/UI-UX/boton_perfil.png',{frameWidth:221.5,frameHeight:195});
+        this.load.spritesheet('arenaBg','Assets/Sprites/Fondos_combate/Escenario_arena_spritesheet.png',{frameWidth:1920,frameHeight:1640})
     }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero
