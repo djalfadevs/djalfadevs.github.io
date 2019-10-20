@@ -134,7 +134,7 @@ class deck extends Phaser.Scene{
             that.scene.transition({target:game.global.lastScene,duration:0})
         })
 
-        var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
+        var UpArrowButt=this.add.sprite(1400,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
         	that.extend.click.play();
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
@@ -143,7 +143,7 @@ class deck extends Phaser.Scene{
          
             ;})
 
-        var DownArrowButt=this.add.sprite(1350,1000,'DownArrow').setScale(1).setInteractive();
+        var DownArrowButt=this.add.sprite(1400,1000,'DownArrow').setScale(1).setInteractive();
         DownArrowButt.on('pointerup',function(){
         	that.extend.click.play();
             that.extend.numberOfPage-=1
@@ -232,7 +232,7 @@ class deck extends Phaser.Scene{
     		if(that.extend.cards[j]!=null)
     		that.extend.cards[j].destroy();
     		if(allHeroes[i*9+j]!=null)
-    		that.extend.cards[j] = new CollectionCard(this,1100+(j%3)*collsDistance,300+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],320,500);
+    		that.extend.cards[j] = new CollectionCard(this,1150+(j%3)*collsDistance,300+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],320,500);
     	}
     	
         for(var s = 0; s<that.extend.cards.length; s++){
