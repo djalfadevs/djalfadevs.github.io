@@ -161,12 +161,6 @@ class SimulationScene extends Phaser.Scene
 				    		game.global.socket.send(JSON.stringify(msg))
 				        	}
 				        //Si supera una mision por primera vez se dan gemas
-						else{
-							if(game.global.user.numberofmision<game.global.simulation.idmision){
-								game.global.user.gems+=5;
-								game.global.user.numberofmision=game.global.simulation.idmision;
-							}
-						}
 						//
 						that.scene.pause();
 						setTimeout(function(){ 
@@ -197,7 +191,7 @@ class SimulationScene extends Phaser.Scene
 						
 						that.scene.pause();
 						setTimeout(function(){ 
-							that.scene.launch('rewardScene');
+							that.scene.launch('loseScene');
 						 }, 3000);
 						
 						//RESETEAR SIMULACION Y VOLVER AL MENU O OTRA ESCENA
