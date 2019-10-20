@@ -125,6 +125,9 @@
 				game.global.rivals=msg.rival;
 				game.scene.scenes[23].setArenaRivals();
 			default:
+			case "GETRANKING":
+				game.scene.scenes[28].setRanking(msg.ranking);
+			break;
 		}
 
 	}
