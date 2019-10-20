@@ -111,8 +111,11 @@ class preload extends Phaser.Scene{
         this.load.image('ferten_balista_cp','Assets/Sprites/UI-UX/cartas/ferten_balista_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('ferten_balista_cg','Assets/Sprites/UI-UX/cartas/ferten_balista_carta_grande.png',{frameWidth:346,frameHeight:507});
 
-        this.load.image('ferten_dak_cp','Assets/Sprites/UI-UX/cartas/ferten_dak_carta_pequena.png',{frameWidth:163,frameHeight:239});
-        this.load.image('ferten_dak_cg','Assets/Sprites/UI-UX/cartas/ferten_dak_carta_grande.png',{frameWidth:346,frameHeight:507});
+        //this.load.image('ferten_dak_cp','Assets/Sprites/UI-UX/cartas/ferten_dak_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        //this.load.image('ferten_dak_cg','Assets/Sprites/UI-UX/cartas/ferten_dak_carta_grande.png',{frameWidth:346,frameHeight:507});
+        this.load.image('ferten_dak_cp','Assets/Sprites/UI-UX/cartas/ferten_duk_carta_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('ferten_dak_cg','Assets/Sprites/UI-UX/cartas/ferten_duk_carta_grande.png',{frameWidth:346,frameHeight:507});
+
 
         this.load.image('ferten_armoured_cp','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_pequena.png',{frameWidth:163,frameHeight:239});
         this.load.image('ferten_armoured_cg','Assets/Sprites/UI-UX/cartas/ferten_armoured_carta_grande.png',{frameWidth:346,frameHeight:507});
@@ -151,11 +154,12 @@ class preload extends Phaser.Scene{
         this.load.spritesheet('curacion_spritesheet','Assets/Sprites/VFX_combate/curacion_spritesheet_fix.png',{ frameWidth: 700, frameHeight:800  });
         this.load.spritesheet('ataque_spritesheet','Assets/Sprites/VFX_combate/ataque_spritesheet.png',{ frameWidth: 520, frameHeight:642  });
         this.load.spritesheet('chupa_spritesheet','Assets/Sprites/VFX_combate/chupa_spritesheet.png',{ frameWidth: 520, frameHeight:642  });
+        
         //FONDOS
-        this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.png',{frameWidth:1920,frameHeight:1640});
-        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.png',{frameWidth:1920,frameHeight:1640});
-        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_steampunk.png',{frameWidth:1920,frameHeight:1640});
-        this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_arena.png',{frameWidth:1920,frameHeight:1640});
+        //this.load.image('Escenario_japones','Assets/Sprites/Fondos_combate/Escenario_japones.png',{frameWidth:1920,frameHeight:1640});
+        //this.load.image('Escenario_elfico','Assets/Sprites/Fondos_combate/Escenario_elfico.png',{frameWidth:1920,frameHeight:1640});
+        //this.load.image('Escenario_steampunk','Assets/Sprites/Fondos_combate/Escenario_steampunk.png',{frameWidth:1920,frameHeight:1640});
+        //this.load.image('Escenario_arena','Assets/Sprites/Fondos_combate/Escenario_arena.png',{frameWidth:1920,frameHeight:1640});
 
         //VICTORIA y DERROTA
         this.load.image('TextWinEN','Assets/Sprites/UI-UX/VictoriayDerrota/VictoryEnglishFinal1.png',{frameWidth:1100,frameHeight:300});
@@ -173,6 +177,44 @@ class preload extends Phaser.Scene{
         this.load.audio('buyS','Assets/Sounds/BuyingShop.wav');
         this.load.audio('buyPrompt','Assets/Sounds/SellingShop.wav');
         this.load.audio('dealCard','Assets/Sounds/Enchant.wav');
+        this.load.spritesheet('rank','Assets/Sprites/UI-UX/boton_perfil.png',{frameWidth:221.5,frameHeight:195});
+        //this.load.spritesheet('arenaBg','Assets/Sprites/Fondos_combate/Escenario_arena_spritesheet.png',{frameWidth:1920,frameHeight:1640})
+
+        //FONDOS IMAGENES
+        this.load.image('Escenario_japones1','Assets/Sprites/Fondos_combate/sprites_azon/1.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_japones2','Assets/Sprites/Fondos_combate/sprites_azon/2.png',{frameWidth:1920,frameHeight:1640});
+
+        this.load.image('Escenario_elfico1','Assets/Sprites/Fondos_combate/sprites_kwin/1.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_elfico2','Assets/Sprites/Fondos_combate/sprites_kwin/2.png',{frameWidth:1920,frameHeight:1640});
+
+        this.load.image('Escenario_steampunk1','Assets/Sprites/Fondos_combate/sprites_ferten/1.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_steampunk2','Assets/Sprites/Fondos_combate/sprites_ferten/2.png',{frameWidth:1920,frameHeight:1640});
+
+        this.load.image('Escenario_arena1','Assets/Sprites/Fondos_combate/sprites_arena/1.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena2','Assets/Sprites/Fondos_combate/sprites_arena/2.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena3','Assets/Sprites/Fondos_combate/sprites_arena/3.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena4','Assets/Sprites/Fondos_combate/sprites_arena/4.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena5','Assets/Sprites/Fondos_combate/sprites_arena/5.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena6','Assets/Sprites/Fondos_combate/sprites_arena/6.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena7','Assets/Sprites/Fondos_combate/sprites_arena/7.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena8','Assets/Sprites/Fondos_combate/sprites_arena/8.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena9','Assets/Sprites/Fondos_combate/sprites_arena/9.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena10','Assets/Sprites/Fondos_combate/sprites_arena/10.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena11','Assets/Sprites/Fondos_combate/sprites_arena/11.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_arena12','Assets/Sprites/Fondos_combate/sprites_arena/12.png',{frameWidth:1920,frameHeight:1640});
+    
+        this.load.image('Escenario_final1','Assets/Sprites/Fondos_combate/sprites_final/1.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final2','Assets/Sprites/Fondos_combate/sprites_final/2.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final3','Assets/Sprites/Fondos_combate/sprites_final/3.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final4','Assets/Sprites/Fondos_combate/sprites_final/4.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final5','Assets/Sprites/Fondos_combate/sprites_final/5.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final6','Assets/Sprites/Fondos_combate/sprites_final/6.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final7','Assets/Sprites/Fondos_combate/sprites_final/7.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final8','Assets/Sprites/Fondos_combate/sprites_final/8.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final9','Assets/Sprites/Fondos_combate/sprites_final/9.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final10','Assets/Sprites/Fondos_combate/sprites_final/10.png',{frameWidth:1920,frameHeight:1640});
+        this.load.image('Escenario_final11','Assets/Sprites/Fondos_combate/sprites_final/11.png',{frameWidth:1920,frameHeight:1640});
+
     }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero

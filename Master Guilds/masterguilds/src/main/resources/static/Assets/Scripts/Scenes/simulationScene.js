@@ -34,13 +34,83 @@ class SimulationScene extends Phaser.Scene
 	create(){
 
 		var that = this;
+
+		//Animaciones de escenarios
+		this.anims.create({
+        key: 'Escenario_japones',
+        frames: [
+            { key: 'Escenario_japones1' },
+            { key: 'Escenario_japones2' },
+        ],
+        frameRate: 1,
+        repeat: -1
+    	});
+
+		this.anims.create({
+        key: 'Escenario_elfico',
+        frames: [
+            { key: 'Escenario_elfico1' },
+            { key: 'Escenario_elfico2' },
+        ],
+        frameRate: 1,
+        repeat: -1
+    	});
+
+    	this.anims.create({
+        key: 'Escenario_ferten',
+        frames: [
+            { key: 'Escenario_steampunk1' },
+            { key: 'Escenario_steampunk2' },
+        ],
+        frameRate: 1,
+        repeat: -1
+    	});
+
+    	this.anims.create({
+        key: 'Escenario_final',
+        frames: [
+            { key: 'Escenario_final1' },
+            { key: 'Escenario_final2' },
+            { key: 'Escenario_final3' },
+            { key: 'Escenario_final4' },
+            { key: 'Escenario_final5' },
+            { key: 'Escenario_final6' },
+            { key: 'Escenario_final7' },
+            { key: 'Escenario_final8' },
+            { key: 'Escenario_final9' },
+            { key: 'Escenario_final10' },
+            { key: 'Escenario_final11' },
+        ],
+        frameRate: 1,
+        repeat: -1
+    	});
+
+    	this.anims.create({
+        key: 'Escenario_arena',
+        frames: [
+            { key: 'Escenario_arena1' },
+            { key: 'Escenario_arena2' },
+            { key: 'Escenario_arena3' },
+            { key: 'Escenario_arena4' },
+            { key: 'Escenario_arena5' },
+            { key: 'Escenario_arena6' },
+            { key: 'Escenario_arena7' },
+            { key: 'Escenario_arena8' },
+            { key: 'Escenario_arena9' },
+            { key: 'Escenario_arena10' },
+            { key: 'Escenario_arena11' },
+            { key: 'Escenario_arena12' },
+        ],
+        duration: 5600,
+        repeat: -1
+    	});
 		//Inicializacion de variables propias
 		this.extend.cards = {allies: [], enemies: []}
 
 		var simulation = game.global.simulation;
 		//Fondo de batalla
-		var background = this.add.sprite(960,280,simulation.escenario);
-
+		var background = this.add.sprite(960,280,'Escenario_arena1');//Inicializa en esta escena , luego ya ejecuta otra animacion
+		background.play(simulation.escenario);
 		//PAUSA
 		this.extend.pauseButton = this.add.sprite(100,100,'PauseButt')
 		.setInteractive()

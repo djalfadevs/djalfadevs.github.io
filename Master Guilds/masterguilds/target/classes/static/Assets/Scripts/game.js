@@ -22,7 +22,7 @@
 	//scene: [SimulationScene,PauseScene]
     scene:[preload,LOGO,contact,login,register,title,shop,settings,ranking,
     mainMenu,lang,deck,combatMenu,collection,chapter,
-    SimulationScene,PauseScene,FailLogin,FailRegister,FailPass,comingSoonQ,newsPop,rewardScene,arena,buy5,buy20,buy50,summon]
+    SimulationScene,PauseScene,FailLogin,FailRegister,FailPass,comingSoonQ,newsPop,rewardScene,arena,buy5,buy20,buy50,summon,rann]
 };
 
 	var game = new Phaser.Game(config);
@@ -35,6 +35,8 @@
 	//store: debemos tener acceso a todos los datos relacionados con la tienda 
 	//(Se creara una clase tienda con toda esta informacion y se tendra una instancia)// Tambien (seguramente) puede recibir informacion del servidor.
 	game.global = {
+		lastScene:null,	
+		rivals:[],
 		user: null,  
 		/*
 		Simulation: Al principio se crea una unica simulacion , esta unica simulacion se inicializara 
@@ -119,6 +121,9 @@
 				game.global.obtainedHero = msg.hero;
 				game.global.user.heros.push(msg.hero);
 			break;
+			case "GETARENARIVAL":
+				game.global.rivals=msg.rival;
+				game.scene.scenes[23].setArenaRivals();
 			default:
 		}
 
