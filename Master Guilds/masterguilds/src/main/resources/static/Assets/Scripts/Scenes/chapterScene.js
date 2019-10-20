@@ -4,7 +4,7 @@
 class chapter extends Phaser.Scene{
     constructor(){
         super({key: 'chapter'})
-        this.extend={click:null}
+        this.extend={click:null,hit:null}
     }
     preload(){
         this.add.image(960,540,'backWood');
@@ -18,10 +18,12 @@ class chapter extends Phaser.Scene{
     	game.global.lastScene="chapter";
     	var that=this;
     	this.extend.click=this.sound.add('click');
+    	this.extend.hit=this.sound.add('hit');
     	this.extend.click.setVolume(game.global.user.evol)
+    	this.extend.hit.setVolume(game.global.user.evol)
     	var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
         backButt.on('pointerdown',function(){this.setFrame(1)})
-        backButt.on('pointerup',function(){this.setFrame(0);game.global.simulation.SetSimulationtoStartState();that.scene.transition({target:'mainMenu',duration:100})})
+        backButt.on('pointerup',function(){that.extend.click.play();this.setFrame(0);game.global.simulation.SetSimulationtoStartState();that.scene.transition({target:'mainMenu',duration:100})})
         
         var en1=this.add.text(250,10,'Story',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
         var en2=this.add.text(450,50,'Choose a chapter',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'})
@@ -88,7 +90,8 @@ class chapter extends Phaser.Scene{
     	startButt.on('pointerdown',function(){this.setFrame(1)});
     	startButt.on('pointerup',function(){this.setFrame(0);
             if(game.global.simulation.escenario!=null)
-            transition(target,that)
+            	that.extend.hit.play();
+            	transition(target,that)
         });
     	startButt.on('pointerout',function(){this.setFrame(0)});
     	

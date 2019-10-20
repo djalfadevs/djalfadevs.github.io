@@ -171,6 +171,8 @@ class preload extends Phaser.Scene{
         this.load.image('AttackBuff','Assets/Sprites/UI-UX/Buffs/buffatacico.png',{frameWidth:50,frameHeight:50});
         this.load.image('AllBuff','Assets/Sprites/UI-UX/Buffs/buffstatico.png',{frameWidth:50,frameHeight:50});
         
+        
+        this.load.audio('hit','Assets/Sounds/SimpleHit.wav');
         this.load.audio('click','Assets/Sounds/Click.wav');
         this.load.audio('draw1','Assets/Sounds/Deal1CardV1.wav')
         this.load.audio('unlock','Assets/Sounds/UnlockShop.wav');
