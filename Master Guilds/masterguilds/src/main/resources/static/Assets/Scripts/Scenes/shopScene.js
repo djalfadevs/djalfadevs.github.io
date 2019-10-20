@@ -48,7 +48,7 @@ create(){
     
  
     this.add.sprite(1700,135,'gems').setScale(0.7)
-    this.add.text(1750,100, game.global.user.gems ,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
+    var gemas = this.add.text(1750,100, game.global.user.gems ,{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
     
     that.extend.ESGroup0=this.add.container(0,0);
     that.extend.ENGroup0=this.add.container(0,0);
@@ -114,7 +114,9 @@ create(){
     
     summon.on('pointerup',function(){
     	this.setFrame(0)
-
+    	if(game.global.user.gems>=5){
+    	  game.global.user.gems-=5
+    	  gemas.setText(game.global.user.gems);
     	  var msg = new Object();
           msg.event = "GETNEWHERO" 
           game.global.socket.send(JSON.stringify(msg))
@@ -122,7 +124,7 @@ create(){
     	that.extend.unlock.play();
     	that.scene.launch('summon');
     	that.scene.pause();
-    	
+    	} 	
     })
     
     

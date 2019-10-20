@@ -81,7 +81,10 @@ class chapter extends Phaser.Scene{
     	var startButt=this.add.sprite(520,830,'largeButt').setInteractive();
     	
     	startButt.on('pointerdown',function(){this.setFrame(1)});
-    	startButt.on('pointerup',function(){this.setFrame(0);transition(target,that)});
+    	startButt.on('pointerup',function(){this.setFrame(0);
+            if(game.global.simulation.escenario!=null)
+            transition(target,that)
+        });
     	startButt.on('pointerout',function(){this.setFrame(0)});
     	
 

@@ -180,7 +180,9 @@ class deck extends Phaser.Scene{
         		setTimeout(function(){that.scene.transition({target:game.global.lastScene,duration:0});}, 1000);
         	}
         	else{
-        		setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
+                if(game.global.simulation.allies.team.length>0){
+                    setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
+                }	
         	}
             
         })

@@ -176,7 +176,7 @@ class arena extends Phaser.Scene{
     			that.extend.accept.removeInteractive();
     			var simulation = game.global.simulation;
     			simulation.idmision =game.global.user.numberofmision;
-    			simulation.escenario = "arenaBg";
+    			simulation.escenario = "Escenario_arena";
                 simulation.enemys.resetToBaseAttribValue();
                 simulation.enemys.restrictions ={"maxHeros":4,"maxHerosFaction":[4,4,4]}
                 var enemyTeamAux = [];
@@ -219,9 +219,14 @@ class arena extends Phaser.Scene{
 class rann extends Phaser.Scene{
 	constructor(){
 		super({key: 'rann'})
-		this.extend={click:null}
+		this.extend={click:null,theRank:null}
 	}
 	create(){
+		
+    	var msg = new Object();
+		msg.event = "GETRANKING"
+		game.global.socket.send(JSON.stringify(msg))
+		
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(970,450,'largeInfo');
 		this.add.text(720,50,'Ranking',{fontFamily:"Museo-700" ,fontSize:'120px',color:'#000',fontStyle:'bold'});
@@ -240,5 +245,23 @@ class rann extends Phaser.Scene{
 			that.scene.stop();
 		});
 
+	}
+	
+	setRanking(input){
+		this.extend.theRank=input;
+		if(this.extend.theRank!=null){
+			for(var k=0;k<this.extend.theRank.length;k++){
+				switch(game.global.user.lang){
+				case "EN":
+					this.add.text(720,250+k*50,this.extend.theRank[k].name+" Arena Points: "+this.extend.theRank[k].arenaPoints,{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+					break;
+				case "ES":
+					this.add.text(720,250+k*50,this.extend.theRank[k].name+" Puntos de arena: "+this.extend.theRank[k].arenaPoints,{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+					break;			
+				}
+				
+			}
+		}
+		
 	}
 }

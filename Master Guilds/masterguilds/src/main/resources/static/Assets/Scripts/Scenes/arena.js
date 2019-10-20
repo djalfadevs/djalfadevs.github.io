@@ -176,7 +176,7 @@ class arena extends Phaser.Scene{
     			that.extend.accept.removeInteractive();
     			var simulation = game.global.simulation;
     			simulation.idmision =game.global.user.numberofmision;
-    			simulation.escenario = "arenaBg";
+    			simulation.escenario = "Escenario_arena";
                 simulation.enemys.resetToBaseAttribValue();
                 simulation.enemys.restrictions ={"maxHeros":4,"maxHerosFaction":[4,4,4]}
                 var enemyTeamAux = [];

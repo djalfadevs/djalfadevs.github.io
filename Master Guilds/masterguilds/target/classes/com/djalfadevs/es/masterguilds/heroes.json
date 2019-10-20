@@ -436,7 +436,7 @@
 		"baseEvasion": 0,
 		"abilities": [
 			{
-				"ID": 1,
+				"ID": 2,
 				"name": "HEAL III",
 				"baseActiveTurns": 2,
 				"baseChargeTurns": 8,
@@ -661,7 +661,7 @@
 		"baseEvasion": 0,
 		"abilities": [
 			{
-				"ID": 1,
+				"ID": 2,
 				"name": "HEAL I",
 				"baseActiveTurns": 1,
 				"baseChargeTurns": 7,
