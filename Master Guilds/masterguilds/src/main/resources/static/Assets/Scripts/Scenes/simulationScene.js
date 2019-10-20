@@ -155,14 +155,16 @@ class SimulationScene extends Phaser.Scene
 						if(game.global.lastScene=="arena"){
 							game.global.user.arenaPoints+=15;
 							var msg = new Object();
-				    		msg.event = "UPDATECOFINGUSER"
+				    		msg.event = "UPDATECONFIGUSER"
+				    		msg.userAux = new User(game.global.user);
+                			msg.userAux.heros = [];
 				    		game.global.socket.send(JSON.stringify(msg))
 				        	}
 						
 						//
+						that.scene.pause();
 						setTimeout(function(){ 
 							that.scene.launch('rewardScene');
-							that.scene.pause();
 						 }, 3000);
 						
 						if(game.global.user.numberofmision<game.global.simulation.idmision){
@@ -183,18 +185,15 @@ class SimulationScene extends Phaser.Scene
 						if(game.global.lastScene=="arena"){
 							game.global.user.arenaPoints-=20;
 							var msg = new Object();
-				    		msg.event = "UPDATECOFINGUSER"
-				    		game.global.socket.send(JSON.stringify(msg))
+							msg.event = "UPDATECONFIGUSER"
+							msg.userAux = new User(game.global.user);
+							msg.userAux.heros = [];
+							game.global.socket.send(JSON.stringify(msg))
 				        	}
 						
-						
+						that.scene.pause();
 						setTimeout(function(){ 
-							var msg = new Object();
-							msg.event = "UPDATECOFINGUSER"
-							msg.userAux = new User(game.global.user);
-							game.global.socket.send(JSON.stringify(msg))
 							that.scene.launch('rewardScene');
-							that.scene.pause();
 						 }, 3000);
 						
 						//RESETEAR SIMULACION Y VOLVER AL MENU O OTRA ESCENA

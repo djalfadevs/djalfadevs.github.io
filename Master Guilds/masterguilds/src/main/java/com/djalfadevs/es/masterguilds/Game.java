@@ -258,7 +258,7 @@ public class Game {
 		auxUserinfo.setDefensa(u.getDefensa());
 		infoUsers.put(n, auxUserinfo);
 		
-		//updateUserInfoMongo();
+		updateUserInfoMongo2(n);
 	}
 	
 	public void updateHeroInfo(NamePassword n, Hero h) {

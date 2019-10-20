@@ -12,7 +12,15 @@ class arena extends Phaser.Scene{
 			accept:null,
 			r1T:null,
 			r2T:null,
-			r3T:null
+			r3T:null,
+			card1:null,
+			card2:null,
+			card3:null,
+			card4:null,
+			positionOfSmallAlliesCards:[[350,550],
+	            [550,550],
+	            [750,550],
+	            [950,550]]
 		}
 	}
 	preload(){
@@ -31,7 +39,8 @@ class arena extends Phaser.Scene{
     	this.extend.click.setVolume(game.global.user.evol)
     	
     	
-    	
+    	var text1=this.add.text(250,250,' ',{fontFamily:"Museo-700" ,fontSize:'100px',color:'#000',fontStyle:'bold'});
+    	var text2=this.add.text(300,400,' ',{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
     	
     	var r1=this.add.sprite(1530,300,'largeButt').setInteractive();
     	
@@ -63,9 +72,17 @@ class arena extends Phaser.Scene{
    
     	this.extend.r3T=this.add.text(1350,850," ",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'});
     	
-    	var rank=this.add.sprite(520,880,'rank').setInteractive();
+    	var rank=this.add.sprite(520,880,'rank').setInteractive().setDepth(2);
     	
-    	var def=this.add.sprite(280,880,'deffButt').setInteractive();
+    	var def=this.add.sprite(280,880,'deffButt').setInteractive().setDepth(2);
+    	
+    	def.on('pointerup',function(){this.setFrame(0); 
+    	game.global.lastScene="deff"
+    		game.global.simulation.allies.restrictions = {"maxHeros":4,"maxHerosFaction":[4,4,4]}
+    	that.scene.transition({target:'deck',duration:0})});
+    	def.on('pointerdown',function(){this.setFrame(1)});
+    	def.on('pointerout',function(){this.setFrame(0)});
+    	
     	
     	rank.on('pointerdown',function(){this.setFrame(1)});
     	rank.on('pointerout',function(){this.setFrame(0)})
@@ -75,7 +92,7 @@ class arena extends Phaser.Scene{
     		that.scene.pause();
     	})
     	
-    	that.extend.accept=this.add.sprite(750,880,'YesButt').setInteractive();
+    	that.extend.accept=this.add.sprite(750,880,'YesButt').setInteractive().setDepth(2);
     	
     	that.extend.accept.on('pointerdown',function(){this.setFrame(1)})
     	that.extend.accept.on('pointerout',function(){this.setFrame(0)})
@@ -105,7 +122,54 @@ class arena extends Phaser.Scene{
         	}
     	
     	function chooseRival(input){
-    		that.extend.Xrival=input
+    		that.extend.Xrival=input;
+    		text1.setText(that.extend.Xrival.name);
+    		switch(game.global.user.lang){
+    		case "ES":
+    			text2.setText("Puntos de arena: "+that.extend.Xrival.arenaPoints);
+    			break;
+    		case "EN":
+    			text2.setText("Arena points: "+that.extend.Xrival.arenaPoints);
+    			break;
+    		}
+    		
+    		
+    		if(that.extend.Xrival.defensa[0]!=-1){
+    			that.extend.card1=that.add.sprite(that.extend.positionOfSmallAlliesCards[0][0],that.extend.positionOfSmallAlliesCards[0][1], that.extend.Xrival.heros[that.extend.Xrival.defensa[0]].image_url[0]).setDepth(1);
+    		}
+    		else{
+    			if(that.extend.card1!=null){
+    				that.extend.card1.destroy();
+    			}
+    			that.extend.card1=null;
+    		}
+    		if(that.extend.Xrival.defensa[1]!=-1){
+    			that.extend.card2=that.add.sprite(that.extend.positionOfSmallAlliesCards[1][0],that.extend.positionOfSmallAlliesCards[1][1], that.extend.Xrival.heros[that.extend.Xrival.defensa[1]].image_url[0]).setDepth(1);
+    		}
+    		else{
+    			if(that.extend.card2!=null){
+    				that.extend.card2.destroy();
+    			}
+    			that.extend.card2=null;
+    		}
+    		if(that.extend.Xrival.defensa[2]!=-1){
+    			that.extend.card3=that.add.sprite(that.extend.positionOfSmallAlliesCards[2][0],that.extend.positionOfSmallAlliesCards[2][1], that.extend.Xrival.heros[that.extend.Xrival.defensa[2]].image_url[0]).setDepth(1);
+    		}
+    		else{
+    			if(that.extend.card3!=null){
+    				that.extend.card3.destroy();
+    			}
+    			that.extend.card3=null;
+    		}
+    		if(that.extend.Xrival.defensa[3]!=-1){
+    			that.extend.card4=that.add.sprite(that.extend.positionOfSmallAlliesCards[3][0],that.extend.positionOfSmallAlliesCards[3][1], that.extend.Xrival.heros[that.extend.Xrival.defensa[3]].image_url[0]).setDepth(1);
+    		}
+    		else{
+    			if(that.extend.card4!=null){
+        			that.extend.card4.destroy();
+    			}
+    			that.extend.card4=null;
+    		}
     	}
     	function beginFight(){
     		if(that.extend.Xrival!=null){
@@ -117,17 +181,20 @@ class arena extends Phaser.Scene{
                 simulation.enemys.restrictions ={"maxHeros":4,"maxHerosFaction":[4,4,4]}
                 var enemyTeamAux = [];
                 //TEMP
-                var aux=0;
-                var auxA=[];
-                var auxR=0;
-                while((aux<4)&&(aux<that.extend.Xrival.heros.length)){
-                	auxR=Math.floor(Math.random() * Math.floor(that.extend.Xrival.heros.length-1))
-                	if(!auxA.includes(aux)){
-                		auxA.push(auxR)
-                		simulation.enemys.addMember(new Hero(that.extend.Xrival.heros[auxR]))	
-                		aux++;
+                
+             var k=0;
+                while((that.extend.Xrival.defensa[k]!=-1)&&(k<4)){
+                	simulation.enemys.addMember(new Hero(that.extend.Xrival.heros[that.extend.Xrival.defensa[k]]))
+                	k+=1;
+                }
+                if(k==0){
+                	for(var l=0;l<4;l++){
+                		if(that.extend.Xrival.heros[l]!=null){
+                			simulation.enemys.addMember(new Hero(that.extend.Xrival.heros[l]))
+                		} 
                 	}
                 }
+                
                 simulation.allies.restrictions = {"maxHeros":4,"maxHerosFaction":[4,4,4]}
                 setTimeout(function(){that.scene.transition({target:'deck',duration:0});}, 2000)
     		}

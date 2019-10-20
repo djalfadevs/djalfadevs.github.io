@@ -116,6 +116,24 @@ create(){
             break;
     }
   }
+
+    var fullscreenbutt = this.add.sprite(1600,63,'helpButt').setInteractive();
+    fullscreenbutt.on('pointerup', function () {
+
+            if (this.scale.isFullscreen)
+            {
+                //button.setFrame(0);
+
+                this.scale.stopFullscreen();
+            }
+            else
+            {
+                //button.setFrame(1);
+
+                this.scale.startFullscreen();
+            }
+
+        }, this);
 }
 
 update(){

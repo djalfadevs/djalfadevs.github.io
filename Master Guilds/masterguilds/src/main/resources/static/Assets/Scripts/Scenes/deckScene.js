@@ -173,6 +173,7 @@ class deck extends Phaser.Scene{
         		var msg = new Object();
         		msg.event = "UPDATECONFIGUSER"
         		msg.userAux = new User(game.global.user);
+                msg.userAux.heros = [];
         		game.global.socket.send(JSON.stringify(msg))
             	game.global.simulation.SetSimulationtoStartState();
         		game.global.lastScene="arena"
