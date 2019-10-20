@@ -171,6 +171,12 @@ class preload extends Phaser.Scene{
         this.load.image('AttackBuff','Assets/Sprites/UI-UX/Buffs/buffatacico.png',{frameWidth:50,frameHeight:50});
         this.load.image('AllBuff','Assets/Sprites/UI-UX/Buffs/buffstatico.png',{frameWidth:50,frameHeight:50});
         
+        
+        this.load.audio('heal','Assets/Sounds/KwinSpell.wav');
+        this.load.audio('buffD','Assets/Sounds/CardDeath.wav');
+        this.load.audio('buff','Assets/Sounds/Disenchant.wav');
+        this.load.audio('crit','Assets/Sounds/CriticalHit.wav');
+        this.load.audio('hit','Assets/Sounds/SimpleHit.wav');
         this.load.audio('click','Assets/Sounds/Click.wav');
         this.load.audio('draw1','Assets/Sounds/Deal1CardV1.wav')
         this.load.audio('unlock','Assets/Sounds/UnlockShop.wav');
@@ -214,6 +220,10 @@ class preload extends Phaser.Scene{
         this.load.image('Escenario_final9','Assets/Sprites/Fondos_combate/sprites_final/9.png',{frameWidth:1920,frameHeight:1640});
         this.load.image('Escenario_final10','Assets/Sprites/Fondos_combate/sprites_final/10.png',{frameWidth:1920,frameHeight:1640});
         this.load.image('Escenario_final11','Assets/Sprites/Fondos_combate/sprites_final/11.png',{frameWidth:1920,frameHeight:1640});
+
+        this.load.audio('music1','Assets/OST/BirthOfLegendsTrumpet.wav');
+        this.load.audio('music2','Assets/OST/CircleOfCourage.wav');
+        this.load.audio('music3','Assets/OST/DrumsOfWarFast.wav');
 
     }
 	create(){

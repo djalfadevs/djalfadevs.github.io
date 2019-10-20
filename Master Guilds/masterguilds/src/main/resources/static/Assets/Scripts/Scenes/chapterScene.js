@@ -12,6 +12,10 @@ class chapter extends Phaser.Scene{
         this.add.image(530,580,'largeInfo')
     }
     create(){
+
+        game.scene.scenes[3].extend.music1.play();
+        game.scene.scenes[3].extend.music2.stop();
+        game.scene.scenes[3].extend.music3.stop();
     	
     	//habria que leer aqui el nivel en el que estamos!!!!!!
     	//hacer inputenabled false y alphas aqui, NO LUEGO, AQUI!

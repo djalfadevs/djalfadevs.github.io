@@ -221,6 +221,10 @@ class preload extends Phaser.Scene{
         this.load.image('Escenario_final10','Assets/Sprites/Fondos_combate/sprites_final/10.png',{frameWidth:1920,frameHeight:1640});
         this.load.image('Escenario_final11','Assets/Sprites/Fondos_combate/sprites_final/11.png',{frameWidth:1920,frameHeight:1640});
 
+        this.load.audio('music1','Assets/OST/BirthOfLegendsTrumpet.wav');
+        this.load.audio('music2','Assets/OST/CircleOfCourage.wav');
+        this.load.audio('music3','Assets/OST/DrumsOfWarFast.wav');
+
     }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero

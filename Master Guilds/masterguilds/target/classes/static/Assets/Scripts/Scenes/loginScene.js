@@ -20,6 +20,18 @@ preload(){
     
 }
 create(){
+
+    this.extend.music1 = this.sound.add('music1');
+    this.extend.music1.setVolume(3);
+
+    this.extend.music2 = this.sound.add('music2');
+    this.extend.music2.setVolume(3);
+
+    this.extend.music3 = this.sound.add('music3');
+    this.extend.music3.setVolume(3);
+
+    this.extend.music1.play();
+
     var that=this;
    	 this.extend.click=this.sound.add('click');
    	this.extend.click.setVolume(3)
