@@ -87,6 +87,12 @@
 		console.log("Se ha abierto el WebSocket");
 	}
 	game.global.socket.onclose = () => {
+		var msg = new Object();
+				msg.event = "UPDATECONFIGUSER"
+				msg.userAux = new User(game.global.user);
+				msg.userAux.heros=[];
+				var msgS = JSON.stringify(msg)
+				game.global.socket.send(msgS)
 		console.log("Websocket close")
 	}
 

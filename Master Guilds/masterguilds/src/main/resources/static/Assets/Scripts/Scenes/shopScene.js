@@ -528,6 +528,12 @@ class summon extends Phaser.Scene{
 		okButt.on('pointerup',function(){
 			that.extend.click.play();
 			this.setFrame(0);
+			var msg = new Object();
+				msg.event = "UPDATECONFIGUSER"
+				msg.userAux = new User(game.global.user);
+				msg.userAux.heros=[];
+				var msgS = JSON.stringify(msg)
+				game.global.socket.send(msgS)
 			that.scene.resume('shop');
 			that.scene.stop();
 		});
