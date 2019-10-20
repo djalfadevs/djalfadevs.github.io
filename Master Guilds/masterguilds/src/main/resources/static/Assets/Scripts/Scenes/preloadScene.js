@@ -221,7 +221,7 @@ class preload extends Phaser.Scene{
         this.load.image('Escenario_final10','Assets/Sprites/Fondos_combate/sprites_final/10.png',{frameWidth:1920,frameHeight:1640});
         this.load.image('Escenario_final11','Assets/Sprites/Fondos_combate/sprites_final/11.png',{frameWidth:1920,frameHeight:1640});
         
-        this.load.image('RBACKCARD','Assets/Sprites/cartas/random_back_pequena.png',{frameWidth:163,frameHeight:239});
+        this.load.image('RBACKCARD','Assets/Sprites/cartas/random_carta_pequena.png',{frameWidth:163,frameHeight:239});
         
     }
 	create(){
