@@ -70,11 +70,11 @@ class deck extends Phaser.Scene{
         this.extend.text.abilities0 = this.add.text(520,548,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.abilities1 = this.add.text(520,588,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         
-        that.extend.star1=this.add.sprite(320,220,'1star').setScale(0.05);
+        that.extend.star1=this.add.sprite(320,220,'1star').setScale(1);
         that.extend.star1.alpha=0;
-        that.extend.star3=this.add.sprite(320,220,'3star').setScale(0.05);
+        that.extend.star3=this.add.sprite(320,220,'3star').setScale(1);
         that.extend.star3.alpha=0;
-        that.extend.star5=this.add.sprite(320,220,'5star').setScale(0.05);
+        that.extend.star5=this.add.sprite(320,220,'5star').setScale(1);
         that.extend.star5.alpha=0;
         
         var en2=this.add.text(520,220,"Name: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});   

@@ -76,11 +76,11 @@ class collection extends Phaser.Scene{
         this.extend.text.abilities0dEN = this.add.text(360,828,"",{fontFamily:"Museo-700" ,fontSize:'20px',color:'#000',fontStyle:'bold',wordWrap:{width:610}}).setDepth(1);
         this.extend.text.abilities1dEN = this.add.text(360,868,"",{fontFamily:"Museo-700" ,fontSize:'20px',color:'#000',fontStyle:'bold',wordWrap:{width:610}}).setDepth(1);
         
-        that.extend.star1=this.add.sprite(320,220,'1star').setScale(0.05);
+        that.extend.star1=this.add.sprite(320,220,'1star').setScale(1);
         that.extend.star1.alpha=0;
-        that.extend.star3=this.add.sprite(320,220,'3star').setScale(0.05);
+        that.extend.star3=this.add.sprite(320,220,'3star').setScale(1);
         that.extend.star3.alpha=0;
-        that.extend.star5=this.add.sprite(320,220,'5star').setScale(0.05);
+        that.extend.star5=this.add.sprite(320,220,'5star').setScale(1);
         that.extend.star5.alpha=0;
         
         var en2=this.add.text(520,220,"Name: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});   
