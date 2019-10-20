@@ -11,7 +11,7 @@ create(){
 
 	var that = this;
 	var black = this.add.sprite(960,540,'BLACK').setDepth(0).setInteractive();
-	var text = this.add.text(880,520,"Press to continue",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#fff',fontStyle:'bold'}).setDepth(1).setInteractive();
+	var text = this.add.text(550,500,"Press to continue",{fontFamily:"Museo-700" ,fontSize:'100px',color:'#fff',fontStyle:'bold'}).setDepth(1).setInteractive();
 	text.on('pointerdown',function(){
 		var elem = document.documentElement;
 		that.scale.startFullscreen();

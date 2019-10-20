@@ -490,7 +490,7 @@ class summon extends Phaser.Scene{
 		//CARTA QUE TE HA TOCADO FACCION
 		//meter algun efecto visual de 2 segundos de duracion!!!!
 		
-		this.add.sprite(960,450,'ferten_small_card_back')
+		this.add.sprite(960,450,'RBACKCARD')
 		var en=this.add.text(680,50,'YOU GOT',{fontFamily:"Museo-700" ,fontSize:'120px',color:'#000',fontStyle:'bold',wordWrap:{width:980}});
 		var es=this.add.text(570,50,'CONSEGUISTE',{fontFamily:"Museo-700" ,fontSize:'110px',color:'#000',fontStyle:'bold',wordWrap:{width:980}});
 		this.extend.dealCard=this.sound.add('dealCard')
