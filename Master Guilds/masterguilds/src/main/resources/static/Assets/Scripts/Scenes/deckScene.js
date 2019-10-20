@@ -40,6 +40,10 @@ class deck extends Phaser.Scene{
         this.add.sprite(960,63,'infoBar');
     }
     create(){
+
+        game.scene.scenes[3].extend.music2.play();
+        game.scene.scenes[3].extend.music1.stop();
+
     	console.log(game.global.lastScene)
     	var that=this;
     	this.extend.click=this.sound.add('click');

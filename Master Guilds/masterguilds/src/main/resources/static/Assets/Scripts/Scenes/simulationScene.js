@@ -39,6 +39,9 @@ class SimulationScene extends Phaser.Scene
 
 	create(){
 
+		game.scene.scenes[3].extend.music3.play();
+        game.scene.scenes[3].extend.music2.stop();
+
 		var that = this;
 		that.extend.click=that.sound.add('click');
 		that.extend.hit=that.sound.add('hit');

@@ -31,6 +31,12 @@ class arena extends Phaser.Scene{
 		this.add.text(250,10,'Arena',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
 	}
 	create(){
+
+        game.scene.scenes[3].extend.music1.play();
+        game.scene.scenes[3].extend.music2.stop();
+        game.scene.scenes[3].extend.music3.stop();
+        
+
 		var that=this;
 		game.global.lastScene="arena"
 		
