@@ -67,8 +67,8 @@
 		"base_crit_hit_chance": 0.05,
 		"crit_hit_chance": 0.05,
 		"description": [
-			"Estratega experto de Azon, su valia como general es tan alta, que ya ha sobrevivido a dos generaciones de la dinastia Azon, apodado el destructor en su juventud, en su vejez prefiere roles mas pacificos",
-			"Azon's top tactician, he has proven his worth as a general by surviving two Azon generations, in his youth, he was a famed warrior nicknamed the destroyer, now, in his elderliness he fancies a more peaceful approach"
+			"Estratega experto de Azon, su valia como general es tan alta, que ya ha sobrevivido a dos generaciones de la dinastia Azon.",
+			"Azon's top tactician, he has proven his worth as a general by surviving two Azon generations."
 		],
 		"evasion": 40,
 		"baseEvasion": 40,

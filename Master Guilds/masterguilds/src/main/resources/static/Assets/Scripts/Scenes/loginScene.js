@@ -30,6 +30,7 @@ create(){
     this.extend.music3 = this.sound.add('music3');
     this.extend.music3.setVolume(3);
 
+    this.extend.music1.setLoop(true);
     this.extend.music1.play();
 
     var that=this;
