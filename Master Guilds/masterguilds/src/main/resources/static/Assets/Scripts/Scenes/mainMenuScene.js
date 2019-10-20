@@ -48,7 +48,7 @@ class mainMenu extends Phaser.Scene{
         //var news=this.add.sprite(1450,360,'newsPaper').setInteractive()
         var news=this.add.sprite(1450,650,'newsPaper').setInteractive()
         
-        var enX=this.add.text(1220,600,'NEWS',{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
+        var enX=this.add.text(1250,600,'NEWS',{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
         
         var esX=this.add.text(1220,600,'NOTICIAS',{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
         
@@ -244,17 +244,28 @@ class newsPop extends Phaser.Scene{
 		
 		okButt.on('pointerup',function(){
 			that.extend.click.play();
-			that.setFrame(0);
+			this.setFrame(0);
 			that.scene.resume('mainMenu');
 			that.scene.stop();
 		});
 		
+		var goButt=this.add.sprite(960,550,'largeButt').setInteractive();
+		var goText=this.add.text(900,510,"GO",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+		goButt.on('pointerout',function(){this.setFrame(0)})
+		goButt.on('pointerdown',function(){this.setFrame(1)})
 		
-		var en1=this.add.text(620,200,"ROADMAP NOW AVAILABLE",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+		goButt.on('pointerup',function(){
+			that.extend.click.play();
+			this.setFrame(0);
+			window.open("https://raw.githubusercontent.com/djalfadevs/djalfadevs.github.io/master/Concept/RoadMap.png");
+			
+		});
+		
+		var en1=this.add.text(650,200,"ROADMAP NOW AVAILABLE",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
 		var en2=this.add.text(600,200,"FIRST EVENT COMING\nIN NOVEMBER!\nNew Heroes & campaign maps\nincoming!\nStay tuned for the rewards",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
 		
-		var es1=this.add.text(620,200,"ROADMAP DISPONIBLE",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
-		var es2=this.add.text(600,200,"¡EL PRIMER EVENTO LLEGARÁ\nEN NOVIEMBRE! Nuevos heroes mapas de\ncampaña!\nMantente atento para\nconseguir recompensas",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+		var es1=this.add.text(650,200,"ROADMAP DISPONIBLE",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+		var es2=this.add.text(600,200,"¡EL PRIMER EVENTO LLEGARÁ\nEN NOVIEMBRE! Nuevos heroes\n y mapas de campaña!\nMantente atento para\nconseguir recompensas",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
 		
 		en1.alpha=0
 		en2.alpha=0
@@ -287,6 +298,9 @@ class newsPop extends Phaser.Scene{
 		    			en2.alpha=0
 		    			es1.alpha=0
 		    			es2.alpha=0
+		    			goButt.removeInteractive()
+		    			goButt.alpha=0;
+		    			goText.alpha=0;
 		    			switch(game.global.user.lang){
 		    			case "EN":
 		    				en2.alpha=1;
@@ -302,6 +316,9 @@ class newsPop extends Phaser.Scene{
 		    			es2.alpha=0;
 		    			en1.alpha=0;
 		    			es1.alpha=0;
+		    			goButt.setInteractive()
+		    			goButt.alpha=1;
+		    			goText.alpha=1;
 		    			switch(game.global.user.lang){
 		    			case "EN":
 		    				en1.alpha=1;
@@ -331,6 +348,9 @@ class newsPop extends Phaser.Scene{
 		    			es1.alpha=0
 		    			es2.alpha=0
 		    			
+		    			goButt.setInteractive()
+		    			goButt.alpha=1;
+		    			goText.alpha=1;
 		    			switch(game.global.user.lang){
 		    			case "EN":
 		    				en1.alpha=1;
@@ -346,6 +366,9 @@ class newsPop extends Phaser.Scene{
 		    			en2.alpha=0
 		    			es1.alpha=0
 		    			es2.alpha=0
+		    			goButt.removeInteractive()
+		    			goButt.alpha=0;
+		    			goText.alpha=0;
 		    			switch(game.global.user.lang){
 		    			case "EN":
 		    				en2.alpha=1;
