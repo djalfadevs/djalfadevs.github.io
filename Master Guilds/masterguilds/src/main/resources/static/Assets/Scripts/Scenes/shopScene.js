@@ -489,6 +489,7 @@ class summon extends Phaser.Scene{
 		
 		//CARTA QUE TE HA TOCADO FACCION
 		//meter algun efecto visual de 2 segundos de duracion!!!!
+		
 		this.add.sprite(960,450,'ferten_small_card_back')
 		var en=this.add.text(680,50,'YOU GOT',{fontFamily:"Museo-700" ,fontSize:'120px',color:'#000',fontStyle:'bold',wordWrap:{width:980}});
 		var es=this.add.text(570,50,'CONSEGUISTE',{fontFamily:"Museo-700" ,fontSize:'110px',color:'#000',fontStyle:'bold',wordWrap:{width:980}});
@@ -503,7 +504,19 @@ class summon extends Phaser.Scene{
 		var okButt=this.add.sprite(960,850,'largeButt')
 		setTimeout(function(){
 		okButt.setInteractive();
-		that.add.sprite(960,200,'5star').setScale(1).setDepth(2)
+		
+		switch(game.global.obtainedHero.rarity){
+		 case 1:
+			 that.add.sprite(960,200,'1star').setScale(1).setDepth(2)
+			 break;
+		 case 3:
+			 that.add.sprite(960,200,'3star').setScale(1).setDepth(2)
+			 break;
+		 case 5:
+			 that.add.sprite(960,200,'5star').setScale(1).setDepth(2)
+			 break;
+		}
+		
 		that.add.sprite(960,500,game.global.obtainedHero.image_url[1])
 		},2000)
 		

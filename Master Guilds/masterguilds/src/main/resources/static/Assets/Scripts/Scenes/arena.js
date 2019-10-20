@@ -3,6 +3,7 @@ class arena extends Phaser.Scene{
 		super({key:"arena"})
 		this.extend = {
 			click:null,
+			hit:null,
 			ensub:null,
 			essub:null,
 			rival1:null,
@@ -37,6 +38,8 @@ class arena extends Phaser.Scene{
 		that.extend.essub=this.add.text(500,50,'¡Por la gloria, la victoria y el honor!',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'})
 		this.extend.click=this.sound.add('click');
     	this.extend.click.setVolume(game.global.user.evol)
+    	this.extend.hit=this.sound.add('hit');
+    	this.extend.hit.setVolume(game.global.user.evol)
     	
     	
     	var text1=this.add.text(250,250,' ',{fontFamily:"Museo-700" ,fontSize:'100px',color:'#000',fontStyle:'bold'});
@@ -76,7 +79,7 @@ class arena extends Phaser.Scene{
     	
     	var def=this.add.sprite(280,880,'deffButt').setInteractive().setDepth(2);
     	
-    	def.on('pointerup',function(){this.setFrame(0); 
+    	def.on('pointerup',function(){that.extend.click.play();this.setFrame(0); 
     	game.global.lastScene="deff"
     		game.global.simulation.allies.restrictions = {"maxHeros":4,"maxHerosFaction":[4,4,4]}
     	that.scene.transition({target:'deck',duration:0})});
@@ -96,11 +99,11 @@ class arena extends Phaser.Scene{
     	
     	that.extend.accept.on('pointerdown',function(){this.setFrame(1)})
     	that.extend.accept.on('pointerout',function(){this.setFrame(0)})
-    	that.extend.accept.on('pointerup',function(){this.setFrame(0); beginFight()});
+    	that.extend.accept.on('pointerup',function(){that.extend.hit.play();this.setFrame(0); beginFight()});
     	
     	var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
         backButt.on('pointerdown',function(){this.setFrame(1)})
-        backButt.on('pointerup',function(){this.setFrame(0);that.scene.transition({target:'mainMenu',duration:0})})
+        backButt.on('pointerup',function(){that.extend.click.play();this.setFrame(0);that.scene.transition({target:'mainMenu',duration:0})})
 	
         switch(game.global.user.lang){
         case "EN":
@@ -122,6 +125,7 @@ class arena extends Phaser.Scene{
         	}
     	
     	function chooseRival(input){
+    		that.extend.click.play();
     		that.extend.Xrival=input;
     		text1.setText(that.extend.Xrival.name);
     		switch(game.global.user.lang){

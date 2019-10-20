@@ -17,7 +17,13 @@ class SimulationScene extends Phaser.Scene
 				allies:[],
 				enemies:[],
 				},
-			texts:null
+			texts:null,
+			click:null,
+			hit:null,
+			crit:null,
+			heal:null,
+			buff:null,
+			buffD:null
 			
 			}
 
@@ -34,7 +40,17 @@ class SimulationScene extends Phaser.Scene
 	create(){
 
 		var that = this;
-
+		that.extend.click=that.sound.add('click');
+		that.extend.hit=that.sound.add('hit');
+		that.extend.crit=that.sound.add('crit');
+		that.extend.heal=that.sound.add('heal');
+		that.extend.buff=that.sound.add('buff');
+		that.extend.buffD=that.sound.add('buffD');
+		that.extend.click.setVolume(game.global.user.evol)
+		that.extend.hit.setVolume(game.global.user.evol)
+		that.extend.crit.setVolume(game.global.user.evol)
+		that.extend.buff.setVolume(game.global.user.evol)
+		that.extend.buffD.setVolume(game.global.user.evol)
 		//Animaciones de escenarios
 		this.anims.create({
         key: 'Escenario_japones',
@@ -114,12 +130,21 @@ class SimulationScene extends Phaser.Scene
 		//PAUSA
 		this.extend.pauseButton = this.add.sprite(100,100,'PauseButt')
 		.setInteractive()
-		.on('pointerdown',()=>{
-			this.scene.launch('PauseScene');
-			this.scene.pause();
+		
+		this.extend.pauseButton.on('pointerup',function(){
+			that.extend.click.play();
+			this.setFrame(0);
+			that.scene.launch('PauseScene');
+			that.scene.pause();
 		})
 
-
+		this.extend.pauseButton.on('pointerdown',function(){			
+			this.setFrame(1);
+		})
+		
+		this.extend.pauseButton.on('pointerout',function(){			
+			this.setFrame(0);
+		})
 		//Crear las cartas a partir de los personajes de ambos equipos.
 		for(var j = 0; j<simulation.allies.team.length; j++){
 			this.extend.cards.allies[j] = new Card(this,200+j*200,900,simulation.allies.team[j],800,500)
@@ -161,12 +186,6 @@ class SimulationScene extends Phaser.Scene
 				    		game.global.socket.send(JSON.stringify(msg))
 				        	}
 				        //Si supera una mision por primera vez se dan gemas
-						else{
-							if(game.global.user.numberofmision<game.global.simulation.idmision){
-								game.global.user.gems+=5;
-								game.global.user.numberofmision=game.global.simulation.idmision;
-							}
-						}
 						//
 						that.scene.pause();
 						setTimeout(function(){ 
@@ -197,7 +216,7 @@ class SimulationScene extends Phaser.Scene
 						
 						that.scene.pause();
 						setTimeout(function(){ 
-							that.scene.launch('rewardScene');
+							that.scene.launch('loseScene');
 						 }, 3000);
 						
 						//RESETEAR SIMULACION Y VOLVER AL MENU O OTRA ESCENA
