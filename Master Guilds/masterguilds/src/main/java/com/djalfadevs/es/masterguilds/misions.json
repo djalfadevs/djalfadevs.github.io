@@ -186,8 +186,8 @@
       "name":"Ferten",
       "escenario":"Escenario_ferten",
       "description":[
-         "Derrota a la mafia y policia Ferten que se openen en tu camino!",
-         "Defeat the Ferten Mafia and Police that block your way!"
+         "Derrota a la mafia Ferten que se openen en tu camino!",
+         "Defeat the Ferten Mafia that block your way!"
       ],
       "team":{
          "restrictions":{

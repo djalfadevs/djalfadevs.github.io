@@ -48,7 +48,7 @@ class mainMenu extends Phaser.Scene{
         //var news=this.add.sprite(1450,360,'newsPaper').setInteractive()
         var news=this.add.sprite(1450,650,'newsPaper').setInteractive()
         
-        var enX=this.add.text(1250,600,'NEWS',{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
+        var enX=this.add.text(1300,600,'NEWS',{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
         
         var esX=this.add.text(1220,600,'NOTICIAS',{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
         
