@@ -66,8 +66,13 @@ class Hero extends Actor
            console.log("IGNORAR DEFENSA SE HA UTILIZADO");//DEBUG
            }
         else if(RoboDeVida){ //Robo de vida
-            TDamage=that.baseHP*0.2;  
-            that.HP+=that.baseHP*0.2;
+            TDamage=that.baseHP*0.2;
+            if(that.HP+that.baseHP*0.2<that.baseHP){
+            	that.HP+=that.baseHP*0.2;
+            }  
+            else{
+            	that.HP=that.baseHP;
+            }
             console.log("ROBO DE VIDA SE HA UTILIZADO");//DEBUG
         }
         else{

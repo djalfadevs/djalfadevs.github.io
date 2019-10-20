@@ -160,16 +160,20 @@ class SimulationScene extends Phaser.Scene
                 			msg.userAux.heros = [];
 				    		game.global.socket.send(JSON.stringify(msg))
 				        	}
-						
+				        //Si supera una mision por primera vez se dan gemas
+						else{
+							if(game.global.user.numberofmision<game.global.simulation.idmision){
+								game.global.user.gems+=5;
+								game.global.user.numberofmision=game.global.simulation.idmision;
+							}
+						}
 						//
 						that.scene.pause();
 						setTimeout(function(){ 
 							that.scene.launch('rewardScene');
 						 }, 3000);
 						
-						if(game.global.user.numberofmision<game.global.simulation.idmision){
-							game.global.user.numberofmision=game.global.simulation.idmision;
-						}
+
 						//LLAMAR SUBIDA DE NIVEL Y O RECOMPENSAS//
 						/////////////////////////////////////////
 

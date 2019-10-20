@@ -48,10 +48,14 @@ class mainMenu extends Phaser.Scene{
         //var news=this.add.sprite(1450,360,'newsPaper').setInteractive()
         var news=this.add.sprite(1450,650,'newsPaper').setInteractive()
         
-        //news.on('pointerup',function(){
-        	//that.scene.launch('newsPop')
-        	//that.scene.pause();
-        //})
+        var enX=this.add.text(1250,600,'NEWS',{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
+        
+        var esX=this.add.text(1220,600,'NOTICIAS',{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
+        
+        news.on('pointerup',function(){
+        	that.scene.launch('newsPop')
+        	that.scene.pause();
+        })
         
         backButt.on('pointerdown',function(){this.setFrame(1);})
         backButt.on('pointerup',function(){this.setFrame(0);transition("back",that)})
@@ -110,6 +114,7 @@ class mainMenu extends Phaser.Scene{
         that.extend.ESGroup.add(es4);
         that.extend.ESGroup.add(es5);
         that.extend.ESGroup.add(es6);
+        that.extend.ESGroup.add(esX);
         //that.extend.ESGroup.add(es7);
     
         that.extend.ENGroup.add(en1);
@@ -118,6 +123,7 @@ class mainMenu extends Phaser.Scene{
         that.extend.ENGroup.add(en4);
         that.extend.ENGroup.add(en5);
         that.extend.ENGroup.add(en6);
+        that.extend.ENGroup.add(enX);
         
         this.extend.click.setVolume(game.global.user.evol)
 		switch(game.global.user.lang){
@@ -223,7 +229,7 @@ class comingSoonQ extends Phaser.Scene{
 class newsPop extends Phaser.Scene{
 	constructor(){
 		super({key:'newsPop'})
-		this.extend={click:null}
+		this.extend={click:null,page:0}
 	}
 	create(){
 		var that=this
@@ -231,18 +237,157 @@ class newsPop extends Phaser.Scene{
 		this.extend.click.setVolume(game.global.user.evol);
 		this.add.sprite(960,540,'BLACK');
 		this.add.sprite(960,500,'largeInfo');
-		this.add.text(800,300,"Coming\n Soon!!",{fontFamily:"Museo-700" ,fontSize:'80px',color:'#000',fontStyle:'bold'});
 		var okButt=this.add.sprite(960,950,'largeButt').setInteractive()
 		this.add.text(900,910,"OK",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
 		okButt.on('pointerout',function(){this.setFrame(0)})
 		okButt.on('pointerdown',function(){this.setFrame(1)})
 		
 		okButt.on('pointerup',function(){
-			click.play();
-			that.setFrame(0);
+			that.extend.click.play();
+			this.setFrame(0);
 			that.scene.resume('mainMenu');
 			that.scene.stop();
 		});
+		
+		var goButt=this.add.sprite(960,550,'largeButt').setInteractive();
+		var goText=this.add.text(900,510,"GO",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'})
+		goButt.on('pointerout',function(){this.setFrame(0)})
+		goButt.on('pointerdown',function(){this.setFrame(1)})
+		
+		goButt.on('pointerup',function(){
+			that.extend.click.play();
+			this.setFrame(0);
+			window.open("https://raw.githubusercontent.com/djalfadevs/djalfadevs.github.io/master/Concept/RoadMap.png");
+			
+		});
+		
+		var en1=this.add.text(650,200,"ROADMAP NOW AVAILABLE",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+		var en2=this.add.text(600,200,"FIRST EVENT COMING\nIN NOVEMBER!\nNew Heroes & campaign maps\nincoming!\nStay tuned for the rewards",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+		
+		var es1=this.add.text(650,200,"ROADMAP DISPONIBLE",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+		var es2=this.add.text(600,200,"¡EL PRIMER EVENTO LLEGARÁ\nEN NOVIEMBRE! Nuevos heroes\n y mapas de campaña!\nMantente atento para\nconseguir recompensas",{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+		
+		en1.alpha=0
+		en2.alpha=0
+		es1.alpha=0
+		es2.alpha=0
+		
+		switch(game.global.user.lang){
+		case "EN":
+			en1.alpha=1
+			break
+		case "ES":
+			es1.alpha=1
+			break
+		default:
+			break
+		}
+		
+		var left=that.add.sprite(400,540,'UpArrow').setInteractive();
+	    left.angle=270;
+	    var right=that.add.sprite(1500,540,'DownArrow').setInteractive();
+	    right.angle=270;
+	    
+		 left.on('pointerup',function(){
+		    	this.setFrame(0); 
+		    	that.extend.click.play();
+		    	that.extend.page+=1; 
+		    	switch(that.extend.page){
+		    		case 1:
+		    			en1.alpha=0
+		    			en2.alpha=0
+		    			es1.alpha=0
+		    			es2.alpha=0
+		    			goButt.removeInteractive()
+		    			goButt.alpha=0;
+		    			goText.alpha=0;
+		    			switch(game.global.user.lang){
+		    			case "EN":
+		    				en2.alpha=1;
+		    			break;
+		    			case "ES":
+		    				es2.alpha=1;
+		    			break;
+		    			}
+		    			break;
+		    		default:
+		    			that.extend.page=0
+		    			en2.alpha=0;
+		    			es2.alpha=0;
+		    			en1.alpha=0;
+		    			es1.alpha=0;
+		    			goButt.setInteractive()
+		    			goButt.alpha=1;
+		    			goText.alpha=1;
+		    			switch(game.global.user.lang){
+		    			case "EN":
+		    				en1.alpha=1;
+		    			break;
+		    			case "ES":
+		    				es1.alpha=1;
+		    			break;
+		    			}
+		    			break;
+		    	}
+		    })
+		    left.on('pointerdown',function(){
+		    	this.setFrame(1)
+		    })
+		    left.on('pointerout',function(){
+		    	this.setFrame(0)
+		    })
+		    
+		    right.on('pointerup',function(){
+		    	this.setFrame(0); 
+		    	that.extend.click.play();
+		    	that.extend.page-=1; 
+		    	switch(that.extend.page){
+		    		case 0:
+		    			en1.alpha=0
+		    			en2.alpha=0
+		    			es1.alpha=0
+		    			es2.alpha=0
+		    			
+		    			goButt.setInteractive()
+		    			goButt.alpha=1;
+		    			goText.alpha=1;
+		    			switch(game.global.user.lang){
+		    			case "EN":
+		    				en1.alpha=1;
+		    			break;
+		    			case "ES":
+		    				es1.alpha=1;
+		    			break;
+		    			}
+		    			break;
+		    		default:
+		    			that.extend.page=1
+		    			en1.alpha=0
+		    			en2.alpha=0
+		    			es1.alpha=0
+		    			es2.alpha=0
+		    			goButt.removeInteractive()
+		    			goButt.alpha=0;
+		    			goText.alpha=0;
+		    			switch(game.global.user.lang){
+		    			case "EN":
+		    				en2.alpha=1;
+		    			break;
+		    			case "ES":
+		    				es2.alpha=1;
+		    			break;
+		    			}
+		    			break;
+		    	}
+		    })
+		    right.on('pointerdown',function(){
+		    	this.setFrame(1)
+		    })
+		    right.on('pointerout',function(){
+		    	this.setFrame(0)
+		    })
+		
+		
 	}
 	update(){
 	}

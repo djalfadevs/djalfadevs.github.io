@@ -70,11 +70,11 @@ class deck extends Phaser.Scene{
         this.extend.text.abilities0 = this.add.text(520,548,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.abilities1 = this.add.text(520,588,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         
-        that.extend.star1=this.add.sprite(320,220,'1star').setScale(0.05);
+        that.extend.star1=this.add.sprite(320,220,'1star').setScale(1);
         that.extend.star1.alpha=0;
-        that.extend.star3=this.add.sprite(320,220,'3star').setScale(0.05);
+        that.extend.star3=this.add.sprite(320,220,'3star').setScale(1);
         that.extend.star3.alpha=0;
-        that.extend.star5=this.add.sprite(320,220,'5star').setScale(0.05);
+        that.extend.star5=this.add.sprite(320,220,'5star').setScale(1);
         that.extend.star5.alpha=0;
         
         var en2=this.add.text(520,220,"Name: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});   
@@ -134,7 +134,7 @@ class deck extends Phaser.Scene{
             that.scene.transition({target:game.global.lastScene,duration:0})
         })
 
-        var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
+        var UpArrowButt=this.add.sprite(1400,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
         	that.extend.click.play();
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
@@ -143,7 +143,7 @@ class deck extends Phaser.Scene{
          
             ;})
 
-        var DownArrowButt=this.add.sprite(1350,1000,'DownArrow').setScale(1).setInteractive();
+        var DownArrowButt=this.add.sprite(1400,1000,'DownArrow').setScale(1).setInteractive();
         DownArrowButt.on('pointerup',function(){
         	that.extend.click.play();
             that.extend.numberOfPage-=1
@@ -180,7 +180,9 @@ class deck extends Phaser.Scene{
         		setTimeout(function(){that.scene.transition({target:game.global.lastScene,duration:0});}, 1000);
         	}
         	else{
-        		setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
+                if(game.global.simulation.allies.team.length>0){
+                    setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
+                }	
         	}
             
         })
@@ -230,7 +232,7 @@ class deck extends Phaser.Scene{
     		if(that.extend.cards[j]!=null)
     		that.extend.cards[j].destroy();
     		if(allHeroes[i*9+j]!=null)
-    		that.extend.cards[j] = new CollectionCard(this,1100+(j%3)*collsDistance,300+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],320,500);
+    		that.extend.cards[j] = new CollectionCard(this,1150+(j%3)*collsDistance,300+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],320,500);
     	}
     	
         for(var s = 0; s<that.extend.cards.length; s++){

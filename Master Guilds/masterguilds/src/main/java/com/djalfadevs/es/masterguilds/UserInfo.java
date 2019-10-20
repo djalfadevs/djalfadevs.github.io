@@ -49,7 +49,7 @@ public class UserInfo {
 		this.lang="EN";
 		this.setmvol(3);
 		this.setevol(3);
-		this.numberofmision=5;
+		this.numberofmision=0;
 		this.defensa= new int[]{-1,-1,-1,-1};
 		this.numeroexclusivodecarta =  new AtomicInteger(0);
 		//Heroes Al registrarse
