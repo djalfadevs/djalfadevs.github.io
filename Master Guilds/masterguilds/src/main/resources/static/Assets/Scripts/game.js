@@ -22,7 +22,7 @@
 	//scene: [SimulationScene,PauseScene]
     scene:[preload,LOGO,contact,login,register,title,shop,settings,ranking,
     mainMenu,lang,deck,combatMenu,collection,chapter,
-    SimulationScene,PauseScene,FailLogin,FailRegister,FailPass,comingSoonQ,newsPop,rewardScene,arena,buy5,buy20,buy50,summon,rann]
+    SimulationScene,PauseScene,FailLogin,FailRegister,FailPass,comingSoonQ,newsPop,rewardScene,arena,buy5,buy20,buy50,summon,rann,initialScene,lose]
 };
 
 	var game = new Phaser.Game(config);
@@ -125,6 +125,9 @@
 				game.global.rivals=msg.rival;
 				game.scene.scenes[23].setArenaRivals();
 			default:
+			case "GETRANKING":
+				game.scene.scenes[28].setRanking(msg.ranking);
+			break;
 		}
 
 	}

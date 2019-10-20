@@ -343,7 +343,12 @@ var Card = new Phaser.Class({
 			targets: input.enemy.lifeRect,
 			width: (that.lifeRect.maxWidthposible*input.enemy.hero.HP)/input.enemy.hero.baseHP,
 			duration: 2000,
-			onComplete: function(){resolve();}
+			onComplete: function(){
+				if(input.enemy.hero.HP==0){
+					input.enemy.HeroSprite.setTint(7434609);
+				}
+				resolve();
+			}
 			})
 		})	
 	},

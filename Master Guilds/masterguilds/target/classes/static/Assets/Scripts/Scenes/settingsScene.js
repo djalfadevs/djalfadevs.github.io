@@ -166,6 +166,10 @@ class settings extends Phaser.Scene{
 
     update(){
     	this.extend.click.setVolume(game.global.user.evol)
+    	
+    	game.scene.scenes[3].extend.music1.setVolume(game.global.user.mvol);
+        game.scene.scenes[3].extend.music2.setVolume(game.global.user.mvol);
+        game.scene.scenes[3].extend.music3.setVolume(game.global.user.mvol);
 		
 		
 		switch(game.global.user.mvol){

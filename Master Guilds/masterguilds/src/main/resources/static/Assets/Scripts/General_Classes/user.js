@@ -14,5 +14,6 @@ class User {
 		this.lang = user.lang;
 		this.numeroExclusivoDeCarta = user.numeroExclusivoDeCarta;
 		this.numberofmision = user.numberofmision;
+		this.defensa=user.defensa;
 	}
 }

@@ -63,10 +63,15 @@ class PauseScene extends Phaser.Scene
 		this.extend.exitButton.on('pointerup',function(){
 			that.extend.click.play();
 			this.setFrame(0);
-			game.scene.scenes[15].scene.stop();
-			game.global.simulation.resetSimulation();
-			game.global.simulation.SetSimulationtoStartState();
-    		that.scene.transition({target:'chapter',duration:0});
+			if(game.global.lastScene=="arena"){
+				game.global.user.arenaPoints-=20;
+				var msg = new Object();
+	    		msg.event = "UPDATECOFINGUSER"
+	    		msg.userAux = new User(game.global.user);
+	    		game.global.socket.send(JSON.stringify(msg))
+	        	}
+			
+			that.scene.transition({target:'lose',duration:0});
 
 		})
 

@@ -21,9 +21,13 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.springframework.web.socket.TextMessage;
 import static com.mongodb.client.model.Projections.*;
 
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.or;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -85,7 +89,8 @@ public class Game {
 							auxnode.get("UserInfo").get("arenaPoints").asInt(), auxnode.get("UserInfo").get("lang").asText(),
 							auxnode.get("UserInfo").get("mvol").asInt(),auxnode.get("UserInfo").get("evol").asInt(),
 							auxnode.get("UserInfo").get("numberofmision").asInt(),
-							auxnode.get("UserInfo").get("numeroexclusivodecarta").asInt());
+							auxnode.get("UserInfo").get("numeroexclusivodecarta").asInt(),
+							mapper.convertValue(auxnode.get("UserInfo").get("defensa"), int[].class));
 					infoUsers.put(auxNP, auxUI);
 
 				} catch (IOException e) {
@@ -166,6 +171,36 @@ public class Game {
 
 			if (!encontrado) {// Si no existe alguien registrado con ese nombre
 				infoUsers.put(namePassword, new UserInfo(namePassword.name));// Creamos un nuevo usuario
+				MongoCollection<Document> coll = database.getCollection("Users");
+				
+				//Añade el documento a mongodb
+				NamePassword next = namePassword;
+				ObjectNode NamePassUserInfo = mapper.createObjectNode();
+				ObjectNode namePass = mapper.createObjectNode();
+				namePass.put("name", next.name);
+				namePass.put("password", next.password);
+				NamePassUserInfo.set("NamePassword", namePass);
+
+				ObjectNode userInfo = mapper.createObjectNode();
+				UserInfo auxUserInfo = infoUsers.get(next);
+				userInfo.put("name", auxUserInfo.getName());
+				userInfo.put("gold", auxUserInfo.getGold());
+				userInfo.put("gems", auxUserInfo.getGems());
+				userInfo.put("exp", auxUserInfo.getExp());
+				userInfo.put("level", auxUserInfo.getLevel());
+				userInfo.set("heros", mapper.valueToTree(auxUserInfo.getHeros()));
+				userInfo.put("clan", auxUserInfo.getClan());
+				userInfo.put("arenaPoints", auxUserInfo.getArenaPoints());
+				userInfo.put("lang", auxUserInfo.getLang());
+				userInfo.put("mvol", auxUserInfo.getmvol());
+				userInfo.put("evol", auxUserInfo.getevol());
+				userInfo.put("numberofmision", auxUserInfo.getNumberofmision());
+				userInfo.put("numeroexclusivodecarta",auxUserInfo.getNumeroExclusivoDeCarta().get());
+				userInfo.set("defensa", mapper.valueToTree(auxUserInfo.getDefensa()));
+				NamePassUserInfo.set("UserInfo", userInfo);
+
+				
+				coll.insertOne(Document.parse(mapper.writeValueAsString(NamePassUserInfo)));
 				lock.unlock();
 				return true;// Se ha registrado correctamente
 			}
@@ -178,16 +213,15 @@ public class Game {
 
 	}
 
-	public List<UserInfo> getRanking() {
-		List<UserInfo> auxl = (List<UserInfo>) infoUsers.values();
-
+	public JsonNode getRanking() {
+		List<UserInfo> auxl = new ArrayList<UserInfo>(infoUsers.values());
 		Comparator<UserInfo> ArenaPointsComparator = new Comparator<UserInfo>() {
 
 			@Override
 			public int compare(UserInfo o1, UserInfo o2) {
-				if (o1.getArenaPoints() < o2.getArenaPoints()) {
+				if (o1.getArenaPoints() > o2.getArenaPoints()) {
 					return -1;
-				} else if (o1.getArenaPoints() > o2.getArenaPoints()) {
+				} else if (o1.getArenaPoints() < o2.getArenaPoints()) {
 					return 1;
 				} else {
 					return 0;
@@ -198,12 +232,12 @@ public class Game {
 
 		List<UserInfo> l = new ArrayList<>();
 		int i = 0;
-		while (i < 10 || i < auxl.size()) {
+		while (i < 10 && i < auxl.size()) {
 			l.add(auxl.get(i));// solo guardamos los diez primeros como maximo
 			i++;
 		}
-
-		return l;
+		JsonNode auxjson = mapper.convertValue(l,JsonNode.class);
+		return auxjson;
 
 	}
 	public void updateConfigUser(NamePassword n,UserInfo u) {
@@ -220,9 +254,10 @@ public class Game {
 		auxUserinfo.setGems(u.getGems());
 		auxUserinfo.setGold(u.getGold());
 		auxUserinfo.setNumeroExclusivoDeCarta(u.getNumeroExclusivoDeCarta());
+		auxUserinfo.setDefensa(u.getDefensa());
 		infoUsers.put(n, auxUserinfo);
 		
-		//updateUserInfoMongo();
+		updateUserInfoMongo2(n);
 	}
 	
 	public void updateHeroInfo(NamePassword n, Hero h) {
@@ -241,6 +276,43 @@ public class Game {
 		//	auxUserinfo.getHeros().add(h);
 		//}	
 		//updateUserInfoMongo();
+	}
+	public void updateUserInfoMongo2(NamePassword s) {
+		MongoCollection<Document> coll = database.getCollection("Users");
+		Bson filter = and(eq("NamePassword.name",s.name),eq("NamePassword.password",s.password));
+		
+		NamePassword next = s;
+		System.out.println(next.toString());
+		ObjectNode NamePassUserInfo = mapper.createObjectNode();
+		ObjectNode namePass = mapper.createObjectNode();
+		namePass.put("name", next.name);
+		namePass.put("password", next.password);
+		NamePassUserInfo.set("NamePassword", namePass);
+
+		ObjectNode userInfo = mapper.createObjectNode();
+		UserInfo auxUserInfo = infoUsers.get(next);
+		userInfo.put("name", auxUserInfo.getName());
+		userInfo.put("gold", auxUserInfo.getGold());
+		userInfo.put("gems", auxUserInfo.getGems());
+		userInfo.put("exp", auxUserInfo.getExp());
+		userInfo.put("level", auxUserInfo.getLevel());
+		userInfo.set("heros", mapper.valueToTree(auxUserInfo.getHeros()));
+		userInfo.put("clan", auxUserInfo.getClan());
+		userInfo.put("arenaPoints", auxUserInfo.getArenaPoints());
+		userInfo.put("lang", auxUserInfo.getLang());
+		userInfo.put("mvol", auxUserInfo.getmvol());
+		userInfo.put("evol", auxUserInfo.getevol());
+		userInfo.put("numberofmision", auxUserInfo.getNumberofmision());
+		userInfo.put("numeroexclusivodecarta",auxUserInfo.getNumeroExclusivoDeCarta().get());
+		userInfo.set("defensa", mapper.valueToTree(auxUserInfo.getDefensa()));
+		NamePassUserInfo.set("UserInfo", userInfo);
+		
+		try {
+			coll.findOneAndReplace(filter,Document.parse(mapper.writeValueAsString(NamePassUserInfo)) );
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void updateUserInfoMongo() {
 		//infoUsers.put(n, u);
@@ -283,6 +355,7 @@ public class Game {
 			userInfo.put("evol", auxUserInfo.getevol());
 			userInfo.put("numberofmision", auxUserInfo.getNumberofmision());
 			userInfo.put("numeroexclusivodecarta",auxUserInfo.getNumeroExclusivoDeCarta().get());
+			userInfo.set("defensa", mapper.valueToTree(auxUserInfo.getDefensa()));
 			NamePassUserInfo.set("UserInfo", userInfo);
 
 			try {

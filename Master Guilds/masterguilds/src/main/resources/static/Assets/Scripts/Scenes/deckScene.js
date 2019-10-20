@@ -40,6 +40,11 @@ class deck extends Phaser.Scene{
         this.add.sprite(960,63,'infoBar');
     }
     create(){
+
+        game.scene.scenes[3].extend.music2.play();
+        game.scene.scenes[3].extend.music1.stop();
+
+    	console.log(game.global.lastScene)
     	var that=this;
     	this.extend.click=this.sound.add('click');
         this.extend.draw1=this.sound.add('draw1');
@@ -69,11 +74,11 @@ class deck extends Phaser.Scene{
         this.extend.text.abilities0 = this.add.text(520,548,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         this.extend.text.abilities1 = this.add.text(520,588,"",{fontFamily:"Museo-700" ,fontSize:'30px',color:'#000',fontStyle:'bold'}).setDepth(1);
         
-        that.extend.star1=this.add.sprite(320,220,'1star').setScale(0.05);
+        that.extend.star1=this.add.sprite(320,220,'1star').setScale(1);
         that.extend.star1.alpha=0;
-        that.extend.star3=this.add.sprite(320,220,'3star').setScale(0.05);
+        that.extend.star3=this.add.sprite(320,220,'3star').setScale(1);
         that.extend.star3.alpha=0;
-        that.extend.star5=this.add.sprite(320,220,'5star').setScale(0.05);
+        that.extend.star5=this.add.sprite(320,220,'5star').setScale(1);
         that.extend.star5.alpha=0;
         
         var en2=this.add.text(520,220,"Name: ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});   
@@ -123,11 +128,17 @@ class deck extends Phaser.Scene{
         backButt.on('pointerdown',function(){this.setFrame(1)})
         backButt.on('pointerup',function(){this.setFrame(0);
         	that.extend.click.play();
-            game.global.simulation.SetSimulationtoStartState();
+        	if(game.global.lastScene=="deff"){
+        		game.global.lastScene="arena"
+        	}
+        	
+        		game.global.simulation.SetSimulationtoStartState();
+        	
+            
             that.scene.transition({target:game.global.lastScene,duration:0})
         })
 
-        var UpArrowButt=this.add.sprite(1350,100,'UpArrow').setScale(1).setInteractive();
+        var UpArrowButt=this.add.sprite(1400,100,'UpArrow').setScale(1).setInteractive();
         UpArrowButt.on('pointerup',function(){
         	that.extend.click.play();
             that.extend.numberOfPage=(that.extend.numberOfPage+1)%that.extend.numberOfPages;
@@ -136,7 +147,7 @@ class deck extends Phaser.Scene{
          
             ;})
 
-        var DownArrowButt=this.add.sprite(1350,1000,'DownArrow').setScale(1).setInteractive();
+        var DownArrowButt=this.add.sprite(1400,1000,'DownArrow').setScale(1).setInteractive();
         DownArrowButt.on('pointerup',function(){
         	that.extend.click.play();
             that.extend.numberOfPage-=1
@@ -151,12 +162,46 @@ class deck extends Phaser.Scene{
         var EnterSimulationButt = this.add.sprite(520,850,'largeButt').setScale(1).setDepth(4).setInteractive()
         EnterSimulationButt.on('pointerup',function(){
         	that.extend.click.play();
-            setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
+        	if(game.global.lastScene=="deff"){
+        		
+       
+        			for(var s = 0; s<that.extend.cards.length; s++){
+                        for(var i= 0; i<that.extend.alliesCards.length; i++){
+                             if(that.extend.cards[s].hero.cardExclusiveId==that.extend.alliesCards[i].numberOfCard){
+                            	 game.global.user.defensa[i]=that.extend.alliesCards[i].numberOfCard;
+                                    }
+                        }
+                    }
+        		
+        		
+        		var msg = new Object();
+        		msg.event = "UPDATECONFIGUSER"
+        		msg.userAux = new User(game.global.user);
+                msg.userAux.heros = [];
+        		game.global.socket.send(JSON.stringify(msg))
+            	game.global.simulation.SetSimulationtoStartState();
+        		game.global.lastScene="arena"
+        		setTimeout(function(){that.scene.transition({target:game.global.lastScene,duration:0});}, 1000);
+        	}
+        	else{
+                if(game.global.simulation.allies.team.length>0){
+                    setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
+                }	
+        	}
+            
         })
         //EnterSimulationButt.setDepth(2);
 
-        var en11=this.add.text(440,800,"Start",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
-        var es11=this.add.text(370,800,"Empezar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+        if(game.global.lastScene=="deff"){
+        	var en11=this.add.text(440,800,"Save",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+            var es11=this.add.text(370,800,"Guardar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)	
+        }
+        else{
+        	var en11=this.add.text(440,800,"Start",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+            var es11=this.add.text(370,800,"Empezar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+
+        }     
+        
         that.extend.textStart = en11;
         that.extend.textoEmpezar = es11;
         
@@ -191,7 +236,7 @@ class deck extends Phaser.Scene{
     		if(that.extend.cards[j]!=null)
     		that.extend.cards[j].destroy();
     		if(allHeroes[i*9+j]!=null)
-    		that.extend.cards[j] = new CollectionCard(this,1100+(j%3)*collsDistance,300+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],320,500);
+    		that.extend.cards[j] = new CollectionCard(this,1150+(j%3)*collsDistance,300+(Math.floor((j/3))%3)*rowsDistance,allHeroes[i*9+j],320,500);
     	}
     	
         for(var s = 0; s<that.extend.cards.length; s++){

@@ -1,5 +1,6 @@
 package com.djalfadevs.es.masterguilds;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
@@ -78,9 +79,8 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
 					break;
 				case "GETRANKING":
-					List<UserInfo> listaRanking = game.getRanking();
 					msg.put("event", "GETRANKING");
-					msg.set("ranking", mapper.convertValue(listaRanking, JsonNode.class));
+					msg.set("ranking", game.getRanking());
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
 					break;
 				case "UPDATECONFIGUSER":
@@ -97,7 +97,7 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					game.updateHeroInfo(p2, h);
 					break;
 				case "UPDATEMONGO":
-					game.updateUserInfoMongo();
+					game.updateUserInfoMongo2(player.getNamePassword());
 					break;
 				case "GETMISIONS":
 					msg.put("event", "GETMISIONS");
@@ -110,7 +110,7 @@ public class WebsocketGameHandler extends TextWebSocketHandler {
 					msg.put("event", "GETNEWHERO");
 					msg.set("hero",game.getNewChapter(p3));
 					player.getSession().sendMessage(new TextMessage(msg.toString()));
-					
+					game.updateUserInfoMongo2(player.getNamePassword());
 					break;
 				case "GETARENARIVAL":
 					msg.put("event", "GETARENARIVAL");

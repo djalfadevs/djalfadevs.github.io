@@ -184,10 +184,10 @@
    {
       "id":2,
       "name":"Ferten",
-      "escenario":"escenario_Ferten",
+      "escenario":"Escenario_ferten",
       "description":[
-         "Derrota a la mafia y policia Ferten que se openen en tu camino!",
-         "Defeat the Ferten Mafia and Police that block your way!"
+         "Derrota a la mafia Ferten que se openen en tu camino!",
+         "Defeat the Ferten Mafia that block your way!"
       ],
       "team":{
          "restrictions":{
@@ -248,14 +248,14 @@
                "role":"Tank"
             },
             {
-               "ID":13,
+               "id":13,
                "name":"Ferten Private",
                "baseAttack":110,
                "attack":110,
-               "baseDefence":20,
-               "defence":20,
+               "baseDefense":20,
+               "defense":20,
                "baseHP":120,
-               "HP":120,
+               "hp":120,
                "base_crit_hit_chance":0.15,
                "crit_hit_chance":0.15,
                "description":[
@@ -301,7 +301,7 @@
                "baseEvasion":0,
                "abilities":[
                   {
-                     "id":"1",
+                     "id":"2",
                      "name":"HEAL II",
                      "baseActiveTurns":2,
                      "baseChargeTurns":8,
@@ -377,7 +377,7 @@
    {
       "id":3,
       "name":"Kwin",
-      "escenario":"escenario_Kwin",
+      "escenario":"Escenario_elfico",
       "description":[
          "El consejo Kwin desea medir tu fuerza, demuestrales de lo que estas hecho!",
          "The Kwin Council wants you to prove your worth, show them what your made of!"
@@ -395,14 +395,14 @@
       "enemys":{
          "team":[
             {
-               "ID":10,
+               "id":10,
                "name":"Lavinna",
                "baseAttack":100,
                "attack":100,
-               "baseDefence":40,
-               "defence":40,
+               "baseDefense":40,
+               "defense":40,
                "baseHP":250,
-               "HP":250,
+               "hp":250,
                "base_crit_hit_chance":0.20,
                "crit_hit_chance":0.20,
                "description":[
@@ -413,7 +413,7 @@
                "baseEvasion":40,
                "abilities":[
                   {
-                     "ID":2,
+                     "id":"2",
                      "name":"HEAL V",
                      "baseActiveTurns":4,
                      "baseChargeTurns":8,
@@ -425,7 +425,7 @@
                      "isReady":false
                   },
                   {
-                     "ID":5,
+                     "id":"5",
                      "name":"LEECHLIFE V",
                      "baseActiveTurns":1,
                      "baseChargeTurns":5,
@@ -499,14 +499,14 @@
                "role":"Support"
             },
             {
-               "ID":14,
+               "id":14,
                "name":"Kwin Destroyer",
                "baseAttack":110,
                "attack":110,
-               "baseDefence":20,
-               "defence":20,
+               "baseDefense":20,
+               "defense":20,
                "baseHP":100,
-               "HP":100,
+               "hp":100,
                "base_crit_hit_chance":0.15,
                "crit_hit_chance":0.15,
                "description":[
@@ -593,7 +593,7 @@
    {
       "id":4,
       "name":"Crju",
-      "escenario":"escenario_Arena",
+      "escenario":"Escenario_arena",
       "description":[
          "Los aventureros de mas renombre del mundo se congregan en Crju, y quieren entrenar contigo!",
          "The world's mightiest adventurers are all preparing for the invasion, spar with them to train your troops!"
@@ -727,14 +727,14 @@
                "role":"Attacker"
             },
             {
-      "ID": 15,
+      "id": 15,
       "name": "Ferten Surgeon",
       "baseAttack": 50,
       "attack": 50,
-      "baseDefence": 10,
-      "defence": 10,
+      "baseDefense": 10,
+      "defense": 10,
       "baseHP": 50,
-      "HP": 50,
+      "hp": 50,
       "base_crit_hit_chance": 0.0,
       "crit_hit_chance": 0.0,
       "description": [
@@ -745,7 +745,7 @@
       "baseEvasion": 0,
       "abilities": [
          {
-            "ID": 1,
+            "id": "2",
             "name": "HEAL III",
             "baseActiveTurns": 2,
             "baseChargeTurns": 8,
@@ -772,14 +772,14 @@
       "role": "Support"
    },
       {
-      "ID": 8,
+      "id": 8,
       "name": "Azon Medic",
       "baseAttack": 60,
       "attack": 60,
-      "baseDefence": 10,
-      "defence": 10,
+      "baseDefense": 10,
+      "defense": 10,
       "baseHP": 200,
-      "HP": 200,
+      "hp": 200,
       "base_crit_hit_chance": 0.0,
       "crit_hit_chance": 0.0,
       "description": [
@@ -790,7 +790,7 @@
       "baseEvasion": 0,
       "abilities": [
          {
-            "ID": 2,
+            "id": "2",
             "name": "HEAL I",
             "baseActiveTurns": 2,
             "baseChargeTurns": 12,
@@ -830,7 +830,7 @@
    {
       "id":5,
       "name":"Boss",
-      "escenario":"escenario_Arena",
+      "escenario":"Escenario_final",
       "description":[
          "La ultima ronda del entrenamiento siempre es la mas dura, a por todas!",
          "The final round of training is always the hardest, give it your all!"

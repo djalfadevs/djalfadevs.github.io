@@ -17,7 +17,13 @@ class SimulationScene extends Phaser.Scene
 				allies:[],
 				enemies:[],
 				},
-			texts:null
+			texts:null,
+			click:null,
+			hit:null,
+			crit:null,
+			heal:null,
+			buff:null,
+			buffD:null
 			
 			}
 
@@ -33,23 +39,115 @@ class SimulationScene extends Phaser.Scene
 
 	create(){
 
+		game.scene.scenes[3].extend.music3.play();
+        game.scene.scenes[3].extend.music2.stop();
+
 		var that = this;
+		that.extend.click=that.sound.add('click');
+		that.extend.hit=that.sound.add('hit');
+		that.extend.crit=that.sound.add('crit');
+		that.extend.heal=that.sound.add('heal');
+		that.extend.buff=that.sound.add('buff');
+		that.extend.buffD=that.sound.add('buffD');
+		that.extend.click.setVolume(game.global.user.evol)
+		that.extend.hit.setVolume(game.global.user.evol)
+		that.extend.crit.setVolume(game.global.user.evol)
+		that.extend.buff.setVolume(game.global.user.evol)
+		that.extend.buffD.setVolume(game.global.user.evol)
+		//Animaciones de escenarios
+		this.anims.create({
+        key: 'Escenario_japones',
+        frames: [
+            { key: 'Escenario_japones1' },
+            { key: 'Escenario_japones2' },
+        ],
+        frameRate: 1,
+        repeat: -1
+    	});
+
+		this.anims.create({
+        key: 'Escenario_elfico',
+        frames: [
+            { key: 'Escenario_elfico1' },
+            { key: 'Escenario_elfico2' },
+        ],
+        frameRate: 1,
+        repeat: -1
+    	});
+
+    	this.anims.create({
+        key: 'Escenario_ferten',
+        frames: [
+            { key: 'Escenario_steampunk1' },
+            { key: 'Escenario_steampunk2' },
+        ],
+        frameRate: 1,
+        repeat: -1
+    	});
+
+    	this.anims.create({
+        key: 'Escenario_final',
+        frames: [
+            { key: 'Escenario_final1' },
+            { key: 'Escenario_final2' },
+            { key: 'Escenario_final3' },
+            { key: 'Escenario_final4' },
+            { key: 'Escenario_final5' },
+            { key: 'Escenario_final6' },
+            { key: 'Escenario_final7' },
+            { key: 'Escenario_final8' },
+            { key: 'Escenario_final9' },
+            { key: 'Escenario_final10' },
+            { key: 'Escenario_final11' },
+        ],
+        frameRate: 1,
+        repeat: -1
+    	});
+
+    	this.anims.create({
+        key: 'Escenario_arena',
+        frames: [
+            { key: 'Escenario_arena1' },
+            { key: 'Escenario_arena2' },
+            { key: 'Escenario_arena3' },
+            { key: 'Escenario_arena4' },
+            { key: 'Escenario_arena5' },
+            { key: 'Escenario_arena6' },
+            { key: 'Escenario_arena7' },
+            { key: 'Escenario_arena8' },
+            { key: 'Escenario_arena9' },
+            { key: 'Escenario_arena10' },
+            { key: 'Escenario_arena11' },
+            { key: 'Escenario_arena12' },
+        ],
+        duration: 5600,
+        repeat: -1
+    	});
 		//Inicializacion de variables propias
 		this.extend.cards = {allies: [], enemies: []}
 
 		var simulation = game.global.simulation;
 		//Fondo de batalla
-		var background = this.add.sprite(960,280,simulation.escenario);
-
+		var background = this.add.sprite(960,280,'Escenario_arena1');//Inicializa en esta escena , luego ya ejecuta otra animacion
+		background.play(simulation.escenario);
 		//PAUSA
 		this.extend.pauseButton = this.add.sprite(100,100,'PauseButt')
 		.setInteractive()
-		.on('pointerdown',()=>{
-			this.scene.launch('PauseScene');
-			this.scene.pause();
+		
+		this.extend.pauseButton.on('pointerup',function(){
+			that.extend.click.play();
+			this.setFrame(0);
+			that.scene.launch('PauseScene');
+			that.scene.pause();
 		})
 
-
+		this.extend.pauseButton.on('pointerdown',function(){			
+			this.setFrame(1);
+		})
+		
+		this.extend.pauseButton.on('pointerout',function(){			
+			this.setFrame(0);
+		})
 		//Crear las cartas a partir de los personajes de ambos equipos.
 		for(var j = 0; j<simulation.allies.team.length; j++){
 			this.extend.cards.allies[j] = new Card(this,200+j*200,900,simulation.allies.team[j],800,500)
@@ -82,34 +180,46 @@ class SimulationScene extends Phaser.Scene
 						console.log("VICTORIA")//debug
 						that.extend.winOrDefeat = that.add.sprite(960,200,'TextWinEN');
 						
+						if(game.global.lastScene=="arena"){
+							game.global.user.arenaPoints+=15;
+							var msg = new Object();
+				    		msg.event = "UPDATECONFIGUSER"
+				    		msg.userAux = new User(game.global.user);
+                			msg.userAux.heros = [];
+				    		game.global.socket.send(JSON.stringify(msg))
+				        	}
+				        //Si supera una mision por primera vez se dan gemas
 						//
+						that.scene.pause();
 						setTimeout(function(){ 
 							that.scene.launch('rewardScene');
-							that.scene.pause();
 						 }, 3000);
 						
-						if(game.global.user.numberofmision<game.global.simulation.idmision){
-							game.global.user.numberofmision=game.global.simulation.idmision;
-						}
+
 						//LLAMAR SUBIDA DE NIVEL Y O RECOMPENSAS//
 						/////////////////////////////////////////
 
 						//RESETEAR SIMULACION Y VOLVER AL MENU O OTRA ESCENA
 						//////////////////////////////////////////////////
-
+						
 					}
 					else//DERROTA
 					{
 						console.log("DERROTA")//debug
 						that.extend.winOrDefeat = that.add.sprite(960,200,'TextDefeatEN');
-
-						setTimeout(function(){ 
+						
+						if(game.global.lastScene=="arena"){
+							game.global.user.arenaPoints-=20;
 							var msg = new Object();
-							msg.event = "UPDATEUSERINFO"
+							msg.event = "UPDATECONFIGUSER"
 							msg.userAux = new User(game.global.user);
+							msg.userAux.heros = [];
 							game.global.socket.send(JSON.stringify(msg))
-							that.scene.launch('rewardScene');
-							that.scene.pause();
+				        	}
+						
+						that.scene.pause();
+						setTimeout(function(){ 
+							that.scene.launch('loseScene');
 						 }, 3000);
 						
 						//RESETEAR SIMULACION Y VOLVER AL MENU O OTRA ESCENA
