@@ -221,7 +221,7 @@ class preload extends Phaser.Scene{
         this.load.audio('music1','Assets/OST/BirthOfLegendsTrumpet.wav');
         this.load.audio('music2','Assets/OST/CircleOfCourage.wav');
         this.load.audio('music3','Assets/OST/DrumsOfWarFast.wav');
-
+        this.load.image('RBACKCARD','Assets/Sprites/cartas/random_carta_pequena.png',{frameWidth:163,frameHeight:239});
     }
 	create(){
           game.input.setDefaultCursor('url(Assets/Sprites/UI-UX/raton1.cur), pointer');//Determina el puntero

@@ -18,10 +18,10 @@ class arena extends Phaser.Scene{
 			card2:null,
 			card3:null,
 			card4:null,
-			positionOfSmallAlliesCards:[[350,550],
-	            [550,550],
-	            [750,550],
-	            [950,550]]
+			positionOfSmallAlliesCards:[[350,650],
+	            [450,650],
+	            [550,650],
+	            [650,650]]
 		}
 	}
 	preload(){
@@ -263,10 +263,10 @@ class rann extends Phaser.Scene{
 			for(var k=0;k<this.extend.theRank.length;k++){
 				switch(game.global.user.lang){
 				case "EN":
-					this.add.text(720,250+k*50,this.extend.theRank[k].name+" Arena Points: "+this.extend.theRank[k].arenaPoints,{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+					this.add.text(720,250+k*50,this.extend.theRank[k].name+" Arena Points: "+this.extend.theRank[k].arenaPoints,{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold',wordWrap:{width:1000}});
 					break;
 				case "ES":
-					this.add.text(720,250+k*50,this.extend.theRank[k].name+" Puntos de arena: "+this.extend.theRank[k].arenaPoints,{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+					this.add.text(720,250+k*50,this.extend.theRank[k].name+" Puntos de arena: "+this.extend.theRank[k].arenaPoints,{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold',wordWrap:{width:1000}});
 					break;			
 				}
 				
