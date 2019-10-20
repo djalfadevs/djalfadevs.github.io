@@ -213,16 +213,15 @@ public class Game {
 
 	}
 
-	public List<UserInfo> getRanking() {
-		List<UserInfo> auxl = (List<UserInfo>) infoUsers.values();
-
+	public JsonNode getRanking() {
+		List<UserInfo> auxl = new ArrayList<UserInfo>(infoUsers.values());
 		Comparator<UserInfo> ArenaPointsComparator = new Comparator<UserInfo>() {
 
 			@Override
 			public int compare(UserInfo o1, UserInfo o2) {
-				if (o1.getArenaPoints() < o2.getArenaPoints()) {
+				if (o1.getArenaPoints() > o2.getArenaPoints()) {
 					return -1;
-				} else if (o1.getArenaPoints() > o2.getArenaPoints()) {
+				} else if (o1.getArenaPoints() < o2.getArenaPoints()) {
 					return 1;
 				} else {
 					return 0;
@@ -233,12 +232,12 @@ public class Game {
 
 		List<UserInfo> l = new ArrayList<>();
 		int i = 0;
-		while (i < 10 || i < auxl.size()) {
+		while (i < 10 && i < auxl.size()) {
 			l.add(auxl.get(i));// solo guardamos los diez primeros como maximo
 			i++;
 		}
-
-		return l;
+		JsonNode auxjson = mapper.convertValue(l,JsonNode.class);
+		return auxjson;
 
 	}
 	public void updateConfigUser(NamePassword n,UserInfo u) {
