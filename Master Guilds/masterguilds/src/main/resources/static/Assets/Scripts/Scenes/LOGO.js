@@ -17,7 +17,7 @@ class LOGO extends Phaser.Scene{
 			that.add.tween({targets:[logo,text],alpha:0,duration:1500,ease:'Sine.easeInOut',onComplete:function(){
 				that.add.tween({targets:bg,alpha:1,duration:1500,ease:'Sine.easeInOut',onComplete:function(){
 					that.add.tween({targets:bg,alpha:0,duration:1500,ease:'Sine.easeInOut',onComplete:function(){
-						that.scene.transition({target:'login',duration:0})
+						that.scene.transition({target:'initialScene',duration:0})
 					}})}})
 			}})
 		},'500')
