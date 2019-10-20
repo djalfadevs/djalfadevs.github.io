@@ -40,7 +40,7 @@ public class UserInfo {
 	public UserInfo(String name) {
 		this.name = name;
 		this.gold = 1000;//Dinero Inicial
-		this.gems = 100;//Gemas Iniciales
+		this.gems = 25;//Gemas Iniciales
 		this.exp = 0;
 		this.level = 1;
 		this.heros = new ArrayList<>();

@@ -4,13 +4,11 @@
 class chapter extends Phaser.Scene{
     constructor(){
         super({key: 'chapter'})
-        this.extend={click:null}
+        this.extend={click:null,hit:null}
     }
     preload(){
         this.add.image(960,540,'backWood');
         this.add.sprite(960,63,'infoBar');
-        this.add.text(250,10,'Story',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
-        this.add.text(450,50,'Choose a chapter',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'}).alpha=0.6
         this.add.image(530,580,'largeInfo')
     }
     create(){
@@ -20,10 +18,19 @@ class chapter extends Phaser.Scene{
     	game.global.lastScene="chapter";
     	var that=this;
     	this.extend.click=this.sound.add('click');
+    	this.extend.hit=this.sound.add('hit');
     	this.extend.click.setVolume(game.global.user.evol)
+    	this.extend.hit.setVolume(game.global.user.evol)
     	var backButt=this.add.sprite(85,80,'backButt').setInteractive()          
         backButt.on('pointerdown',function(){this.setFrame(1)})
-        backButt.on('pointerup',function(){this.setFrame(0);that.scene.transition({target:'mainMenu',duration:100})})
+        backButt.on('pointerup',function(){that.extend.click.play();this.setFrame(0);game.global.simulation.SetSimulationtoStartState();that.scene.transition({target:'mainMenu',duration:100})})
+        
+        var en1=this.add.text(250,10,'Story',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
+        var en2=this.add.text(450,50,'Choose a chapter',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'})
+
+        var es1=this.add.text(250,10,'Historia',{fontFamily:"Museo-700" ,fontSize:'60px',color:'#fff',fontStyle:'bold'});
+        var es2=this.add.text(480,50,'Elige un capitulo',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#fff',fontStyle:'bold'})
+
         
         var world1=this.add.sprite(1530,180,'AzonButt').setInteractive();
     	var world2=this.add.sprite(1530,380,'FertenButt')
@@ -75,19 +82,31 @@ class chapter extends Phaser.Scene{
     	Xworld5.on('pointerup',function(){this.setFrame(0);infoShow(5,"locked")})
     	
     	var target;
-    	var infoText2=this.add.text(520,300,'',{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
-    	var infoText1=this.add.text(520,400,'',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold'});
+    	var infoText2=this.add.text(420,300,'',{fontFamily:"Museo-700" ,fontSize:'50px',color:'#000',fontStyle:'bold'});
+    	var infoText1=this.add.text(170,400,'',{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold',wordWrap:{width:700}});
     	
     	var startButt=this.add.sprite(520,830,'largeButt').setInteractive();
     	
     	startButt.on('pointerdown',function(){this.setFrame(1)});
     	startButt.on('pointerup',function(){this.setFrame(0);
             if(game.global.simulation.escenario!=null)
-            transition(target,that)
+            	that.extend.hit.play();
+            	transition(target,that)
         });
     	startButt.on('pointerout',function(){this.setFrame(0)});
     	
-
+    	this.add.text(440,780,'GO!',{fontFamily:"Museo-700" ,fontSize:'90px',color:'#000',fontStyle:'bold'})
+    	
+    	this.add.text(1450,130,'AZON',{fontFamily:"Museo-700" ,fontSize:'90px',color:'#000',fontStyle:'bold'});
+    	
+    	this.add.text(1450,330,'FERTEN',{fontFamily:"Museo-700" ,fontSize:'90px',color:'#000',fontStyle:'bold'});
+    	
+    	this.add.text(1450,530,'KWIN',{fontFamily:"Museo-700" ,fontSize:'90px',color:'#000',fontStyle:'bold'});
+    	
+    	this.add.text(1450,730,'ARENA',{fontFamily:"Museo-700" ,fontSize:'90px',color:'#000',fontStyle:'bold'});
+    	
+    	this.add.text(1450,930,'BOSS',{fontFamily:"Museo-700" ,fontSize:'90px',color:'#000',fontStyle:'bold'});
+    	
         function misionReveal(){
             var i = game.global.user.numberofmision;
 
@@ -117,28 +136,56 @@ class chapter extends Phaser.Scene{
 
     	function infoShow(num,str){
     		that.extend.click.play();
-    		infoText2.setText("World "+num);
-    		switch(str){
-    		case "locked":
-    			infoText1.setText(str)
-    			break;
-    		case "world1":
-    			infoText1.setText("world 1 info")
-    			break;
-    		case "world2":
-    			infoText1.setText("world 2 info")
-    			break;
-    		case "world3":
-    			infoText1.setText("world 3 info")
-    			break;
-    		case "world4":
-    			infoText1.setText("world 4 info")
-    			break;
-    		case "world5":
-    			infoText1.setText("world 5 info")
-    			break;
+    		if(game.global.user.lang="EN"){
+    			infoText2.setText("World "+num);
+    			switch(str){
+        		case "locked":
+        			infoText1.setText(str)
+        			break;
+        		case "world1":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[1])
+        			break;
+        		case "world2":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[1])
+        			break;
+        		case "world3":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[1])
+        			break;
+        		case "world4":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[1])
+        			break;
+        		case "world5":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[1])
+        			break;
+        		}
+        		target=num;
     		}
-    		target=num;
+    		else{
+    			infoText2.setText("Mundo "+num);
+    			switch(str){
+        		case "locked":
+        			infoText1.setText(str)
+        			break;
+        		case "world1":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[0])
+        			break;
+        		case "world2":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[0])
+        			break;
+        		case "world3":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[0])
+        			break;
+        		case "world4":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[0])
+        			break;
+        		case "world5":
+        			infoText1.setText(game.global.misions[game.global.simulation.idmision-1].description[0])
+        			break;
+        		}
+        		target=num;
+    		}
+    		
+    		
     	}
     	function transition(target,that){
     		that.extend.click.play();
@@ -172,6 +219,23 @@ class chapter extends Phaser.Scene{
 
             return simulation;  
         }
+         
+         switch(game.global.user.lang){
+         case "EN":
+        	 en1.alpha=1;
+        	 es1.alpha=0;
+        	 en2.alpha=1;
+        	 es2.alpha=0;
+        	 break
+         case "ES":
+        	 es1.alpha=1;
+        	 en1.alpha=0;
+        	 es2.alpha=1;
+        	 en2.alpha=0;
+        	 break
+        default:
+        	 break
+         }
     }
     update(){
     }

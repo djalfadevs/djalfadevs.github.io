@@ -117,23 +117,25 @@ create(){
     }
   }
 
-    var fullscreenbutt = this.add.sprite(1600,63,'helpButt').setInteractive();
+    var fullscreenbutt = this.add.sprite(1800,120,'fullScreenButt').setInteractive().setScale(0.75);
+    fullscreenbutt.on('pointerdown',function(){this.setFrame(1)});
+    fullscreenbutt.on('pointerout',function(){this.setFrame(0)});
     fullscreenbutt.on('pointerup', function () {
-
-            if (this.scale.isFullscreen)
+            this.setFrame(0)
+            if (that.scale.isFullscreen)
             {
                 //button.setFrame(0);
 
-                this.scale.stopFullscreen();
+                that.scale.stopFullscreen();
             }
             else
             {
                 //button.setFrame(1);
 
-                this.scale.startFullscreen();
+                that.scale.startFullscreen();
             }
 
-        }, this);
+        });
 }
 
 update(){

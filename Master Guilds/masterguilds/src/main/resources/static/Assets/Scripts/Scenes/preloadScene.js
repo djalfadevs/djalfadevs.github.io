@@ -35,7 +35,6 @@ class preload extends Phaser.Scene{
         this.load.image('lifeBarBg2','Assets/Sprites/UI-UX/barra_vidaSup.png',{frameWidth:443,frameHeight:54});
         this.load.spritesheet('backButt','Assets/Sprites/UI-UX/boton_atras.png',{frameWidth:155,frameHeight:137});
         //load.setFrame(2);
-        this.load.spritesheet('helpButt','Assets/Sprites/UI-UX/boton_ayuda.png',{frameWidth:110,frameHeight:97});
         this.load.spritesheet('NoButt','Assets/Sprites/UI-UX/boton_no.png',{frameWidth:221.5,frameHeight:195});
         this.load.spritesheet('YesButt','Assets/Sprites/UI-UX/boton_yes.png',{frameWidth:221.5,frameHeight:195});
         this.load.spritesheet('PauseButt','Assets/Sprites/UI-UX/boton_pausa.png',{frameWidth:155,frameHeight:137});
@@ -59,6 +58,7 @@ class preload extends Phaser.Scene{
         this.load.spritesheet('KwinButt','Assets/Sprites/UI-UX/boton_largo_kwin.png',{frameWidth:777,frameHeight:195});
         this.load.spritesheet('FertenButt','Assets/Sprites/UI-UX/boton_largo_ferten.png',{frameWidth:777,frameHeight:195});
         this.load.image('lockButt','Assets/Sprites/UI-UX/boton_largo_bloqueado.png',{frameWidth:777,frameHeight:195});
+        this.load.spritesheet('fullScreenButt','Assets/Sprites/UI-UX/boton_pequeno_fullscreen.png',{frameWidth:221,frameHeight:195});
         //frame final
         //load.setFrame(2);
         //CARTAS
@@ -145,9 +145,6 @@ class preload extends Phaser.Scene{
         this.load.image('3star','Assets/Sprites/UI-UX/estrella_3.png',{frameWidth:3465,frameHeight:1070});
         this.load.image('5star','Assets/Sprites/UI-UX/estrella_5.png',{frameWidth:5805,frameHeight:1070});
         
-
-        //TESTING
-        this.load.spritesheet('fuego','Assets/Testing/fuego.jpg',{ frameWidth: 200, frameHeight: 200 });
         //BUFFOS VFX
         this.load.spritesheet('red_buff_spritesheet','Assets/Sprites/VFX_combate/buffo_rojo_spritesheet.png',{ frameWidth: 566, frameHeight:618  });
         this.load.spritesheet('blue_buff_spritesheet','Assets/Sprites/VFX_combate/buffo_azul_spritesheet.png',{ frameWidth: 566, frameHeight:618  });
