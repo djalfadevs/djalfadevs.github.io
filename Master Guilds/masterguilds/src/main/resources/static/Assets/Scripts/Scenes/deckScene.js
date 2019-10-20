@@ -40,6 +40,7 @@ class deck extends Phaser.Scene{
         this.add.sprite(960,63,'infoBar');
     }
     create(){
+    	console.log(game.global.lastScene)
     	var that=this;
     	this.extend.click=this.sound.add('click');
         this.extend.draw1=this.sound.add('draw1');
@@ -123,7 +124,13 @@ class deck extends Phaser.Scene{
         backButt.on('pointerdown',function(){this.setFrame(1)})
         backButt.on('pointerup',function(){this.setFrame(0);
         	that.extend.click.play();
-            game.global.simulation.SetSimulationtoStartState();
+        	if(game.global.lastScene=="deff"){
+        		game.global.lastScene="arena"
+        	}
+        	
+        		game.global.simulation.SetSimulationtoStartState();
+        	
+            
             that.scene.transition({target:game.global.lastScene,duration:0})
         })
 
@@ -151,12 +158,43 @@ class deck extends Phaser.Scene{
         var EnterSimulationButt = this.add.sprite(520,850,'largeButt').setScale(1).setDepth(4).setInteractive()
         EnterSimulationButt.on('pointerup',function(){
         	that.extend.click.play();
-            setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
+        	if(game.global.lastScene=="deff"){
+        		
+       
+        			for(var s = 0; s<that.extend.cards.length; s++){
+                        for(var i= 0; i<that.extend.alliesCards.length; i++){
+                             if(that.extend.cards[s].hero.cardExclusiveId==that.extend.alliesCards[i].numberOfCard){
+                            	 game.global.user.defensa[i]=that.extend.alliesCards[i].numberOfCard;
+                                    }
+                        }
+                    }
+        		
+        		
+        		var msg = new Object();
+        		msg.event = "UPDATECONFIGUSER"
+        		msg.userAux = new User(game.global.user);
+        		game.global.socket.send(JSON.stringify(msg))
+            	game.global.simulation.SetSimulationtoStartState();
+        		game.global.lastScene="arena"
+        		setTimeout(function(){that.scene.transition({target:game.global.lastScene,duration:0});}, 1000);
+        	}
+        	else{
+        		setTimeout(function(){that.scene.transition({target:'SimulationScene',duration:0});}, 1000);
+        	}
+            
         })
         //EnterSimulationButt.setDepth(2);
 
-        var en11=this.add.text(440,800,"Start",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
-        var es11=this.add.text(370,800,"Empezar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+        if(game.global.lastScene=="deff"){
+        	var en11=this.add.text(440,800,"Save",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+            var es11=this.add.text(370,800,"Guardar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)	
+        }
+        else{
+        	var en11=this.add.text(440,800,"Start",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+            var es11=this.add.text(370,800,"Empezar",{fontFamily:"Museo-700" ,fontSize:'69px',color:'#000',fontStyle:'bold'}).setDepth(5)
+
+        }     
+        
         that.extend.textStart = en11;
         that.extend.textoEmpezar = es11;
         

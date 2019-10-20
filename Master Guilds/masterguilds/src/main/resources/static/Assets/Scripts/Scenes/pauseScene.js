@@ -70,6 +70,7 @@ class PauseScene extends Phaser.Scene
 				game.global.user.arenaPoints-=20;
 				var msg = new Object();
 	    		msg.event = "UPDATECOFINGUSER"
+	    		msg.userAux = new User(game.global.user);
 	    		game.global.socket.send(JSON.stringify(msg))
 	        	}
 			
