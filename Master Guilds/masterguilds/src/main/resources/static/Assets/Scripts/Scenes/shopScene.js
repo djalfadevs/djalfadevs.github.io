@@ -428,6 +428,7 @@ class buy50 extends Phaser.Scene{
 		
 	}
 	create(){
+		var that=this
 		var en=this.add.text(700,300,"Are you sure you want to buy 50 gems? Price: PRICE HERE ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold',wordWrap:{width:500}});
 		var es=this.add.text(700,300,"¿Seguro que quieres comprar 50 gemas? Precio: PRICE HERE ",{fontFamily:"Museo-700" ,fontSize:'40px',color:'#000',fontStyle:'bold',wordWrap:{width:500}});
 		var yesButt=this.add.sprite(1200,850,'YesButt').setInteractive()
