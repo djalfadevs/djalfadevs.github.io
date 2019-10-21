@@ -15,7 +15,7 @@ http://djalfadevs.github.io
 - **Twitter:** https://twitter.com/DJALFA_dev
 - **Instagram:** https://www.instagram.com/djalfa_dev/
 - **Youtube:** https://www.youtube.com/channel/UC3AbbLPjMgXdeAemHnZdYhQ
-- **Facebook**: https://es-es.facebook.com/djalfa.devs.1
+- **Facebook**: https://www.facebook.com/MasterA-102046654559760/
 - **Itch.io:** https://djalfa-devs.itch.io/
 
 ## MasterA Game Design Document
